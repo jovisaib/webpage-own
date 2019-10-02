@@ -1,8 +1,8 @@
 <template>
 <div>
-  <h1>Hello.</h1>
+  <h1>Hola.</h1>
   <p style="font-weight:500; font-size:2.2em">
-    My name is Jose Vicente Saez.
+    My name is Jose Vicente Sáez, for shorten jovisaib.
   </p>
 </div>
 </template>
@@ -12,7 +12,7 @@ export default {
 }
 </script>
 
-<!-- Add "scoped" attribute to limit CSS to this component only -->
+
 <style scoped>
 h3 {
   margin: 40px 0 0;
