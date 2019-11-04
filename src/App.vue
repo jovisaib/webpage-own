@@ -27,6 +27,6 @@ export default {
 p {
   font-size: 1.2em;
   line-height: 1.4;
-  max-width: 40em;
+  max-width: 42em;
 }
 </style>

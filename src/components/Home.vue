@@ -5,9 +5,8 @@
     <p>
       I'm a engineer and designer involved within the lift industry, and my attention lies on the
       intersection between data visualization, human/computer interaction and Machine Learning.
-
-      Please, check this out to get further information.
     </p>
+    <p>Please, check this out to get further information.</p>
 
     <div id="projects_content">
       <div class="divider_line"></div>
