@@ -2,7 +2,7 @@
 <div>
   <h1>Hola.</h1>
   <p style="font-weight:500; font-size:2.2em">
-    My name is Jose Vicente Sáez, for shorten jovisaib.
+    My name is Jose Vicente Sáez, jovisaib for shorten.
   </p>
 </div>
 </template>
