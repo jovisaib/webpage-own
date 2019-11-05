@@ -3,19 +3,25 @@
     <h1>Hola.</h1>
     <p style="font-weight:500; font-size:2.0em">I'm Jose Vicente Sáez, jovisaib for shorten.</p>
     <p>
-      I'm a engineer and designer involved within the lift industry, and my attention lies on the
+      I'm a engineer and designer involved within the lift industry, my attention lies on the
       intersection between data visualization, human/computer interaction and Machine Learning.
     </p>
-    <p>Please, check this out to get further information.</p>
+    <p>Please, check this out.</p>
 
     <div id="projects_content">
+      <div class="divider_line"></div>
+      <material-icons-viz />
       <div class="divider_line"></div>
     </div>
   </div>
 </template>
 
 <script>
-export default {};
+export default {
+  components: {
+    MaterialIconsViz: () => import("./projects/MaterialIconsViz.vue")
+  }
+};
 </script>
 
 
