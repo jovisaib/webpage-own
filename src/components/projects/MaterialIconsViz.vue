@@ -1,5 +1,5 @@
 <template>
-  <div style="text-align: center; width:100%;">
+  <div style="text-align:center; width:100%;">
     <div id="mat_icons" />
   </div>
 </template>
@@ -11,8 +11,8 @@ import { icons } from "../../js/icons.js";
 export default {
   mounted() {
     let size = 200;
-    let width = 600;
-    let height = 600;
+    let width = 500;
+    let height = 500;
 
     let colors = d3
       .scaleSequential()
@@ -20,15 +20,19 @@ export default {
       .interpolator(d3.interpolateRainbow);
 
     let svg = d3.select("#mat_icons").append("svg");
-    svg.attr("width", width).attr("height", height);
+    svg
+      .attr("width", "100%")
+      .attr("height", "100%")
+      .attr("viewBox", `0 0 ${width} ${height}`)
+      .attr("reserveAspectRatio", "xMaxYMax meet");
 
-    const svgSelection = svg.append("g");
+    const svgSelection = svg.append("g").attr("id", "group");
     let data = this.generateNodes(size);
 
-    var simulation = d3
-      .forceSimulation()
-      .force("collide", d3.forceCollide(60))
+    d3.forceSimulation()
       .force("center", d3.forceCenter(width / 2, height / 2))
+      .force("charge", d3.forceManyBody().strength(15))
+      .force("collide", d3.forceCollide(12))
       .nodes(data)
       .on("tick", this.tick);
 
@@ -42,9 +46,12 @@ export default {
       .attr("class", "node")
       .append("path")
       .attr("d", (d, i) => icons[i].d)
+      .attr("transform", function() {
+        var x1 = this.getBBox().x + this.getBBox().width / 2;
+        var y1 = this.getBBox().y + this.getBBox().height / 2;
+        return `translate(${-11}, ${-11}) scale(0.05) rotate(180, ${x1}, ${y1})`;
+      })
       .attr("fill", (d, i) => colors(i));
-
-    svgSelection.attr("transform", `translate(${width / 3}, ${height / 3}) scale(0.15)`);
   },
   methods: {
     generateNodes(size) {
@@ -55,7 +62,9 @@ export default {
       return nodes;
     },
     tick() {
-      d3.selectAll(".node").attr("transform", d => `translate(${d.x},${d.y})`);
+      d3.selectAll(".node").attr("transform", function(d) {
+        return `translate(${d.x},${d.y}) `;
+      });
     }
   }
 };
@@ -63,4 +72,10 @@ export default {
 
 
 <style scoped>
+#mat_icons {
+  width: 100%;
+  height: 100%;
+  max-width: 600px;
+  display: inline-block;
+}
 </style>

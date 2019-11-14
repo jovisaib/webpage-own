@@ -1,6 +1,11 @@
 <template>
   <div id="app">
     <home />
+
+    <div id="footer">
+      © 2019 jovisaib
+      <span style="vertical-align:top;">🗿</span>
+    </div>
   </div>
 </template>
 
@@ -28,5 +33,12 @@ p {
   font-size: 1.2em;
   line-height: 1.4;
   max-width: 42em;
+}
+
+#footer {
+  text-align: right;
+  margin-top: 5em;
+  padding: 0.5em 0;
+  font-size: 0.72em;
 }
 </style>
