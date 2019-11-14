@@ -29,7 +29,8 @@ export default {
     const svgSelection = svg.append("g").attr("id", "group");
     let data = this.generateNodes(size);
 
-    d3.forceSimulation()
+    let forceLayout = d3
+      .forceSimulation()
       .force("center", d3.forceCenter(width / 2, height / 2))
       .force("charge", d3.forceManyBody().strength(15))
       .force("collide", d3.forceCollide(12))
@@ -52,6 +53,11 @@ export default {
         return `translate(${-11}, ${-11}) scale(0.05) rotate(180, ${x1}, ${y1})`;
       })
       .attr("fill", (d, i) => colors(i));
+
+    svg.on("click", () => {
+      forceLayout.force("charge", d3.forceManyBody().strength(15));
+      forceLayout.alpha(1).restart();
+    });
   },
   methods: {
     generateNodes(size) {
