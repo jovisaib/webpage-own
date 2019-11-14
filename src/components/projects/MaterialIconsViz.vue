@@ -10,7 +10,7 @@ import { icons } from "../../js/icons.js";
 
 export default {
   mounted() {
-    let size = 200;
+    let size = icons.length;
     let width = 500;
     let height = 500;
 
@@ -48,9 +48,9 @@ export default {
       .append("path")
       .attr("d", (d, i) => icons[i].d)
       .attr("transform", function() {
-        var x1 = this.getBBox().x + this.getBBox().width / 2;
-        var y1 = this.getBBox().y + this.getBBox().height / 2;
-        return `translate(${-11}, ${-11}) scale(0.05) rotate(180, ${x1}, ${y1})`;
+        let x = this.getBBox().x + this.getBBox().width / 2;
+        let y = this.getBBox().y + this.getBBox().height / 2;
+        return `translate(${-11}, ${-11}) scale(0.05) rotate(180, ${x}, ${y})`;
       })
       .attr("fill", (d, i) => colors(i));
 
