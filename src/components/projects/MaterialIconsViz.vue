@@ -11,8 +11,8 @@ import { icons } from "../../js/icons.js";
 export default {
   mounted() {
     let size = icons.length;
-    let width = 500;
-    let height = 500;
+    let width = 450;
+    let height = 450;
 
     let colors = d3
       .scaleSequential()
@@ -81,7 +81,7 @@ export default {
 #mat_icons {
   width: 100%;
   height: 100%;
-  max-width: 600px;
+  max-width: 380px;
   display: inline-block;
 }
 </style>

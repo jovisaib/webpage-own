@@ -25,7 +25,7 @@ export default {
   font-family: "Avenir", Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  padding: 5vh 10vw;
+  padding: 0vh 10vw;
   color: #2c3e50;
 }
 
@@ -37,8 +37,8 @@ p {
 
 #footer {
   text-align: right;
-  margin-top: 5em;
+  margin-top: 3em;
   padding: 0.5em 0;
-  font-size: 0.72em;
+  font-size: 0.75em;
 }
 </style>

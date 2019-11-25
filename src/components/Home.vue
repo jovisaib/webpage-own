@@ -3,21 +3,25 @@
     <h1>Hola.</h1>
     <p style="font-weight:500; font-size:2.0em">I'm Jose Vicente Sáez, jovisaib for shorten.</p>
 
+    <p>
+      I'm a engineer and designer involved within the lift industry, my attention lies on the
+      intersection between data visualization, human/computer interaction and Machine Learning.
+    </p>
+    <p>Please, check this out.</p>
+
     <a href="https://github.com/jovisaib" class="social_link" target="_blank">
       <img class="social_icons" alt="Github logo" src="../assets/github_logo.png" />
     </a>
     <a href="https://twitter.com/dr_isotopo" class="social_link" target="_blank">
       <img class="social_icons" alt="Twitter logo" src="../assets/twitter_logo.png" />
     </a>
-    <a href="https://www.linkedin.com/in/jose-vicente-s%C3%A1ez-ib%C3%A1%C3%B1ez-43ab29a7" class="social_link" target="_blank">
+    <a
+      href="https://www.linkedin.com/in/jose-vicente-s%C3%A1ez-ib%C3%A1%C3%B1ez-43ab29a7"
+      class="social_link"
+      target="_blank"
+    >
       <img class="social_icons" alt="Linkedin logo" src="../assets/linkedin_logo.png" />
     </a>
-
-    <p>
-      I'm a engineer and designer involved within the lift industry, my attention lies on the
-      intersection between data visualization, human/computer interaction and Machine Learning.
-    </p>
-    <p>Please, check this out.</p>
 
     <div id="projects_content">
       <div class="divider_line"></div>
