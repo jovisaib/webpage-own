@@ -5,8 +5,10 @@
 
     <p>
       I'm an IoT Engineer based in Spain involved within multiple industries such as oil and gas, industry 4.0, Smart Cities, among others.
-
-      Besides, my passion lies on the intersection between AI on things, urbanism and people. I always look for projects that are disruptive and positive for society (myself included).
+    </p>
+    <p>
+      Besides, my passion lies on the intersection between AI on things, urbanism and people. I always look for projects that are disruptive and positive for society (myself included). 
+Let's do technology for green! 🌱🌱🌱
     </p>
     <p>Please, check my networking and stuff:</p>
 
