@@ -1,7 +1,7 @@
 <template>
 <div>
     <h1>Hola.</h1>
-    <p style="font-weight:500; font-size:2.0em">I'm Jose Vicente Sáez, <b><h2>jovisaib</h2></b> for shorten.</p>
+    <p style="font-weight:500; font-size:2.0em">I'm Jose Vicente Sáez, <b>jovisaib</b> for shorten.</p>
 
     <p>
         I'm an IoT Engineer based in Spain involved within multiple industries such as oil and gas, industry 4.0, Smart Cities, among others.
