@@ -26,13 +26,10 @@
         <div class="divider_line"></div>
         <MaterialIconsViz />
         <div class="divider_line"></div>
+        <DMXShow />
+        <div class="divider_line"></div>
     </div>
 
-    <div class="projects_content">
-        <div class="divider_line"></div>
-          <DMXShow />
-        <div class="divider_line"></div>
-    </div>
 </div>
 </template>
 
