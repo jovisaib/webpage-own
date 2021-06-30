@@ -22,9 +22,23 @@
         <img class="social_icons" alt="Linkedin logo" src="../assets/linkedin_logo.png" />
     </a>
 
-    <div id="projects_content">
+    <div class="projects_content">
         <div class="divider_line"></div>
         <material-icons-viz />
+        <div class="divider_line"></div>
+    </div>
+
+    <div class="projects_content">
+        <div class="divider_line"></div>
+        <video width="320" height="240" autoplay>
+          <source src="../assets/dmx_inside.mp4" type="video/mp4">
+        Your browser does not support the video tag.
+        </video>
+
+        <video width="320" height="240" autoplay>
+          <source src="../assets/dmx_inside.mp4" type="video/mp4">
+        Your browser does not support the video tag.
+        </video>
         <div class="divider_line"></div>
     </div>
 </div>
@@ -44,7 +58,7 @@ a {
 }
 
 
-#projects_content {
+.projects_content {
     position: relative;
     right: 0;
     left: 0;
