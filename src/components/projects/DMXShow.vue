@@ -1,7 +1,9 @@
 <template>
 <div style="text-align:center; width:100%;">
     <div>
-        <img src="https://gh-card.dev/repos/jovisaib/godmxgo.svg" />
+        <a href="https://github.com/jovisaib/godmxgo">
+            <img src="https://gh-card.dev/repos/jovisaib/godmxgo.svg" />
+        </a>
     </div>
 
     <div class="video-container">
