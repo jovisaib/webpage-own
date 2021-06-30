@@ -1,6 +1,6 @@
 <template>
 <div>
-    <h1>Hola.</h1>
+    <h1 style="font-size: 200%;">Hola.</h1>
     <p style="font-weight:500; font-size:2.0em">I'm Jose Vicente Sáez, <b>jovisaib</b> for shorten.</p>
 
     <p>
@@ -43,9 +43,6 @@ a {
     color: #42b983;
 }
 
-h1 {
-    font-size: 200%;
-}
 
 #projects_content {
     position: relative;
