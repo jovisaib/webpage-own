@@ -44,7 +44,7 @@ a {
 }
 
 h1 {
-    font-size: 150%;
+    font-size: 200%;
 }
 
 #projects_content {
