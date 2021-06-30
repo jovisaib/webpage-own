@@ -1,13 +1,14 @@
 <template>
   <div>
     <h1>Hola.</h1>
-    <p style="font-weight:500; font-size:2.0em">I'm Jose Vicente Sáez, jovisaib for shorten.</p>
+    <p style="font-weight:500; font-size:2.0em">I'm Jose Vicente Sáez, <b>jovisaib</b> for shorten.</p>
 
     <p>
-      I'm a engineer and designer involved within the lift industry, my attention lies on the
-      intersection between data visualization, human/computer interaction and Machine Learning.
+      I'm an IoT Engineer based in Spain involved within multiple industries such as oil and gas, industry 4.0, Smart Cities, among others.
+
+      Besides, my passion lies on the intersection between AI on things, urbanism and people. I always look for projects that are disruptive and positive for society (myself included).
     </p>
-    <p>Please, check this out.</p>
+    <p>Please, check my networking and stuff:</p>
 
     <a href="https://github.com/jovisaib" class="social_link" target="_blank">
       <img class="social_icons" alt="Github logo" src="../assets/github_logo.png" />
