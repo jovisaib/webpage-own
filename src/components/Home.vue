@@ -24,19 +24,13 @@
 
     <div class="projects_content">
         <div class="divider_line"></div>
-        <material-icons-viz />
+        <MaterialIconsViz />
         <div class="divider_line"></div>
     </div>
 
     <div class="projects_content">
         <div class="divider_line"></div>
-        <div>
-            <iframe width="560" height="315" src="https://www.youtube.com/embed/TIRiJ0a3pFU?controls=0&showinfo=0&modestbranding=1&autohide=1" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-        </div>
-
-        <div>
-            <iframe width="560" height="315" src="https://www.youtube.com/embed/ATZq6sw_N-U?controls=0&showinfo=0&modestbranding=1&autohide=1" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-        </div>
+          <DMXShow />
         <div class="divider_line"></div>
     </div>
 </div>
@@ -45,7 +39,8 @@
 <script>
 export default {
     components: {
-        MaterialIconsViz: () => import("./projects/MaterialIconsViz.vue")
+        MaterialIconsViz: () => import("./projects/MaterialIconsViz.vue"),
+        DMXShow: () => import("./projects/DMXShow.vue")
     }
 };
 </script>
