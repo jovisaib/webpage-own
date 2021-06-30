@@ -1,6 +1,6 @@
 <template>
 <div style="text-align:center; width:100%;">
-    <div>
+    <div class="githubcard">
         <a href="https://github.com/jovisaib/godmxgo">
             <img src="https://gh-card.dev/repos/jovisaib/godmxgo.svg" />
         </a>
@@ -23,6 +23,12 @@ export default {
 </script>
 
 <style scoped>
+.githubcard {
+    width: 100%;
+    height: 100%;
+    max-width: 380px;
+}
+
 .video-container {
     position: relative;
     padding-bottom: 56.25%;
