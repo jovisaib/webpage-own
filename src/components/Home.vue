@@ -30,15 +30,9 @@
 
     <div class="projects_content">
         <div class="divider_line"></div>
-        <video width="320" height="240" autoplay>
-          <source src="../assets/dmx_inside.mp4" type="video/mp4">
-        Your browser does not support the video tag.
-        </video>
+        <iframe width="560" height="315" src="https://www.youtube.com/embed/TIRiJ0a3pFU?controls=0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
-        <video width="320" height="240" autoplay>
-          <source src="../assets/dmx_inside.mp4" type="video/mp4">
-        Your browser does not support the video tag.
-        </video>
+        <iframe width="560" height="315" src="https://www.youtube.com/embed/ATZq6sw_N-U?controls=0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
         <div class="divider_line"></div>
     </div>
 </div>
@@ -53,7 +47,6 @@ export default {
 </script>
 
 <style scoped>
-
 .projects_content {
     position: relative;
     right: 0;
