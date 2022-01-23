@@ -3,13 +3,13 @@
     <h1 style="font-size: 200%;">Hola.</h1>
     <p style="font-weight:500; font-size:2.0em">I'm Jose Vicente Sáez, <b>jovisaib</b> for shorten.</p>
 
-    <p>I am an IoT engineer currently based in Spain involved in multiple industries such as oil and gas, industry 4.0 and smart cities, among others. I have had the opportunity to work on international projects related to those industries that have allowed me to lead projects in countries like China.</p>
+    <p>I am an IoT engineer currently based in Spain involved in multiple industries such as Oil and Gas, Industry 4.0 and Smart Cities, among others. I have had the opportunity to work on international projects related to those industries that have allowed me to lead projects in countries like China.</p>
 
     <p>In addition, my passion lies in the intersection between AI in things for present and future urbanism. I am always looking for projects that are disruptive and bring something positive for society (including myself) 🌱🌱🌱</p>
 
     <p>
         I strongly believe that
-        <a class="normal_link" href="https://petewarden.com/2018/06/11/why-the-future-of-machine-learning-is-tiny/" target="_blank">the future of Machine Learning is tiny</a>
+        <a class="normal_link" href="https://petewarden.com/2018/06/11/why-the-future-of-machine-learning-is-tiny/" target="_blank">The future of Machine Learning is Tiny</a>
         , that's why I'm very excited and involved in how TinyML is going to influence the ubiquity of AI in the next few years.
     </p>
     <p>For more info about me, you can find me on my networks and contact me directly wherever you consider 😊</p>
