@@ -3,9 +3,9 @@
     <h1 style="font-size: 200%;">Hola.</h1>
     <p style="font-weight:500; font-size:2.0em">I'm Jose Vicente Sáez, <b>jovisaib</b> for shorten.</p>
 
-    <p>I am an IoT engineer currently based in Spain involved in multiple industries such as Oil and Gas, Industry 4.0 and Smart Cities, among others. I have had the opportunity to work on international projects related to those industries that have allowed me to lead projects in countries like China.</p>
+    <p>I'm an R&D Software Engineer currently based in Spain, I've been involved in multiple industries such as Oil and Gas, Industry 4.0 and Smart Cities, among others. I have had the opportunity to work on international projects related to those industries that have allowed me to lead projects in countries like China.</p>
 
-    <p>In addition, my passion lies in the intersection between AI in things for present and future urbanism. I am always looking for projects that are disruptive and bring something positive for society (including myself) 🌱🌱🌱</p>
+    <p>In addition, my passion lies in the intersection between AI and IoT (AIoT) for the present and future of urbanism. I'm always looking for projects that are disruptive and bring something positive for society (including myself) 🌱🌱🌱</p>
 
     <p>
         I strongly believe that
