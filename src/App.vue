@@ -3,7 +3,7 @@
     <home />
 
     <div id="footer">
-      © 2019 jovisaib
+      © 2022 jovisaib
       <span style="vertical-align:top;">🗿</span>
     </div>
   </div>
