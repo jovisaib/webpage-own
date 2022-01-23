@@ -7,7 +7,11 @@
 
     <p>In addition, my passion lies in the intersection between AI in things for present and future urbanism. I am always looking for projects that are disruptive and bring something positive for society (including myself) 🌱🌱🌱</p>
 
-    <p>I strongly believe that the future of Machine Learning is small, that's why I'm very excited and involved in how TinyML is going to influence the ubiquity of AI in the next few years.</p>
+    <p>
+        I strongly believe that
+        <a class="normal_link" href="https://petewarden.com/2018/06/11/why-the-future-of-machine-learning-is-tiny/" target="_blank">the future of Machine Learning is small</a>
+        , that's why I'm very excited and involved in how TinyML is going to influence the ubiquity of AI in the next few years.
+    </p>
     <p>For more information about me, you can take a look at my networks or contact me directly wherever you consider 😊</p>
 
     <a href="https://github.com/jovisaib" class="social_link" target="_blank">
@@ -41,6 +45,29 @@ export default {
 </script>
 
 <style scoped>
+.normal_link {
+    text-decoration: none;
+    color: #031425;
+    position: relative;
+    cursor: pointer;
+    font-weight: bolder;
+}
+
+.normal_link:after {
+    content: '';
+    position: absolute;
+    z-index: -1;
+    top: 80%;
+    left: -0.1em;
+    right: -0.1em;
+    bottom: 0;
+    background-color: rgba(136, 88, 248, 0.5);
+}
+
+.normal_link:hover::after {
+    background-color: rgba(196, 173, 250, 0.5);
+}
+
 .projects_content {
     position: relative;
     right: 0;
