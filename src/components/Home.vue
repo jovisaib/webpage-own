@@ -9,10 +9,10 @@
 
     <p>
         I strongly believe that
-        <a class="normal_link" href="https://petewarden.com/2018/06/11/why-the-future-of-machine-learning-is-tiny/" target="_blank">the future of Machine Learning is small</a>
+        <a class="normal_link" href="https://petewarden.com/2018/06/11/why-the-future-of-machine-learning-is-tiny/" target="_blank">the future of Machine Learning is tiny</a>
         , that's why I'm very excited and involved in how TinyML is going to influence the ubiquity of AI in the next few years.
     </p>
-    <p>For more information about me, you can take a look at my networks or contact me directly wherever you consider 😊</p>
+    <p>For more info about me, you can find me on my networks and contact me directly wherever you consider 😊</p>
 
     <a href="https://github.com/jovisaib" class="social_link" target="_blank">
         <img class="social_icons" alt="Github logo" src="../assets/github_logo.png" />
