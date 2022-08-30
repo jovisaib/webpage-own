@@ -6,7 +6,7 @@
             <v-row class="text-justify" dense>
                 <v-col cols="12">
                     <h1 class="text-h1">Hola.</h1>
-                    <p style="font-weight:500; font-size:2.0em">I'm Jose Vicente Sáez, <b>jovisaib</b> for shorten.</p>
+                    <p style="font-weight:300; font-size:2.0em">I'm Jose Vicente Sáez, <b>jovisaib</b> for shorten.</p>
 
                     <p>I'm an R&D Software Engineer currently based in Madrid, Spain, I've been involved in multiple
                         industries such
@@ -37,11 +37,11 @@
         </v-container>
 
         <v-container class="pa-7">
-            <v-row >
+            <v-row>
                 <v-col cols="12" lg="4" sm="6" xs="12">
                     <v-hover v-slot="{ hover }">
-                        <v-card :elevation="hover ? 2 : 0" :class="{ 'on-hover': hover }"
-                            class="font-weight-bold pa-2 light-green accent-1 rounded-xl">
+                        <v-card @click="dialog=true" :elevation="hover ? 2 : 0" :class="{ 'on-hover': hover }"
+                            class="pa-2 cursor-pointer light-green accent-1 rounded-xl">
                             <v-card-title class="text-h5">
                                 GO DMX GO
                             </v-card-title>
@@ -63,8 +63,8 @@
                 </v-col>
                 <v-col cols="12" lg="4" sm="6" xs="12">
                     <v-hover v-slot="{ hover }">
-                        <v-card :elevation="hover ? 2 : 0" :class="{ 'on-hover': hover }"
-                            class="pa-2 font-weight-bold light-green accent-1 rounded-xl">
+                        <v-card @click="dialog=true" :elevation="hover ? 2 : 0" :class="{ 'on-hover': hover }"
+                            class="pa-2 cursor-pointer font-weight-bold light-green accent-1 rounded-xl">
                             <v-card-title class="text-h5">
                                 CLAP O' METER
                             </v-card-title>
@@ -84,8 +84,8 @@
                 </v-col>
                 <v-col cols="12" lg="4" sm="6" xs="12">
                     <v-hover v-slot="{ hover }">
-                        <v-card :elevation="hover ? 2 : 0" :class="{ 'on-hover': hover }"
-                            class="font-weight-bold pa-4 light-green accent-1 rounded-xl">
+                        <v-card @click="dialog=true" :elevation="hover ? 2 : 0" :class="{ 'on-hover': hover }"
+                            class="font-weight-bold cursor-pointer pa-4 light-green accent-1 rounded-xl">
                             <v-card-title class="text-h5">
                                 TINYML TALKS
                             </v-card-title>
@@ -96,7 +96,8 @@
                                         <div class="emoji-style text-center">🤖</div>
                                     </v-col>
                                     <v-col cols="9">
-                                        <p class="pl-3 ml-7">Talk at machine learning Spain showing the state of the art for
+                                        <p class="pl-3 ml-7">Talk at machine learning Spain showing the state of the art
+                                            for
                                             TinyML
                                             (Spanish).</p>
                                     </v-col>
@@ -107,6 +108,24 @@
                 </v-col>
             </v-row>
         </v-container>
+
+        <v-row justify="center">
+            <v-dialog v-model="dialog" fullscreen hide-overlay transition="dialog-bottom-transition">
+                <v-card>
+                    <v-toolbar class="light-green accent-1">
+                        <v-btn icon @click="dialog = false">
+                            <v-icon>mdi-close</v-icon>
+                        </v-btn>
+                        <v-toolbar-title>TODO</v-toolbar-title>
+                        <v-spacer></v-spacer>
+                    </v-toolbar>
+                    <v-list three-line subheader>
+                        <v-subheader>Content</v-subheader>
+                    </v-list>
+                </v-card>
+            </v-dialog>
+        </v-row>
+
 
         <div class="projects_content">
             <MaterialIconsViz />
@@ -119,7 +138,15 @@
 export default {
     components: {
         MaterialIconsViz: () => import("./projects/MaterialIconsViz.vue"),
-    }
+    },
+    data() {
+        return {
+            dialog: false,
+            notifications: false,
+            sound: true,
+            widgets: false,
+        }
+    },
 };
 </script>
 
@@ -132,7 +159,7 @@ export default {
     font-weight: bolder;
 }
 
-.normal_link:after {
+.normal_link::after {
     content: '';
     position: absolute;
     z-index: -1;
@@ -157,6 +184,16 @@ export default {
 
 .emoji-style {
     color: rgba(0, 0, 0, 1);
-    font-size: 5.00rem!important;
+    font-size: 5.00rem !important;
+}
+
+.cursor-pointer {
+    cursor: pointer;
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
 }
 </style>

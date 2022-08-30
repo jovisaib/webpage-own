@@ -1,14 +1,7 @@
 <template>
   <v-app id=”app”>
 
-
-
-
-
     <home />
-
-
-
 
     <v-footer dark padless>
       <v-card flat tile class="flex green darken-3 lighten-1 white--text text-center">
