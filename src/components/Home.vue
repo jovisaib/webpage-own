@@ -196,4 +196,8 @@ export default {
     -ms-user-select: none;
     user-select: none;
 }
+
+.v-card--link:before {
+  background: none;
+}
 </style>
