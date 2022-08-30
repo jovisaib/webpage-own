@@ -2,10 +2,10 @@
     <div>
 
 
-        <v-container>
+        <v-container class="pa-7">
             <v-row class="text-justify" dense>
                 <v-col cols="12">
-                    <h1 style="font-size: 200%;">Hola.</h1>
+                    <h1 class="text-h1">Hola.</h1>
                     <p style="font-weight:500; font-size:2.0em">I'm Jose Vicente Sáez, <b>jovisaib</b> for shorten.</p>
 
                     <p>I'm an R&D Software Engineer currently based in Madrid, Spain, I've been involved in multiple
@@ -34,15 +34,19 @@
 
                 </v-col>
             </v-row>
-            <v-row dense>
+            <v-row>
                 <v-col cols="12" lg="4" md="6" sm="12">
                     <v-hover v-slot="{ hover }">
-                        <v-card :elevation="hover ? 10 : 2" :class="{ 'on-hover': hover }" class="rounded-xl">
+                        <v-card
+                            :elevation="hover ? 2 : 0"
+                            :class="{ 'on-hover': hover }"
+                            class="font-weight-bold pa-2 light-green accent-1 rounded-xl"
+                        >
                             <v-card-title class="text-h5">
                                 GO DMX GO
                             </v-card-title>
 
-                            <v-card-subtitle class="body-1 text-justify">
+                            <v-card-subtitle class="font-weight-bold body-1 text-justify">
                                 <p>A lightweight library writen in Go for DMX512, a standard for digital communication
                                     networks that are commonly used to control lighting and effects.</p>
                             </v-card-subtitle>
@@ -51,12 +55,16 @@
                 </v-col>
                 <v-col cols="12" lg="4" md="6" sm="12">
                     <v-hover v-slot="{ hover }">
-                        <v-card :elevation="hover ? 10 : 2" :class="{ 'on-hover': hover }" class="rounded-xl">
+                        <v-card
+                            :elevation="hover ? 2 : 0"
+                            :class="{ 'on-hover': hover }"
+                            class="pa-2 font-weight-bold light-green accent-1 rounded-xl"
+                        >
                             <v-card-title class="text-h5">
                                 CLAP O' METER
                             </v-card-title>
 
-                            <v-card-subtitle class="body-1 text-justify">
+                            <v-card-subtitle class="font-weight-bold body-1 text-justify">
                                 <p>Clap classifier for embedded systems.</p>
                             </v-card-subtitle>
                         </v-card>
@@ -64,12 +72,16 @@
                 </v-col>
                 <v-col cols="12" lg="4" md="6" sm="12">
                     <v-hover v-slot="{ hover }">
-                        <v-card :elevation="hover ? 10 : 2" :class="{ 'on-hover': hover }" class="rounded-xl">
+                        <v-card
+                            :elevation="hover ? 2 : 0"
+                            :class="{ 'on-hover': hover }"
+                            class="font-weight-bold pa-2 light-green accent-1 rounded-xl"
+                        >
                             <v-card-title class="text-h5">
                                 TINYML TALKS
                             </v-card-title>
 
-                            <v-card-subtitle class="body-1 text-justify">
+                            <v-card-subtitle class="font-weight-bold body-1 text-justify">
                                 <p>Talk at machine learning Spain showing the state of the art for TinyML (Spanish).</p>
                             </v-card-subtitle>
                         </v-card>

@@ -21,7 +21,7 @@
         </v-card-text>
 
         <v-card-text class="font-weight-bold white--text pt-0">
-          For more info about me, you can find me on my networks and contact me directly wherever you consider 😊
+          For more info about me, you can find me on my networks and contact me directly at jovisaib@gmail.com
         </v-card-text>
 
         <v-divider></v-divider>
