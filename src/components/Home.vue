@@ -35,39 +35,45 @@
                 </v-col>
             </v-row>
             <v-row dense>
-                <v-col cols="4">
-                    <v-card class="rounded-xl">
-                        <v-card-title class="text-h5">
-                            GO DMX GO
-                        </v-card-title>
+                <v-col cols="12" lg="4" md="6" sm="12">
+                    <v-hover v-slot="{ hover }">
+                        <v-card :elevation="hover ? 10 : 2" :class="{ 'on-hover': hover }" class="rounded-xl">
+                            <v-card-title class="text-h5">
+                                GO DMX GO
+                            </v-card-title>
 
-                        <v-card-subtitle class="body-1 text-justify">
-                            <p>A lightweight library writen in Go for DMX512, a standard for digital communication
-                                networks that are commonly used to control lighting and effects.</p>
-                        </v-card-subtitle>
-                    </v-card>
+                            <v-card-subtitle class="body-1 text-justify">
+                                <p>A lightweight library writen in Go for DMX512, a standard for digital communication
+                                    networks that are commonly used to control lighting and effects.</p>
+                            </v-card-subtitle>
+                        </v-card>
+                    </v-hover>
                 </v-col>
-                <v-col cols="4">
-                    <v-card class="rounded-xl">
-                        <v-card-title class="text-h5">
-                            CLAP O' METER
-                        </v-card-title>
+                <v-col cols="12" lg="4" md="6" sm="12">
+                    <v-hover v-slot="{ hover }">
+                        <v-card :elevation="hover ? 10 : 2" :class="{ 'on-hover': hover }" class="rounded-xl">
+                            <v-card-title class="text-h5">
+                                CLAP O' METER
+                            </v-card-title>
 
-                        <v-card-subtitle class="body-1 text-justify">
-                            <p>Clap classifier for embedded systems.</p>
-                        </v-card-subtitle>
-                    </v-card>
+                            <v-card-subtitle class="body-1 text-justify">
+                                <p>Clap classifier for embedded systems.</p>
+                            </v-card-subtitle>
+                        </v-card>
+                    </v-hover>
                 </v-col>
-                <v-col cols="4">
-                    <v-card class="rounded-xl">
-                        <v-card-title class="text-h5">
-                            TINYML TALKS
-                        </v-card-title>
+                <v-col cols="12" lg="4" md="6" sm="12">
+                    <v-hover v-slot="{ hover }">
+                        <v-card :elevation="hover ? 10 : 2" :class="{ 'on-hover': hover }" class="rounded-xl">
+                            <v-card-title class="text-h5">
+                                TINYML TALKS
+                            </v-card-title>
 
-                        <v-card-subtitle class="body-1 text-justify">
-                            <p>Talk at machine learning Spain showing the state of the art for TinyML (Spanish).</p>
-                        </v-card-subtitle>
-                    </v-card>
+                            <v-card-subtitle class="body-1 text-justify">
+                                <p>Talk at machine learning Spain showing the state of the art for TinyML (Spanish).</p>
+                            </v-card-subtitle>
+                        </v-card>
+                    </v-hover>
                 </v-col>
             </v-row>
         </v-container>
