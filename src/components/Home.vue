@@ -20,7 +20,7 @@
                         future of
                         urbanism. I'm always looking for projects that are disruptive and bring something positive for
                         society
-                        (including myself) 🌱🌱🌱</p>
+                        (including myself) 🌱</p>
 
                     <p>
                         I strongly believe that
@@ -49,10 +49,10 @@
                             <v-card-subtitle class="font-weight-bold body-1">
                                 <v-row align="center">
                                     <v-col cols="3">
-                                        <div class="emoji-color text-h1 text-center">🏢</div>
+                                        <div class="emoji-style text-center">🏢</div>
                                     </v-col>
                                     <v-col cols="9">
-                                        <p class="pa-3 ml-5">A lightweight library writen in Go for DMX512, standard for
+                                        <p class="pl-3 ml-7">A lightweight library writen in Go for DMX512, standard for
                                             digital communication
                                             networks commonly used to control lighting and effects.</p>
                                     </v-col>
@@ -72,10 +72,10 @@
                             <v-card-subtitle class="font-weight-bold body-1">
                                 <v-row align="center">
                                     <v-col cols="3">
-                                        <div class="emoji-color text-h1 text-center">👏</div>
+                                        <div class="emoji-style text-center">👏</div>
                                     </v-col>
                                     <v-col cols="9">
-                                        <p class="pa-3 ml-5">Clap classifier for embedded systems.</p>
+                                        <p class="pl-3 ml-7">Clap classifier for embedded systems.</p>
                                     </v-col>
                                 </v-row>
                             </v-card-subtitle>
@@ -85,7 +85,7 @@
                 <v-col cols="12" lg="4" sm="6" xs="12">
                     <v-hover v-slot="{ hover }">
                         <v-card :elevation="hover ? 2 : 0" :class="{ 'on-hover': hover }"
-                            class="font-weight-bold pa-2 light-green accent-1 rounded-xl">
+                            class="font-weight-bold pa-4 light-green accent-1 rounded-xl">
                             <v-card-title class="text-h5">
                                 TINYML TALKS
                             </v-card-title>
@@ -93,10 +93,10 @@
                             <v-card-subtitle class="font-weight-bold body-1">
                                 <v-row align="center">
                                     <v-col cols="3">
-                                        <div class="emoji-color text-h1 text-center">🤖</div>
+                                        <div class="emoji-style text-center">🤖</div>
                                     </v-col>
                                     <v-col cols="9">
-                                        <p class="pa-3 ml-5">Talk at machine learning Spain showing the state of the art for
+                                        <p class="pl-3 ml-7">Talk at machine learning Spain showing the state of the art for
                                             TinyML
                                             (Spanish).</p>
                                     </v-col>
@@ -155,18 +155,8 @@ export default {
     margin-left: auto;
 }
 
-.divider_line {
-    background-color: gray;
-    display: block;
-    height: 1px;
-    width: 100%;
-    border: 0;
-    margin-bottom: 8px;
-    margin-top: 8px;
-    opacity: 0.3;
-}
-
-.emoji-color {
+.emoji-style {
     color: rgba(0, 0, 0, 1);
+    font-size: 5.00rem!important;
 }
 </style>
