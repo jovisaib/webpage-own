@@ -122,6 +122,8 @@
                     <v-list three-line subheader>
                         <v-subheader>Content</v-subheader>
                     </v-list>
+
+                    <DMXShow />
                 </v-card>
             </v-dialog>
         </v-row>
@@ -135,10 +137,12 @@
 </template>
 
 <script>
+import DMXShow from './projects/DMXShow.vue';
 export default {
     components: {
-        MaterialIconsViz: () => import("./projects/MaterialIconsViz.vue"),
-    },
+    MaterialIconsViz: () => import("./projects/MaterialIconsViz.vue"),
+    DMXShow
+},
     data() {
         return {
             dialog: false,
