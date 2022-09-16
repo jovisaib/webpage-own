@@ -120,6 +120,8 @@
                         <v-spacer></v-spacer>
                     </v-toolbar>
                     <DMXShow v-if="currentProject=='dmx'" />
+                    <Talks v-if="currentProject=='talks'" />
+                    <TinyMLWorkshop v-if="currentProject=='workshop'" />
                 </v-card>
             </v-dialog>
         </v-row>
@@ -134,10 +136,14 @@
 
 <script>
 import DMXShow from './projects/DMXShow.vue';
+import Talks from './projects/Talks.vue';
+import TinyMLWorkshop from './projects/TinyMLWorkshop.vue';
 export default {
     components: {
         MaterialIconsViz: () => import("./projects/MaterialIconsViz.vue"),
-        DMXShow
+        DMXShow,
+        TinyMLWorkshop,
+        Talks
     },
     data() {
         return {
