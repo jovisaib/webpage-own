@@ -40,7 +40,7 @@
             <v-row>
                 <v-col cols="12" lg="4" sm="6" xs="12">
                     <v-hover v-slot="{ hover }">
-                        <v-card @click="dialog=true" :elevation="hover ? 2 : 0" :class="{ 'on-hover': hover }"
+                        <v-card @click="setupDialog('dmx')" :elevation="hover ? 2 : 0" :class="{ 'on-hover': hover }"
                             class="pa-2 cursor-pointer light-green accent-1 rounded-xl">
                             <v-card-title class="text-h5">
                                 GO DMX GO
@@ -63,7 +63,7 @@
                 </v-col>
                 <v-col cols="12" lg="4" sm="6" xs="12">
                     <v-hover v-slot="{ hover }">
-                        <v-card @click="dialog=true" :elevation="hover ? 2 : 0" :class="{ 'on-hover': hover }"
+                        <v-card @click="setupDialog('workshop')" :elevation="hover ? 2 : 0" :class="{ 'on-hover': hover }"
                             class="pa-2 cursor-pointer font-weight-bold light-green accent-1 rounded-xl">
                             <v-card-title class="text-h5">
                                 CLAP O' METER
@@ -84,7 +84,7 @@
                 </v-col>
                 <v-col cols="12" lg="4" sm="6" xs="12">
                     <v-hover v-slot="{ hover }">
-                        <v-card @click="dialog=true" :elevation="hover ? 2 : 0" :class="{ 'on-hover': hover }"
+                        <v-card @click="setupDialog('talks')" :elevation="hover ? 2 : 0" :class="{ 'on-hover': hover }"
                             class="font-weight-bold cursor-pointer pa-4 light-green accent-1 rounded-xl">
                             <v-card-title class="text-h5">
                                 TINYML TALKS
@@ -116,14 +116,10 @@
                         <v-btn icon @click="dialog = false">
                             <v-icon>mdi-close</v-icon>
                         </v-btn>
-                        <v-toolbar-title>TODO</v-toolbar-title>
+                        <v-toolbar-title>{{projectMap[currentProject].title}}</v-toolbar-title>
                         <v-spacer></v-spacer>
                     </v-toolbar>
-                    <v-list three-line subheader>
-                        <v-subheader>Content</v-subheader>
-                    </v-list>
-
-                    <DMXShow />
+                    <DMXShow v-if="currentProject=='dmx'" />
                 </v-card>
             </v-dialog>
         </v-row>
@@ -140,17 +136,38 @@
 import DMXShow from './projects/DMXShow.vue';
 export default {
     components: {
-    MaterialIconsViz: () => import("./projects/MaterialIconsViz.vue"),
-    DMXShow
-},
+        MaterialIconsViz: () => import("./projects/MaterialIconsViz.vue"),
+        DMXShow
+    },
     data() {
         return {
             dialog: false,
+            currentProject: "",
+            projectMap:{
+                "":{
+                    title: "none"
+                },
+                "workshop":{
+                    title: "Workshop"
+                },
+                "dmx":{
+                    title: "DMX"
+                },
+                "talks":{
+                    title: "TinyML Talks"
+                },
+            },
             notifications: false,
             sound: true,
             widgets: false,
         }
     },
+    methods: {
+        setupDialog(project) {
+            this.currentProject = project;
+            this.dialog = true;
+        }
+    }
 };
 </script>
 
@@ -202,6 +219,6 @@ export default {
 }
 
 .v-card--link:before {
-  background: none;
+    background: none;
 }
 </style>
