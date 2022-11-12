@@ -4,7 +4,7 @@
             <v-col align="center">
                 <iframe width="560" height="315"
                     src="https://www.youtube.com/embed/BWPah-kYNWM?t=2910s&controls=0&showinfo=0&modestbranding=1&autohide=1"
-                    title="YouTube video player" frameborder="0"
+                    frameborder="0"
                     allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                     allowfullscreen></iframe>
             </v-col>
