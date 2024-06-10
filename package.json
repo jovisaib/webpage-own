@@ -4,29 +4,29 @@
   "private": true,
   "scripts": {
     "serve": "vue-cli-service serve",
-    "dev": "vue-cli-service serve --port $PORT",
     "build": "vue-cli-service build",
-    "lint": "vue-cli-service lint"
+    "lint": "vue-cli-service lint",
+    "dev": "vue-cli-service serve --port $PORT"
   },
   "dependencies": {
-    "@mdi/font": "^7.0.96",
-    "core-js": "^2.6.5",
-    "d3": "^5.12.0",
-    "vue": "^2.6.10",
-    "vuetify": "^2.6.9"
+    "@mdi/font": "5.9.55",
+    "core-js": "^3.37.1",
+    "d3": "^7.9.0",
+    "roboto-fontface": "*",
+    "vue": "3.4.27",
+    "vuetify": "^3.6.8",
+    "webfontloader": "^1.0.0",
+    "webpack-plugin-vuetify": "^3.0.3"
   },
   "devDependencies": {
-    "@vue/cli-plugin-babel": "^3.9.0",
-    "@vue/cli-plugin-eslint": "^3.9.0",
-    "@vue/cli-service": "^3.9.0",
+    "@mdi/font": "^7.4.47",
+    "@vue/cli-plugin-babel": "^5.0.8",
+    "@vue/cli-service": "^5.0.8",
+    "@vue/compiler-sfc": "^3.4.27",
     "babel-eslint": "^10.0.1",
-    "eslint": "^5.16.0",
     "eslint-plugin-vue": "^5.0.0",
-    "vue-template-compiler": "^2.6.10"
-  },
-  "engines" : { 
-    "npm" : ">=7.0.0",
-    "node" : ">=16.0.0"
+    "vue-cli-plugin-vuetify": "~2.5.8",
+    "webpack-plugin-vuetify": "^2.0.0-alpha.0"
   },
   "eslintConfig": {
     "root": true,
@@ -50,5 +50,9 @@
   "browserslist": [
     "> 1%",
     "last 2 versions"
-  ]
+  ],
+  "engines": {
+    "npm": ">=7.0.0",
+    "node": ">=16.0.0"
+  }
 }

@@ -137,10 +137,11 @@
 <script>
 import DMXShow from './projects/DMXShow.vue';
 import Talks from './projects/Talks.vue';
+import MaterialIconsViz from './projects/MaterialIconsViz.vue';
 import TinyMLWorkshop from './projects/TinyMLWorkshop.vue';
 export default {
     components: {
-        MaterialIconsViz: () => import("./projects/MaterialIconsViz.vue"),
+        MaterialIconsViz,
         DMXShow,
         TinyMLWorkshop,
         Talks

@@ -1,14 +1,10 @@
-import Vue from 'vue'
+import { createApp } from 'vue'
 import App from './App.vue'
-import Vuetify from 'vuetify'
-import 'vuetify/dist/vuetify.min.css'
-import '@mdi/font/css/materialdesignicons.css'
+import vuetify from './plugins/vuetify'
+import { loadFonts } from './plugins/webfontloader'
 
-Vue.use(Vuetify)
+loadFonts()
 
-Vue.config.productionTip = false
-
-new Vue({
-  vuetify : new Vuetify(),
-  render: h => h(App),
-}).$mount('#app')
+createApp(App)
+  .use(vuetify)
+  .mount('#app')
