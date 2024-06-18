@@ -5,9 +5,9 @@
                 <v-row justify="center">
                     <v-col cols="auto">
                         <v-btn text class="nav-link">Process</v-btn>
-                        <v-btn text class="nav-link">Benefits</v-btn>
                         <v-btn text class="nav-link">Services</v-btn>
                         <v-btn text class="nav-link">Pricing</v-btn>
+                        <v-btn text class="nav-link">Blog</v-btn>
                         <v-btn text class="nav-link">About me</v-btn>
                     </v-col>
                 </v-row>
