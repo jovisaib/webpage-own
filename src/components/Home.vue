@@ -7,8 +7,8 @@
                         <v-btn text class="nav-link">Process</v-btn>
                         <v-btn text class="nav-link">Services</v-btn>
                         <v-btn text class="nav-link">Pricing</v-btn>
-                        <v-btn text class="nav-link">Blog</v-btn>
-                        <v-btn text class="nav-link">About me</v-btn>
+                        <v-btn text href="https://allinsync.beehiiv.com/" target="_blank" class="nav-link">Blog</v-btn>
+                        <v-btn text class="nav-link" @click="scrollToSection('about-me-section')">About me</v-btn>
                     </v-col>
                 </v-row>
             </v-container>
@@ -21,8 +21,7 @@
                     <p class="headline font-weight-light mb-4">I'm Jose.</p>
 
                     <p class="subheading font-weight-regular mb-5">
-                        I help businesses like yours harness the power of AI to boost productivity, drive revenue growth, and dominate your market. 
-                        Ready to transform your business? Book a call with me today or drop me an email to get started.
+                        I help businesses like yours harness the power of AI and conduct R&D to boost productivity, drive revenue growth, and dominate your market. Ready to transform your business? Book a call with me today or drop me an email to get started.
                     </p>
                 </v-col>
             </v-row>
@@ -38,7 +37,7 @@
         </v-container>
 
 
-        <h1 class="text-center">About Me</h1>
+        <h1 class="text-center" id="about-me-section">About Me</h1>
 
 
         <v-container class="pa-7">
@@ -174,7 +173,11 @@ export default {
             this.currentProject = project;
             this.dialog = true;
         },
-        bookConsultation() {
+        scrollToSection(sectionId) {
+            const section = document.getElementById(sectionId);
+            if (section) {
+                section.scrollIntoView({ behavior: 'smooth' });
+            }
         }
     },
     mounted() {
