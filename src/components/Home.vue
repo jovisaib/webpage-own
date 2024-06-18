@@ -26,8 +26,10 @@
                     </p>
                 </v-col>
             </v-row>
+
+
             <v-row justify="center" class="mt-5">
-                <v-btn class="consultation-btn" @click="bookConsultation">Book a Consultation</v-btn>
+                <v-btn class="consultation-btn" href="https://calendly.com/jovisaib/main" target="_blank">Book a Consultation</v-btn>
             </v-row>
         </v-container>
         

@@ -17,7 +17,7 @@
         <v-row align="center" justify="center">
           <v-col cols="12">
             <v-card-text class="white--text">
-              {{ new Date().getFullYear() }} — <strong>jovisaib</strong>
+              <strong>© Copyright  {{ new Date().getFullYear() }} Jovisaib</strong>
             </v-card-text>
           </v-col>
         </v-row>
