@@ -30,6 +30,10 @@
                 <v-btn class="consultation-btn" @click="bookConsultation">Book a Consultation</v-btn>
             </v-row>
         </v-container>
+        
+        <v-container class="pa-7">
+            <div class="senja-embed" data-id="eb95ccf6-f2ad-4f0d-a0b4-d5e7932beede" data-mode="shadow" data-lazyload="false"></div>
+        </v-container>
 
 
         <h1 class="text-center">About Me</h1>
@@ -140,10 +144,6 @@ export default {
         TinyMLWorkshop,
         Talks
     },
-    methods: {
-        bookConsultation() {
-        }
-    },
     data() {
         return {
             dialog: false,
@@ -171,7 +171,16 @@ export default {
         setupDialog(project) {
             this.currentProject = project;
             this.dialog = true;
+        },
+        bookConsultation() {
         }
+    },
+    mounted() {
+        const script = document.createElement('script');
+        script.async = true;
+        script.type = 'text/javascript';
+        script.src = "https://widget.senja.io/widget/eb95ccf6-f2ad-4f0d-a0b4-d5e7932beede/platform.js";
+        document.head.appendChild(script);
     }
 };
 </script>
