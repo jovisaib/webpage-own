@@ -1,40 +1,39 @@
 <template>
     <div>
+        <v-app-bar app color="transparent" class="blurred-nav" flat>
+            <v-container>
+                <v-row justify="center">
+                    <v-col cols="auto">
+                        <v-btn text class="nav-link">Process</v-btn>
+                        <v-btn text class="nav-link">Benefits</v-btn>
+                        <v-btn text class="nav-link">Services</v-btn>
+                        <v-btn text class="nav-link">Pricing</v-btn>
+                        <v-btn text class="nav-link">About me</v-btn>
+                    </v-col>
+                </v-row>
+            </v-container>
+        </v-app-bar>
 
-
-        <v-container class="pa-7">
-            <v-row class="text-justify" dense>
+        <v-container class="pa-7 presentation-container with-top-margin">
+            <v-row class="text-center" dense>
                 <v-col cols="12">
-                    <h1 class="text-h1">Hola.</h1>
-                    <p style="font-weight:300; font-size:2.0em">I'm Jose Vicente Sáez, <b>jovisaib</b> for shorten.</p>
+                    <h1 class="display-1 mb-4">Hey.</h1>
+                    <p class="headline font-weight-light mb-4">I'm Jose.</p>
 
-                    <p>I'm an R&D Software Engineer currently based in Madrid, Spain, I've been involved in multiple
-                        industries such
-                        as Oil and Gas, Industry 4.0 and Smart Cities, among others. I have had the opportunity to work
-                        on
-                        international projects related to those industries that have allowed me to lead projects in
-                        countries like
-                        China.</p>
-
-                    <p>In addition, my passion lies in the intersection between AI and IoT (AIoT) for the present and
-                        future of
-                        urbanism. I'm always looking for projects that are disruptive and bring something positive for
-                        society
-                        (including myself) 🌱</p>
-
-                    <p>
-                        I strongly believe that
-                        <a class="normal_link"
-                            href="https://petewarden.com/2018/06/11/why-the-future-of-machine-learning-is-tiny/"
-                            target="_blank">The future of Machine Learning is Tiny</a>
-                        , that's why I'm very excited and involved in how TinyML is going to influence the ubiquity of
-                        AI in the
-                        next few years.
+                    <p class="subheading font-weight-regular mb-5">
+                        I help businesses like yours harness the power of AI to boost productivity, drive revenue growth, and dominate your market. 
+                        Ready to transform your business? Book a call with me today or drop me an email to get started.
                     </p>
-
                 </v-col>
             </v-row>
+            <v-row justify="center" class="mt-5">
+                <v-btn class="consultation-btn" @click="bookConsultation">Book a Consultation</v-btn>
+            </v-row>
         </v-container>
+
+
+        <h1 class="text-center">About Me</h1>
+
 
         <v-container class="pa-7">
             <v-row>
@@ -126,11 +125,6 @@
             </v-dialog>
         </v-row>
 
-
-        <div class="projects_content">
-            <MaterialIconsViz />
-        </div>
-
     </div>
 </template>
 
@@ -145,6 +139,10 @@ export default {
         DMXShow,
         TinyMLWorkshop,
         Talks
+    },
+    methods: {
+        bookConsultation() {
+        }
     },
     data() {
         return {
@@ -179,6 +177,77 @@ export default {
 </script>
 
 <style scoped>
+
+.blurred-nav {
+    backdrop-filter: blur(10px); /* Apply blur effect */
+    background-color: rgba(255, 255, 255, 0.8); /* Semi-transparent background */
+}
+
+.nav-link {
+    color: #000; /* Black text color */
+    font-weight: bold;
+    font-size: 1.2rem; /* Adjust the font size as needed */
+}
+
+.v-app-bar {
+    z-index: 10; /* Ensure the navbar is always on top */
+}
+
+.presentation-container {
+    background: linear-gradient(135deg, #f5f7fa, #c3cfe2); /* Cool gradient background */
+    padding: 6rem 4rem; /* Increased padding for better spacing */
+    border-radius: 12px; /* More rounded corners for a softer look */
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1); /* Stronger shadow for more depth */
+    text-align: center; /* Center align text for a balanced look */
+}
+
+.display-1 {
+    font-size: 4rem; /* Larger font size for a striking headline */
+    color: #031425; /* Dark color for text */
+    font-weight: 700; /* Bolder font for emphasis */
+}
+
+.headline {
+    font-size: 2.5rem; /* Larger font size for subtitle */
+    color: #333333; /* Darker color for contrast */
+}
+
+.subheading {
+    font-size: 1.25rem; /* Standard size for main content */
+    color: #555555; /* Lighter color for less emphasis */
+}
+
+.headline {
+    font-size: 2.5rem; /* Larger font size for subtitle */
+    margin-bottom: 2rem; /* Increased margin for better spacing */
+    color: #333333; /* Darker color for contrast */
+}
+
+.subheading {
+    font-size: 1.5rem; /* Larger font size for main content */
+    margin-bottom: 3rem; /* Increased margin for better spacing */
+    color: #555555; /* Lighter color for less emphasis */
+}
+
+.consultation-btn {
+    font-size: 1.25rem; /* Slightly larger button text */
+    padding: 0.4rem 2rem; /* Adjusted padding for better fit */
+    border-radius: 50px; /* More rounded button for modern style */
+    background: linear-gradient(135deg, #42a5f5, #1e88e5); /* Gradient background */
+    color: white; /* White text for better contrast */
+    transition: background 0.3s ease, transform 0.3s ease; /* Smooth transitions */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+}
+
+.consultation-btn:hover {
+    background: linear-gradient(135deg, #1e88e5, #1565c0); /* Darker gradient on hover */
+    transform: scale(1.05); /* Slightly enlarge on hover */
+}
+.with-top-margin {
+    margin-top: 100px; /* Adjust this value as needed to create space for the navbar */
+}
+
+
 .normal_link {
     text-decoration: none;
     color: #031425;

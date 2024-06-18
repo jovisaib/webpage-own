@@ -1,31 +1,28 @@
 <template>
-  <v-app id=”app”>
-
+  <v-app id="app">
     <home />
 
-    <v-footer dark padless>
-      <v-card flat tile class="flex green darken-3 lighten-1 white--text text-center">
-        <v-card-text>
-          <v-btn v-for="icon in icons" :href="icon.href" :key="icon.img" class="mx-4 white--text" icon>
-            <v-icon size="24px">
-              {{  icon.img  }}
-            </v-icon>
-          </v-btn>
-        </v-card-text>
-
-        <v-card-text class="font-weight-bold white--text pt-0">
-          For more info about me, you can find me on my networks and contact me directly at jovisaib@gmail.com
-        </v-card-text>
-
-        <v-divider></v-divider>
-
-        <v-card-text class="white--text">
-          {{  new Date().getFullYear()  }} — <strong>jovisaib</strong>
-        </v-card-text>
-      </v-card>
+    <v-footer dark class="footer green darken-3 lighten-1 white--text text-center">
+      <v-container class="fill-height">
+        <v-row align="center" justify="center">
+          <v-col cols="12">
+            <v-btn v-for="icon in icons" :href="icon.href" :key="icon.img" class="mx-4 white--text" icon>
+              <v-icon size="24px">
+                {{ icon.img }}
+              </v-icon>
+            </v-btn>
+          </v-col>
+        </v-row>
+        <v-divider class="my-2"></v-divider>
+        <v-row align="center" justify="center">
+          <v-col cols="12">
+            <v-card-text class="white--text">
+              {{ new Date().getFullYear() }} — <strong>jovisaib</strong>
+            </v-card-text>
+          </v-col>
+        </v-row>
+      </v-container>
     </v-footer>
-
-
   </v-app>
 </template>
 
@@ -52,11 +49,16 @@ export default {
   font-family: "Avenir", Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  padding: 0vh 10vw;
+  padding: 0;
   color: #2c3e50;
 }
 
-.footer-color {
-  color: "rgba(59,130,246,.5)";
+.footer {
+  width: 100%;
+  padding: 0;
+}
+
+.width-100 {
+  width: 100%;
 }
 </style>
