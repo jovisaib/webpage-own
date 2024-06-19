@@ -90,86 +90,69 @@
         </v-container>
 
 
-    
         <v-container class="pa-7">
-            <v-row>
-                <v-col cols="12" lg="4" sm="6" xs="12">
-                    <v-hover v-slot="{ hover }">
-                        <v-card @click="setupDialog('dmx')" :elevation="hover ? 2 : 0" :class="{ 'on-hover': hover }"
-                            class="pa-2 cursor-pointer light-green accent-1 rounded-xl">
-                            <v-card-title class="text-h5">
-                                GO DMX GO
-                            </v-card-title>
+    <v-row>
+        <v-col cols="12" sm="6" md="4">
+            <v-hover v-slot="{ hover }">
+                <v-card @click="setupDialog('dmx')" :elevation="hover ? 2 : 0" :class="{ 'on-hover': hover }" class="pa-4 cursor-pointer service-card">
+                    <v-card-title class="text-h5">GO DMX GO</v-card-title>
+                    <v-card-subtitle class="font-weight-bold body-1">
+                        <v-row align="center">
+                            <v-col cols="3">
+                                <div class="emoji-style text-center">🏢</div>
+                            </v-col>
+                            <v-col cols="9">
+                                <p class="text-left">A lightweight library written in Go for DMX512, a standard for digital communication networks commonly used to control lighting and effects.</p>
+                            </v-col>
+                        </v-row>
+                    </v-card-subtitle>
+                </v-card>
+            </v-hover>
+        </v-col>
+        <v-col cols="12" sm="6" md="4">
+            <v-hover v-slot="{ hover }">
+                <v-card @click="setupDialog('workshop')" :elevation="hover ? 2 : 0" :class="{ 'on-hover': hover }" class="pa-4 cursor-pointer service-card">
+                    <v-card-title class="text-h5">CLAP O' METER</v-card-title>
+                    <v-card-subtitle class="font-weight-bold body-1">
+                        <v-row align="center">
+                            <v-col cols="3">
+                                <div class="emoji-style text-center">👏</div>
+                            </v-col>
+                            <v-col cols="9">
+                                <p class="text-left">Clap classifier for embedded systems.</p>
+                            </v-col>
+                        </v-row>
+                    </v-card-subtitle>
+                </v-card>
+            </v-hover>
+        </v-col>
+        <v-col cols="12" sm="6" md="4">
+            <v-hover v-slot="{ hover }">
+                <v-card @click="setupDialog('talks')" :elevation="hover ? 2 : 0" :class="{ 'on-hover': hover }" class="pa-4 cursor-pointer service-card">
+                    <v-card-title class="text-h5">TINYML TALKS</v-card-title>
+                    <v-card-subtitle class="font-weight-bold body-1">
+                        <v-row align="center">
+                            <v-col cols="3">
+                                <div class="emoji-style text-center">🤖</div>
+                            </v-col>
+                            <v-col cols="9">
+                                <p class="text-left">Talk at Machine Learning Spain showing the state of the art for TinyML (Spanish).</p>
+                            </v-col>
+                        </v-row>
+                    </v-card-subtitle>
+                </v-card>
+            </v-hover>
+        </v-col>
+    </v-row>
+</v-container>
 
-                            <v-card-subtitle class="font-weight-bold body-1">
-                                <v-row align="center">
-                                    <v-col cols="3">
-                                        <div class="emoji-style text-center">🏢</div>
-                                    </v-col>
-                                    <v-col cols="9">
-                                        <p class="pl-3 ml-7">A lightweight library writen in Go for DMX512, standard for
-                                            digital communication
-                                            networks commonly used to control lighting and effects.</p>
-                                    </v-col>
-                                </v-row>
-                            </v-card-subtitle>
-                        </v-card>
-                    </v-hover>
-                </v-col>
-                <v-col cols="12" lg="4" sm="6" xs="12">
-                    <v-hover v-slot="{ hover }">
-                        <v-card @click="setupDialog('workshop')" :elevation="hover ? 2 : 0" :class="{ 'on-hover': hover }"
-                            class="pa-2 cursor-pointer font-weight-bold light-green accent-1 rounded-xl">
-                            <v-card-title class="text-h5">
-                                CLAP O' METER
-                            </v-card-title>
-
-                            <v-card-subtitle class="font-weight-bold body-1">
-                                <v-row align="center">
-                                    <v-col cols="3">
-                                        <div class="emoji-style text-center">👏</div>
-                                    </v-col>
-                                    <v-col cols="9">
-                                        <p class="pl-3 ml-7">Clap classifier for embedded systems.</p>
-                                    </v-col>
-                                </v-row>
-                            </v-card-subtitle>
-                        </v-card>
-                    </v-hover>
-                </v-col>
-                <v-col cols="12" lg="4" sm="6" xs="12">
-                    <v-hover v-slot="{ hover }">
-                        <v-card @click="setupDialog('talks')" :elevation="hover ? 2 : 0" :class="{ 'on-hover': hover }"
-                            class="font-weight-bold cursor-pointer pa-4 light-green accent-1 rounded-xl">
-                            <v-card-title class="text-h5">
-                                TINYML TALKS
-                            </v-card-title>
-
-                            <v-card-subtitle class="font-weight-bold body-1">
-                                <v-row align="center">
-                                    <v-col cols="3">
-                                        <div class="emoji-style text-center">🤖</div>
-                                    </v-col>
-                                    <v-col cols="9">
-                                        <p class="pl-3 ml-7">Talk at machine learning Spain showing the state of the art
-                                            for
-                                            TinyML
-                                            (Spanish).</p>
-                                    </v-col>
-                                </v-row>
-                            </v-card-subtitle>
-                        </v-card>
-                    </v-hover>
-                </v-col>
-            </v-row>
-        </v-container>
 
         <v-row justify="center">
             <v-dialog v-model="dialog" fullscreen hide-overlay transition="dialog-bottom-transition">
                 <v-card>
                     <v-toolbar class="light-green accent-1">
                         <v-btn icon @click="dialog = false">
-                            <v-icon>mdi-close</v-icon>
+                            <v-icon>mdi:mdi-close</v-icon>
                         </v-btn>
                         <v-toolbar-title>{{projectMap[currentProject].title}}</v-toolbar-title>
                         <v-spacer></v-spacer>
@@ -317,6 +300,7 @@ export default {
     background: #f9f9f9;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     transition: transform 0.3s ease, box-shadow 0.3s ease;
+    padding: 24px; /* Increased padding */
 }
 
 .service-card:hover {
@@ -328,6 +312,12 @@ export default {
     font-size: 3rem;
     margin-bottom: 1rem;
     color: #42a5f5;
+}
+
+.v-card-title {
+    font-size: 1.5rem; /* Slightly increased font size */
+    margin-bottom: 0.5rem;
+    font-weight: bold;
 }
 
 .normal_link {
@@ -378,5 +368,21 @@ export default {
 
 .v-card--link:before {
     background: none;
+}
+
+.v-card-subtitle {
+    font-size: 1rem;
+    line-height: 1.6; /* Increased line height for better readability */
+    color: #555555;
+    padding-left: 12px; /* Ensure padding inside subtitle */
+}
+
+.emoji-style {
+    font-size: 3rem; /* Increased font size */
+    margin-bottom: 1rem;
+}
+
+.text-left {
+    text-align: left;
 }
 </style>
