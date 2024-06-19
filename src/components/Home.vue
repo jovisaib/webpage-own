@@ -40,7 +40,7 @@
                     <p class="headline font-weight-light mb-4">I'm Jose.</p>
 
                     <p class="subheading font-weight-regular mb-5">
-                        I help businesses like yours harness the power of AI and conduct R&D to boost productivity, drive revenue growth, and dominate your market. Ready to transform your business? Book a call with me today or drop me an email to get started.
+                        I help businesses like yours harness the power of AI and conduct R&D to boost productivity, drive revenue growth, and dominate your market. Ready to transform your business? Book a call with me today or drop me an <a class="email-link" href="mailto:jovisaib@gmail.com">email</a> to get started.
                     </p>
                 </v-col>
             </v-row>
@@ -555,6 +555,20 @@ export default {
 #process-section,
 #about-me-section {
     margin-top: 90px; /* Adjust this value as needed */
+}
+
+.email-link {
+    color: #1e88e5; /* Primary color */
+    text-decoration: none; /* Remove underline */
+    font-weight: 600; /* Semi-bold */
+    border-bottom: 2px solid transparent; /* Bottom border for subtle underlining */
+    transition: color 0.3s ease, border-bottom-color 0.3s ease; /* Smooth transition for color and border */
+}
+
+.email-link:hover {
+    color: #1565c0; /* Darker shade on hover */
+    border-bottom-color: #1565c0; /* Underline appears on hover */
+    text-decoration: none; /* Ensure no underline on hover */
 }
 
 </style>
