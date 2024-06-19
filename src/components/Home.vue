@@ -3,7 +3,10 @@
         <v-app-bar app color="transparent" class="blurred-nav" flat>
             <v-container>
                 <v-row justify="center">
-                    <v-col cols="auto">
+                    <v-col cols="auto" class="d-flex d-md-none"> <!-- Only show on small screens -->
+                        <v-app-bar-nav-icon @click="drawer = !drawer"></v-app-bar-nav-icon>
+                    </v-col>
+                    <v-col cols="auto" class="d-none d-md-flex"> <!-- Only show on medium and larger screens -->
                         <v-btn text class="nav-link" @click="scrollToSection('process-section')">Process</v-btn>
                         <v-btn text class="nav-link" @click="scrollToSection('services-section')">Services</v-btn>
                         <v-btn text class="nav-link" @click="scrollToSection('about-me-section')">About me</v-btn>
@@ -12,6 +15,23 @@
                 </v-row>
             </v-container>
         </v-app-bar>
+
+        <v-navigation-drawer v-model="drawer" app temporary left>
+            <v-list>
+                <v-list-item @click="scrollToSection('process-section')">
+                    <v-list-item-title>Process</v-list-item-title>
+                </v-list-item>
+                <v-list-item @click="scrollToSection('services-section')">
+                    <v-list-item-title>Services</v-list-item-title>
+                </v-list-item>
+                <v-list-item @click="scrollToSection('about-me-section')">
+                    <v-list-item-title>About me</v-list-item-title>
+                </v-list-item>
+                <v-list-item href="https://allinsync.beehiiv.com/" target="_blank">
+                    <v-list-item-title>Blog</v-list-item-title>
+                </v-list-item>
+            </v-list>
+        </v-navigation-drawer>
 
         <v-container class="pa-7 presentation-container with-top-margin">
             <v-row class="text-center" dense>
@@ -218,6 +238,7 @@ export default {
         return {
             dialog: false,
             currentProject: "",
+            drawer: false, // Add drawer state
             projectMap:{
                 "":{
                     title: "none"
@@ -246,6 +267,7 @@ export default {
             const section = document.getElementById(sectionId);
             if (section) {
                 section.scrollIntoView({ behavior: 'smooth' });
+                this.drawer = false; // Close drawer after navigation
             }
         }
     },
@@ -263,6 +285,42 @@ export default {
 .blurred-nav {
     backdrop-filter: blur(10px); /* Apply blur effect */
     background-color: rgba(255, 255, 255, 0.8); /* Semi-transparent background */
+}
+
+.d-none {
+    display: none !important;
+}
+
+.d-md-flex {
+    display: flex !important;
+}
+
+.d-flex {
+    display: flex !important;
+}
+
+.d-md-none {
+    display: none !important;
+}
+
+@media (min-width: 960px) {
+    .d-md-flex {
+        display: flex !important;
+    }
+
+    .d-md-none {
+        display: none !important;
+    }
+}
+
+@media (max-width: 959.98px) {
+    .d-md-flex {
+        display: none !important;
+    }
+
+    .d-md-none {
+        display: flex !important;
+    }
 }
 
 .nav-link {
