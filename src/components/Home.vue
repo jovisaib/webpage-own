@@ -18,11 +18,11 @@
 
         <v-navigation-drawer v-model="drawer" app temporary left>
             <v-list>
-                <v-list-item @click="scrollToSection('process-section')">
-                    <v-list-item-title>Process</v-list-item-title>
-                </v-list-item>
                 <v-list-item @click="scrollToSection('services-section')">
                     <v-list-item-title>Services</v-list-item-title>
+                </v-list-item>
+                <v-list-item @click="scrollToSection('process-section')">
+                    <v-list-item-title>Process</v-list-item-title>
                 </v-list-item>
                 <v-list-item @click="scrollToSection('about-me-section')">
                     <v-list-item-title>About me</v-list-item-title>
