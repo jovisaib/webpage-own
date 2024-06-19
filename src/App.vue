@@ -32,9 +32,9 @@ import Home from "./components/Home.vue";
 export default {
   data: () => ({
     icons: [
-      { href: 'https://twitter.com/jovisaib', img: 'mdi-twitter' },
-      { href: 'https://www.linkedin.com/in/jose-vicente-saez/', img: 'mdi-linkedin' },
-      { href: 'https://github.com/jovisaib', img: 'mdi-github' },
+        { href: 'https://x.com/jovisaib', img: 'fas fa-brands fa-x-twitter' },
+        { href: 'https://www.linkedin.com/in/jose-vicente-saez/', img: 'mdi:mdi-linkedin' },
+        { href: 'https://github.com/jovisaib', img: 'mdi:mdi-github' },
     ],
   }),
   name: "app",

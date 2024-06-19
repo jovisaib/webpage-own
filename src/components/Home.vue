@@ -5,10 +5,10 @@
                 <v-row justify="center">
                     <v-col cols="auto">
                         <v-btn text class="nav-link">Process</v-btn>
-                        <v-btn text class="nav-link">Services</v-btn>
+                        <v-btn text class="nav-link" @click="scrollToSection('services-section')">Services</v-btn>
                         <v-btn text class="nav-link">Pricing</v-btn>
-                        <v-btn text href="https://allinsync.beehiiv.com/" target="_blank" class="nav-link">Blog</v-btn>
                         <v-btn text class="nav-link" @click="scrollToSection('about-me-section')">About me</v-btn>
+                        <v-btn text href="https://allinsync.beehiiv.com/" target="_blank" class="nav-link">Blog</v-btn>
                     </v-col>
                 </v-row>
             </v-container>
@@ -26,7 +26,6 @@
                 </v-col>
             </v-row>
 
-
             <v-row justify="center" class="mt-5">
                 <v-btn class="consultation-btn" href="https://calendly.com/jovisaib/main" target="_blank">Book a Consultation</v-btn>
             </v-row>
@@ -37,9 +36,61 @@
         </v-container>
 
 
+        <h1 class="text-center" id="services-section">Services</h1>
+
+        <v-container class="pa-7">
+            <v-row>
+                <v-col cols="12" sm="6" md="3">
+                    <v-card class="pa-4 text-center service-card">
+                        <v-icon class="service-icon" color="primary">mdi-email</v-icon>
+                        <h3>Cold Emailing</h3>
+                        <p>Contact hundreds of potential customers that fit your ideal customer profile with tailored messaging every month.</p>
+                    </v-card>
+                </v-col>
+                <v-col cols="12" sm="6" md="3">
+                    <v-card class="pa-4 text-center service-card">
+                        <v-icon class="service-icon" color="primary">mdi-magnify</v-icon>
+                        <h3>Prospecting</h3>
+                        <p>Find and create lists of your ideal customer profiles to run marketing campaigns.</p>
+                    </v-card>
+                </v-col>
+                <v-col cols="12" sm="6" md="3">
+                    <v-card class="pa-4 text-center service-card">
+                        <v-icon class="service-icon" color="primary">mdi-magnet</v-icon>
+                        <h3>Lead Magnets</h3>
+                        <p>Reach out to potential customers while offering something of value up front – whether a free tool, a webinar invite, or a useful case study.</p>
+                    </v-card>
+                </v-col>
+                <v-col cols="12" sm="6" md="3">
+                    <v-card class="pa-4 text-center service-card">
+                        <v-icon class="service-icon" color="primary">mdi-linkedin</v-icon>
+                        <h3>Social Media Marketing</h3>
+                        <p>Don't sleep on social media for B2B marketing – these platforms can give you tens of thousands of impressions for free every month.</p>
+                    </v-card>
+                </v-col>
+            </v-row>
+        </v-container>
+
+
         <h1 class="text-center" id="about-me-section">About Me</h1>
 
+        <v-container class="pa-7">
+            <v-row class="text-center" dense>
+                <v-col cols="12">
+                    <p class="subheading font-weixght-regular mb-5">
+                            I'm a dynamic Independent R&D Software Engineer in Spain, known for driving innovation across
+                        diverse industries. With expertise in AI, IoT, and a passion for urban planning,, I excel in taking
+                        complex prototypes to production. Committed to impactful contributions, I've presented at
+                        Machine Learning Spain, demonstrating my ability to transform ideas into practical solutions. I
+                        thrive on embracing new challenges and seeking solutions that have a profound and positive
+                        impact on society.
+                    </p>
+                </v-col>
+            </v-row>
+        </v-container>
 
+
+    
         <v-container class="pa-7">
             <v-row>
                 <v-col cols="12" lg="4" sm="6" xs="12">
@@ -191,7 +242,6 @@ export default {
 </script>
 
 <style scoped>
-
 .blurred-nav {
     backdrop-filter: blur(10px); /* Apply blur effect */
     background-color: rgba(255, 255, 255, 0.8); /* Semi-transparent background */
@@ -257,10 +307,28 @@ export default {
     background: linear-gradient(135deg, #1e88e5, #1565c0); /* Darker gradient on hover */
     transform: scale(1.05); /* Slightly enlarge on hover */
 }
+
 .with-top-margin {
     margin-top: 100px; /* Adjust this value as needed to create space for the navbar */
 }
 
+.service-card {
+    border-radius: 12px;
+    background: #f9f9f9;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.service-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+}
+
+.service-icon {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+    color: #42a5f5;
+}
 
 .normal_link {
     text-decoration: none;
