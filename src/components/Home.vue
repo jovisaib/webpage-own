@@ -4,9 +4,8 @@
             <v-container>
                 <v-row justify="center">
                     <v-col cols="auto">
-                        <v-btn text class="nav-link">Process</v-btn>
+                        <v-btn text class="nav-link" @click="scrollToSection('process-section')">Process</v-btn>
                         <v-btn text class="nav-link" @click="scrollToSection('services-section')">Services</v-btn>
-                        <v-btn text class="nav-link">Pricing</v-btn>
                         <v-btn text class="nav-link" @click="scrollToSection('about-me-section')">About me</v-btn>
                         <v-btn text href="https://allinsync.beehiiv.com/" target="_blank" class="nav-link">Blog</v-btn>
                     </v-col>
@@ -70,6 +69,42 @@
                 </v-col>
             </v-row>
         </v-container>
+
+        <h1 class="text-center" id="process-section">Processs</h1>
+
+        <v-container class="pa-7">
+            <v-row class="text-center" dense>
+                <v-col cols="12" sm="6" md="4">
+                <v-card class="pa-4 process-card">
+                    <v-icon class="process-icon" color="primary">mdi:mdi-phone</v-icon>
+                    <v-card-title class="text-h5">Step 1: Free Consultation</v-card-title>
+                    <p>
+                    Start with a 30-minute free call to discuss your needs and goals. We'll explore how my expertise can help your business.
+                    </p>
+                </v-card>
+                </v-col>
+                <v-col cols="12" sm="6" md="4">
+                <v-card class="pa-4 process-card">
+                    <v-icon class="process-icon" color="primary">mdi:mdi-file-document-outline</v-icon>
+                    <v-card-title class="text-h5">Step 2: Proposal</v-card-title>
+                    <p>
+                    Receive a tailored proposal outlining the strategy, timeline, and costs. We'll refine it together to ensure it meets your expectations.
+                    </p>
+                </v-card>
+                </v-col>
+                <v-col cols="12" sm="6" md="4">
+                <v-card class="pa-4 process-card">
+                    <v-icon class="process-icon" color="primary">mdi:mdi-chart-line</v-icon>
+                    <v-card-title class="text-h5">Step 3: Review and Optimize</v-card-title>
+                    <p>
+                    After implementation, we'll review the results, gather feedback, and optimize the solutions to ensure maximum efficiency and impact.
+                    </p>
+                </v-card>
+                </v-col>
+            </v-row>
+        </v-container>
+
+
 
 
         <h1 class="text-center" id="about-me-section">About Me</h1>
@@ -385,4 +420,45 @@ export default {
 .text-left {
     text-align: left;
 }
+
+
+.process-card {
+  border-radius: 12px;
+  background: #f9f9f9;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  padding: 24px;
+}
+
+.process-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+}
+
+.process-icon {
+  font-size: 3rem;
+  margin-bottom: 1rem;
+  color: #42a5f5;
+}
+
+
+.v-card-title {
+  font-size: 1.5rem;
+  margin-bottom: 0.5rem;
+  font-weight: bold;
+}
+
+.v-card-subtitle {
+  font-size: 1rem;
+  line-height: 1.6;
+  color: #555555;
+  padding-left: 12px;
+}
+
+#services-section,
+#process-section,
+#about-me-section {
+    margin-top: 90px; /* Adjust this value as needed */
+}
+
 </style>
