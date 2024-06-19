@@ -95,31 +95,37 @@
         <v-container class="pa-7">
             <v-row class="text-center" dense>
                 <v-col cols="12" sm="6" md="4">
-                <v-card class="pa-4 process-card">
-                    <v-icon class="process-icon" color="primary">mdi:mdi-phone</v-icon>
-                    <v-card-title class="text-h5">Step 1: Free Consultation</v-card-title>
-                    <p>
-                    Start with a 30-minute free call to discuss your needs and goals. We'll explore how my expertise can help your business.
-                    </p>
-                </v-card>
+                    <v-card class="pa-4 process-card">
+                        <v-icon class="process-icon" color="primary">mdi:mdi-phone</v-icon>
+                        <v-card-title class="text-h5">
+                            <span class="process-number">1</span> Connect
+                        </v-card-title>
+                        <p>
+                            Start with a 30-minute free call to discuss your needs and goals. We'll explore how my expertise can help your business.
+                        </p>
+                    </v-card>
                 </v-col>
                 <v-col cols="12" sm="6" md="4">
-                <v-card class="pa-4 process-card">
-                    <v-icon class="process-icon" color="primary">mdi:mdi-file-document-outline</v-icon>
-                    <v-card-title class="text-h5">Step 2: Proposal</v-card-title>
-                    <p>
-                    Receive a tailored proposal outlining the strategy, timeline, and costs. We'll refine it together to ensure it meets your expectations.
-                    </p>
-                </v-card>
+                    <v-card class="pa-4 process-card">
+                        <v-icon class="process-icon" color="primary">mdi:mdi-file-document-outline</v-icon>
+                        <v-card-title class="text-h5">
+                            <span class="process-number">2</span> Proposal
+                        </v-card-title>
+                        <p>
+                            Receive a tailored proposal outlining the strategy, timeline, and costs. We'll refine it together to ensure it meets your expectations.
+                        </p>
+                    </v-card>
                 </v-col>
                 <v-col cols="12" sm="6" md="4">
-                <v-card class="pa-4 process-card">
-                    <v-icon class="process-icon" color="primary">mdi:mdi-chart-line</v-icon>
-                    <v-card-title class="text-h5">Step 3: Review and Optimize</v-card-title>
-                    <p>
-                    After implementation, we'll review the results, gather feedback, and optimize the solutions to ensure maximum efficiency and impact.
-                    </p>
-                </v-card>
+                    <v-card class="pa-4 process-card">
+                        <v-icon class="process-icon" color="primary">mdi:mdi-chart-line</v-icon>
+                        <v-card-title class="text-h5">
+                            <span class="process-number">3</span> Iterate
+                        </v-card-title>
+                        <p>
+                            We'll engage in a custom Slack chat to continuously gather feedback. This ongoing process will ensure maximum efficiency and impact by regularly reviewing results and optimizing solutions.
+                        </p>
+                    </v-card>
                 </v-col>
             </v-row>
         </v-container>
@@ -511,6 +517,38 @@ export default {
   line-height: 1.6;
   color: #555555;
   padding-left: 12px;
+}
+
+.process-number {
+    display: inline-block;
+    background: #42a5f5;
+    color: #fff;
+    border: 2px solid #fff;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    line-height: 36px;
+    text-align: center;
+    font-size: 1.25rem;
+    margin-right: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    position: relative;
+    z-index: 1;
+    background: linear-gradient(145deg, #3a94db, #42a5f5);
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
+}
+
+.process-number::before {
+    content: '';
+    position: absolute;
+    top: -4px;
+    left: -4px;
+    right: -4px;
+    bottom: -4px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.15);
+    z-index: -1;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
 #services-section,
