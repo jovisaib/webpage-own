@@ -37,7 +37,7 @@
             <v-row class="text-center" dense>
                 <v-col cols="12">
                     <h1 class="display-1 mb-4">Hey.</h1>
-                    <p class="headline font-weight-light mb-4">I'm Jose, , your applied AI Consulting Services Expert.</p>
+                    <p class="headline font-weight-light mb-4">I'm Jose, your applied AI Consulting Services Expert.</p>
 
                     <p class="subheading font-weight-regular mb-5">
                         I help businesses like yours harness the power of AI and conduct R&D to boost productivity, drive revenue growth, and dominate your market. Ready to transform your business? Book a call with me today or drop me an <a class="email-link" href="mailto:jovisaib@gmail.com">email</a> to get started.
