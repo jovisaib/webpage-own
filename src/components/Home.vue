@@ -42,30 +42,30 @@
             <v-row>
                 <v-col cols="12" sm="6" md="3">
                     <v-card class="pa-4 text-center service-card">
-                        <v-icon class="service-icon" color="primary">mdi-email</v-icon>
-                        <h3>Cold Emailing</h3>
-                        <p>Contact hundreds of potential customers that fit your ideal customer profile with tailored messaging every month.</p>
+                        <v-icon class="service-icon" color="primary">fas fa-solid fa-robot</v-icon>
+                        <h3>Agents and Multiagent systems</h3>
+                        <p>Leverage my expertise in AI to design and implement Agent and Multiagent systems tailored to your needs. I'll help automate complex tasks, enhance decision-making, and optimize workflows to drive efficiency and innovation in your business.</p>
                     </v-card>
                 </v-col>
                 <v-col cols="12" sm="6" md="3">
                     <v-card class="pa-4 text-center service-card">
-                        <v-icon class="service-icon" color="primary">mdi-magnify</v-icon>
-                        <h3>Prospecting</h3>
-                        <p>Find and create lists of your ideal customer profiles to run marketing campaigns.</p>
+                        <v-icon class="service-icon" color="primary">fas fa-solid fa-chalkboard-user</v-icon>
+                        <h3>Teaching Emerging Technologies</h3>
+                        <p>I teach teams about RAG, Agents, and other emerging technologies. With my industry experience and teaching background, I can help your team stay ahead by mastering the latest advancements in AI and technology.</p>
                     </v-card>
                 </v-col>
                 <v-col cols="12" sm="6" md="3">
                     <v-card class="pa-4 text-center service-card">
-                        <v-icon class="service-icon" color="primary">mdi-magnet</v-icon>
-                        <h3>Lead Magnets</h3>
-                        <p>Reach out to potential customers while offering something of value up front – whether a free tool, a webinar invite, or a useful case study.</p>
+                        <v-icon class="service-icon" color="primary">fas fa-solid fa-chess-board</v-icon>
+                        <h3>AI reporting</h3>
+                        <p>I offer specialized knowledge in Retrieval-Augmented Generation (RAG) to boost your AI applications. I can implement systems that combine retrieval and generation techniques, enhancing the accuracy and relevance of your AI outputs.</p>
                     </v-card>
                 </v-col>
                 <v-col cols="12" sm="6" md="3">
                     <v-card class="pa-4 text-center service-card">
-                        <v-icon class="service-icon" color="primary">mdi-linkedin</v-icon>
-                        <h3>Social Media Marketing</h3>
-                        <p>Don't sleep on social media for B2B marketing – these platforms can give you tens of thousands of impressions for free every month.</p>
+                        <v-icon class="service-icon" color="primary">fas fa-solid fa-brain</v-icon>
+                        <h3>Fractional CTO</h3>
+                        <p>Get top-tier CTO services on a suscription basis. Leverage expert leadership to guide your tech strategy, optimize development processes, and drive innovation without the full-time cost.</p>
                     </v-card>
                 </v-col>
             </v-row>
