@@ -28,7 +28,7 @@
                     <v-list-item-title>About me</v-list-item-title>
                 </v-list-item>
                 <v-list-item href="https://allinsync.beehiiv.com/" target="_blank">
-                    <v-list-item-title>NEWSLETTER</v-list-item-title>
+                    <v-list-item-title>Newsletter</v-list-item-title>
                 </v-list-item>
             </v-list>
         </v-navigation-drawer>
