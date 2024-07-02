@@ -10,7 +10,7 @@
                         <v-btn text class="nav-link" @click="scrollToSection('services-section')">Services</v-btn>
                         <v-btn text class="nav-link" @click="scrollToSection('process-section')">Process</v-btn>
                         <v-btn text class="nav-link" @click="scrollToSection('about-me-section')">About me</v-btn>
-                        <v-btn text href="https://allinsync.beehiiv.com/" target="_blank" class="nav-link">Blog</v-btn>
+                        <v-btn text href="https://allinsync.beehiiv.com/" target="_blank" class="nav-link">Newsletter</v-btn>
                     </v-col>
                 </v-row>
             </v-container>
