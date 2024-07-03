@@ -135,15 +135,15 @@
 
         <h1 class="text-center" id="about-me-section">About Me</h1>
 
-        <v-container class="pa-7">
+        <v-container class="pa-7 d-flex justify-center">
             <v-row class="text-center" dense>
-                <v-col cols="12">
-                    <p class="subheading font-weixght-regular mb-5">
+                <v-col cols="12" md="12">
+                    <p class="subheading font-weight-regular mb-5">
                         I am an AI Consultant Expert based in Spain, renowned for driving innovation across diverse industries with a strong emphasis on AI and IoT. My expertise lies in transforming complex prototypes into scalable, production-ready solutions that drive significant business growth.
-
-As a seasoned speaker on applied AI, I regularly share insights and practical applications, demonstrating how cutting-edge technologies can solve real-world business challenges. My passion for tackling new challenges fuels my ability to develop innovative solutions tailored to meet the specific needs of each client.
-
-By leveraging my extensive experience and deep understanding of AI, I help businesses unlock new opportunities, optimize operations, and achieve their strategic goals. Let’s connect to discuss how my expertise can contribute to your success and take your business to the next level.
+                        <br><br>
+                        As a seasoned speaker on applied AI, I regularly share insights and practical applications, demonstrating how cutting-edge technologies can solve real-world business challenges. My passion for tackling new challenges fuels my ability to develop innovative solutions tailored to meet the specific needs of each client.
+                        <br><br>
+                        By leveraging my extensive experience and deep understanding of AI, I help businesses unlock new opportunities, optimize operations, and achieve their strategic goals. Let’s connect to discuss how my expertise can contribute to your success and take your business to the next level.
                     </p>
                 </v-col>
             </v-row>
