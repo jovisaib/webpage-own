@@ -139,12 +139,11 @@
             <v-row class="text-center" dense>
                 <v-col cols="12">
                     <p class="subheading font-weixght-regular mb-5">
-                            I'm a dynamic Independent R&D Software Engineer in Spain, known for driving innovation across
-                        diverse industries. With expertise in AI, IoT, and a passion for urban planning,, I excel in taking
-                        complex prototypes to production. Committed to impactful contributions, I've presented at
-                        Machine Learning Spain, demonstrating my ability to transform ideas into practical solutions. I
-                        thrive on embracing new challenges and seeking solutions that have a profound and positive
-                        impact on society.
+                        I am an AI Consultant Expert based in Spain, renowned for driving innovation across diverse industries with a strong emphasis on AI and IoT. My expertise lies in transforming complex prototypes into scalable, production-ready solutions that drive significant business growth.
+
+As a seasoned speaker on applied AI, I regularly share insights and practical applications, demonstrating how cutting-edge technologies can solve real-world business challenges. My passion for tackling new challenges fuels my ability to develop innovative solutions tailored to meet the specific needs of each client.
+
+By leveraging my extensive experience and deep understanding of AI, I help businesses unlock new opportunities, optimize operations, and achieve their strategic goals. Let’s connect to discuss how my expertise can contribute to your success and take your business to the next level.
                     </p>
                 </v-col>
             </v-row>
