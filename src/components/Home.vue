@@ -150,63 +150,6 @@
         </v-container>
 
 
-        <v-container class="pa-7">
-    <v-row>
-        <v-col cols="12" sm="6" md="4">
-            <v-hover v-slot="{ hover }">
-                <v-card @click="setupDialog('dmx')" :elevation="hover ? 2 : 0" :class="{ 'on-hover': hover }" class="pa-4 cursor-pointer service-card">
-                    <v-card-title class="text-h5">GO DMX GO</v-card-title>
-                    <v-card-subtitle class="font-weight-bold body-1">
-                        <v-row align="center">
-                            <v-col cols="3">
-                                <div class="emoji-style text-center">🏢</div>
-                            </v-col>
-                            <v-col cols="9">
-                                <p class="text-left">A lightweight library written in Go for DMX512, a standard for digital communication networks commonly used to control lighting and effects.</p>
-                            </v-col>
-                        </v-row>
-                    </v-card-subtitle>
-                </v-card>
-            </v-hover>
-        </v-col>
-        <v-col cols="12" sm="6" md="4">
-            <v-hover v-slot="{ hover }">
-                <v-card @click="setupDialog('workshop')" :elevation="hover ? 2 : 0" :class="{ 'on-hover': hover }" class="pa-4 cursor-pointer service-card">
-                    <v-card-title class="text-h5">CLAP O' METER</v-card-title>
-                    <v-card-subtitle class="font-weight-bold body-1">
-                        <v-row align="center">
-                            <v-col cols="3">
-                                <div class="emoji-style text-center">👏</div>
-                            </v-col>
-                            <v-col cols="9">
-                                <p class="text-left">Clap classifier for embedded systems.</p>
-                            </v-col>
-                        </v-row>
-                    </v-card-subtitle>
-                </v-card>
-            </v-hover>
-        </v-col>
-        <v-col cols="12" sm="6" md="4">
-            <v-hover v-slot="{ hover }">
-                <v-card @click="setupDialog('talks')" :elevation="hover ? 2 : 0" :class="{ 'on-hover': hover }" class="pa-4 cursor-pointer service-card">
-                    <v-card-title class="text-h5">TINYML TALKS</v-card-title>
-                    <v-card-subtitle class="font-weight-bold body-1">
-                        <v-row align="center">
-                            <v-col cols="3">
-                                <div class="emoji-style text-center">🤖</div>
-                            </v-col>
-                            <v-col cols="9">
-                                <p class="text-left">Talk at Machine Learning Spain showing the state of the art for TinyML (Spanish).</p>
-                            </v-col>
-                        </v-row>
-                    </v-card-subtitle>
-                </v-card>
-            </v-hover>
-        </v-col>
-    </v-row>
-</v-container>
-
-
         <v-row justify="center">
             <v-dialog v-model="dialog" fullscreen hide-overlay transition="dialog-bottom-transition">
                 <v-card>
