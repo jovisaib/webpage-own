@@ -105,40 +105,72 @@
         </v-container>
 
 
-        <h1 class="text-center" id="services-section">Services</h1>
+        <v-container fluid style="background-color: #F5F5F5;" id="services-section" class="py-12 py-md-24 py-lg-32 bg-muted">
+  <!-- Main Container -->
+  <v-row class="px-4 px-md-6 d-flex flex-column align-center text-center space-y-12">
+    <!-- Heading Section -->
+    <v-col cols="12" class="d-flex flex-column align-center space-y-4">
+      <div class="space-y-2">
+        <v-chip class="bg-muted mb-2 px-3 py-1 text-sm" outlined>Our Services</v-chip>
+        <h2 class="text-h4 font-weight-bold text-center sm:text-h3 lg:text-h2">
+          Transformative AI Solutions
+        </h2>
+        <p class="text-body-1 text-muted-foreground max-w-300 md:text-xl lg:text-base xl:text-xl">
+          Our team of AI experts delivers cutting-edge solutions to help businesses unlock the full potential of artificial intelligence.
+        </p>
+      </div>
+    </v-col>
 
-        <v-container class="pa-7">
-            <v-row>
-                <v-col cols="12" sm="6" md="3">
-                    <v-card class="pa-4 text-center service-card">
-                        <v-icon class="service-icon" color="primary">fas fa-solid fa-robot</v-icon>
-                        <h3>Agents and Multiagent systems</h3>
-                        <p>Leverage my expertise in AI to design and implement Agent and Multiagent systems tailored to your needs. I'll help automate complex tasks, enhance decision-making, and optimize workflows to drive efficiency and innovation in your business.</p>
-                    </v-card>
-                </v-col>
-                <v-col cols="12" sm="6" md="3">
-                    <v-card class="pa-4 text-center service-card">
-                        <v-icon class="service-icon" color="primary">fas fa-solid fa-chalkboard-user</v-icon>
-                        <h3>Teaching Emerging Technologies</h3>
-                        <p>I teach teams about RAG, Agents, and other emerging technologies. With my industry experience and teaching background, I can help your team stay ahead by mastering the latest advancements in AI and technology.</p>
-                    </v-card>
-                </v-col>
-                <v-col cols="12" sm="6" md="3">
-                    <v-card class="pa-4 text-center service-card">
-                        <v-icon class="service-icon" color="primary">fas fa-solid fa-chess-board</v-icon>
-                        <h3>AI reporting</h3>
-                        <p>I offer specialized knowledge in Retrieval-Augmented Generation (RAG) to boost your AI applications. I can implement systems that combine retrieval and generation techniques, enhancing the accuracy and relevance of your AI outputs.</p>
-                    </v-card>
-                </v-col>
-                <v-col cols="12" sm="6" md="3">
-                    <v-card class="pa-4 text-center service-card">
-                        <v-icon class="service-icon" color="primary">fas fa-solid fa-brain</v-icon>
-                        <h3>Fractional CTO</h3>
-                        <p>Get top-tier CTO services on a suscription basis. Leverage expert leadership to guide your tech strategy, optimize development processes, and drive innovation without the full-time cost.</p>
-                    </v-card>
-                </v-col>
-            </v-row>
-        </v-container>
+    <!-- Services Grid -->
+    <v-col cols="12">
+      <v-row class="d-flex gap-8 sm:grid-cols-2 md:gap-12 text-left lg:grid-cols-3">
+        <!-- Service 1 -->
+        <v-col cols="12" sm="6" md="4" class="d-flex flex-column gap-1">
+          <h3 class="text-h6 font-weight-bold">AI reporting</h3>
+          <p class="text-body-1 text-muted-foreground justify-left">
+            Use our expertise in Retrieval-Augmented Generation (RAG) to boost your AI applications.
+          </p>
+        </v-col>
+        <!-- Service 2 -->
+        <v-col cols="12" sm="6" md="4" class="d-flex flex-column gap-1">
+          <h3 class="text-h6 font-weight-bold">AI Implementation</h3>
+          <p class="text-body-1 text-muted-foreground justify-left">
+            Our experts seamlessly integrate AI solutions into your existing infrastructure.
+          </p>
+        </v-col>
+        <!-- Service 3 -->
+        <v-col cols="12" sm="6" md="4" class="d-flex flex-column gap-1">
+          <h3 class="text-h6 font-weight-bold">Fractional CTO</h3>
+          <p class="text-body-1 text-muted-foreground justify-left">
+            Get top-tier CTO services on a suscription basis. Leverage expert leadership to guide your strategy.
+          </p>
+        </v-col>
+        <!-- Service 4 -->
+        <v-col cols="12" sm="6" md="4" class="d-flex flex-column gap-1">
+          <h3 class="text-h6 font-weight-bold">Training</h3>
+          <p class="text-body-1 text-muted-foreground justify-left">
+            Our comprehensive training programs empower your team to leverage AI and emerging technologies effectively.
+          </p>
+        </v-col>
+        <!-- Service 5 -->
+        <v-col cols="12" sm="6" md="4" class="d-flex flex-column gap-1">
+          <h3 class="text-h6 font-weight-bold">AI Consulting</h3>
+          <p class="text-body-1 text-muted-foreground justify-left">
+            We provide expert guidance to help you navigate the complex world of artificial intelligence.
+          </p>
+        </v-col>
+        <!-- Service 6 -->
+        <v-col cols="12" sm="6" md="4" class="d-flex flex-column gap-1">
+          <h3 class="text-h6 font-weight-bold">AI Research</h3>
+          <p class="text-body-1 text-muted-foreground justify-left">
+            Our team conducts cutting-edge research to stay at the forefront of AI innovation.
+          </p>
+        </v-col>
+      </v-row>
+    </v-col>
+  </v-row>
+</v-container>
+
 
         <h1 class="text-center" id="process-section">Processs</h1>
 
