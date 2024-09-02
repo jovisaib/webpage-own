@@ -33,7 +33,7 @@ export default {
   data: () => ({
     icons: [
         { href: 'https://x.com/jovisaib', img: 'fas fa-brands fa-x-twitter' },
-        { href: 'https://www.linkedin.com/in/jose-vicente-saez/', img: 'mdi:mdi-linkedin' },
+        { href: 'https://www.linkedin.com/company/jovisaib/', img: 'mdi:mdi-linkedin' },
         { href: 'https://github.com/jovisaib', img: 'mdi:mdi-github' },
     ],
   }),
