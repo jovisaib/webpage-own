@@ -33,22 +33,72 @@
             </v-list>
         </v-navigation-drawer>
 
-        <v-container class="pa-7 presentation-container with-top-margin">
-            <v-row class="text-center" dense>
-                <v-col cols="12">
-                    <h1 class="display-1 mb-4">Hey.</h1>
-                    <p class="headline font-weight-light mb-4">I'm Jose, your applied AI Consulting Services Expert.</p>
+        <v-container fluid class="pa-7 with-top-margin">
+  <v-row class="py-md-24 py-lg-32 py-xl-48">
+    <v-col class="px-6 px-md-6">
+      <v-row
+        align="center"
+        class="gap-6 lg:gap-12"
+        no-gutters
+      >
+        <!-- Text Column -->
+        <v-col
+          class="d-flex flex-column justify-center space-y-4"
+          cols="12"
+          md="6"
+        >
+          <div class="space-y-4 pa-4 pa-md-6">
+            <h1 class="display-3 font-weight-bold text-lg-none sm:text-display-2 xl:text-display-1">
+              Unleash the Power of AI
+            </h1>
+            <p class="text-body-1 text-md-subtitle-1 mb-4 max-w-600 text-muted-foreground">
+              Our AI consultancy helps businesses harness the transformative
+              potential of artificial intelligence to drive innovation, boost productivity, drive revenue, and
+              achieve competitive advantage.
+            </p>
+          </div>
 
-                    <p class="subheading font-weight-regular mb-5">
-                        I help businesses like yours harness the power of AI and conduct R&D to boost productivity, drive revenue growth, and dominate your market. Ready to transform your business? Book a call with me today or drop me an <a class="email-link" href="mailto:jovisaib@gmail.com">email</a> to get started.
-                    </p>
-                </v-col>
-            </v-row>
-
-            <v-row justify="center" class="mt-5">
-                <v-btn class="consultation-btn" href="https://calendly.com/jovisaib/main" target="_blank">Book a Consultation</v-btn>
-            </v-row>
-        </v-container>
+          <div class="px-6 d-flex flex-column gap-2 flex-sm-row">
+            <v-btn
+              href="https://calendly.com/jovisaib/main"
+              rounded="lg"
+              size="x-large"
+              class="text-black text-capitalize py-2 px-6 font-weight-medium mr-sm-4"
+              elevation="2"
+            >
+              Get in Touch
+            </v-btn>
+            <v-btn
+              @click="scrollToSection('services-section')"
+              outlined
+              rounded="lg"
+              size="x-large"
+              elevation="2"
+              class="text-black text-capitalize py-2 px-6 font-weight-medium"
+            >
+              Our Services
+            </v-btn>
+          </div>
+        </v-col>
+        <!-- Image Column -->
+        <v-col
+          cols="12"
+          md="6"
+          class="d-flex justify-center pa-4 pa-md-6"
+        >
+          <v-img
+            src="../assets/landingph.png"
+            aspect-ratio="16/9"
+            max-width="480"
+            alt="AI Consultancy"
+            class="mx-auto rounded-xl object-cover object-center"
+            contain
+          />
+        </v-col>
+      </v-row>
+    </v-col>
+  </v-row>
+</v-container>
         
         <v-container class="pa-7">
             <div class="senja-embed" data-id="eb95ccf6-f2ad-4f0d-a0b4-d5e7932beede" data-mode="shadow" data-lazyload="false"></div>
