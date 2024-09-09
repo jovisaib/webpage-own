@@ -213,13 +213,52 @@
         </v-container>
 
 
+        <v-container fluid class="py-12 md:py-24 lg:py-32 bg-muted">
+            <v-row justify="center" class="text-center mb-8">
+            <v-col cols="12">
+                <h2 class="text-h3 font-weight-bold sm:text-h4 md:text-h2">Our Cases</h2>
+                <p class="mx-auto text-muted-foreground md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed">
+                See how our consulting services have helped businesses like yours achieve their goals.
+                </p>
+            </v-col>
+            </v-row>
+
+    <v-row class="pt-8" dense>
+      <v-col v-for="(project, index) in projects" :key="index" cols="12" sm="6" md="4" lg="3">
+        <v-hover v-slot:default="{ isHovering }">
+            <v-card
+            class="overflow-hidden rounded-lg shadow-lg p-2 transition-all duration-300 ease-in-out"
+            :elevation="isHovering ? 10 : 2"
+            :class="isHovering ? 'hovered-card' : ''"
+          >
+            <v-img
+              :src="require(`@/assets/${project.img}`)"
+              class="h-36 object-cover"
+              aspect-ratio="16/9"
+            ></v-img>
+            <v-card-text class="bg-background">
+              <h3 class="text-h6 font-weight-bold">{{project.title}}</h3>
+              <p class="text-muted-foreground text-body-2">{{ project.description }}</p>
+            </v-card-text>
+          </v-card>
+        </v-hover>
+      </v-col>
+    </v-row>
+  </v-container>
 
 
-        <h1 class="text-center" id="about-me-section">About Me</h1>
 
-        <v-container class="pa-7 d-flex justify-center">
-            <v-row class="text-center" dense>
+        <v-container class="pa-7 py-12 md:py-24 lg:py-32 justify-center">
+            <v-row justify="center" class="text-center mb-8">
                 <v-col cols="12" md="12">
+                    <h2 class="text-h3 font-weight-bold sm:text-h4 md:text-h2">About Us</h2>
+                    <p class="mx-auto text-muted-foreground md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed">
+                    
+                    </p>
+                </v-col>
+            </v-row>
+            <v-row class="text-center" dense>
+                <v-col cols="12" md="12" sm="12">
                     <p class="text-body-1 text-md-subtitle-1 mb-4 max-w-600 text-muted-foreground">
                         I'm an AI Consultant Expert based in Spain, renowned for driving innovation across diverse industries with a strong emphasis on AI and IoT. My expertise lies in transforming complex prototypes into scalable, production-ready solutions that drive significant business growth.
                         <br><br>
@@ -286,6 +325,28 @@ export default {
             notifications: false,
             sound: true,
             widgets: false,
+            projects: [
+                {
+                    title: "Automating Workflows in Banking with AI-driven Machine Vision and OCR",
+                    description: "Revolutionizing banking and financial systems by automating workflows with advanced machine vision and OCR technologies, reducing errors and boosting efficiency.",
+                    img: "ocr_case.jpeg",
+                },
+                {
+                    title: "Advanced Document & Report Generation Using Generative AI with RAG",
+                    description: "Providing intelligent document and report generation, leveraging RAG to integrate external information for precise, context-rich outputs.",
+                    img: 'reportally.png',
+                },
+                {
+                    title: "Streamlining Accounting with Generative AI for Large Enterprises",
+                    description: "Enhancing complex accounting processes for large corporations using generative AI, delivering scalability, cost savings, and compliance improvements.",
+                    img: "csv_ocr_case.jpeg",
+                },
+                {
+                    title: "Leadership & Training Solutions for Global Industrial Companies",
+                    description: "Offering tailored leadership and training programs to enhance team performance and drive success for industrial companies operating internationally in complex fields like IoT and embedded AI.",
+                    img: "industrial_jose.jpeg",
+                },
+            ],
         }
     },
     methods: {
@@ -299,7 +360,7 @@ export default {
                 section.scrollIntoView({ behavior: 'smooth' });
                 this.drawer = false; // Close drawer after navigation
             }
-        }
+        },
     },
     mounted() {
         const script = document.createElement('script');
@@ -593,6 +654,23 @@ export default {
     color: #1565c0; /* Darker shade on hover */
     border-bottom-color: #1565c0; /* Underline appears on hover */
     text-decoration: none; /* Ensure no underline on hover */
+}
+
+.bg-muted {
+  background-color: #f5f5f5;
+}
+
+.text-muted-foreground {
+  color: #6b7280;
+}
+
+.v-card {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.hovered-card {
+  transform: translateY(-8px);
+  box-shadow: 0px 10px 15px rgba(0, 0, 0, 0.3);
 }
 
 </style>
