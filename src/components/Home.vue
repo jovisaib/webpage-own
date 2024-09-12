@@ -9,7 +9,7 @@
                     <v-col cols="auto" class="d-none d-md-flex"> <!-- Only show on medium and larger screens -->
                         <v-btn text class="nav-link" @click="scrollToSection('services-section')">Services</v-btn>
                         <v-btn text class="nav-link" @click="scrollToSection('process-section')">Process</v-btn>
-                        <v-btn text class="nav-link" @click="scrollToSection('about-me-section')">About me</v-btn>
+                        <v-btn text class="nav-link" @click="scrollToSection('about-me-section')">About Us</v-btn>
                         <v-btn text href="https://allinsync.beehiiv.com/" target="_blank" class="nav-link">Newsletter</v-btn>
                     </v-col>
                 </v-row>
@@ -25,7 +25,7 @@
                     <v-list-item-title>Process</v-list-item-title>
                 </v-list-item>
                 <v-list-item @click="scrollToSection('about-me-section')">
-                    <v-list-item-title>About me</v-list-item-title>
+                    <v-list-item-title>About Us</v-list-item-title>
                 </v-list-item>
                 <v-list-item href="https://allinsync.beehiiv.com/" target="_blank">
                     <v-list-item-title>Newsletter</v-list-item-title>
@@ -167,10 +167,16 @@
   </v-row>
 </v-container>
 
+        <v-container id="process-section" class="pa-7">
+            <v-row justify="center" class="text-center mb-8">
+                <v-col cols="12" md="12">
+                    <h2 class="text-h3 font-weight-bold sm:text-h4 md:text-h2">Process</h2>
+                    <p class="mx-auto text-muted-foreground md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed">
+                        Our streamlined process ensures your tech operations support your business goals efficiently and effectively.
+                    </p>
+                </v-col>
+            </v-row>
 
-        <h1 class="text-center" id="process-section">Processs</h1>
-
-        <v-container class="pa-7">
             <v-row class="text-center" dense>
                 <v-col cols="12" sm="6" md="4">
                     <v-card class="pa-4 process-card">
@@ -212,7 +218,7 @@
         <v-container fluid class="py-12 md:py-24 lg:py-32 bg-muted">
             <v-row justify="center" class="text-center mb-8">
             <v-col cols="12">
-                <h2 class="text-h3 font-weight-bold sm:text-h4 md:text-h2">Our Cases</h2>
+                <h2 class="text-h3 font-weight-bold sm:text-h4 md:text-h2">Case Studies</h2>
                 <p class="mx-auto text-muted-foreground md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed">
                 See how our consulting services have helped businesses like yours achieve their goals.
                 </p>
@@ -244,23 +250,20 @@
 
 
 
-        <v-container class="pa-7 py-12 md:py-24 lg:py-32 justify-center">
+        <v-container id="about-me-section" class="pa-7 py-12 md:py-24 lg:py-32 justify-center">
             <v-row justify="center" class="text-center mb-8">
                 <v-col cols="12" md="12">
                     <h2 class="text-h3 font-weight-bold sm:text-h4 md:text-h2">About Us</h2>
-                    <p class="mx-auto text-muted-foreground md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed">
-                    
-                    </p>
                 </v-col>
             </v-row>
-            <v-row class="text-center" dense>
+            <v-row dense>
                 <v-col cols="12" md="12" sm="12">
                     <p class="text-body-1 text-md-subtitle-1 mb-4 max-w-600 text-muted-foreground">
-                        I'm an AI Consultant Expert based in Spain, renowned for driving innovation across diverse industries with a strong emphasis on AI and IoT. My expertise lies in transforming complex prototypes into scalable, production-ready solutions that drive significant business growth.
-                        <br><br>
-                        As a seasoned speaker on applied AI, I regularly share insights and practical applications, demonstrating how cutting-edge technologies can solve real-world business challenges. My passion for tackling new challenges fuels my ability to develop innovative solutions tailored to meet the specific needs of each client.
-                        <br><br>
-                        By leveraging my extensive experience and deep understanding of AI, I help businesses unlock new opportunities, optimize operations, and achieve their strategic goals. Let’s connect to discuss how my expertise can contribute to your success and take your business to the next level.
+                        We are a team of AI consultants and experts, committed to driving innovation across diverse industries with a focus on AI, IoT, and cutting-edge technologies. Our collective expertise allows us to transform complex prototypes into scalable, production-ready solutions that deliver measurable business growth.
+                        <br/><br/>
+                        As thought leaders in applied AI, we regularly share insights and practical applications through speaking engagements and workshops, showcasing how emerging technologies can solve real-world business challenges. We thrive on tackling complex problems, crafting solutions tailored to meet the unique needs of each client.
+                        <br/><br/>
+                        By leveraging our deep knowledge and years of experience, we help businesses unlock new opportunities, optimize operations, and achieve their strategic goals. Let’s connect to explore how our expertise can elevate your business to new heights.
                     </p>
                 </v-col>
             </v-row>
