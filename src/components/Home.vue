@@ -2,9 +2,15 @@
     <div>
         <v-app-bar app color="transparent" class="blurred-nav" flat>
             <v-container>
-                <v-row justify="center">
+                <v-row align="center" justify="space-between">
                     <v-col cols="auto" class="d-flex d-md-none"> <!-- Only show on small screens -->
                         <v-app-bar-nav-icon @click="drawer = !drawer"></v-app-bar-nav-icon>
+                    </v-col>
+                    <v-col cols="auto" class="d-flex justify-center d-md-none pr-8"> <!-- Only show on small screens, added right padding -->
+                        <h1 class="text-h4 font-weight-bold" style="font-family: 'Montserrat', sans-serif;">allometrik</h1>
+                    </v-col>
+                    <v-col cols="auto" class="d-none d-md-flex justify-center"> <!-- Only show on medium and larger screens -->
+                        <h1 class="text-h4 font-weight-bold" style="font-family: 'Montserrat', sans-serif;">allometrik</h1>
                     </v-col>
                     <v-col cols="auto" class="d-none d-md-flex"> <!-- Only show on medium and larger screens -->
                         <v-btn text class="nav-link" @click="scrollToSection('services-section')">Services</v-btn>
