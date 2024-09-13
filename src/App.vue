@@ -17,7 +17,7 @@
         <v-row align="center" justify="center">
           <v-col cols="12">
             <v-card-text class="white--text">
-              <strong>© Copyright  {{ new Date().getFullYear() }} Jovisaib</strong>
+              <strong>© Copyright  {{ new Date().getFullYear() }} Allometrik</strong>
             </v-card-text>
           </v-col>
         </v-row>
@@ -32,8 +32,8 @@ import Home from "./components/Home.vue";
 export default {
   data: () => ({
     icons: [
-        { href: 'https://x.com/jovisaib', img: 'fas fa-brands fa-x-twitter' },
-        { href: 'https://www.linkedin.com/company/jovisaib/', img: 'mdi:mdi-linkedin' },
+        { href: 'https://x.com/allometrik', img: 'fas fa-brands fa-x-twitter' },
+        { href: 'https://www.linkedin.com/company/allometriktech/', img: 'mdi:mdi-linkedin' },
         { href: 'https://github.com/jovisaib', img: 'mdi:mdi-github' },
     ],
   }),
