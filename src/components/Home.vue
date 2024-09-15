@@ -6,10 +6,12 @@
                     <v-col cols="auto" class="d-flex d-md-none"> <!-- Only show on small screens -->
                         <v-app-bar-nav-icon @click="drawer = !drawer"></v-app-bar-nav-icon>
                     </v-col>
-                    <v-col cols="auto" class="d-flex justify-center d-md-none pr-8"> <!-- Only show on small screens, added right padding -->
+                    <v-col cols="auto" class="d-flex align-center d-md-none pr-8"> <!-- Only show on small screens, added right padding -->
+                        <v-img :src="require('@/assets/logo_main.png')" max-height="50" min-width="50" class="mr-1"></v-img>
                         <h1 class="text-h4 font-weight-bold" style="font-family: 'Montserrat', sans-serif;">allometrik</h1>
                     </v-col>
-                    <v-col cols="auto" class="d-none d-md-flex justify-center"> <!-- Only show on medium and larger screens -->
+                    <v-col cols="auto" class="d-none d-md-flex align-center justify-center"> <!-- Only show on medium and larger screens -->
+                        <v-img :src="require('@/assets/logo_main.png')" max-height="50" min-width="50" class="mr-1"></v-img>
                         <h1 class="text-h4 font-weight-bold" style="font-family: 'Montserrat', sans-serif;">allometrik</h1>
                     </v-col>
                     <v-col cols="auto" class="d-none d-md-flex"> <!-- Only show on medium and larger screens -->
