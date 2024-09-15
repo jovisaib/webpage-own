@@ -64,7 +64,7 @@
 
                   <div class="px-6 d-flex flex-column gap-2 flex-sm-row">
                     <v-btn
-                      href="https://calendly.com/jovisaib/main"
+                      href="https://calendly.com/jovisaib/30-min-intro"
                       rounded="lg"
                       size="x-large"
                       class="mb-2 text-black text-capitalize py-2 px-6 font-weight-medium mr-sm-4"
