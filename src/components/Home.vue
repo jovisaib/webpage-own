@@ -269,9 +269,11 @@
                     <p class="text-body-1 text-md-subtitle-1 mb-4 max-w-600 text-muted-foreground">
                         We are a team of AI consultants and experts, committed to driving innovation across diverse industries with a focus on AI, IoT, and cutting-edge technologies. Our collective expertise allows us to transform complex prototypes into scalable, production-ready solutions that deliver measurable business growth.
                         <br/><br/>
-                        As thought leaders in applied AI, we regularly share insights and practical applications through speaking engagements and workshops, showcasing how emerging technologies can solve real-world business challenges. We thrive on tackling complex problems, crafting solutions tailored to meet the unique needs of each client.
+                        Our multidisciplinary team combines specialized knowledge in front-end and back-end development, DevOps, IoT, information retrieval, and AI innovation. We emphasize practical applications of advanced AI, delivering impactful projects through hands-on engineering and expert strategic guidance.
                         <br/><br/>
                         By leveraging our deep knowledge and years of experience, we help businesses unlock new opportunities, optimize operations, and achieve their strategic goals. Let’s connect to explore how our expertise can elevate your business to new heights.
+                        <br/><br/>
+                        For any inquiries or to discuss how we can assist your business, feel free to reach out to us at <a href="mailto:hello@allometrik.com">hello@allometrik.com</a>. We look forward to hearing from you!
                     </p>
                 </v-col>
             </v-row>
