@@ -1,6 +1,6 @@
 <template>
   <v-app id="app">
-    <home />
+    <router-view />
 
     <v-footer dark class="footer green darken-3 lighten-1 white--text text-center">
       <v-container class="fill-height">
