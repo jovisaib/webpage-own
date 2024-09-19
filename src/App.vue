@@ -49,7 +49,7 @@
 
     <router-view />
 
-    <v-footer dark class="footer green darken-3 white--text">
+    <v-footer class="footer gradient-bg white--text">
       <v-container>
         <v-row justify="center" align="center" class="py-4">
           <v-col cols="12" sm="6" md="4" class="text-center text-sm-left">
@@ -136,6 +136,24 @@ export default {
 .footer {
   width: 100%;
   padding: 20px 0;
+}
+
+.gradient-bg {
+  background: linear-gradient(135deg, #6366F1, #8B5CF6, #EC4899);
+  animation: gradient 15s ease infinite;
+  background-size: 400% 400%;
+}
+
+@keyframes gradient {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
 }
 
 .v-btn.v-btn--icon {
