@@ -28,6 +28,7 @@
                 color="primary"
                 text
                 :to="`/blog/${post.slug}`"
+                @click.stop
               >
                 Read More
               </v-btn>
@@ -40,18 +41,20 @@
     <v-row class="mt-12">
       <v-col cols="12">
         <v-card class="consultation-card" color="primary" dark>
-          <v-card-text class="text-center py-12">
-            <h2 class="text-h3 font-weight-bold mb-6">Unlock Your Business Potential</h2>
-            <p class="text-h6 mb-8">Our expert consultants are ready to guide you through the AI revolution. Don't miss this opportunity to transform your business.</p>
+          <v-card-text class="text-center py-16">
+            <h2 class="text-h3 font-weight-bold mb-8">Unlock Your Business Potential</h2>
+            <p class="text-h6 mb-12">Our expert consultants are ready to guide you through the AI revolution. Don't miss this opportunity to transform your business.</p>
             <v-btn
               color="white"
               x-large
-              rounded
-              elevation="3"
-              class="primary--text font-weight-bold px-8 py-3"
-              @click="bookCall"
+              elevation="2"
+              class="primary--text font-weight-bold px-8 py-3 mt-4 cta-button text-uppercase"
+              href="https://calendly.com/jovisaib/30-min-intro"
+              target="_blank"
+              rel="noopener noreferrer"
+              style="border-radius: 4px;"
+              @click.stop
             >
-              <v-icon left>mdi-calendar-clock</v-icon>
               Schedule Your Free Consultation
             </v-btn>
           </v-card-text>
@@ -119,5 +122,22 @@ export default {
 .consultation-card .v-card__text {
   position: relative;
   z-index: 2;
+}
+.cta-button {
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  z-index: 3;
+  position: relative;
+}
+.cta-button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 8px rgba(0, 0, 0, 0.15);
+  background-color: #f5f5f5 !important;
+}
+.cta-button .v-icon {
+  transition: transform 0.3s ease;
+}
+.cta-button:hover .v-icon {
+  transform: rotate(15deg);
 }
 </style>

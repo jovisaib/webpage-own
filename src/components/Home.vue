@@ -1,53 +1,34 @@
 <template>
-        <v-container fluid class="pa-7 with-top-margin">
+        <v-container fluid class="pa-12 with-top-margin">
               <v-row
                 align="center"
-                class="gap-6 lg:gap-12"
-                no-gutters
+                justify="center"
+                class="text-center"
               >
-                <!-- Text Column -->
-                <v-col
-                  class="d-flex flex-column justify-center space-y-4"
-                  cols="12"
-                  md="6"
-                >
-                  <div class="space-y-4 pa-4 pa-md-6">
-                    <h1 class="display-2 font-weight-bold text-lg-none sm:text-display-2 xl:text-display-1">
-                      Unleash the Power of AI
-                    </h1>
-                    <p class="text-body-1 text-md-subtitle-1 mb-4 max-w-600 text-muted-foreground">
-                      Our AI consultancy helps businesses harness the transformative
-                      potential of artificial intelligence to drive innovation, boost productivity, drive revenue, and
-                      achieve competitive advantage.
-                    </p>
-                  </div>
-
-                  <div class="px-6 d-flex flex-column gap-2 flex-sm-row">
-                    <v-btn
-                      href="https://calendly.com/jovisaib/30-min-intro"
-                      rounded="lg"
-                      size="x-large"
-                      class="mb-2 text-black text-capitalize py-2 px-6 font-weight-medium mr-sm-4"
-                      elevation="2"
-                    >
-                      Get in Touch
-                    </v-btn>
-                  </div>
-                </v-col>
-                <!-- Image Column -->
-                <v-col
-                  cols="12"
-                  md="6"
-                  class="d-flex justify-center pa-4 pa-md-6"
-                >
-                  <v-img
-                    src="../assets/landingph.png"
-                    aspect-ratio="16/9"
-                    max-width="480"
-                    alt="AI Consultancy"
-                    class="mx-auto rounded-xl object-cover object-center"
-                    contain
-                  />
+                <v-col cols="12" md="8" lg="6">
+                  <h1 class="text-h2 font-weight-bold mb-8">
+                    We transform your<br>
+                    AI projects from<br>
+                    <span class="bg-black text-white px-4 py-2 d-inline-block">concept to reality</span>
+                  </h1>
+                  <p class="text-body-1 mb-12">
+                    From innovative startups to established industry leaders,<br>
+                    we've helped organizations build groundbreaking AI and IoT solutions.<br>
+                    Let's unlock your potential together.
+                  </p>
+                  <v-btn
+                    href="https://calendly.com/jovisaib/30-min-intro"
+                    class="book-call-btn"
+                    target="_blank"
+                    x-large
+                    elevation="2"
+                    color="primary"
+                    dark
+                    :ripple="{ class: 'white--text' }"
+                    style="text-transform: none; border-radius: 8px; padding: 12px 24px; display: inline-flex; align-items: center; justify-content: center; height: 56px; margin: 0 auto;"
+                  >
+                    <span>Book Your Free Consultation</span>
+                  </v-btn>
                 </v-col>
               </v-row>
         </v-container>
@@ -122,49 +103,28 @@
     </v-col>
   </v-row>
 </v-container>
-
-        <v-container id="process-section" class="pa-7">
-            <v-row justify="center" class="text-center mb-8">
-                <v-col cols="12" md="12">
-                    <h2 class="text-h3 font-weight-bold sm:text-h4 md:text-h2">Process</h2>
-                    <p class="mx-auto text-muted-foreground md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed">
-                        Our streamlined process ensures your tech operations support your business goals efficiently and effectively.
+        <v-container id="process-section" class="py-16 bg-gradient-to-r from-blue-50 to-indigo-50 mt-16 mb-16">
+            <v-row justify="center" class="text-center mb-12">
+                <v-col cols="12" md="10" lg="8">
+                    <h2 class="text-h3 font-weight-bold mb-4">Our Streamlined Process</h2>
+                    <p class="text-lg text-gray-700 max-w-3xl mx-auto">
+                        Experience a seamless journey from concept to implementation. Our innovative approach ensures your AI initiatives are executed with precision and agility.
                     </p>
                 </v-col>
             </v-row>
 
             <v-row class="text-center" dense>
-                <v-col cols="12" sm="6" md="4">
-                    <v-card class="pa-4 process-card">
-                        <v-icon class="process-icon" color="primary">mdi:mdi-phone</v-icon>
-                        <v-card-title class="text-h5">
-                            <span class="process-number">1</span> Connect
+                <v-col cols="12" sm="6" md="4" v-for="(step, index) in processSteps" :key="index">
+                    <v-card class="process-card h-full d-flex flex-column justify-space-between" elevation="0">
+                        <div class="process-icon-wrapper mb-4">
+                            <v-icon :color="step.iconColor" size="64" class="process-icon">{{ step.icon }}</v-icon>
+                        </div>
+                        <v-card-title class="text-h5 font-weight-bold mb-4">
+                            <span class="process-number">{{ index + 1 }}</span> {{ step.title }}
                         </v-card-title>
-                        <p>
-                            Start with a 30-minute free call to discuss your needs and goals. We'll explore how my expertise can help your business.
-                        </p>
-                    </v-card>
-                </v-col>
-                <v-col cols="12" sm="6" md="4">
-                    <v-card class="pa-4 process-card">
-                        <v-icon class="process-icon" color="primary">mdi:mdi-file-document-outline</v-icon>
-                        <v-card-title class="text-h5">
-                            <span class="process-number">2</span> Proposal
-                        </v-card-title>
-                        <p>
-                            Receive a tailored proposal outlining the strategy, timeline, and costs. We'll refine it together to ensure it meets your expectations.
-                        </p>
-                    </v-card>
-                </v-col>
-                <v-col cols="12" sm="6" md="4">
-                    <v-card class="pa-4 process-card">
-                        <v-icon class="process-icon" color="primary">mdi:mdi-chart-line</v-icon>
-                        <v-card-title class="text-h5">
-                            <span class="process-number">3</span> Iterate
-                        </v-card-title>
-                        <p>
-                            We'll engage in a custom Slack chat to continuously gather feedback. This ongoing process will ensure maximum efficiency and impact by regularly reviewing results and optimizing solutions.
-                        </p>
+                        <v-card-text class="text-body-1 text-gray-700">
+                            {{ step.description }}
+                        </v-card-text>
                     </v-card>
                 </v-col>
             </v-row>
@@ -233,7 +193,7 @@
                 <v-card>
                     <v-toolbar class="light-green accent-1">
                         <v-btn icon @click="dialog = false">
-                            <v-icon>mdi:mdi-close</v-icon>
+                            <v-icon>$mdiClose</v-icon>
                         </v-btn>
                         <v-toolbar-title>{{projectMap[currentProject].title}}</v-toolbar-title>
                         <v-spacer></v-spacer>
@@ -251,6 +211,8 @@ import DMXShow from './projects/DMXShow.vue';
 import Talks from './projects/Talks.vue';
 import MaterialIconsViz from './projects/MaterialIconsViz.vue';
 import TinyMLWorkshop from './projects/TinyMLWorkshop.vue';
+import { mdiHandshake, mdiFileDocumentOutline, mdiRocketLaunchOutline, mdiClose } from '@mdi/js';
+
 export default {
     components: {
         MaterialIconsViz,
@@ -302,6 +264,27 @@ export default {
                     img: "industrial_jose.jpeg",
                 },
             ],
+            processSteps: [
+                {
+                    icon: mdiHandshake,
+                    iconColor: 'blue darken-2',
+                    title: 'Connect',
+                    description: 'Free 30-minute AI strategy session. We analyze your goals and challenges to customize our approach.'
+                },
+                {
+                    icon: mdiFileDocumentOutline,
+                    iconColor: 'indigo darken-2',
+                    title: 'Strategize',
+                    description: 'Custom AI proposal with innovative strategy, timeline, and costs. Collaborative refinement for perfect alignment.'
+                },
+                {
+                    icon: mdiRocketLaunchOutline,
+                    iconColor: 'deep-purple darken-2',
+                    title: 'Execute & Iterate',
+                    description: 'Real-time collaboration via Slack. Agile implementation with continuous feedback for maximum AI impact.'
+                }
+            ],
+            mdiClose
         }
     },
     methods: {
@@ -505,68 +488,60 @@ export default {
 
 
 .process-card {
-  border-radius: 12px;
-  background: #f9f9f9;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  border-radius: 16px;
+  background: #ffffff;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
   transition: transform 0.3s ease, box-shadow 0.3s ease;
-  padding: 24px;
+  padding: 32px;
+  border: 1px solid rgba(0, 0, 0, 0.05);
 }
 
 .process-card:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+  transform: translateY(-10px);
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
+}
+
+.process-icon-wrapper {
+  background: linear-gradient(135deg, #e6f7ff, #e6e6ff);
+  border-radius: 50%;
+  width: 100px;
+  height: 100px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 20px;
 }
 
 .process-icon {
-  font-size: 3rem;
-  margin-bottom: 1rem;
-  color: #42a5f5;
+  font-size: 48px;
 }
-
 
 .v-card-title {
-  font-size: 1.5rem;
-  margin-bottom: 0.5rem;
-  font-weight: bold;
+  font-size: 1.75rem;
+  margin-bottom: 1rem;
+  font-weight: 700;
+  color: #333;
 }
 
-.v-card-subtitle {
-  font-size: 1rem;
+.v-card-text {
+  font-size: 1.1rem;
   line-height: 1.6;
-  color: #555555;
-  padding-left: 12px;
+  color: #555;
 }
 
 .process-number {
-    display: inline-block;
-    background: #42a5f5;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(135deg, #3a94db, #42a5f5);
     color: #fff;
-    border: 2px solid #fff;
     border-radius: 50%;
-    width: 40px;
-    height: 40px;
-    line-height: 36px;
-    text-align: center;
+    width: 36px;
+    height: 36px;
     font-size: 1.25rem;
-    margin-right: 8px;
+    font-weight: bold;
+    margin-right: 12px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-    position: relative;
-    z-index: 1;
-    background: linear-gradient(145deg, #3a94db, #42a5f5);
-    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
-}
-
-.process-number::before {
-    content: '';
-    position: absolute;
-    top: -4px;
-    left: -4px;
-    right: -4px;
-    bottom: -4px;
-    border-radius: 50%;
-    background: rgba(255, 255, 255, 0.15);
-    z-index: -1;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
 #services-section,
@@ -604,6 +579,74 @@ export default {
 .hovered-card {
   transform: translateY(-8px);
   box-shadow: 0px 10px 15px rgba(0, 0, 0, 0.3);
+}
+
+.book-call-btn {
+  border-radius: 50px !important;
+  text-transform: none;
+  letter-spacing: 0.5px;
+  font-weight: 600;
+  font-size: 1.1rem;
+  padding: 12px 24px;
+  transition: all 0.3s ease;
+  background: linear-gradient(45deg, #4CAF50, #45a049);
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  position: relative;
+  overflow: hidden;
+}
+
+.book-call-btn::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    120deg,
+    transparent,
+    rgba(255, 255, 255, 0.3),
+    transparent
+  );
+  transition: all 0.5s;
+}
+
+.book-call-btn:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+  background: linear-gradient(45deg, #45a049, #4CAF50);
+}
+
+.book-call-btn:hover::before {
+  left: 100%;
+}
+
+.book-call-btn .v-icon {
+  transition: all 0.3s ease;
+}
+
+.book-call-btn:hover .v-icon.mdi-arrow-right {
+  transform: translateX(4px);
+}
+
+.text-gradient {
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
+  background-image: linear-gradient(to right, #3b82f6, #6366f1);
+}
+
+.bg-gradient-to-r {
+  background-image: linear-gradient(to right, var(--tw-gradient-stops));
+}
+
+.from-blue-50 {
+  --tw-gradient-from: #eff6ff;
+  --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to, rgba(239, 246, 255, 0));
+}
+
+.to-indigo-50 {
+  --tw-gradient-to: #eef2ff;
 }
 
 </style>
