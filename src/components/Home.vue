@@ -117,7 +117,20 @@
                 <v-col cols="12" sm="6" md="4" v-for="(step, index) in processSteps" :key="index">
                     <v-card class="process-card h-full d-flex flex-column justify-space-between" elevation="0">
                         <div class="process-icon-wrapper mb-4">
-                            <v-icon :color="step.iconColor" size="64" class="process-icon">{{ step.icon }}</v-icon>
+                            <svg v-if="index === 0" width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                              <path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"></path>
+                              <path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"></path>
+                            </svg>
+                            <svg v-else-if="index === 1" width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                              <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+                              <polyline points="14 2 14 8 20 8"></polyline>
+                              <line x1="16" y1="13" x2="8" y2="13"></line>
+                              <line x1="16" y1="17" x2="8" y2="17"></line>
+                              <line x1="10" y1="9" x2="8" y2="9"></line>
+                            </svg>
+                            <svg v-else width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                              <path d="M22 12L12 2 2 12h3v8h14v-8h3z"></path>
+                            </svg>
                         </div>
                         <v-card-title class="text-h5 font-weight-bold mb-4">
                             <span class="process-number">{{ index + 1 }}</span> {{ step.title }}
@@ -189,8 +202,6 @@
 </template>
 
 <script>
-import { mdiHandshake, mdiFileDocumentOutline, mdiRocketLaunchOutline, mdiClose } from '@mdi/js';
-
 export default {
     components: {
     },
@@ -240,25 +251,18 @@ export default {
             ],
             processSteps: [
                 {
-                    icon: mdiHandshake,
-                    iconColor: 'black darken-2',
                     title: 'Connect',
                     description: 'Free 30-minute session. We analyze your goals and challenges to customize our approach.'
                 },
                 {
-                    icon: mdiFileDocumentOutline,
-                    iconColor: 'indigo darken-2',
                     title: 'Strategize',
                     description: 'Custom AI proposal with innovative strategy, timeline, and costs. Collaborative refinement for perfect alignment.'
                 },
                 {
-                    icon: mdiRocketLaunchOutline,
-                    iconColor: 'deep-purple darken-2',
                     title: 'Execute & Iterate',
                     description: 'Real-time collaboration via Slack. Agile implementation with continuous feedback for maximum impact.'
                 }
             ],
-            mdiClose
         }
     },
     methods: {
