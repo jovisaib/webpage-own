@@ -186,39 +186,13 @@
                 </v-col>
             </v-row>
         </v-container>
-
-
-        <v-row justify="center">
-            <v-dialog v-model="dialog" fullscreen hide-overlay transition="dialog-bottom-transition">
-                <v-card>
-                    <v-toolbar class="light-green accent-1">
-                        <v-btn icon @click="dialog = false">
-                            <v-icon>$mdiClose</v-icon>
-                        </v-btn>
-                        <v-toolbar-title>{{projectMap[currentProject].title}}</v-toolbar-title>
-                        <v-spacer></v-spacer>
-                    </v-toolbar>
-                    <DMXShow v-if="currentProject=='dmx'" />
-                    <Talks v-if="currentProject=='talks'" />
-                    <TinyMLWorkshop v-if="currentProject=='workshop'" />
-                </v-card>
-            </v-dialog>
-        </v-row>
 </template>
 
 <script>
-import DMXShow from './projects/DMXShow.vue';
-import Talks from './projects/Talks.vue';
-import MaterialIconsViz from './projects/MaterialIconsViz.vue';
-import TinyMLWorkshop from './projects/TinyMLWorkshop.vue';
 import { mdiHandshake, mdiFileDocumentOutline, mdiRocketLaunchOutline, mdiClose } from '@mdi/js';
 
 export default {
     components: {
-        MaterialIconsViz,
-        DMXShow,
-        TinyMLWorkshop,
-        Talks
     },
     data() {
         return {
@@ -267,9 +241,9 @@ export default {
             processSteps: [
                 {
                     icon: mdiHandshake,
-                    iconColor: 'blue darken-2',
+                    iconColor: 'black darken-2',
                     title: 'Connect',
-                    description: 'Free 30-minute AI strategy session. We analyze your goals and challenges to customize our approach.'
+                    description: 'Free 30-minute session. We analyze your goals and challenges to customize our approach.'
                 },
                 {
                     icon: mdiFileDocumentOutline,
@@ -281,7 +255,7 @@ export default {
                     icon: mdiRocketLaunchOutline,
                     iconColor: 'deep-purple darken-2',
                     title: 'Execute & Iterate',
-                    description: 'Real-time collaboration via Slack. Agile implementation with continuous feedback for maximum AI impact.'
+                    description: 'Real-time collaboration via Slack. Agile implementation with continuous feedback for maximum impact.'
                 }
             ],
             mdiClose
