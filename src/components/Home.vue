@@ -1,46 +1,4 @@
 <template>
-    <div>
-        <v-app-bar app color="transparent" class="blurred-nav" flat>
-            <v-container>
-                <v-row align="center" justify="space-between">
-                    <v-col cols="auto" class="d-flex d-md-none"> <!-- Only show on small screens -->
-                        <v-app-bar-nav-icon @click="drawer = !drawer"></v-app-bar-nav-icon>
-                    </v-col>
-                    <v-col cols="auto" class="d-flex align-center d-md-none pr-8"> <!-- Only show on small screens, added right padding -->
-                        <v-img :src="require('@/assets/logo_main.png')" max-height="50" min-width="50" class="mr-1"></v-img>
-                        <h1 class="text-h4 font-weight-bold" style="font-family: 'Montserrat', sans-serif;">allometrik</h1>
-                    </v-col>
-                    <v-col cols="auto" class="d-none d-md-flex align-center justify-center"> <!-- Only show on medium and larger screens -->
-                        <v-img :src="require('@/assets/logo_main.png')" max-height="50" min-width="50" class="mr-1"></v-img>
-                        <h1 class="text-h4 font-weight-bold" style="font-family: 'Montserrat', sans-serif;">allometrik</h1>
-                    </v-col>
-                    <v-col cols="auto" class="d-none d-md-flex"> <!-- Only show on medium and larger screens -->
-                        <v-btn text class="nav-link" @click="scrollToSection('services-section')">Services</v-btn>
-                        <v-btn text class="nav-link" @click="scrollToSection('process-section')">Process</v-btn>
-                        <v-btn text class="nav-link" @click="scrollToSection('about-me-section')">About Us</v-btn>
-                        <v-btn text href="https://allinsync.beehiiv.com/" target="_blank" class="nav-link">Newsletter</v-btn>
-                    </v-col>
-                </v-row>
-            </v-container>
-        </v-app-bar>
-
-        <v-navigation-drawer v-model="drawer" app temporary left>
-            <v-list>
-                <v-list-item @click="scrollToSection('services-section')">
-                    <v-list-item-title>Services</v-list-item-title>
-                </v-list-item>
-                <v-list-item @click="scrollToSection('process-section')">
-                    <v-list-item-title>Process</v-list-item-title>
-                </v-list-item>
-                <v-list-item @click="scrollToSection('about-me-section')">
-                    <v-list-item-title>About Us</v-list-item-title>
-                </v-list-item>
-                <v-list-item href="https://allinsync.beehiiv.com/" target="_blank">
-                    <v-list-item-title>Newsletter</v-list-item-title>
-                </v-list-item>
-            </v-list>
-        </v-navigation-drawer>
-
         <v-container fluid class="pa-7 with-top-margin">
               <v-row
                 align="center"
@@ -73,16 +31,6 @@
                       elevation="2"
                     >
                       Get in Touch
-                    </v-btn>
-                    <v-btn
-                      @click="scrollToSection('services-section')"
-                      outlined
-                      rounded="lg"
-                      size="x-large"
-                      elevation="2"
-                      class="text-black text-capitalize py-2 px-6 font-weight-medium"
-                    >
-                      Our Services
                     </v-btn>
                   </div>
                 </v-col>
@@ -271,7 +219,7 @@
                         <br/><br/>
                         Our multidisciplinary team combines specialized knowledge in front-end and back-end development, DevOps, IoT, information retrieval, and AI innovation. We emphasize practical applications of advanced AI, delivering impactful projects through hands-on engineering and expert strategic guidance.
                         <br/><br/>
-                        By leveraging our deep knowledge and years of experience, we help businesses unlock new opportunities, optimize operations, and achieve their strategic goals. Let’s connect to explore how our expertise can elevate your business to new heights.
+                        By leveraging our deep knowledge and years of experience, we help businesses unlock new opportunities, optimize operations, and achieve their strategic goals. Let's connect to explore how our expertise can elevate your business to new heights.
                         <br/><br/>
                         For any inquiries or to discuss how we can assist your business, feel free to reach out to us at <a href="mailto:hello@allometrik.com">hello@allometrik.com</a>. We look forward to hearing from you!
                     </p>
@@ -296,8 +244,6 @@
                 </v-card>
             </v-dialog>
         </v-row>
-
-    </div>
 </template>
 
 <script>
@@ -363,13 +309,6 @@ export default {
             this.currentProject = project;
             this.dialog = true;
         },
-        scrollToSection(sectionId) {
-            const section = document.getElementById(sectionId);
-            if (section) {
-                section.scrollIntoView({ behavior: 'smooth' });
-                this.drawer = false; // Close drawer after navigation
-            }
-        },
     },
     mounted() {
         const script = document.createElement('script');
@@ -382,11 +321,6 @@ export default {
 </script>
 
 <style scoped>
-.blurred-nav {
-    backdrop-filter: blur(10px); /* Apply blur effect */
-    background-color: rgba(255, 255, 255, 0.8); /* Semi-transparent background */
-}
-
 .d-none {
     display: none !important;
 }
@@ -421,16 +355,6 @@ export default {
     .d-md-none {
         display: flex !important;
     }
-}
-
-.nav-link {
-    color: #000; /* Black text color */
-    font-weight: bold;
-    font-size: 1.2rem; /* Adjust the font size as needed */
-}
-
-.v-app-bar {
-    z-index: 10; /* Ensure the navbar is always on top */
 }
 
 .presentation-container {
