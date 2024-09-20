@@ -45,91 +45,57 @@
 </template>
 
 <script>
+import { ref, computed } from 'vue';
+import { useRoute } from 'vue-router';
+import { useHead } from '@vueuse/head';
 import MarkdownIt from 'markdown-it';
 
 export default {
-  data() {
-    return {
-      blogPost: {
-        title: '',
-        content: '',
-        date: '',
-        lastModified: '',
-        category: '',
-        tags: [],
-        description: '',
-        image: ''
-      },
-      renderedContent: ''
-    };
-  },
-  metaInfo() {
-    return {
-      title: this.blogPost.title,
-      meta: [
-        { vmid: 'description', name: 'description', content: this.blogPost.description },
-        { property: 'og:title', content: this.blogPost.title },
-        { property: 'og:description', content: this.blogPost.description },
-        { property: 'og:image', content: this.blogPost.image },
-        { property: 'og:type', content: 'article' },
-        { property: 'og:url', content: `https://allometrik.com/blog/${this.$route.params.slug}` },
-        { name: 'twitter:card', content: 'summary_large_image' },
-        { name: 'twitter:title', content: this.blogPost.title },
-        { name: 'twitter:description', content: this.blogPost.description },
-        { name: 'twitter:image', content: this.blogPost.image }
-      ],
-      link: [
-        { rel: 'canonical', href: `https://allometrik.com/blog/${this.$route.params.slug}` }
-      ]
-    };
-  },
-  async mounted() {
-    const slug = this.$route.params.slug;
-    const articles = require.context('@/assets/articles', false, /\.md$/);
-    
-    // Dynamically import the Markdown file based on the slug
-    const article = articles(`./${slug}.md`);
-
-    // Set blog post data
-    this.blogPost = {
-      title: article.title || slug.replace(/-/g, ' ').replace(/\b\w/g, char => char.toUpperCase()),
-      content: article.default,
-      date: article.date || new Date().toISOString(),
-      lastModified: article.lastModified || new Date().toISOString(),
-      category: article.category || '',
-      tags: article.tags || [],
-      description: article.description || '',
-      image: article.image
-    };
-
-    // Render Markdown
-    const md = new MarkdownIt({
-      html: true,
-      linkify: true,
-      typographer: true
+  setup() {
+    const route = useRoute();
+    const blogPost = ref({
+      title: '',
+      content: '',
+      date: '',
+      lastModified: '',
+      category: '',
+      tags: [],
+      description: '',
+      image: ''
     });
-    this.renderedContent = md.render(this.blogPost.content);
 
-    // Set page title
-    document.title = `${this.blogPost.title} | Allometrik`;
+    const renderedContent = ref('');
 
-    // Structured data
-    this.addStructuredData();
+    useHead({
+      title: computed(() => `${blogPost.value.title} | Allometrik`),
+      meta: computed(() => [
+        { name: 'description', content: blogPost.value.description },
+        { property: 'og:title', content: blogPost.value.title },
+        { property: 'og:description', content: blogPost.value.description },
+        { property: 'og:image', content: blogPost.value.image },
+        { property: 'og:type', content: 'article' },
+        { property: 'og:url', content: `https://allometrik.com/blog/${route.params.slug}` },
+        { name: 'twitter:card', content: 'summary_large_image' },
+        { name: 'twitter:title', content: blogPost.value.title },
+        { name: 'twitter:description', content: blogPost.value.description },
+        { name: 'twitter:image', content: blogPost.value.image }
+      ]),
+      link: computed(() => [
+        { rel: 'canonical', href: `https://allometrik.com/blog/${route.params.slug}` }
+      ])
+    });
 
-    // Add social media meta tags dynamically
-    this.addSocialMediaMeta();
-  },
-  methods: {
-    formatDate(date) {
+    const formatDate = (date) => {
       return new Date(date).toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' });
-    },
-    addStructuredData() {
+    };
+
+    const addStructuredData = () => {
       const structuredData = {
         "@context": "https://schema.org",
         "@type": "BlogPosting",
-        "headline": this.blogPost.title,
-        "image": this.blogPost.image,
-        "articleBody": this.blogPost.content,
+        "headline": blogPost.value.title,
+        "image": blogPost.value.image,
+        "articleBody": blogPost.value.content,
         "author": {
           "@type": "Person",
           "name": "Jose Vicente Sáez Ibáñez"
@@ -142,12 +108,12 @@ export default {
             "url": "https://allometrik.com/logo.png"
           }
         },
-        "datePublished": this.blogPost.date,
-        "dateModified": this.blogPost.lastModified,
-        "description": this.blogPost.description,
+        "datePublished": blogPost.value.date,
+        "dateModified": blogPost.value.lastModified,
+        "description": blogPost.value.description,
         "mainEntityOfPage": {
           "@type": "WebPage",
-          "@id": `https://allometrik.com/blog/${this.$route.params.slug}`
+          "@id": `https://allometrik.com/blog/${route.params.slug}`
         }
       };
 
@@ -155,18 +121,19 @@ export default {
       script.type = 'application/ld+json';
       script.text = JSON.stringify(structuredData);
       document.head.appendChild(script);
-    },
-    addSocialMediaMeta() {
+    };
+
+    const addSocialMediaMeta = () => {
       const metaTags = [
-        { property: 'og:title', content: this.blogPost.title },
-        { property: 'og:description', content: this.blogPost.description },
-        { property: 'og:image', content: this.blogPost.image },
-        { property: 'og:url', content: `https://allometrik.com/blog/${this.$route.params.slug}` },
+        { property: 'og:title', content: blogPost.value.title },
+        { property: 'og:description', content: blogPost.value.description },
+        { property: 'og:image', content: blogPost.value.image },
+        { property: 'og:url', content: `https://allometrik.com/blog/${route.params.slug}` },
         { property: 'og:type', content: 'article' },
         { name: 'twitter:card', content: 'summary_large_image' },
-        { name: 'twitter:title', content: this.blogPost.title },
-        { name: 'twitter:description', content: this.blogPost.description },
-        { name: 'twitter:image', content: this.blogPost.image }
+        { name: 'twitter:title', content: blogPost.value.title },
+        { name: 'twitter:description', content: blogPost.value.description },
+        { name: 'twitter:image', content: blogPost.value.image }
       ];
 
       metaTags.forEach(tag => {
@@ -176,7 +143,37 @@ export default {
         });
         document.head.appendChild(meta);
       });
-    }
+    };
+
+    const articles = require.context('@/assets/articles', false, /\.md$/);
+    const article = articles(`./${route.params.slug}.md`);
+
+    blogPost.value = {
+      title: article.title || route.params.slug.replace(/-/g, ' ').replace(/\b\w/g, char => char.toUpperCase()),
+      content: article.default,
+      date: article.date || new Date().toISOString(),
+      lastModified: article.lastModified || new Date().toISOString(),
+      category: article.category || '',
+      tags: article.tags || [],
+      description: article.description || '',
+      image: article.image
+    };
+
+    const md = new MarkdownIt({
+      html: true,
+      linkify: true,
+      typographer: true
+    });
+    renderedContent.value = md.render(blogPost.value.content);
+
+    addStructuredData();
+    addSocialMediaMeta();
+
+    return {
+      blogPost,
+      renderedContent,
+      formatDate
+    };
   }
 };
 </script>

@@ -1,4 +1,5 @@
 import { createApp } from 'vue';
+import { createHead } from '@vueuse/head';
 import App from './App.vue';
 import vuetify from './plugins/vuetify';
 import { loadFonts } from './plugins/webfontloader';
@@ -8,6 +9,7 @@ import router from './router';  // Import the router
 loadFonts();
 
 const app = createApp(App);
+const head = createHead();
 
 app.use(vuetify);
 
@@ -18,5 +20,6 @@ app.use(VueGtag, {
 });
 
 app.use(router);
+app.use(head);
 
 app.mount('#app');
