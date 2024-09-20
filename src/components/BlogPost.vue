@@ -1,11 +1,24 @@
 <template>
   <v-container class="with-top-margin blog-post-container">
-    <h1 class="blog-post-title">{{ blogPost.title }}</h1>
-    <div v-html="renderedContent" class="blog-post-content"></div>
+    <article itemscope itemtype="http://schema.org/BlogPosting">
+      <meta itemprop="datePublished" :content="blogPost.date">
+      <meta itemprop="dateModified" :content="blogPost.lastModified">
+      <meta itemprop="author" content="Jose Vicente Sáez Ibáñez">
+      <h1 class="blog-post-title" itemprop="headline">{{ blogPost.title }}</h1>
+      <div class="blog-post-meta">
+        <span>Published on: {{ formatDate(blogPost.date) }}</span>
+        <span v-if="blogPost.category">Category: {{ blogPost.category }}</span>
+      </div>
+      <div v-html="renderedContent" class="blog-post-content" itemprop="articleBody"></div>
+      <div class="blog-post-tags" v-if="blogPost.tags && blogPost.tags.length">
+        <strong>Tags:</strong>
+        <span v-for="tag in blogPost.tags" :key="tag" class="tag">{{ tag }}</span>
+      </div>
+    </article>
   </v-container>
 
-  <v-container class="py-12">
-    <v-row class="mt-12">
+  <v-container >
+    <v-row>
       <v-col cols="12">
         <v-card class="consultation-card" color="primary" dark>
           <v-card-text class="text-center py-16">
@@ -39,48 +52,131 @@ export default {
     return {
       blogPost: {
         title: '',
-        content: ''
+        content: '',
+        date: '',
+        lastModified: '',
+        category: '',
+        tags: [],
+        description: '',
+        image: ''
       },
       renderedContent: ''
     };
   },
-  mounted() {
+  metaInfo() {
+    return {
+      title: this.blogPost.title,
+      meta: [
+        { vmid: 'description', name: 'description', content: this.blogPost.description },
+        { property: 'og:title', content: this.blogPost.title },
+        { property: 'og:description', content: this.blogPost.description },
+        { property: 'og:image', content: this.blogPost.image },
+        { property: 'og:type', content: 'article' },
+        { property: 'og:url', content: `https://allometrik.com/blog/${this.$route.params.slug}` },
+        { name: 'twitter:card', content: 'summary_large_image' },
+        { name: 'twitter:title', content: this.blogPost.title },
+        { name: 'twitter:description', content: this.blogPost.description },
+        { name: 'twitter:image', content: this.blogPost.image }
+      ],
+      link: [
+        { rel: 'canonical', href: `https://allometrik.com/blog/${this.$route.params.slug}` }
+      ]
+    };
+  },
+  async mounted() {
     const slug = this.$route.params.slug;
     const articles = require.context('@/assets/articles', false, /\.md$/);
     
     // Dynamically import the Markdown file based on the slug
     const article = articles(`./${slug}.md`);
 
-    // Set title and content
+    // Set blog post data
     this.blogPost = {
-      title: slug.replace(/-/g, ' ').replace(/\b\w/g, char => char.toUpperCase()),
-      content: article.default
+      title: article.title || slug.replace(/-/g, ' ').replace(/\b\w/g, char => char.toUpperCase()),
+      content: article.default,
+      date: article.date || new Date().toISOString(),
+      lastModified: article.lastModified || new Date().toISOString(),
+      category: article.category || '',
+      tags: article.tags || [],
+      description: article.description || '',
+      image: article.image
     };
 
     // Render Markdown
-    const md = new MarkdownIt();
+    const md = new MarkdownIt({
+      html: true,
+      linkify: true,
+      typographer: true
+    });
     this.renderedContent = md.render(this.blogPost.content);
 
     // Set page title
-    document.title = this.blogPost.title;
+    document.title = `${this.blogPost.title} | Allometrik`;
 
     // Structured data
-    const structuredData = {
-      "@context": "https://schema.org",
-      "@type": "BlogPosting",
-      "headline": this.blogPost.title,
-      "articleBody": this.blogPost.content,
-      "author": {
-        "@type": "Person",
-        "name": "Jose Vicente Sáez Ibáñez"
-      },
-      "datePublished": new Date().toISOString(),
-    };
+    this.addStructuredData();
 
-    const script = document.createElement('script');
-    script.type = 'application/ld+json';
-    script.text = JSON.stringify(structuredData);
-    document.head.appendChild(script);
+    // Add social media meta tags dynamically
+    this.addSocialMediaMeta();
+  },
+  methods: {
+    formatDate(date) {
+      return new Date(date).toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' });
+    },
+    addStructuredData() {
+      const structuredData = {
+        "@context": "https://schema.org",
+        "@type": "BlogPosting",
+        "headline": this.blogPost.title,
+        "image": this.blogPost.image,
+        "articleBody": this.blogPost.content,
+        "author": {
+          "@type": "Person",
+          "name": "Jose Vicente Sáez Ibáñez"
+        },
+        "publisher": {
+          "@type": "Organization",
+          "name": "Allometrik",
+          "logo": {
+            "@type": "ImageObject",
+            "url": "https://allometrik.com/logo.png"
+          }
+        },
+        "datePublished": this.blogPost.date,
+        "dateModified": this.blogPost.lastModified,
+        "description": this.blogPost.description,
+        "mainEntityOfPage": {
+          "@type": "WebPage",
+          "@id": `https://allometrik.com/blog/${this.$route.params.slug}`
+        }
+      };
+
+      const script = document.createElement('script');
+      script.type = 'application/ld+json';
+      script.text = JSON.stringify(structuredData);
+      document.head.appendChild(script);
+    },
+    addSocialMediaMeta() {
+      const metaTags = [
+        { property: 'og:title', content: this.blogPost.title },
+        { property: 'og:description', content: this.blogPost.description },
+        { property: 'og:image', content: this.blogPost.image },
+        { property: 'og:url', content: `https://allometrik.com/blog/${this.$route.params.slug}` },
+        { property: 'og:type', content: 'article' },
+        { name: 'twitter:card', content: 'summary_large_image' },
+        { name: 'twitter:title', content: this.blogPost.title },
+        { name: 'twitter:description', content: this.blogPost.description },
+        { name: 'twitter:image', content: this.blogPost.image }
+      ];
+
+      metaTags.forEach(tag => {
+        const meta = document.createElement('meta');
+        Object.keys(tag).forEach(key => {
+          meta.setAttribute(key, tag[key]);
+        });
+        document.head.appendChild(meta);
+      });
+    }
   }
 };
 </script>
@@ -96,8 +192,18 @@ export default {
   font-size: 2.5rem;
   font-weight: 700;
   color: #333;
-  margin-bottom: 30px;
+  margin-bottom: 20px;
   text-align: center;
+}
+
+.blog-post-meta {
+  text-align: center;
+  color: #666;
+  margin-bottom: 30px;
+}
+
+.blog-post-meta span {
+  margin: 0 10px;
 }
 
 .blog-post-content {
@@ -178,10 +284,22 @@ export default {
   text-decoration: underline;
 }
 
+.blog-post-tags {
+  margin-top: 30px;
+}
+
+.blog-post-tags .tag {
+  display: inline-block;
+  background-color: #f0f0f0;
+  padding: 5px 10px;
+  margin-right: 10px;
+  border-radius: 3px;
+  font-size: 0.9rem;
+}
+
 .with-top-margin {
   margin-top: 100px; /* Adjust this value as needed to create space for the navbar */
 }
-
 
 .consultation-card {
   position: relative;

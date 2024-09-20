@@ -2,6 +2,7 @@ export const title = 'Data Classification';
 export const category = 'AI';
 export const date = '2024-09-20';
 export const summary = 'Discover how Allometrik transforms data classification from manual processes to AI-driven solutions, enhancing data security and compliance in the digital age.';
+export const tags = ['data classification', 'AI', 'machine learning', 'data security', 'compliance', 'GDPR', 'CCPA', 'HIPAA', 'PII', 'PHI', 'intellectual property', 'LLMs', 'large language models', 'RAG', 'retrieval-augmented generation', 'AI agents', 'data visibility', 'data protection', 'unstructured data', 'automated classification'];
 
 export default `
 ## Data Classification: A Crucial Element in Modern AI-Powered Data Security Solutions
@@ -18,7 +19,7 @@ Today, thanks to advancements in **AI and Large Language Models (LLMs)**, data c
 
 ### Why Data Classification Matters
 
-Organizations can only protect sensitive data if they know what data exists, where it resides, and its level of sensitivity. AI-powered data classification systems, such as those offered by Allometrik, enhance visibility and ensure that sensitive data is handled appropriately. Here’s how:
+Organizations can only protect sensitive data if they know what data exists, where it resides, and its level of sensitivity. AI-powered data classification systems, such as those offered by Allometrik, enhance visibility and ensure that sensitive data is handled appropriately. Here's how:
 
 #### 1. **Improving Data Visibility**
    Data visibility is critical for implementing effective security measures. Automated data classification enhances this visibility by providing clear insights into where sensitive data is located and which security controls are in place. This is essential for meeting data security goals and ensuring comprehensive protection across the organization.
