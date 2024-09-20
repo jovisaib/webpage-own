@@ -72,16 +72,37 @@
 </template>
 
 <script>
+
 export default {
   data() {
     return {
-      posts: [
-        { slug: 'first-post', title: 'First Post', date: '2024-01-01', summary: 'Summary of the first post.', category: 'AI', image: 'https://picsum.photos/400/250?random=1' },
-        { slug: 'second-post', title: 'Second Post', date: '2024-02-01', summary: 'Summary of the second post.', category: 'IoT', image: 'https://picsum.photos/400/250?random=2' },
-        { slug: 'third-post', title: 'Third Post', date: '2024-03-01', summary: 'Summary of the third post.', category: 'Tech', image: 'https://picsum.photos/400/250?random=3' }
-        // Add more posts as needed
-      ]
+      posts: []
     };
+  },
+  mounted() {
+    const articles = require.context('@/assets/articles', false, /\.md$/);
+    
+    const articleFiles = articles.keys();
+
+    this.posts = articleFiles.map(key => {
+    
+      const article = articles(key);
+      const slug = key.replace(/^\.\//, '').replace(/\.md$/, '');
+      const title = article.title;
+      const date = article.date;
+      const summary = article.summary;
+      const category = article.category;
+
+      return {
+        slug,
+        date,
+        title,
+        summary,
+        category,
+        image: `https://picsum.photos/400/250?random=${Math.random()}`
+      };
+    });
+      
   },
   methods: {
     formatDate(date) {
