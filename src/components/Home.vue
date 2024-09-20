@@ -202,8 +202,37 @@
 </template>
 
 <script>
+import { useHead } from '@vueuse/head'
+
 export default {
     components: {
+    },
+    setup() {
+        useHead({
+            title: 'Allometrik - AI Consulting & Implementation Services',
+            meta: [
+                {
+                    name: 'description',
+                    content: 'Allometrik offers expert AI consulting, implementation, and training services. Transform your business with cutting-edge AI solutions tailored to your needs.'
+                },
+                {
+                    name: 'keywords',
+                    content: 'AI consulting, AI implementation, machine learning, data science, IoT, artificial intelligence, technology consulting'
+                },
+                { property: 'og:title', content: 'Allometrik - AI Consulting & Implementation Services' },
+                { property: 'og:description', content: 'Transform your business with Allometrik\'s expert AI consulting and implementation services. From concept to reality, we deliver cutting-edge AI solutions.' },
+                { property: 'og:type', content: 'website' },
+                { property: 'og:url', content: 'https://allometrik.com' },
+                { property: 'og:image', content: 'https://allometrik.com/og-image.jpg' }, // Make sure to add an actual image URL
+                { name: 'twitter:card', content: 'summary_large_image' },
+                { name: 'twitter:title', content: 'Allometrik - AI Consulting & Implementation Services' },
+                { name: 'twitter:description', content: 'Expert AI consulting and implementation services to transform your business. From concept to reality, we deliver cutting-edge AI solutions.' },
+                { name: 'twitter:image', content: 'https://allometrik.com/twitter-image.jpg' }, // Make sure to add an actual image URL
+            ],
+            link: [
+                { rel: 'canonical', href: 'https://allometrik.com' }
+            ]
+        })
     },
     data() {
         return {
