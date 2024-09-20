@@ -45,7 +45,7 @@
 </template>
 
 <script>
-import { ref, computed } from 'vue';
+import { ref, computed, onMounted } from 'vue';
 import { useRoute } from 'vue-router';
 import { useHead } from '@vueuse/head';
 import MarkdownIt from 'markdown-it';
@@ -144,6 +144,10 @@ export default {
         document.head.appendChild(meta);
       });
     };
+
+    onMounted(() => {
+      addSocialMediaMeta();
+    });
 
     const articles = require.context('@/assets/articles', false, /\.md$/);
     const article = articles(`./${route.params.slug}.md`);
