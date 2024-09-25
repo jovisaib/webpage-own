@@ -37,6 +37,50 @@
             <div class="senja-embed" data-id="eb95ccf6-f2ad-4f0d-a0b4-d5e7932beede" data-mode="shadow" data-lazyload="false"></div>
         </v-container>
 
+        <!-- New "Have Worked With" Section -->
+        <v-container fluid class="py-16 bg-gray-100">
+            <v-row justify="center" class="text-center mb-12">
+                <v-col cols="12" md="10" lg="8">
+                    <h2 class="text-h3 font-weight-bold mb-4">Have Worked With</h2>
+                    <p class="text-lg text-gray-700 max-w-3xl mx-auto">
+                        We're proud to have collaborated with industry leaders and innovative startups alike.
+                    </p>
+                </v-col>
+            </v-row>
+            <v-row justify="center">
+                <v-col cols="12" md="10" lg="8">
+                    <v-carousel
+                        hide-delimiters
+                        :show-arrows="false"
+                        height="150"
+                        cycle
+                        interval="3000"
+                        class="company-carousel"
+                    >
+                        <v-carousel-item
+                            v-for="n in 2"
+                            :key="n"
+                        >
+                            <v-row class="fill-height" align="center" justify="center">
+                                <v-col
+                                    v-for="i in 4"
+                                    :key="i"
+                                    class="d-flex justify-center"
+                                    cols="3"
+                                >
+                                    <v-img
+                                        :src="require(`@/assets/company-logo-${(n-1)*4 + i}.png`)"
+                                        max-width="120"
+                                        contain
+                                        class="company-logo"
+                                    ></v-img>
+                                </v-col>
+                            </v-row>
+                        </v-carousel-item>
+                    </v-carousel>
+                </v-col>
+            </v-row>
+        </v-container>
 
         <v-container fluid style="background-color: #F5F5F5;" id="services-section" class="py-12 py-md-24 py-lg-32 bg-muted">
   <!-- Main Container -->
