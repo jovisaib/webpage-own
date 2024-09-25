@@ -36,14 +36,13 @@
         <v-container class="pa-7">
             <div class="senja-embed" data-id="eb95ccf6-f2ad-4f0d-a0b4-d5e7932beede" data-mode="shadow" data-lazyload="false"></div>
         </v-container>
-
-        <!-- New "Have Worked With" Section -->
-        <v-container fluid class="py-16 bg-gray-100">
-            <v-row justify="center" class="text-center mb-12">
+        <!-- Trusted by Industry Leaders -->
+        <v-container fluid class="py-12 bg-gray-100">
+            <v-row justify="center" class="text-center mb-2">
                 <v-col cols="12" md="10" lg="8">
-                    <h2 class="text-h3 font-weight-bold mb-4">Have Worked With</h2>
+                    <h2 class="text-h3 font-weight-bold mb-4">Trusted by Industry Leaders</h2>
                     <p class="text-lg text-gray-700 max-w-3xl mx-auto">
-                        We're proud to have collaborated with industry leaders and innovative startups alike.
+                        Our expertise has empowered a diverse range of organizations, from cutting-edge startups to big corporations. Join the ranks of innovators who've partnered with us to revolutionize their industries.
                     </p>
                 </v-col>
             </v-row>
