@@ -51,12 +51,20 @@
 
     <v-footer class="footer gradient-bg white--text">
       <v-container>
-        <v-row justify="center" align="center" class="py-4">
-          <v-col cols="12" sm="6" md="4" class="text-center text-sm-left">
+        <v-row justify="center" align="start" class="py-4">
+          <v-col cols="12" sm="6" md="3" class="text-center text-sm-left mb-4 mb-md-0">
             <h3 class="text-h6 font-weight-bold mb-3">Allometrik</h3>
             <p class="mb-0">Innovating with AI and IoT solutions</p>
           </v-col>
-          <v-col cols="12" sm="6" md="4" class="text-center my-4 my-sm-0">
+          <v-col cols="12" sm="6" md="3" class="text-center text-sm-left mb-4 mb-md-0">
+            <h4 class="text-subtitle-1 font-weight-bold mb-3">Quick Links</h4>
+            <a class="d-block mb-2 footer-link" @click="navigateOrScroll('services-section')">Services</a>
+            <a class="d-block mb-2 footer-link" @click="navigateOrScroll('process-section')">Process</a>
+            <a class="d-block mb-2 footer-link" @click="navigateOrScroll('about-me-section')">About Us</a>
+            <router-link to="/blog" class="d-block mb-2 footer-link">Blog</router-link>
+          </v-col>
+          <v-col cols="12" sm="6" md="3" class="text-center mb-4 mb-md-0">
+            <h4 class="text-subtitle-1 font-weight-bold mb-3">Connect With Us</h4>
             <v-btn
               v-for="icon in icons"
               :key="icon.img"
@@ -70,7 +78,7 @@
               <v-icon>{{ icon.img }}</v-icon>
             </v-btn>
           </v-col>
-          <v-col cols="12" md="4" class="text-center text-md-right">
+          <v-col cols="12" sm="6" md="3" class="text-center text-md-right">
             <p class="mb-0">&copy; {{ new Date().getFullYear() }} Allometrik</p>
             <p class="mb-0">All rights reserved</p>
           </v-col>
@@ -135,7 +143,7 @@ export default {
 
 .footer {
   width: 100%;
-  padding: 20px 0;
+  padding: 40px 0;
 }
 
 .gradient-bg {
@@ -164,26 +172,56 @@ export default {
   transform: scale(1.2);
 }
 
-@media (max-width: 600px) {
+@media (max-width: 960px) {
   .footer .v-col {
     margin-bottom: 20px;
   }
 }
 
-
 .blurred-nav {
-    backdrop-filter: blur(10px); /* Apply blur effect */
-    background-color: rgba(255, 255, 255, 0.8); /* Semi-transparent background */
+    backdrop-filter: blur(10px);
+    background-color: rgba(255, 255, 255, 0.8);
 }
 
-
 .nav-link {
-    color: #000; /* Black text color */
+    color: #000;
     font-weight: bold;
-    font-size: 1.2rem; /* Adjust the font size as needed */
+    font-size: 1.2rem;
 }
 
 .v-app-bar {
-    z-index: 10; /* Ensure the navbar is always on top */
+    z-index: 10;
+}
+
+.footer .v-btn {
+    opacity: 0.8;
+    transition: opacity 0.2s ease-in-out;
+}
+
+.footer .v-btn:hover {
+    opacity: 1;
+}
+
+.footer h3, .footer h4 {
+    margin-bottom: 1rem;
+}
+
+.footer p {
+    font-size: 0.9rem;
+    line-height: 1.5;
+}
+
+.footer-link {
+    color: black !important;
+    text-align: left;
+    font-size: 0.9rem;
+    opacity: 0.8;
+    transition: opacity 0.2s ease-in-out;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.footer-link:hover {
+    opacity: 1;
 }
 </style>
