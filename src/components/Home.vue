@@ -109,7 +109,7 @@
         </v-col>
         <!-- Service 2 -->
         <v-col cols="12" sm="6" md="4" class="d-flex flex-column gap-1">
-          <h3 class="text-h6 font-weight-bold">AI Implementation</h3>
+          <h3 class="text-h6 font-weight-bold">AI Integration</h3>
           <p class="text-body-1 text-muted-foreground justify-left">
             Our experts seamlessly integrate AI solutions into your existing infrastructure.
           </p>
@@ -252,24 +252,24 @@ export default {
     },
     setup() {
         useHead({
-            title: 'Allometrik - AI Consulting & Implementation Services',
+            title: 'Allometrik - AI Consulting & Integration Services',
             meta: [
                 {
                     name: 'description',
-                    content: 'Allometrik offers expert AI consulting, implementation, and training services. Transform your business with cutting-edge AI solutions tailored to your needs.'
+                    content: 'Allometrik offers expert AI consulting, integration, and training services. Transform your business with cutting-edge AI solutions tailored to your needs.'
                 },
                 {
                     name: 'keywords',
-                    content: 'AI consulting, AI implementation, machine learning, data science, IoT, artificial intelligence, technology consulting'
+                    content: 'AI consulting, AI Integration, machine learning, data science, IoT, artificial intelligence, technology consulting'
                 },
-                { property: 'og:title', content: 'Allometrik - AI Consulting & Implementation Services' },
-                { property: 'og:description', content: 'Transform your business with Allometrik\'s expert AI consulting and implementation services. From concept to reality, we deliver cutting-edge AI solutions.' },
+                { property: 'og:title', content: 'Allometrik - AI Consulting & Integration Services' },
+                { property: 'og:description', content: 'Transform your business with Allometrik\'s expert AI consulting and integration services. From concept to reality, we deliver cutting-edge AI solutions.' },
                 { property: 'og:type', content: 'website' },
                 { property: 'og:url', content: 'https://allometrik.com' },
                 { property: 'og:image', content: 'https://allometrik.com/og-image.jpg' }, // Make sure to add an actual image URL
                 { name: 'twitter:card', content: 'summary_large_image' },
-                { name: 'twitter:title', content: 'Allometrik - AI Consulting & Implementation Services' },
-                { name: 'twitter:description', content: 'Expert AI consulting and implementation services to transform your business. From concept to reality, we deliver cutting-edge AI solutions.' },
+                { name: 'twitter:title', content: 'Allometrik - AI Consulting & Integration Services' },
+                { name: 'twitter:description', content: 'Expert AI consulting and Integration services to transform your business. From concept to reality, we deliver cutting-edge AI solutions.' },
                 { name: 'twitter:image', content: 'https://allometrik.com/twitter-image.jpg' }, // Make sure to add an actual image URL
             ],
             link: [
@@ -332,7 +332,7 @@ export default {
                 },
                 {
                     title: 'Execute & Iterate',
-                    description: 'Real-time collaboration via Slack. Agile implementation with continuous feedback for maximum impact.'
+                    description: 'Real-time collaboration via Slack. Agile integration with continuous feedback for maximum impact.'
                 }
             ],
         }
