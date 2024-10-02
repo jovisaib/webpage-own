@@ -1,22 +1,4 @@
 <template>
-  <!-- Add fallback meta tags -->
-  <head>
-    <title>{{ blogPost.title }} | Allometrik</title>
-    <meta name="description" content="hey">
-    <meta property="og:title" :content="blogPost.title">
-    <meta property="og:description" content="hey">
-    <meta property="og:image" :content="blogPost.image ? `${origin}${blogPost.image}` : defaultImageUrl">
-    <meta property="og:type" content="article">
-    <meta property="og:url" :content="`${origin}/blog/${route.params.slug}`">
-    <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:site" content="@allometrik">
-    <meta name="twitter:creator" content="@allometrik">
-    <meta name="twitter:title" :content="blogPost.title">
-    <meta name="twitter:description" content="hey">
-    <meta name="twitter:image" :content="blogPost.image ? `${origin}${blogPost.image}` : defaultImageUrl">
-    <meta name="twitter:url" :content="`${origin}/blog/${route.params.slug}`">
-  </head>
-
   <v-container class="with-top-margin blog-post-container">
     <article itemscope itemtype="http://schema.org/BlogPosting">
       <meta itemprop="datePublished" :content="blogPost.date">
@@ -72,7 +54,6 @@ import logoImage from '@/assets/logo_main.png';
 export default {
   setup() {
     const route = useRoute();
-    const origin = window.location.origin;
     const blogPost = ref({
       title: '',
       content: '',
@@ -86,25 +67,24 @@ export default {
 
     const renderedContent = ref('');
 
-    const defaultImageUrl = `${origin}${logoImage}`;
+    const defaultImageUrl = `${window.location.origin}${logoImage}`;
 
-    // Use both useHead and fallback meta tags
     useHead({
       title: computed(() => `${blogPost.value.title} | Allometrik`),
       meta: computed(() => [
-        { name: 'description', content: "hey" },
+        { name: 'description', content: blogPost.value.description },
         { property: 'og:title', content: blogPost.value.title },
-        { property: 'og:description', content: "hey" },
-        { property: 'og:image', content: blogPost.value.image ? `${origin}${blogPost.value.image}` : defaultImageUrl },
-        { property: 'og:type', content: 'article' },
-        { property: 'og:url', content: `${origin}/blog/${route.params.slug}` },
+        { property: 'og:description', content: "Hey!" },
+        { property: 'og:image', content: blogPost.value.image ? `${window.location.origin}${blogPost.value.image}` : defaultImageUrl },
+        { property: 'og:type', content: 'website' },
+        { property: 'og:url', content: `https://allometrik.com/blog/${route.params.slug}` },
         { name: 'twitter:card', content: 'summary_large_image' },
         { name: 'twitter:site', content: '@allometrik' },
-        { name: 'twitter:creator', content: '@allometrik' },
+        { property: 'twitter:url', content: 'https://allometrik.com/blog/data-classification' },
+        { property: 'twitter:domain', content: 'allometrik.com' },
         { name: 'twitter:title', content: blogPost.value.title },
         { name: 'twitter:description', content: "hey" },
-        { name: 'twitter:image', content: blogPost.value.image ? `${origin}${blogPost.value.image}` : defaultImageUrl },
-        { name: 'twitter:url', content: `${origin}/blog/${route.params.slug}` }
+        { name: 'twitter:image', content: blogPost.value.image ? `${window.location.origin}${blogPost.value.image}` : defaultImageUrl }
       ]),
       link: computed(() => [
         { rel: 'canonical', href: `https://allometrik.com/blog/${route.params.slug}` }
@@ -136,7 +116,7 @@ export default {
         },
         "datePublished": blogPost.value.date,
         "dateModified": blogPost.value.lastModified,
-        "description": "hey",
+        "description": blogPost.value.description,
         "mainEntityOfPage": {
           "@type": "WebPage",
           "@id": `https://allometrik.com/blog/${route.params.slug}`
@@ -151,64 +131,35 @@ export default {
 
     onMounted(() => {
       console.log('Twitter Card URL for validation:', `https://cards-dev.twitter.com/validator?url=${encodeURIComponent(window.location.href)}`);
-
-      // Fetch blog post data
-      const articles = require.context('@/assets/articles', false, /\.md$/);
-      const article = articles(`./${route.params.slug}.md`);
-
-      blogPost.value = {
-        title: article.title || route.params.slug.replace(/-/g, ' ').replace(/\b\w/g, char => char.toUpperCase()),
-        content: article.default,
-        date: article.date || new Date().toISOString(),
-        lastModified: article.lastModified || new Date().toISOString(),
-        category: article.category || '',
-        tags: article.tags || [],
-        description: article.description || '',
-        image: article.image
-      };
-
-      const md = new MarkdownIt({
-        html: true,
-        linkify: true,
-        typographer: true
-      });
-      renderedContent.value = md.render(blogPost.value.content);
-
-      addStructuredData();
-
-      // Force meta tag update
-      document.title = `${blogPost.value.title} | Allometrik`;
-      updateMetaTags();
     });
 
-    const updateMetaTags = () => {
-      const metaTags = {
-        'description': "hey",
-        'og:title': blogPost.value.title,
-        'og:description': "hey",
-        'og:image': blogPost.value.image ? `${origin}${blogPost.value.image}` : defaultImageUrl,
-        'og:url': `${origin}/blog/${route.params.slug}`,
-        'twitter:title': blogPost.value.title,
-        'twitter:description': "hey",
-        'twitter:image': blogPost.value.image ? `${origin}${blogPost.value.image}` : defaultImageUrl,
-        'twitter:url': `${origin}/blog/${route.params.slug}`
-      };
+    const articles = require.context('@/assets/articles', false, /\.md$/);
+    const article = articles(`./${route.params.slug}.md`);
 
-      Object.entries(metaTags).forEach(([name, content]) => {
-        const tag = document.querySelector(`meta[name="${name}"], meta[property="${name}"]`);
-        if (tag) {
-          tag.setAttribute('content', content);
-        }
-      });
+    blogPost.value = {
+      title: article.title || route.params.slug.replace(/-/g, ' ').replace(/\b\w/g, char => char.toUpperCase()),
+      content: article.default,
+      date: article.date || new Date().toISOString(),
+      lastModified: article.lastModified || new Date().toISOString(),
+      category: article.category || '',
+      tags: article.tags || [],
+      description: article.description || '',
+      image: article.image
     };
+
+    const md = new MarkdownIt({
+      html: true,
+      linkify: true,
+      typographer: true
+    });
+    renderedContent.value = md.render(blogPost.value.content);
+
+    addStructuredData();
 
     return {
       blogPost,
       renderedContent,
-      formatDate,
-      route,
-      origin,
-      defaultImageUrl
+      formatDate
     };
   }
 };
