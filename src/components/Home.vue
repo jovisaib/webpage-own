@@ -267,6 +267,8 @@ export default {
                 { property: 'og:type', content: 'website' },
                 { property: 'og:url', content: 'https://allometrik.com' },
                 { property: 'og:image', content: 'https://allometrik.com/img/logo_main.a5f4ff0c.png' }, // Make sure to add an actual image URL
+                { property: 'twitter:url', content: 'https://allometrik.com/' },
+                { property: 'twitter:domain', content: 'allometrik.com' },
                 { name: 'twitter:card', content: 'summary_large_image' },
                 { name: 'twitter:title', content: 'Allometrik - AI Consulting & Integration Services' },
                 { name: 'twitter:description', content: 'Expert AI consulting and Integration services to transform your business. From concept to reality, we deliver cutting-edge AI solutions.' },

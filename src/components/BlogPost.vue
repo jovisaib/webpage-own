@@ -80,6 +80,8 @@ export default {
         { property: 'og:url', content: `https://allometrik.com/blog/${route.params.slug}` },
         { name: 'twitter:card', content: 'summary_large_image' },
         { name: 'twitter:site', content: '@allometrik' },
+        { property: 'twitter:url', content: 'https://allometrik.com/blog/data-classification' },
+        { property: 'twitter:domain', content: 'allometrik.com' },
         { name: 'twitter:title', content: blogPost.value.title },
         { name: 'twitter:description', content: "hey" },
         { name: 'twitter:image', content: blogPost.value.image ? `${window.location.origin}${blogPost.value.image}` : defaultImageUrl }
