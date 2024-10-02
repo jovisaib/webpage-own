@@ -74,14 +74,14 @@ export default {
       meta: computed(() => [
         { name: 'description', content: blogPost.value.description },
         { property: 'og:title', content: blogPost.value.title },
-        { property: 'og:description', content: blogPost.value.description },
+        { property: 'og:description', content: "Hey!" },
         { property: 'og:image', content: blogPost.value.image ? `${window.location.origin}${blogPost.value.image}` : defaultImageUrl },
         { property: 'og:type', content: 'article' },
         { property: 'og:url', content: `https://allometrik.com/blog/${route.params.slug}` },
         { name: 'twitter:card', content: 'summary_large_image' },
         { name: 'twitter:site', content: '@allometrik' },
         { name: 'twitter:title', content: blogPost.value.title },
-        { name: 'twitter:description', content: blogPost.value.description },
+        { name: 'twitter:description', content: "hey" },
         { name: 'twitter:image', content: blogPost.value.image ? `${window.location.origin}${blogPost.value.image}` : defaultImageUrl }
       ]),
       link: computed(() => [
