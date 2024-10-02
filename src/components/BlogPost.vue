@@ -139,11 +139,10 @@ export default {
 
       metaTags.forEach(tag => {
         const meta = document.createElement('meta');
-        Object.keys(tag).forEach(key => {
-          meta.setAttribute(key, tag[key]);
-        });
+        for (const [key, value] of Object.entries(tag)) {
+          meta.setAttribute(key, value);
+        }
         document.head.appendChild(meta);
-        console.log(`Added meta tag: ${key}="${tag[key]}"`);
       });
     };
 
