@@ -149,7 +149,7 @@ export default {
 
     onMounted(() => {
       addSocialMediaMeta();
-      console.log('Twitter Card URL for validation:', `https://cards-dev.twitter.com/validator?url=${encodeURIComponent(window.location.href)}`);
+      console.log('Twitter Card URL for validation:', `https://cards-dev.twitter.com/validator?url=${encodeURIComponent(`https://allometrik.com/blog/${route.params.slug}`)}`);
     });
 
     const articles = require.context('@/assets/articles', false, /\.md$/);
