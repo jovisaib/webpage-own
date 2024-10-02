@@ -76,7 +76,7 @@ export default {
         { property: 'og:title', content: blogPost.value.title },
         { property: 'og:description', content: "Hey!" },
         { property: 'og:image', content: blogPost.value.image ? `${window.location.origin}${blogPost.value.image}` : defaultImageUrl },
-        { property: 'og:type', content: 'article' },
+        { property: 'og:type', content: 'website' },
         { property: 'og:url', content: `https://allometrik.com/blog/${route.params.slug}` },
         { name: 'twitter:card', content: 'summary_large_image' },
         { name: 'twitter:site', content: '@allometrik' },
