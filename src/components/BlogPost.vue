@@ -135,6 +135,11 @@ export default {
         { name: 'twitter:title', content: blogPost.value.title },
         { name: 'twitter:description', content: blogPost.value.description },
         { name: 'twitter:image', content: `${window.location.origin}${logoImage}` },
+        // Add X-specific tags
+        { name: 'x-twitter:card', content: 'summary_large_image' },
+        { name: 'x-twitter:title', content: blogPost.value.title },
+        { name: 'x-twitter:description', content: blogPost.value.description },
+        { name: 'x-twitter:image', content: `${window.location.origin}${logoImage}` },
       ];
 
       metaTags.forEach(tag => {
