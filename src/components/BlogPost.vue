@@ -79,7 +79,7 @@ export default {
         { name: 'twitter:card', content: 'summary_large_image' },
         { name: 'twitter:title', content: blogPost.value.title },
         { name: 'twitter:description', content: blogPost.value.description },
-        { name: 'twitter:image', content: blogPost.value.image }
+        { name: 'twitter:image', content: `${window.location.origin}${blogPost.value.image || logoImage}` }
       ]),
       link: computed(() => [
         { rel: 'canonical', href: `https://allometrik.com/blog/${route.params.slug}` }
@@ -128,18 +128,14 @@ export default {
       const metaTags = [
         { property: 'og:title', content: blogPost.value.title },
         { property: 'og:description', content: blogPost.value.description },
-        { property: 'og:image', content: `${window.location.origin}${logoImage}` },
+        { property: 'og:image', content: `${window.location.origin}${blogPost.value.image || logoImage}` },
         { property: 'og:url', content: `https://allometrik.com/blog/${route.params.slug}` },
         { property: 'og:type', content: 'article' },
         { name: 'twitter:card', content: 'summary_large_image' },
         { name: 'twitter:title', content: blogPost.value.title },
         { name: 'twitter:description', content: blogPost.value.description },
-        { name: 'twitter:image', content: `${window.location.origin}${logoImage}` },
-        // Add X-specific tags
-        { name: 'x-twitter:card', content: 'summary_large_image' },
-        { name: 'x-twitter:title', content: blogPost.value.title },
-        { name: 'x-twitter:description', content: blogPost.value.description },
-        { name: 'x-twitter:image', content: `${window.location.origin}${logoImage}` },
+        { name: 'twitter:image', content: `${window.location.origin}${blogPost.value.image || logoImage}` },
+        { name: 'twitter:site', content: '@YourTwitterHandle' },
       ];
 
       metaTags.forEach(tag => {
