@@ -49,6 +49,7 @@ import { ref, computed, onMounted } from 'vue';
 import { useRoute } from 'vue-router';
 import { useHead } from '@vueuse/head';
 import MarkdownIt from 'markdown-it';
+import logoImage from '@/assets/logo_main.png';
 
 export default {
   setup() {
@@ -127,13 +128,13 @@ export default {
       const metaTags = [
         { property: 'og:title', content: blogPost.value.title },
         { property: 'og:description', content: blogPost.value.description },
-        { property: 'og:image', content: blogPost.value.image },
+        { property: 'og:image', content: `${window.location.origin}${logoImage}` },
         { property: 'og:url', content: `https://allometrik.com/blog/${route.params.slug}` },
         { property: 'og:type', content: 'article' },
         { name: 'twitter:card', content: 'summary_large_image' },
         { name: 'twitter:title', content: blogPost.value.title },
         { name: 'twitter:description', content: blogPost.value.description },
-        { name: 'twitter:image', content: blogPost.value.image }
+        { name: 'twitter:image', content: `${window.location.origin}${logoImage}` },
       ];
 
       metaTags.forEach(tag => {
@@ -142,11 +143,13 @@ export default {
           meta.setAttribute(key, tag[key]);
         });
         document.head.appendChild(meta);
+        console.log(`Added meta tag: ${key}="${tag[key]}"`);
       });
     };
 
     onMounted(() => {
       addSocialMediaMeta();
+      console.log('Twitter Card URL for validation:', `https://cards-dev.twitter.com/validator?url=${encodeURIComponent(window.location.href)}`);
     });
 
     const articles = require.context('@/assets/articles', false, /\.md$/);
