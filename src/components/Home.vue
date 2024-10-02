@@ -266,11 +266,11 @@ export default {
                 { property: 'og:description', content: 'Transform your business with Allometrik\'s expert AI consulting and integration services. From concept to reality, we deliver cutting-edge AI solutions.' },
                 { property: 'og:type', content: 'website' },
                 { property: 'og:url', content: 'https://allometrik.com' },
-                { property: 'og:image', content: 'https://allometrik.com/og-image.jpg' }, // Make sure to add an actual image URL
+                //{ property: 'og:image', content: 'https://allometrik.com/og-image.jpg' }, // Make sure to add an actual image URL
                 { name: 'twitter:card', content: 'summary_large_image' },
                 { name: 'twitter:title', content: 'Allometrik - AI Consulting & Integration Services' },
                 { name: 'twitter:description', content: 'Expert AI consulting and Integration services to transform your business. From concept to reality, we deliver cutting-edge AI solutions.' },
-                { name: 'twitter:image', content: 'https://allometrik.com/twitter-image.jpg' }, // Make sure to add an actual image URL
+                //{ name: 'twitter:image', content: 'https://allometrik.com/twitter-image.jpg' }, // Make sure to add an actual image URL
             ],
             link: [
                 { rel: 'canonical', href: 'https://allometrik.com' }
