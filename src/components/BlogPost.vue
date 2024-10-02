@@ -67,20 +67,22 @@ export default {
 
     const renderedContent = ref('');
 
+    const defaultImageUrl = `${window.location.origin}${logoImage}`;
+
     useHead({
       title: computed(() => `${blogPost.value.title} | Allometrik`),
       meta: computed(() => [
         { name: 'description', content: blogPost.value.description },
         { property: 'og:title', content: blogPost.value.title },
         { property: 'og:description', content: blogPost.value.description },
-        { property: 'og:image', content: blogPost.value.image },
+        { property: 'og:image', content: blogPost.value.image ? `${window.location.origin}${blogPost.value.image}` : defaultImageUrl },
         { property: 'og:type', content: 'article' },
         { property: 'og:url', content: `https://allometrik.com/blog/${route.params.slug}` },
         { name: 'twitter:card', content: 'summary_large_image' },
         { name: 'twitter:site', content: '@allometrik' },
         { name: 'twitter:title', content: blogPost.value.title },
         { name: 'twitter:description', content: blogPost.value.description },
-        { name: 'twitter:image', content: blogPost.value.image ? `${window.location.origin}${blogPost.value.image}` : `${window.location.origin}${logoImage}` }
+        { name: 'twitter:image', content: blogPost.value.image ? `${window.location.origin}${blogPost.value.image}` : defaultImageUrl }
       ]),
       link: computed(() => [
         { rel: 'canonical', href: `https://allometrik.com/blog/${route.params.slug}` }
@@ -125,35 +127,7 @@ export default {
       document.head.appendChild(script);
     };
 
-    const addSocialMediaMeta = () => {
-      const defaultImageUrl = `${window.location.origin}${logoImage}`;
-      const postImageUrl = blogPost.value.image ? `${window.location.origin}${blogPost.value.image}` : defaultImageUrl;
-
-      const metaTags = [
-        { property: 'og:title', content: blogPost.value.title },
-        { property: 'og:description', content: blogPost.value.description },
-        { property: 'og:image', content: postImageUrl },
-        { property: 'og:url', content: `https://allometrik.com/blog/${route.params.slug}` },
-        { property: 'og:type', content: 'article' },
-        { name: 'twitter:card', content: 'summary_large_image' },
-        { name: 'twitter:site', content: '@allometrik' },
-        { name: 'twitter:title', content: blogPost.value.title },
-        { name: 'twitter:description', content: blogPost.value.description },
-        { name: 'twitter:image', content: postImageUrl },
-      ];
-
-      metaTags.forEach(tag => {
-        const meta = document.createElement('meta');
-        Object.keys(tag).forEach(key => {
-          meta.setAttribute(key, tag[key]);
-          console.log(`Added meta tag: ${key}="${tag[key]}"`);
-        });
-        document.head.appendChild(meta);
-      });
-    };
-
     onMounted(() => {
-      addSocialMediaMeta();
       console.log('Twitter Card URL for validation:', `https://cards-dev.twitter.com/validator?url=${encodeURIComponent(window.location.href)}`);
     });
 
@@ -179,7 +153,6 @@ export default {
     renderedContent.value = md.render(blogPost.value.content);
 
     addStructuredData();
-    addSocialMediaMeta();
 
     return {
       blogPost,
