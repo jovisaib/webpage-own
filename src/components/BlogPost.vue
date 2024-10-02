@@ -126,18 +126,20 @@ export default {
     };
 
     const addSocialMediaMeta = () => {
+      const defaultImageUrl = `${window.location.origin}${logoImage}`;
+      const postImageUrl = blogPost.value.image ? `${window.location.origin}${blogPost.value.image}` : defaultImageUrl;
+
       const metaTags = [
         { property: 'og:title', content: blogPost.value.title },
         { property: 'og:description', content: blogPost.value.description },
-        { property: 'og:image', content: `${window.location.origin}${blogPost.value.image || logoImage}` },
+        { property: 'og:image', content: postImageUrl },
         { property: 'og:url', content: `https://allometrik.com/blog/${route.params.slug}` },
         { property: 'og:type', content: 'article' },
         { name: 'twitter:card', content: 'summary_large_image' },
         { name: 'twitter:site', content: '@allometrik' },
         { name: 'twitter:title', content: blogPost.value.title },
         { name: 'twitter:description', content: blogPost.value.description },
-        { name: 'twitter:image', content: blogPost.value.image ? `${window.location.origin}${blogPost.value.image}` : `${window.location.origin}${logoImage}` },
-        { name: 'twitter:site', content: '@allometrik' },
+        { name: 'twitter:image', content: postImageUrl },
       ];
 
       metaTags.forEach(tag => {
