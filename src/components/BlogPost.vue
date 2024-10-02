@@ -77,9 +77,10 @@ export default {
         { property: 'og:type', content: 'article' },
         { property: 'og:url', content: `https://allometrik.com/blog/${route.params.slug}` },
         { name: 'twitter:card', content: 'summary_large_image' },
+        { name: 'twitter:site', content: '@allometrik' },
         { name: 'twitter:title', content: blogPost.value.title },
         { name: 'twitter:description', content: blogPost.value.description },
-        { name: 'twitter:image', content: `${window.location.origin}${blogPost.value.image || logoImage}` }
+        { name: 'twitter:image', content: blogPost.value.image ? `${window.location.origin}${blogPost.value.image}` : `${window.location.origin}${logoImage}` }
       ]),
       link: computed(() => [
         { rel: 'canonical', href: `https://allometrik.com/blog/${route.params.slug}` }
@@ -132,10 +133,11 @@ export default {
         { property: 'og:url', content: `https://allometrik.com/blog/${route.params.slug}` },
         { property: 'og:type', content: 'article' },
         { name: 'twitter:card', content: 'summary_large_image' },
+        { name: 'twitter:site', content: '@allometrik' },
         { name: 'twitter:title', content: blogPost.value.title },
         { name: 'twitter:description', content: blogPost.value.description },
-        { name: 'twitter:image', content: `${window.location.origin}${blogPost.value.image || logoImage}` },
-        { name: 'twitter:site', content: '@YourTwitterHandle' },
+        { name: 'twitter:image', content: blogPost.value.image ? `${window.location.origin}${blogPost.value.image}` : `${window.location.origin}${logoImage}` },
+        { name: 'twitter:site', content: '@allometrik' },
       ];
 
       metaTags.forEach(tag => {
@@ -150,7 +152,7 @@ export default {
 
     onMounted(() => {
       addSocialMediaMeta();
-      console.log('Twitter Card URL for validation:', `https://cards-dev.twitter.com/validator?url=${encodeURIComponent(`https://allometrik.com/blog/${route.params.slug}`)}`);
+      console.log('Twitter Card URL for validation:', `https://cards-dev.twitter.com/validator?url=${encodeURIComponent(window.location.href)}`);
     });
 
     const articles = require.context('@/assets/articles', false, /\.md$/);
