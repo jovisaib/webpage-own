@@ -7,9 +7,9 @@
               >
                 <v-col cols="12" md="8" lg="6">
                   <h1 class="text-h2 font-weight-bold mb-8">
-                    We transform your<br>
-                    AI projects from<br>
-                    <span class="bg-black text-white px-4 py-2 d-inline-block">concept to reality</span>
+                    Empowering Growth with<br>
+                    AI-Driven<br>
+                    <span class="bg-black text-white px-4 py-2 d-inline-block">Digital Transformation</span>
                   </h1>
                   <p class="text-body-1 mb-12">
                     From innovative startups to established industry leaders,<br>
