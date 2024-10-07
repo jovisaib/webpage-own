@@ -17,7 +17,7 @@
                     Let's unlock your potential together.
                   </p>
                   <v-btn
-                    href="https://calendly.com/jovisaib/30-min-intro"
+                    href="https://calendly.com/jovisaib/introcall"
                     class="book-call-btn"
                     target="_blank"
                     x-large
