@@ -134,7 +134,7 @@
         <v-container id="process-section" class="py-16 bg-gradient-to-r from-blue-50 to-indigo-50 mt-16 mb-16">
             <v-row justify="center" class="text-center mb-12">
                 <v-col cols="12" md="10" lg="8">
-                    <h2 class="text-h3 font-weight-bold mb-4">Our Streamlined Process</h2>
+                    <h2 class="text-h3 font-weight-bold mb-4">How it works</h2>
                     <p class="text-lg text-gray-700 max-w-3xl mx-auto">
                         Experience a seamless journey from concept to implementation. Our innovative approach ensures your AI initiatives are executed with precision and agility.
                     </p>
@@ -310,16 +310,16 @@ export default {
             ],
             processSteps: [
                 {
-                    title: 'Connect',
-                    description: 'Free 30-minute session. We analyze your goals and challenges to customize our approach.'
+                    title: 'Book a free call',
+                    description: 'A quick risk-free chat with our founder, Jose'
                 },
                 {
-                    title: 'Strategize',
-                    description: 'Custom AI proposal with innovative strategy, timeline, and costs. Collaborative refinement for perfect alignment.'
+                    title: "We'll get to work",
+                    description: 'Have your goals immediately worked on'
                 },
                 {
                     title: 'Execute & Iterate',
-                    description: 'Real-time collaboration via Slack. Agile integration with continuous feedback for maximum impact.'
+                    description: 'Real-time collaboration, Watch the impact of our outcomes.'
                 }
             ],
         }
