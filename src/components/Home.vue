@@ -1,5 +1,5 @@
 <template>
-        <v-container fluid class="pa-12 with-top-margin">
+        <v-container fluid class="pa-8 with-top-margin">
               <v-row
                 align="center"
                 justify="center"
@@ -80,7 +80,7 @@
             </v-row>
         </v-container>
 
-        <v-container fluid style="background-color: #F5F5F5;" id="services-section" class="py-12 py-md-24 py-lg-32 bg-muted">
+        <v-container fluid style="background-color: #F5F5F5;" id="services-section" class="py-12 pa-12 py-md-24 py-lg-32 bg-muted">
   <!-- Main Container -->
   <v-row class="px-4 px-md-6 d-flex flex-column align-center text-center space-y-12">
     <!-- Heading Section -->
@@ -88,57 +88,43 @@
       <div class="space-y-2">
         <v-chip class="bg-muted mb-2 px-3 py-1 text-sm" outlined>Our Services</v-chip>
         <h2 class="text-h4 font-weight-bold text-center sm:text-h3 lg:text-h2">
-          Transformative AI Solutions
+          Transformative End-to-End Services
         </h2>
         <p class="text-body-1 text-muted-foreground max-w-300 md:text-xl lg:text-base xl:text-xl">
-          Our team of AI experts delivers cutting-edge solutions to help businesses unlock the full potential of artificial intelligence.
+          Our team is your AI partner from ideation to launched product.
         </p>
       </div>
     </v-col>
 
     <!-- Services Grid -->
     <v-col cols="12">
-      <v-row class="d-flex gap-8 sm:grid-cols-2 md:gap-12 text-left lg:grid-cols-3">
-        <!-- Service 1 -->
-        <v-col cols="12" sm="6" md="4" class="d-flex flex-column gap-1">
-          <h3 class="text-h6 font-weight-bold">AI reporting</h3>
-          <p class="text-body-1 text-muted-foreground justify-left">
-            Use our expertise in Retrieval-Augmented Generation (RAG) to boost your AI applications.
-          </p>
-        </v-col>
+      <v-row class="d-flex gap-8 sm:grid-cols-2 md:gap-12 text-left lg:grid-cols-2">
         <!-- Service 2 -->
-        <v-col cols="12" sm="6" md="4" class="d-flex flex-column gap-1">
-          <h3 class="text-h6 font-weight-bold">AI Integration</h3>
+        <v-col cols="12" sm="6" md="6" class="d-flex flex-column gap-1">
+          <h3 class="text-h6 font-weight-bold">AI Product Strategy</h3>
           <p class="text-body-1 text-muted-foreground justify-left">
-            Our experts seamlessly integrate AI solutions into your existing infrastructure.
-          </p>
-        </v-col>
-        <!-- Service 3 -->
-        <v-col cols="12" sm="6" md="4" class="d-flex flex-column gap-1">
-          <h3 class="text-h6 font-weight-bold">Fractional CTO</h3>
-          <p class="text-body-1 text-muted-foreground justify-left">
-            Get top-tier CTO services on a suscription basis. Leverage expert leadership to guide your strategy.
+            Generative AI upends traditional interface design by opening entirely new possibilities. We design novel, beautiful products which employees and customers love.
           </p>
         </v-col>
         <!-- Service 4 -->
-        <v-col cols="12" sm="6" md="4" class="d-flex flex-column gap-1">
-          <h3 class="text-h6 font-weight-bold">Training</h3>
+        <v-col cols="12" sm="6" md="6" class="d-flex flex-column gap-1">
+          <h3 class="text-h6 font-weight-bold">AI Development</h3>
           <p class="text-body-1 text-muted-foreground justify-left">
-            Our comprehensive training programs empower your team to leverage AI and emerging technologies effectively.
+            We leverage state of the art models through fine tuning, retrieval augmented generation (RAG), and clever prompt engineering to deliver accelerated workflows. Depending on your needs, we can implement proprietary foundational models or open source models.
           </p>
         </v-col>
         <!-- Service 5 -->
-        <v-col cols="12" sm="6" md="4" class="d-flex flex-column gap-1">
-          <h3 class="text-h6 font-weight-bold">AI Consulting</h3>
+        <v-col cols="12" sm="6" md="6" class="d-flex flex-column gap-1">
+          <h3 class="text-h6 font-weight-bold">Consulting</h3>
           <p class="text-body-1 text-muted-foreground justify-left">
-            We provide expert guidance to help you navigate the complex world of artificial intelligence.
+            AI and Generative AI is an evolving space that can be difficult for business owners and executives to make sense of. Our team of ex-founders, product managers, engineers and designers can identify high-value use cases, develop risk mitigation strategies, and design an agile product development plan.
           </p>
         </v-col>
         <!-- Service 6 -->
-        <v-col cols="12" sm="6" md="4" class="d-flex flex-column gap-1">
+        <v-col cols="12" sm="6" md="6" class="d-flex flex-column gap-1">
           <h3 class="text-h6 font-weight-bold">AI Research</h3>
           <p class="text-body-1 text-muted-foreground justify-left">
-            Our team conducts cutting-edge research to stay at the forefront of AI innovation.
+            Our team conducts cutting-edge research to stay at the forefront of AI innovation. We go from ideation to production-ready.
           </p>
         </v-col>
       </v-row>
