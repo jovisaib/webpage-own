@@ -95,7 +95,6 @@
       </div>
     </v-col>
 
-    <!-- Services Grid -->
     <v-col cols="12">
       <v-row class="d-flex gap-8 sm:grid-cols-2 md:gap-12 text-left lg:grid-cols-2">
         <v-col cols="12" sm="6" md="6" class="d-flex flex-column gap-1">
