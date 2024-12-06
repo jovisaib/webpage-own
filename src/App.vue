@@ -22,7 +22,7 @@
                 <v-col cols="auto" class="d-none d-md-flex"> <!-- Only show on medium and larger screens -->
                     <v-btn text class="nav-link" @click="navigateOrScroll('services-section')" style="color: black;">Services</v-btn>
                     <v-btn text class="nav-link" @click="navigateOrScroll('process-section')" style="color: black;">Process</v-btn>
-                    <v-btn text class="nav-link" @click="navigateOrScroll('about-me-section')" style="color: black;">About Us</v-btn>
+                    <v-btn text class="nav-link" @click="navigateOrScroll('about-me-section')" style="color: black;">About</v-btn>
                     <v-btn text to="/blog" class="nav-link" style="color: black;">Blog</v-btn>
                 </v-col>
             </v-row>
@@ -39,7 +39,7 @@
                 <v-list-item-title>Process</v-list-item-title>
             </v-list-item>
             <v-list-item @click="navigateOrScroll('about-me-section')">
-                <v-list-item-title>About Us</v-list-item-title>
+                <v-list-item-title>About</v-list-item-title>
             </v-list-item>
             <v-list-item to="/blog">
                 <v-list-item-title>Blog</v-list-item-title>
@@ -48,16 +48,12 @@
     </v-navigation-drawer>
 
     <router-view />
-
     <v-footer class="footer">
       <v-container class="py-12">
         <v-row justify="center" align="start">
           <!-- Brand Column -->
           <v-col cols="12" sm="6" md="4" class="text-center text-sm-left mb-8 mb-md-0">
-            <div class="d-flex align-center justify-center justify-sm-start mb-6">
-              <v-img :src="require('@/assets/logo_main.png')" max-height="40" min-width="40" class="mr-3"></v-img>
-              <h3 class="text-h5 font-weight-bold mb-0" style="font-family: 'Montserrat', sans-serif;">allometrik</h3>
-            </div>
+            <h3 class="text-h5 mr-8 font-weight-bold mb-0 d-flex align-center" style="font-family: 'Montserrat', sans-serif;">allometrik</h3>
             <p class="footer-description mb-6">
               Transforming businesses through innovative AI and IoT solutions. We help companies build, scale, and optimize their technology.
             </p>
@@ -91,7 +87,7 @@
               </a>
               <a class="footer-link mb-3" @click="navigateOrScroll('about-me-section')">
                 <span class="arrow-icon">→</span>
-                About Us
+                About
               </a>
               <router-link to="/blog" class="footer-link mb-3">
                 <span class="arrow-icon">→</span>
@@ -104,9 +100,9 @@
           <v-col cols="12" sm="6" md="4" class="text-center text-sm-left">
             <h4 class="text-h6 font-weight-bold mb-6">Contact Us</h4>
             <div class="contact-info">
-              <a href="mailto:hello@allometrik.com" class="footer-contact-link mb-4 d-flex align-center">
+              <a href="mailto:jose@allometrik.com" class="footer-contact-link mb-4 d-flex align-center">
                 <span class="contact-icon">✉️</span>
-                <span>hello@allometrik.com</span>
+                <span>jose@allometrik.com</span>
               </a>
               <a href="https://calendly.com/jovisaib/introcall" target="_blank" class="footer-contact-link mb-4 d-flex align-center">
                 <span class="contact-icon">📅</span>

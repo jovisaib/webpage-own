@@ -74,10 +74,10 @@
     <v-container fluid class="testimonials-section py-16">
       <v-row justify="center" class="text-center mb-12">
         <v-col cols="12" md="8">
-          <v-chip class="testimonial-tag mb-4" small outlined>Client Stories</v-chip>
+          <v-chip class="service-tag mb-4" small outlined>Client Stories</v-chip>
           <h2 class="text-h3 font-weight-bold mb-4">
             What Our Clients
-            <span class="gradient-text-testimonials">Say About Us</span>
+            <span class="gradient-text-testimonials">Say About</span>
           </h2>
           <p class="testimonial-subtitle">
             Trusted by industry leaders and innovative companies worldwide
@@ -119,11 +119,11 @@
     </v-container>
 
     <!-- Services Section -->
-    <v-container fluid class="services-section py-16" id="services-section">
-      <v-row class="px-4 px-md-6 d-flex flex-column align-center text-center">
-        <v-col cols="12" class="d-flex flex-column align-center mb-12">
+    <v-container fluid class="services-section" id="services-section">
+      <v-row class="px-4 px-md-6 d-flex flex-column align-center text-center ma-0">
+        <v-col cols="12" class="d-flex flex-column align-center mb-12 pa-0">
           <div class="text-center">
-            <v-chip class="section-tag mb-4" small outlined>Our Services</v-chip>
+            <v-chip class="service-tag mb-4" small outlined>Our Services</v-chip>
             <h2 class="text-h3 font-weight-bold mb-4">
               Transformative End-to-End
               <span class="gradient-text-services">AI Solutions</span>
@@ -153,7 +153,7 @@
     </v-container>
 
     <!-- Process Section -->
-    <v-container fluid class="process-section py-16">
+    <v-container fluid class="process-section py-16" id="process-section">
       <v-row justify="center" class="text-center mb-16">
         <v-col cols="12" md="8">
           <v-chip class="process-tag mb-4" small outlined>How It Works</v-chip>
@@ -231,10 +231,10 @@
     </v-container>
 
     <!-- About Section -->
-    <v-container fluid class="about-section py-16">
+    <v-container fluid class="about-section py-16" id="about-me-section">
       <v-row justify="center" align="center" class="about-content">
         <v-col cols="12" md="6" class="text-center text-md-left pr-md-8">
-          <v-chip class="about-tag mb-4" small outlined>About Us</v-chip>
+          <v-chip class="about-tag mb-4" small outlined>About</v-chip>
           <h2 class="text-h3 font-weight-bold mb-4">
             Pioneering the Future of
             <span class="gradient-text-about">AI Innovation</span>
@@ -273,7 +273,7 @@
 
           <div class="contact-section mt-8">
             <v-btn
-              href="mailto:hello@allometrik.com"
+              href="mailto:jose@allometrik.com"
               class="contact-btn mr-4"
               color="primary"
               outlined
@@ -694,18 +694,47 @@ export default {
 }
 
 .process-number {
-    display: inline-flex;
+    position: absolute;
+    top: -24px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 48px;
+    height: 48px;
+    background: linear-gradient(135deg, #1976D2, #2196F3);
+    color: white;
+    border-radius: 16px;
+    display: flex;
     align-items: center;
     justify-content: center;
-    background: linear-gradient(135deg, #3a94db, #42a5f5);
-    color: #fff;
-    border-radius: 50%;
-    width: 36px;
-    height: 36px;
+    font-weight: 600;
     font-size: 1.25rem;
-    font-weight: bold;
-    margin-right: 12px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    z-index: 2;
+    box-shadow: 0 8px 24px rgba(25, 118, 210, 0.25);
+    border: 3px solid white;
+    transition: all 0.3s ease;
+}
+
+.process-col:hover .process-number {
+    transform: translateX(-50%) translateY(-5px);
+    box-shadow: 0 12px 28px rgba(25, 118, 210, 0.3);
+    background: linear-gradient(135deg, #2196F3, #1976D2);
+}
+
+.process-step-card {
+    background: white;
+    border-radius: 20px;
+    padding: 3rem 2rem 2rem;
+    height: 100%;
+    margin-top: 24px;
+    transition: all 0.3s ease;
+    border: 1px solid rgba(0, 0, 0, 0.08);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.06);
+}
+
+.process-step-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 16px 32px rgba(0, 0, 0, 0.1);
+    border-color: transparent;
 }
 
 #services-section,
@@ -820,7 +849,8 @@ export default {
     overflow: hidden;
     display: flex;
     align-items: center;
-    padding-top: 80px; /* Reduced from 120px */
+    padding-top: 80px;
+    border-bottom: 1px solid rgba(25, 118, 210, 0.08);
 }
 
 .hero-background {
@@ -830,9 +860,16 @@ export default {
     right: 0;
     bottom: 0;
     background-image: 
-        radial-gradient(circle at 20% 20%, rgba(66, 165, 245, 0.08) 0%, transparent 50%),
-        radial-gradient(circle at 80% 80%, rgba(66, 165, 245, 0.08) 0%, transparent 50%);
+        radial-gradient(circle at 20% 20%, rgba(66, 165, 245, 0.12) 0%, transparent 50%),
+        radial-gradient(circle at 80% 80%, rgba(66, 165, 245, 0.12) 0%, transparent 50%);
     z-index: 0;
+    animation: gradientShift 15s ease-in-out infinite;
+}
+
+@keyframes gradientShift {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.1); }
+    100% { transform: scale(1); }
 }
 
 .hero-content {
@@ -853,9 +890,11 @@ export default {
 .hero-badge {
     display: inline-flex;
     align-items: center;
-    background: rgba(66, 165, 245, 0.1);
+    background: rgba(66, 165, 245, 0.15);
     padding: 8px 16px;
     border-radius: 100px;
+    box-shadow: 0 2px 8px rgba(66, 165, 245, 0.1);
+    backdrop-filter: blur(8px);
 }
 
 .pulse-dot {
@@ -911,11 +950,18 @@ export default {
 .gradient-text {
     display: block;
     margin-top: 0.5rem;
-    background: linear-gradient(135deg, #1976D2, #2196F3);
+    background: linear-gradient(135deg, #1976D2, #2196F3, #42A5F5);
     -webkit-background-clip: text;
     background-clip: text;
     color: transparent;
     font-size: 4rem;
+    animation: gradientFlow 6s ease infinite;
+}
+
+@keyframes gradientFlow {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
 }
 
 .hero-subtitle {
@@ -939,17 +985,18 @@ export default {
     letter-spacing: 0.5px;
     text-transform: none;
     border-radius: 100px;
-    background: linear-gradient(135deg, #1976D2, #2196F3) !important;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    background: linear-gradient(135deg, #1976D2, #2196F3, #42A5F5) !important;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
     display: flex;
     flex-direction: column;
     align-items: center;
     min-width: 280px;
+    box-shadow: 0 4px 12px rgba(33, 150, 243, 0.2);
 }
 
 .primary-cta:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 8px 20px rgba(33, 150, 243, 0.3);
+    transform: translateY(-2px) scale(1.02);
+    box-shadow: 0 8px 24px rgba(33, 150, 243, 0.3);
 }
 
 .cta-text {
@@ -987,12 +1034,13 @@ export default {
 }
 
 .social-proof {
-    background: rgba(255, 255, 255, 0.8);
-    backdrop-filter: blur(10px);
+    background: rgba(255, 255, 255, 0.9);
+    backdrop-filter: blur(12px);
     border-radius: 24px;
     padding: 2.5rem;
-    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.05);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.08);
     width: 100%;
+    border: 1px solid rgba(255, 255, 255, 0.8);
 }
 
 .proof-header {
@@ -1022,13 +1070,16 @@ export default {
 
 .metric-item {
     padding: 1rem;
-    background: rgba(255, 255, 255, 0.5);
+    background: rgba(255, 255, 255, 0.7);
     border-radius: 16px;
-    transition: transform 0.3s ease;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    border: 1px solid rgba(255, 255, 255, 0.6);
 }
 
 .metric-item:hover {
-    transform: translateY(-5px);
+    transform: translateY(-5px) scale(1.03);
+    background: rgba(255, 255, 255, 0.9);
+    box-shadow: 0 8px 24px rgba(33, 150, 243, 0.15);
 }
 
 .metric-value {
@@ -1106,11 +1157,15 @@ export default {
 }
 
 .service-tag {
-  background: rgba(66, 165, 245, 0.1);
-  color: #1976D2;
-  text-transform: uppercase;
-  letter-spacing: 1px;
-  font-weight: 600;
+    background: rgba(66, 165, 245, 0.1);
+    color: #1976D2;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-weight: 600;
+    border-color: #1976D2;
+    font-size: 0.875rem;
+    padding: 0 12px;
+    height: 24px;
 }
 
 .gradient-text-services {
@@ -1149,22 +1204,35 @@ export default {
   height: 100%;
   width: 100%;
   max-width: 320px;
-  transition: all 0.3s ease;
-  border: 1px solid rgba(0, 0, 0, 0.1);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  border: 1px solid rgba(0, 0, 0, 0.08);
   display: flex;
   flex-direction: column;
   align-items: center;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+}
+
+.service-card:hover {
+  transform: translateY(-5px) scale(1.02);
+  box-shadow: 0 16px 32px rgba(0, 0, 0, 0.1);
+  border-color: rgba(33, 150, 243, 0.2);
 }
 
 .service-icon-wrapper {
   width: 64px;
   height: 64px;
-  background: rgba(33, 150, 243, 0.1);
+  background: rgba(33, 150, 243, 0.12);
   border-radius: 16px;
   display: flex;
   align-items: center;
   justify-content: center;
   margin-bottom: 1.5rem;
+  transition: all 0.3s ease;
+}
+
+.service-card:hover .service-icon-wrapper {
+  transform: scale(1.1);
+  background: rgba(33, 150, 243, 0.18);
 }
 
 .step-icon {
@@ -1214,29 +1282,46 @@ export default {
 
 .process-number {
     position: absolute;
-    top: 0;
+    top: -24px;
     left: 50%;
     transform: translateX(-50%);
     width: 48px;
     height: 48px;
-    background: #2196F3;
+    background: linear-gradient(135deg, #1976D2, #2196F3);
     color: white;
-    border-radius: 50%;
+    border-radius: 16px;
     display: flex;
     align-items: center;
     justify-content: center;
-    font-weight: bold;
-    font-size: 1.5rem;
+    font-weight: 600;
+    font-size: 1.25rem;
     z-index: 2;
+    box-shadow: 0 8px 24px rgba(25, 118, 210, 0.25);
+    border: 3px solid white;
+    transition: all 0.3s ease;
+}
+
+.process-col:hover .process-number {
+    transform: translateX(-50%) translateY(-5px);
+    box-shadow: 0 12px 28px rgba(25, 118, 210, 0.3);
+    background: linear-gradient(135deg, #2196F3, #1976D2);
 }
 
 .process-step-card {
     background: white;
-    border-radius: 12px;
+    border-radius: 20px;
     padding: 3rem 2rem 2rem;
     height: 100%;
     margin-top: 24px;
     transition: all 0.3s ease;
+    border: 1px solid rgba(0, 0, 0, 0.08);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.06);
+}
+
+.process-step-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 16px 32px rgba(0, 0, 0, 0.1);
+    border-color: transparent;
 }
 
 .icon-wrapper {
@@ -1322,16 +1407,17 @@ export default {
 .case-study-card {
     border-radius: 16px;
     overflow: hidden;
-    transition: all 0.3s ease;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
     background: white;
     height: 100%;
-    border: 1px solid rgba(0, 0, 0, 0.1);
+    border: 1px solid rgba(0, 0, 0, 0.08);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
 }
 
 .case-study-card.on-hover {
-    transform: translateY(-8px);
-    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
-    border-color: transparent;
+    transform: translateY(-8px) scale(1.02);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.12);
+    border-color: rgba(33, 150, 243, 0.2);
 }
 
 .card-image-wrapper {
@@ -1340,7 +1426,11 @@ export default {
 }
 
 .case-study-image {
-    transition: all 0.5s ease;
+    transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.case-study-card:hover .case-study-image {
+    transform: scale(1.05);
 }
 
 .image-overlay {
@@ -1650,6 +1740,14 @@ export default {
 /* Section Backgrounds */
 .services-section {
   background: linear-gradient(135deg, #f8f9ff 0%, #f1f4ff 100%);
+  padding-top: 5rem;
+  padding-bottom: 5rem;
+  position: relative;
+  overflow: hidden;
+}
+
+#services-section {
+  margin-top: 0;
 }
 
 .process-section {
