@@ -49,38 +49,82 @@
 
     <router-view />
 
-    <v-footer class="footer gradient-bg white--text">
-      <v-container>
-        <v-row justify="center" align="start" class="py-4">
-          <v-col cols="12" sm="6" md="3" class="text-center text-sm-left mb-4 mb-md-0">
-            <h3 class="text-h6 font-weight-bold mb-3">Allometrik</h3>
-            <p class="mb-0">Innovating with AI and IoT solutions</p>
+    <v-footer class="footer">
+      <v-container class="py-12">
+        <v-row justify="center" align="start">
+          <!-- Brand Column -->
+          <v-col cols="12" sm="6" md="4" class="text-center text-sm-left mb-8 mb-md-0">
+            <div class="d-flex align-center justify-center justify-sm-start mb-6">
+              <v-img :src="require('@/assets/logo_main.png')" max-height="40" min-width="40" class="mr-3"></v-img>
+              <h3 class="text-h5 font-weight-bold mb-0" style="font-family: 'Montserrat', sans-serif;">allometrik</h3>
+            </div>
+            <p class="footer-description mb-6">
+              Transforming businesses through innovative AI and IoT solutions. We help companies build, scale, and optimize their technology.
+            </p>
+            <div class="social-links">
+              <v-btn
+                v-for="icon in icons"
+                :key="icon.img"
+                :href="icon.href"
+                target="_blank"
+                rel="noopener noreferrer"
+                icon
+                class="mr-4"
+                color="primary"
+              >
+                <v-icon>{{ icon.img }}</v-icon>
+              </v-btn>
+            </div>
           </v-col>
-          <v-col cols="12" sm="6" md="3" class="text-center text-sm-left mb-4 mb-md-0">
-            <h4 class="text-subtitle-1 font-weight-bold mb-3">Quick Links</h4>
-            <a class="d-block mb-2 footer-link" @click="navigateOrScroll('services-section')">Services</a>
-            <a class="d-block mb-2 footer-link" @click="navigateOrScroll('process-section')">Process</a>
-            <a class="d-block mb-2 footer-link" @click="navigateOrScroll('about-me-section')">About Us</a>
-            <router-link to="/blog" class="d-block mb-2 footer-link">Blog</router-link>
+
+          <!-- Quick Links -->
+          <v-col cols="12" sm="6" md="4" class="text-center text-sm-left mb-8 mb-md-0">
+            <h4 class="text-h6 font-weight-bold mb-6">Quick Links</h4>
+            <div class="d-flex flex-column footer-links">
+              <a class="footer-link mb-3" @click="navigateOrScroll('services-section')">
+                <span class="arrow-icon">→</span>
+                Services
+              </a>
+              <a class="footer-link mb-3" @click="navigateOrScroll('process-section')">
+                <span class="arrow-icon">→</span>
+                Process
+              </a>
+              <a class="footer-link mb-3" @click="navigateOrScroll('about-me-section')">
+                <span class="arrow-icon">→</span>
+                About Us
+              </a>
+              <router-link to="/blog" class="footer-link mb-3">
+                <span class="arrow-icon">→</span>
+                Blog
+              </router-link>
+            </div>
           </v-col>
-          <v-col cols="12" sm="6" md="3" class="text-center mb-4 mb-md-0">
-            <h4 class="text-subtitle-1 font-weight-bold mb-3">Connect With Us</h4>
-            <v-btn
-              v-for="icon in icons"
-              :key="icon.img"
-              :href="icon.href"
-              target="_blank"
-              rel="noopener noreferrer"
-              icon
-              class="mx-2"
-              color="white"
-            >
-              <v-icon>{{ icon.img }}</v-icon>
-            </v-btn>
+
+          <!-- Contact Info -->
+          <v-col cols="12" sm="6" md="4" class="text-center text-sm-left">
+            <h4 class="text-h6 font-weight-bold mb-6">Contact Us</h4>
+            <div class="contact-info">
+              <a href="mailto:hello@allometrik.com" class="footer-contact-link mb-4 d-flex align-center">
+                <span class="contact-icon">✉️</span>
+                <span>hello@allometrik.com</span>
+              </a>
+              <a href="https://calendly.com/jovisaib/introcall" target="_blank" class="footer-contact-link mb-4 d-flex align-center">
+                <span class="contact-icon">📅</span>
+                <span>Schedule a Call</span>
+              </a>
+            </div>
           </v-col>
-          <v-col cols="12" sm="6" md="3" class="text-center text-md-right">
-            <p class="mb-0">&copy; {{ new Date().getFullYear() }} Allometrik</p>
-            <p class="mb-0">All rights reserved</p>
+        </v-row>
+
+        <!-- Copyright Bar -->
+        <v-divider class="my-6"></v-divider>
+        <v-row justify="space-between" align="center" class="copyright-bar">
+          <v-col cols="12" sm="auto" class="text-center text-sm-left">
+            <p class="mb-0 copyright-text">&copy; {{ new Date().getFullYear() }} Allometrik. All rights reserved.</p>
+          </v-col>
+          <v-col cols="12" sm="auto" class="text-center text-sm-right">
+            <a href="#" class="footer-legal-link mr-4">Privacy Policy</a>
+            <a href="#" class="footer-legal-link">Terms of Service</a>
           </v-col>
         </v-row>
       </v-container>
@@ -142,39 +186,99 @@ export default {
 }
 
 .footer {
+  background: #f8faff;
   width: 100%;
-  padding: 40px 0;
+  border-top: 1px solid rgba(0, 0, 0, 0.05);
 }
 
-.gradient-bg {
-  background: linear-gradient(135deg, #6366F1, #8B5CF6, #EC4899);
-  animation: gradient 15s ease infinite;
-  background-size: 400% 400%;
+.footer-description {
+  color: #546e7a;
+  font-size: 0.95rem;
+  line-height: 1.6;
+  max-width: 400px;
 }
 
-@keyframes gradient {
-  0% {
-    background-position: 0% 50%;
-  }
-  50% {
-    background-position: 100% 50%;
-  }
-  100% {
-    background-position: 0% 50%;
-  }
+.social-links {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  justify-content: flex-start;
+}
+
+.footer-links {
+  display: flex;
+  flex-direction: column;
+}
+
+.footer-link {
+  color: #546e7a !important;
+  font-size: 0.95rem;
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+
+.footer-link:hover {
+  color: #1976D2 !important;
+  transform: translateX(5px);
+}
+
+.footer-contact-link {
+  color: #546e7a;
+  text-decoration: none;
+  font-size: 0.95rem;
+  transition: all 0.3s ease;
+}
+
+.footer-contact-link:hover {
+  color: #1976D2;
+}
+
+.copyright-text {
+  color: #546e7a;
+  font-size: 0.9rem;
+}
+
+.footer-legal-link {
+  color: #546e7a;
+  text-decoration: none;
+  font-size: 0.9rem;
+  transition: color 0.3s ease;
+}
+
+.footer-legal-link:hover {
+  color: #1976D2;
 }
 
 .v-btn.v-btn--icon {
-  transition: transform 0.2s ease-in-out;
+  background: rgba(25, 118, 210, 0.1);
+  transition: all 0.3s ease;
 }
 
 .v-btn.v-btn--icon:hover {
-  transform: scale(1.2);
+  transform: translateY(-3px);
+  background: rgba(25, 118, 210, 0.15);
 }
 
 @media (max-width: 960px) {
-  .footer .v-col {
-    margin-bottom: 20px;
+  .social-links {
+    justify-content: center;
+  }
+  
+  .footer-description {
+    margin: 0 auto;
+    text-align: center;
+  }
+
+  .copyright-bar {
+    text-align: center;
+  }
+
+  .footer-legal-link {
+    display: inline-block;
+    margin: 0.5rem 1rem;
   }
 }
 
@@ -223,5 +327,41 @@ export default {
 
 .footer-link:hover {
     opacity: 1;
+}
+
+.arrow-icon {
+  display: inline-block;
+  margin-right: 8px;
+  font-size: 1.1rem;
+  transition: transform 0.3s ease;
+}
+
+.footer-link:hover .arrow-icon {
+  transform: translateX(5px);
+}
+
+.contact-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 24px;
+  height: 24px;
+  margin-right: 12px;
+  font-size: 1.2rem;
+}
+
+.footer-link {
+  color: #546e7a !important;
+  font-size: 0.95rem;
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+
+.footer-link:hover {
+  color: #1976D2 !important;
+  transform: translateX(5px);
 }
 </style>
