@@ -13,7 +13,7 @@ Here are some writing samples from the instructor blog which we’ve done
 
 1. [Smarter Summaries w Finetuning GPT-3.5 and Chain Of Density](https://python.useinstructor.com/blog/2023/11/05/chain-of-density/) - We were one of the first to show how fine-tuning GPT-3.5 could result in massive performance boosts for specific tasks. This post went viral and charted at #3 on Hackernews when we published it.
 
-![](./hackernews.jpeg)
+<!-- ![](./hackernews.jpeg) -->
 
 2. [Bad Schemas Could break Your LLM Structured Outputs](https://python.useinstructor.com/blog/2024/09/26/bad-schemas-could-break-your-llm-structured-outputs/) - This was a research style article where we highlighted the dangers of using JSON mode versus structured outputs through a series of benchmarks that we performed on GPT-4o and Claude models against the GSM8k
 
