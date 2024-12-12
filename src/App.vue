@@ -23,7 +23,7 @@
                     <v-btn text class="nav-link" @click="navigateOrScroll('services-section')" style="color: black;">Services</v-btn>
                     <v-btn text class="nav-link" @click="navigateOrScroll('process-section')" style="color: black;">Process</v-btn>
                     <v-btn text class="nav-link" @click="navigateOrScroll('about-me-section')" style="color: black;">About</v-btn>
-                    <v-btn text to="/blog" class="nav-link" style="color: black;">Blog</v-btn>
+                    <v-btn text href="https://blog.allometrik.com/" target="_blank" class="nav-link" style="color: black;">Blog</v-btn>
                 </v-col>
             </v-row>
         </v-container>
@@ -41,7 +41,7 @@
             <v-list-item @click="navigateOrScroll('about-me-section')">
                 <v-list-item-title>About</v-list-item-title>
             </v-list-item>
-            <v-list-item to="/blog">
+            <v-list-item href="https://blog.allometrik.com/" target="_blank">
                 <v-list-item-title>Blog</v-list-item-title>
             </v-list-item>
         </v-list>
@@ -89,10 +89,10 @@
                 <span class="arrow-icon">→</span>
                 About
               </a>
-              <router-link to="/blog" class="footer-link mb-3">
+              <a href="https://blog.allometrik.com/" target="_blank" class="footer-link mb-3">
                 <span class="arrow-icon">→</span>
                 Blog
-              </router-link>
+              </a>
             </div>
           </v-col>
 
