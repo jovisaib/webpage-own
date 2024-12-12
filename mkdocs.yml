@@ -1,7 +1,7 @@
 site_name: Allometrik Blog
 site_author: Jose Vicente Sáez Ibáñez
 site_description: >-
-  Site Description
+  Transform Your Business with AI-Powered Innovation
 repo_name: blog
 repo_url: https://github.com/jovisaib/webpage-own
 site_url: https://blog.allometrik.com
@@ -144,7 +144,10 @@ extra:
     - icon: fontawesome/brands/twitter
       link: https://twitter.com/jovisaib
     - icon: fontawesome/brands/github
-      link: https://github.com/jovisaib # TODO: add link
+      link: https://github.com/jovisaib
+  social_cards:
+    enabled: true
+    image: assets/logo_main.png
 extra_css:
   - stylesheets/extra.css
 extra_javascript:
