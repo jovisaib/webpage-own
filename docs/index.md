@@ -25,5 +25,5 @@ An experienced technical consultant specializing in AI implementation and optimi
 - Implement best practices for long-term success
 - Enable teams with the right tools and knowledge
 
-[Schedule a Consultation](https://cal.com/your-handle){ .md-button .md-button--primary }
+[Schedule a Consultation](https://cal.com/allometrik/30min){ .md-button .md-button--primary }
 [Read the Blog](./blog/index.md){ .md-button }

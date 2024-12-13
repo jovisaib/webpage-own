@@ -1,12 +1,12 @@
 site_name: Allometrik Blog
-site_author: Jose Vicente Sáez Ibáñez
+site_author: JV Sáez
 site_description: >-
   Transform Your Business with AI-Powered Innovation
 repo_name: blog
 repo_url: https://github.com/jovisaib/webpage-own
 site_url: https://blog.allometrik.com
 edit_uri: edit/main/docs/
-copyright: Copyright &copy; 2024 Jose Vicente Sáez Ibáñez
+copyright: Copyright &copy; 2024 JV Sáez
 theme:
   name: material
   logo: assets/logo_main.png
@@ -136,6 +136,7 @@ plugins:
       post_date_format: yyyy/MM/dd
       post_url_format: "{date}/{slug}"
       authors_file: "{blog}/.authors.yml"
+      authors: true
 extra:
   analytics:
     provider: google
