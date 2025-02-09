@@ -108,7 +108,7 @@
         <v-divider class="my-6"></v-divider>
         <v-row justify="space-between" align="center" class="copyright-bar">
           <v-col cols="12" sm="auto" class="text-center text-sm-left">
-            <p class="mb-0 copyright-text">&copy; {{ new Date().getFullYear() }} Allometrik. All rights reserved.</p>
+            <p class="mb-0 copyright-text">&copy; {{ new Date().getFullYear() }}. All rights reserved.</p>
           </v-col>
           <v-col cols="12" sm="auto" class="text-center text-sm-right">
             <a href="#" class="footer-legal-link mr-4">Privacy Policy</a>
