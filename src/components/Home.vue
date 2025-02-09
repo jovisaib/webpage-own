@@ -1,5 +1,12 @@
 <template>
   <div class="home">
+    <v-snackbar
+      v-model="snackbar.show"
+      :color="snackbar.color"
+      timeout="5000"
+    >
+      {{ snackbar.text }}
+    </v-snackbar>
     <v-container fluid class="hero-section px-0">
       <div class="hero-background"></div>
       <v-row align="center" justify="center" class="hero-content ma-0">
@@ -528,7 +535,12 @@ export default {
             messageRules: [
                 v => !!v || 'Message is required',
                 v => v.length >= 10 || 'Message must be at least 10 characters'
-            ]
+            ],
+            snackbar: {
+                show: false,
+                text: '',
+                color: 'success'
+            }
         }
     },
     methods: {
@@ -565,6 +577,7 @@ export default {
                 });
                 
                 const result = await response.json();
+                
                 if (result.success) {
                     this.snackbar = {
                         show: true,
@@ -577,11 +590,14 @@ export default {
                         email: '',
                         message: ''
                     };
+                } else {
+                    throw new Error(result.message || 'Failed to send message');
                 }
             } catch (error) {
+                console.error('Form submission error:', error);
                 this.snackbar = {
                     show: true,
-                    text: 'Failed to send message. Please try again later.',
+                    text: 'Failed to send message. Please try again later or contact us directly at hello@allometrik.com',
                     color: 'error'
                 };
             } finally {
