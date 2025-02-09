@@ -544,20 +544,48 @@ export default {
             }
         },
         async submitForm() {
-            if (this.$refs.form.validate()) {
-                this.formLoading = true;
-                try {
-                    // Here you would typically make an API call to your backend
-                    // For now, we'll just simulate a delay
-                    await new Promise(resolve => setTimeout(resolve, 1000));
+            if (!this.$refs.form.validate()) return;
+            
+            this.formLoading = true;
+            
+            try {
+                const response = await fetch('https://api.web3forms.com/submit', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                        'Accept': 'application/json'
+                    },
+                    body: JSON.stringify({
+                        access_key: process.env.VUE_APP_WEB3FORMS_KEY,
+                        name: this.formData.name,
+                        email: this.formData.email,
+                        message: this.formData.message,
+                        subject: 'New Contact Form Submission - Allometrik'
+                    })
+                });
+                
+                const result = await response.json();
+                if (result.success) {
+                    this.snackbar = {
+                        show: true,
+                        text: 'Message sent successfully! We\'ll get back to you soon.',
+                        color: 'success'
+                    };
                     this.$refs.form.reset();
-                    // You can add a success notification here
-                } catch (error) {
-                    // Handle error
-                    console.error('Form submission error:', error);
-                } finally {
-                    this.formLoading = false;
+                    this.formData = {
+                        name: '',
+                        email: '',
+                        message: ''
+                    };
                 }
+            } catch (error) {
+                this.snackbar = {
+                    show: true,
+                    text: 'Failed to send message. Please try again later.',
+                    color: 'error'
+                };
+            } finally {
+                this.formLoading = false;
             }
         }
     },
