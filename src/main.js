@@ -16,6 +16,11 @@ app.use(vuetify);
 app.use(VueGtag, {
   property: {
     id: 'G-KH8YDFLG7C'
+  },
+  config: {
+    cookie_flags: 'SameSite=None;Secure',
+    cookie_domain: 'auto',
+    consent: 'default'
   }
 });
 

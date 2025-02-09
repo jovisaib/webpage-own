@@ -44,6 +44,7 @@
     </v-navigation-drawer>
 
     <router-view />
+    <CookieConsent />
     <v-footer class="footer">
       <v-container class="py-12">
         <v-row justify="center" align="start">
@@ -111,8 +112,8 @@
             <p class="mb-0 copyright-text">&copy; {{ new Date().getFullYear() }}. All rights reserved.</p>
           </v-col>
           <v-col cols="12" sm="auto" class="text-center text-sm-right">
-            <a href="#" class="footer-legal-link mr-4">Privacy Policy</a>
-            <a href="#" class="footer-legal-link">Terms of Service</a>
+            <router-link to="/privacy-policy" class="footer-legal-link mr-4">Privacy Policy</router-link>
+            <router-link to="/terms-of-service" class="footer-legal-link">Terms of Service</router-link>
           </v-col>
         </v-row>
       </v-container>
@@ -122,6 +123,7 @@
 
 <script>
 import Home from "./components/Home.vue";
+import CookieConsent from "./components/CookieConsent.vue";
 
 export default {
   data: () => ({
@@ -134,7 +136,8 @@ export default {
   }),
   name: "app",
   components: {
-    Home
+    Home,
+    CookieConsent
   },
   methods: {
       scrollToSection(sectionId) {

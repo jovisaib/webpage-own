@@ -2,6 +2,8 @@ import { createRouter, createWebHistory } from 'vue-router';
 import Home from '@/components/Home.vue';
 import BlogList from '@/components/BlogList.vue'; // Import the BlogList component
 import BlogPost from '@/components/BlogPost.vue'; 
+import PrivacyPolicy from '@/components/PrivacyPolicy.vue';
+import TermsOfService from '@/components/TermsOfService.vue';
 
 const routes = [
   {
@@ -18,6 +20,16 @@ const routes = [
     path: '/blog/:slug',
     name: 'BlogPost',
     component: BlogPost
+  },
+  {
+    path: '/privacy-policy',
+    name: 'PrivacyPolicy',
+    component: PrivacyPolicy
+  },
+  {
+    path: '/terms-of-service',
+    name: 'TermsOfService',
+    component: TermsOfService
   }
 ];
 
