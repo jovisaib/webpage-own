@@ -23,7 +23,6 @@
                     <v-btn text class="nav-link" @click="navigateOrScroll('services-section')" style="color: black;">Services</v-btn>
                     <v-btn text class="nav-link" @click="navigateOrScroll('process-section')" style="color: black;">Process</v-btn>
                     <v-btn text class="nav-link" @click="navigateOrScroll('about-me-section')" style="color: black;">About</v-btn>
-                    <v-btn text href="https://blog.allometrik.com/" target="_blank" class="nav-link" style="color: black;">Blog</v-btn>
                 </v-col>
             </v-row>
         </v-container>
@@ -40,9 +39,6 @@
             </v-list-item>
             <v-list-item @click="navigateOrScroll('about-me-section')">
                 <v-list-item-title>About</v-list-item-title>
-            </v-list-item>
-            <v-list-item href="https://blog.allometrik.com/" target="_blank">
-                <v-list-item-title>Blog</v-list-item-title>
             </v-list-item>
         </v-list>
     </v-navigation-drawer>
@@ -89,10 +85,6 @@
                 <span class="arrow-icon">→</span>
                 About
               </a>
-              <a href="https://blog.allometrik.com/" target="_blank" class="footer-link mb-3">
-                <span class="arrow-icon">→</span>
-                Blog
-              </a>
             </div>
           </v-col>
 
@@ -100,9 +92,9 @@
           <v-col cols="12" sm="6" md="4" class="text-center text-sm-left">
             <h4 class="text-h6 font-weight-bold mb-6">Contact Us</h4>
             <div class="contact-info">
-              <a href="mailto:jose@allometrik.com" class="footer-contact-link mb-4 d-flex align-center">
+              <a href="mailto:hello@allometrik.com" class="footer-contact-link mb-4 d-flex align-center">
                 <span class="contact-icon">✉️</span>
-                <span>jose@allometrik.com</span>
+                <span>hello@allometrik.com</span>
               </a>
               <a href="https://calendly.com/jovisaib/introcall" target="_blank" class="footer-contact-link mb-4 d-flex align-center">
                 <span class="contact-icon">📅</span>

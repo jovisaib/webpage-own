@@ -273,7 +273,7 @@
 
           <div class="contact-section mt-8">
             <v-btn
-              href="mailto:jose@allometrik.com"
+              href="mailto:hello@allometrik.com"
               class="contact-btn mr-4"
               color="primary"
               outlined
@@ -314,6 +314,74 @@
               <p class="feature-text">From strategy to implementation and ongoing support</p>
             </div>
           </div>
+        </v-col>
+      </v-row>
+    </v-container>
+
+    <!-- Contact Form Section -->
+    <v-container fluid class="contact-section py-16" id="contact-section">
+      <v-row justify="center" class="text-center mb-12">
+        <v-col cols="12" md="8">
+          <v-chip class="contact-tag mb-4" small outlined>Get in Touch</v-chip>
+          <h2 class="text-h3 font-weight-bold mb-4">
+            Let's Start Your
+            <span class="gradient-text-contact">AI Journey</span>
+          </h2>
+          <p class="contact-subtitle">
+            Have a project in mind? We'd love to hear about it. Send us a message and we'll get back to you within 24 hours.
+          </p>
+        </v-col>
+      </v-row>
+
+      <v-row justify="center">
+        <v-col cols="12" md="8" lg="6">
+          <v-form ref="form" v-model="formValid" @submit.prevent="submitForm" class="contact-form">
+            <v-card class="form-card pa-6" elevation="0">
+              <v-text-field
+                v-model="formData.name"
+                label="Full Name"
+                :rules="nameRules"
+                required
+                outlined
+                dense
+                class="mb-4"
+              ></v-text-field>
+
+              <v-text-field
+                v-model="formData.email"
+                label="Email Address"
+                :rules="emailRules"
+                required
+                outlined
+                dense
+                class="mb-4"
+              ></v-text-field>
+
+              <v-textarea
+                v-model="formData.message"
+                label="Your Message"
+                :rules="messageRules"
+                required
+                outlined
+                dense
+                rows="4"
+                class="mb-6"
+              ></v-textarea>
+
+              <v-btn
+                type="submit"
+                :loading="formLoading"
+                :disabled="!formValid"
+                class="submit-btn"
+                elevation="0"
+                x-large
+                block
+                height="56"
+              >
+                <span class="btn-text">Send Message</span>
+              </v-btn>
+            </v-card>
+          </v-form>
         </v-col>
       </v-row>
     </v-container>
@@ -442,6 +510,25 @@ export default {
                     description: 'We conduct cutting-edge research to keep you at the forefront of AI innovation, transforming theoretical advances into practical solutions.'
                 }
             ],
+            formValid: true,
+            formLoading: false,
+            formData: {
+                name: '',
+                email: '',
+                message: ''
+            },
+            nameRules: [
+                v => !!v || 'Name is required',
+                v => v.length <= 50 || 'Name must be less than 50 characters'
+            ],
+            emailRules: [
+                v => !!v || 'Email is required',
+                v => /.+@.+\..+/.test(v) || 'Email must be valid'
+            ],
+            messageRules: [
+                v => !!v || 'Message is required',
+                v => v.length >= 10 || 'Message must be at least 10 characters'
+            ]
         }
     },
     methods: {
@@ -454,6 +541,23 @@ export default {
             const element = document.getElementById(sectionId);
             if (element) {
                 element.scrollIntoView({ behavior: 'smooth' });
+            }
+        },
+        async submitForm() {
+            if (this.$refs.form.validate()) {
+                this.formLoading = true;
+                try {
+                    // Here you would typically make an API call to your backend
+                    // For now, we'll just simulate a delay
+                    await new Promise(resolve => setTimeout(resolve, 1000));
+                    this.$refs.form.reset();
+                    // You can add a success notification here
+                } catch (error) {
+                    // Handle error
+                    console.error('Form submission error:', error);
+                } finally {
+                    this.formLoading = false;
+                }
             }
         }
     },
@@ -1823,6 +1927,87 @@ export default {
   .case-study-card,
   .feature-item {
     padding: 1.5rem;
+  }
+}
+
+.contact-section {
+  background: linear-gradient(135deg, #f8faff 0%, #f0f5ff 100%);
+  position: relative;
+  overflow: hidden;
+}
+
+.contact-tag {
+  background: rgba(33, 150, 243, 0.1) !important;
+  color: #1976D2 !important;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  font-weight: 600;
+  border-color: #1976D2;
+  font-size: 0.875rem;
+  padding: 0 12px;
+  height: 24px;
+}
+
+.gradient-text-contact {
+  background: linear-gradient(135deg, #1976D2, #2196F3);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  display: block;
+  margin-top: 0.5rem;
+}
+
+.contact-subtitle {
+  font-size: 1.2rem;
+  line-height: 1.8;
+  color: #546E7A;
+  max-width: 700px;
+  margin: 0 auto;
+}
+
+.contact-form {
+  position: relative;
+}
+
+.form-card {
+  background: rgba(255, 255, 255, 0.9);
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.8);
+  border-radius: 24px;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.form-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.08);
+}
+
+.submit-btn {
+  background: linear-gradient(135deg, #1976D2, #2196F3) !important;
+  color: white !important;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+  text-transform: none;
+  border-radius: 100px;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.submit-btn:hover {
+  transform: translateY(-2px) scale(1.02);
+  box-shadow: 0 8px 24px rgba(33, 150, 243, 0.3);
+}
+
+.btn-text {
+  font-size: 1.1rem;
+}
+
+@media (max-width: 960px) {
+  .contact-section {
+    padding: 4rem 0;
+  }
+  
+  .form-card {
+    margin: 0 1rem;
   }
 }
 
