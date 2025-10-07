@@ -14,60 +14,69 @@
           <v-container>
             <v-row align="center" class="hero-row">
               <v-col cols="12" md="7" class="hero-left">
-                <div class="hero-badge mb-4">
-                  <span class="pulse-dot"></span>
-                  <span class="badge-text">Now Accepting New Projects</span>
+                <div class="hero-badge">
+                  <span class="badge-dot"></span>
+                  <span class="badge-text">Available for new projects</span>
                 </div>
 
                 <h1 class="hero-title">
-                  Transform Your Business with
-                  <span class="gradient-text">AI-Powered Innovation</span>
+                  Enterprise AI<br>
+                  <span class="gradient-text">That Works</span>
                 </h1>
 
-                <p class="hero-subtitle mt-6">
-                  Partner with AI experts to build groundbreaking solutions that drive real business value. 
-                  From strategy to implementation, we deliver scalable AI systems that transform how businesses operate.
+                <p class="hero-subtitle">
+                  Production-grade AI systems for global institutions. From intelligent document processing to compliance automation. 
+                  Battle-tested across banking, chemical, hospitality, and state sectors.
                 </p>
 
-                <div class="cta-container mt-8">
+                <div class="cta-container">
                   <v-btn
                     href="https://calendly.com/jovisaib/introcall"
                     class="primary-cta"
                     target="_blank"
                     elevation="0"
-                    x-large
-                    height="56"
+                    large
                   >
-                    <span class="cta-text">Book Free Strategy Call</span>
-                    <span class="cta-time">→ Next slot: 24h</span>
+                    <span>Book a call</span>
+                    <span class="cta-arrow">→</span>
                   </v-btn>
-                  <div class="guarantee-text">
-                    <span class="check-icon">✓</span> Free 30-min consultation
-                    <span class="divider-dot">•</span>
-                    <span class="check-icon">✓</span> No commitment required
-                  </div>
+                  <span class="cta-note">30 min · No strings attached</span>
                 </div>
               </v-col>
 
               <v-col cols="12" md="5" class="hero-right">
-                <div class="social-proof">
-                  <div class="proof-header">
-                    <div class="stars">★★★★★</div>
-                    <div class="rating-text">Trusted by Industry Leaders</div>
+                <div class="hero-visual-card">
+                  <div class="visual-stat-item">
+                    <div class="stat-icon-wrapper">
+                      <svg class="stat-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"/>
+                      </svg>
+                    </div>
+                    <div class="stat-content">
+                      <div class="stat-big-number">50+</div>
+                      <div class="stat-description">Projects Delivered</div>
+                    </div>
                   </div>
-                  <div class="metrics-grid">
-                    <div class="metric-item">
-                      <div class="metric-value">42+</div>
-                      <div class="metric-label">Projects<br>Delivered</div>
+
+                  <div class="visual-stat-item">
+                    <div class="stat-icon-wrapper">
+                      <svg class="stat-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <circle cx="12" cy="12" r="10"/>
+                        <path d="M12 2a15.3 15.3 0 014 10 15.3 15.3 0 01-4 10 15.3 15.3 0 01-4-10 15.3 15.3 0 014-10z"/>
+                        <path d="M2 12h20"/>
+                      </svg>
                     </div>
-                    <div class="metric-item">
-                      <div class="metric-value">100%</div>
-                      <div class="metric-label">Client<br>Satisfaction</div>
+                    <div class="stat-content">
+                      <div class="stat-big-number">10+</div>
+                      <div class="stat-description">Countries Worldwide</div>
                     </div>
-                    <div class="metric-item">
-                      <div class="metric-value">8+</div>
-                      <div class="metric-label">Industries<br>Served</div>
-                    </div>
+                  </div>
+
+                  <div class="industries-grid">
+                    <div class="industry-pill">Banking</div>
+                    <div class="industry-pill">Chemical</div>
+                    <div class="industry-pill">Hospitality</div>
+                    <div class="industry-pill">State Sector</div>
                   </div>
                 </div>
               </v-col>
@@ -78,46 +87,43 @@
     </v-container>
 
     <!-- Testimonials Section -->
-    <v-container fluid class="testimonials-section py-16">
-      <v-row justify="center" class="text-center mb-12">
+    <v-container fluid class="testimonials-section">
+      <v-row justify="center" class="text-center mb-16">
         <v-col cols="12" md="8">
-          <v-chip class="service-tag mb-4" small outlined>Client Stories</v-chip>
-          <h2 class="text-h3 font-weight-bold mb-4">
-            What Our Clients
-            <span class="gradient-text-testimonials">Say About</span>
+          <div class="section-label mb-6">Social proof</div>
+          <h2 class="section-title">
+            Trusted By<br>
+            <span class="gradient-text-testimonials">Industry Leaders</span>
           </h2>
-          <p class="testimonial-subtitle">
-            Trusted by industry leaders and innovative companies worldwide
-          </p>
         </v-col>
       </v-row>
 
-      <!-- Company Logos Grid -->
-      <v-container class="mb-16">
-        <v-row justify="center" class="company-grid">
-          <v-col cols="12" md="10" lg="8">
-            <div class="logos-wrapper">
-              <v-row justify="center" align="center">
-                <v-col
-                  v-for="i in 8"
-                  :key="i"
-                  cols="6"
-                  sm="3"
-                  class="px-4 mb-4"
-                >
-                  <v-img
-                    :src="require(`@/assets/company-logo-${i}.png`)"
-                    max-width="120"
-                    contain
-                    class="company-logo mx-auto"
-                    height="60"
-                  ></v-img>
-                </v-col>
-              </v-row>
+      <!-- Company Logos Infinite Scroll -->
+      <div class="logos-scroll-container">
+        <div class="logos-scroll-wrapper">
+          <div class="logos-scroll-track">
+            <!-- First set of logos -->
+            <div class="logo-item" v-for="i in 8" :key="`logo-1-${i}`">
+              <img
+                :src="require(`@/assets/company-logo-${i}.png`)"
+                :alt="`Company ${i}`"
+                class="company-logo"
+              />
             </div>
-          </v-col>
-        </v-row>
-      </v-container>
+            <!-- Duplicate set for seamless loop -->
+            <div class="logo-item" v-for="i in 8" :key="`logo-2-${i}`">
+              <img
+                :src="require(`@/assets/company-logo-${i}.png`)"
+                :alt="`Company ${i}`"
+                class="company-logo"
+              />
+            </div>
+          </div>
+        </div>
+        <!-- Fade masks -->
+        <div class="scroll-fade scroll-fade-left"></div>
+        <div class="scroll-fade scroll-fade-right"></div>
+      </div>
 
       <!-- Testimonials Widget -->
       <v-container class="pa-7">
@@ -128,28 +134,23 @@
     <!-- Services Section -->
     <v-container fluid class="services-section" id="services-section">
       <v-row class="px-4 px-md-6 d-flex flex-column align-center text-center ma-0">
-        <v-col cols="12" class="d-flex flex-column align-center mb-12 pa-0">
+        <v-col cols="12" class="d-flex flex-column align-center mb-16 pa-0">
           <div class="text-center">
-            <v-chip class="service-tag mb-4" small outlined>Our Services</v-chip>
-            <h2 class="text-h3 font-weight-bold mb-4">
-              Transformative End-to-End
-              <span class="gradient-text-services">AI Solutions</span>
+            <div class="section-label mb-6">What we do</div>
+            <h2 class="section-title">
+              Enterprise AI<br>
+              <span class="gradient-text-services">That Ships</span>
             </h2>
-            <p class="section-subtitle">
-              Our team is your AI partner from ideation to launched product, delivering cutting-edge solutions that drive real business value.
-            </p>
           </div>
         </v-col>
 
         <v-col cols="12">
           <v-row class="service-grid justify-center">
-            <v-col v-for="(service, index) in services" :key="index" cols="12" sm="6" md="6" lg="3" class="service-col">
+            <v-col v-for="(service, index) in services" :key="index" cols="12" sm="6" lg="3" class="service-col">
               <v-hover v-slot="{ hover }">
-                <v-card class="service-card text-center" :class="{ 'on-hover': hover }" elevation="0">
-                  <div class="service-icon-wrapper mb-6">
-                    <span class="step-icon">{{ service.icon }}</span>
-                  </div>
-                  <h3 class="text-h5 font-weight-bold mb-4">{{ service.title }}</h3>
+                <v-card class="service-card" :class="{ 'on-hover': hover }" elevation="0">
+                  <div class="service-number">{{ String(index + 1).padStart(2, '0') }}</div>
+                  <h3 class="service-title">{{ service.title }}</h3>
                   <p class="service-description">{{ service.description }}</p>
                 </v-card>
               </v-hover>
@@ -160,28 +161,22 @@
     </v-container>
 
     <!-- Process Section -->
-    <v-container fluid class="process-section py-16" id="process-section">
+    <v-container fluid class="process-section" id="process-section">
       <v-row justify="center" class="text-center mb-16">
         <v-col cols="12" md="8">
-          <v-chip class="process-tag mb-4" small outlined>How It Works</v-chip>
-          <h2 class="text-h3 font-weight-bold mb-4">
-            Your Journey to
-            <span class="gradient-text-process">AI Excellence</span>
+          <div class="section-label mb-6">How it works</div>
+          <h2 class="section-title">
+            Simple Process,<br>
+            <span class="gradient-text-process">Real Results</span>
           </h2>
-          <p class="process-subtitle">
-            Experience a seamless journey from concept to implementation with our proven process that ensures success at every step.
-          </p>
         </v-col>
       </v-row>
 
-      <v-row class="process-timeline px-4" justify="center">
-        <v-col cols="12" sm="4" v-for="(step, index) in processSteps" :key="index" class="process-col">
-          <div class="process-number">{{ index + 1 }}</div>
-          <v-card class="process-step-card" elevation="1">
-            <div class="icon-wrapper mb-6">
-              <span class="step-icon">{{ step.icon }}</span>
-            </div>
-            <h3 class="text-h5 font-weight-bold mb-4">{{ step.title }}</h3>
+      <v-row class="process-timeline" justify="center">
+        <v-col cols="12" md="4" v-for="(step, index) in processSteps" :key="index" class="process-col">
+          <v-card class="process-step-card" elevation="0">
+            <div class="process-step-number">{{ String(index + 1).padStart(2, '0') }}</div>
+            <h3 class="process-step-title">{{ step.title }}</h3>
             <p class="process-step-description">{{ step.description }}</p>
           </v-card>
         </v-col>
@@ -189,17 +184,14 @@
     </v-container>
 
     <!-- Case Studies Section -->
-    <v-container fluid class="case-studies-section py-16">
+    <v-container fluid class="case-studies-section">
       <v-row justify="center" class="text-center mb-16">
         <v-col cols="12" md="8">
-          <v-chip class="case-studies-tag mb-4" small outlined>Case Studies</v-chip>
-          <h2 class="text-h3 font-weight-bold mb-4">
-            Success Stories That
-            <span class="gradient-text-cases">Drive Results</span>
+          <div class="section-label mb-6">Selected work</div>
+          <h2 class="section-title">
+            Production Systems<br>
+            <span class="gradient-text-cases">That Deliver</span>
           </h2>
-          <p class="case-studies-subtitle">
-            Discover how our AI solutions have transformed businesses across industries, delivering measurable impact and sustainable growth.
-          </p>
         </v-col>
       </v-row>
 
@@ -241,60 +233,61 @@
     <v-container fluid class="about-section py-16" id="about-me-section">
       <v-row justify="center" align="center" class="about-content">
         <v-col cols="12" md="6" class="text-center text-md-left pr-md-8">
-          <v-chip class="about-tag mb-4" small outlined>About</v-chip>
-          <h2 class="text-h3 font-weight-bold mb-4">
-            Pioneering the Future of
-            <span class="gradient-text-about">AI Innovation</span>
+          <div class="section-label mb-6">About</div>
+          <h2 class="section-title" style="text-align: left;">
+            Production AI<br>
+            <span class="gradient-text-about">for Enterprise</span>
           </h2>
-          
-          <div class="about-stats mb-8">
-            <div class="stat-item">
-              <div class="stat-value">10+</div>
-              <div class="stat-label">Years Experience</div>
-            </div>
-            <div class="stat-item">
-              <div class="stat-value">42+</div>
-              <div class="stat-label">Projects Delivered</div>
-            </div>
-            <div class="stat-item">
-              <div class="stat-value">100%</div>
-              <div class="stat-label">Client Satisfaction</div>
-            </div>
-          </div>
 
           <div class="about-description">
-            <p class="text-body-1 mb-4">
-              We are a team of AI consultants and experts, committed to driving innovation across diverse industries. Our focus on AI, IoT, and cutting-edge technologies enables us to transform complex prototypes into scalable, production-ready solutions.
+            <p class="about-text">
+              Allometrik builds production-grade AI systems for global enterprises. Our work spans intelligent document processing, compliance automation, and executive AI training programs.
             </p>
-            <p class="text-body-1 mb-4">
-              Our multidisciplinary team combines specialized knowledge in front-end and back-end development, DevOps, IoT, information retrieval, and AI innovation. We emphasize practical applications of advanced AI, delivering impactful projects through hands-on engineering and expert strategic guidance.
+            <p class="about-text">
+              We've shipped solutions processing millions of financial documents, automating regulatory audits for chemical manufacturers, and training C-level executives at leading institutions. From banks to state enterprises to hospitality groups—we solve complex technical challenges that drive real business value.
             </p>
-            <div class="expertise-tags mt-6">
-              <v-chip class="mr-2 mb-2" small>AI Development</v-chip>
-              <v-chip class="mr-2 mb-2" small>Machine Learning</v-chip>
-              <v-chip class="mr-2 mb-2" small>IoT Solutions</v-chip>
-              <v-chip class="mr-2 mb-2" small>Cloud Architecture</v-chip>
-              <v-chip class="mr-2 mb-2" small>DevOps</v-chip>
+
+            <div class="capability-list">
+              <div class="capability-item">
+                <svg class="capability-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                </svg>
+                <span>Document Intelligence & OCR</span>
+              </div>
+              <div class="capability-item">
+                <svg class="capability-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                </svg>
+                <span>Compliance Automation</span>
+              </div>
+              <div class="capability-item">
+                <svg class="capability-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                </svg>
+                <span>Enterprise Integration</span>
+              </div>
+              <div class="capability-item">
+                <svg class="capability-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                </svg>
+                <span>Executive Training Programs</span>
+              </div>
             </div>
           </div>
 
-          <div class="contact-section mt-8">
-            <v-btn
-              href="mailto:hello@allometrik.com"
-              class="contact-btn mr-4"
-              color="primary"
-              outlined
-            >
-              Contact Us
-            </v-btn>
+          <div class="about-cta-section">
             <v-btn
               href="https://calendly.com/jovisaib/introcall"
-              class="schedule-btn"
-              color="primary"
-              dark
+              class="about-primary-btn"
+              elevation="0"
+              large
             >
-              Schedule a Call
+              <span>Let's talk</span>
+              <span class="btn-arrow">→</span>
             </v-btn>
+            <a href="mailto:hello@allometrik.com" class="about-email-link">
+              hello@allometrik.com
+            </a>
           </div>
         </v-col>
 
@@ -302,23 +295,23 @@
           <div class="feature-grid">
             <div class="feature-item">
               <div class="feature-number">01</div>
-              <h4 class="feature-title">Expert Team</h4>
-              <p class="feature-text">Industry veterans with deep expertise in AI and emerging technologies</p>
+              <h4 class="feature-title">Production Ready</h4>
+              <p class="feature-text">Battle-tested systems handling millions of transactions</p>
             </div>
             <div class="feature-item">
               <div class="feature-number">02</div>
-              <h4 class="feature-title">Proven Track Record</h4>
-              <p class="feature-text">Successful delivery of complex AI solutions across industries</p>
+              <h4 class="feature-title">Global Scale</h4>
+              <p class="feature-text">Deployed across 10+ countries, multiple industries</p>
             </div>
             <div class="feature-item">
               <div class="feature-number">03</div>
-              <h4 class="feature-title">Innovation Focus</h4>
-              <p class="feature-text">Cutting-edge solutions that drive real business value</p>
+              <h4 class="feature-title">Fast Delivery</h4>
+              <p class="feature-text">Rapid prototyping to production deployment</p>
             </div>
             <div class="feature-item">
               <div class="feature-number">04</div>
-              <h4 class="feature-title">End-to-End Service</h4>
-              <p class="feature-text">From strategy to implementation and ongoing support</p>
+              <h4 class="feature-title">Full Support</h4>
+              <p class="feature-text">From strategy to implementation and beyond</p>
             </div>
           </div>
         </v-col>
@@ -326,69 +319,105 @@
     </v-container>
 
     <!-- Contact Form Section -->
-    <v-container fluid class="contact-section py-16" id="contact-section">
-      <v-row justify="center" class="text-center mb-12">
-        <v-col cols="12" md="8">
-          <v-chip class="contact-tag mb-4" small outlined>Get in Touch</v-chip>
-          <h2 class="text-h3 font-weight-bold mb-4">
-            Let's Start Your
-            <span class="gradient-text-contact">AI Journey</span>
-          </h2>
-          <p class="contact-subtitle">
-            Have a project in mind? We'd love to hear about it. Send us a message and we'll get back to you within 24 hours.
-          </p>
-        </v-col>
-      </v-row>
+    <v-container fluid class="contact-section" id="contact-section">
+      <v-row justify="center" class="contact-wrapper">
+        <v-col cols="12" lg="10">
+          <v-row class="contact-content">
+            <!-- Left Side - Info -->
+            <v-col cols="12" md="5" class="contact-info-col">
+              <div class="section-label mb-6">Get in touch</div>
+              <h2 class="contact-main-title">
+                Let's Talk<br>
+                <span class="gradient-text-contact">About Your Project</span>
+              </h2>
+              <p class="contact-description">
+                Have something in mind? We'd love to hear about it. Reach out and we'll get back within 24 hours.
+              </p>
 
-      <v-row justify="center">
-        <v-col cols="12" md="8" lg="6">
-          <v-form ref="form" v-model="formValid" @submit.prevent="submitForm" class="contact-form">
-            <v-card class="form-card pa-6" elevation="0">
-              <v-text-field
-                v-model="formData.name"
-                label="Full Name"
-                :rules="nameRules"
-                required
-                outlined
-                dense
-                class="mb-4"
-              ></v-text-field>
+              <div class="contact-methods">
+                <div class="contact-method-item">
+                  <div class="method-icon-wrapper">
+                    <svg class="method-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                      <path d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/>
+                    </svg>
+                  </div>
+                  <div class="method-content">
+                    <div class="method-label">Email</div>
+                    <a href="mailto:hello@allometrik.com" class="method-value">hello@allometrik.com</a>
+                  </div>
+                </div>
 
-              <v-text-field
-                v-model="formData.email"
-                label="Email Address"
-                :rules="emailRules"
-                required
-                outlined
-                dense
-                class="mb-4"
-              ></v-text-field>
+                <div class="contact-method-item">
+                  <div class="method-icon-wrapper">
+                    <svg class="method-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                      <path d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"/>
+                    </svg>
+                  </div>
+                  <div class="method-content">
+                    <div class="method-label">Schedule</div>
+                    <a href="https://calendly.com/jovisaib/introcall" target="_blank" class="method-value">Book a call</a>
+                  </div>
+                </div>
+              </div>
+            </v-col>
 
-              <v-textarea
-                v-model="formData.message"
-                label="Your Message"
-                :rules="messageRules"
-                required
-                outlined
-                dense
-                rows="4"
-                class="mb-6"
-              ></v-textarea>
+            <!-- Right Side - Compact Form -->
+            <v-col cols="12" md="7" class="contact-form-col">
+              <v-form ref="form" v-model="formValid" @submit.prevent="submitForm" class="compact-form">
+                <div class="form-group">
+                  <label class="form-label">Name</label>
+                  <v-text-field
+                    v-model="formData.name"
+                    :rules="nameRules"
+                    required
+                    outlined
+                    dense
+                    hide-details="auto"
+                    class="modern-input"
+                  ></v-text-field>
+                </div>
 
-              <v-btn
-                type="submit"
-                :loading="formLoading"
-                :disabled="!formValid"
-                class="submit-btn"
-                elevation="0"
-                x-large
-                block
-                height="56"
-              >
-                <span class="btn-text">Send Message</span>
-              </v-btn>
-            </v-card>
-          </v-form>
+                <div class="form-group">
+                  <label class="form-label">Email</label>
+                  <v-text-field
+                    v-model="formData.email"
+                    :rules="emailRules"
+                    required
+                    outlined
+                    dense
+                    hide-details="auto"
+                    class="modern-input"
+                  ></v-text-field>
+                </div>
+
+                <div class="form-group">
+                  <label class="form-label">Message</label>
+                  <v-textarea
+                    v-model="formData.message"
+                    :rules="messageRules"
+                    required
+                    outlined
+                    dense
+                    rows="3"
+                    hide-details="auto"
+                    class="modern-input"
+                  ></v-textarea>
+                </div>
+
+                <v-btn
+                  type="submit"
+                  :loading="formLoading"
+                  :disabled="!formValid"
+                  class="compact-submit-btn"
+                  elevation="0"
+                  large
+                >
+                  <span>Send message</span>
+                  <span class="btn-arrow-submit">→</span>
+                </v-btn>
+              </v-form>
+            </v-col>
+          </v-row>
         </v-col>
       </v-row>
     </v-container>
@@ -454,67 +483,67 @@ export default {
             widgets: false,
             projects: [
                 {
-                    title: 'AI-Powered Document Processing',
-                    description: 'Revolutionizing banking workflows with advanced machine vision and OCR technologies, reducing processing time by 80%.',
+                    title: 'Financial Document Processing',
+                    description: 'Intelligent OCR system processing thousands of promissory notes and financial documents for Spanish fintech. Advanced extraction with validation and compliance checks.',
                     img: 'ocr_case.jpeg',
-                    category: 'Banking & Finance'
+                    category: 'Financial Services'
                 },
                 {
-                    title: 'Intelligent Report Generation',
-                    description: 'Implementing RAG-based document generation for precise, context-aware business reporting and analytics.',
+                    title: 'Comply Platform',
+                    description: 'Automated audit generation system for chemical industry. Regulatory compliance documentation at scale, reducing manual work by 85%.',
                     img: 'reportally.png',
-                    category: 'Business Intelligence'
+                    category: 'Enterprise SaaS'
                 },
                 {
-                    title: 'Enterprise Accounting Automation',
-                    description: 'Streamlining complex accounting processes with AI, achieving 95% accuracy in transaction categorization.',
+                    title: '401k Document Intelligence',
+                    description: 'Complex document extraction and analysis for retirement fund processing. Multi-format parsing with intelligent data validation.',
                     img: 'csv_ocr_case.jpeg',
-                    category: 'Enterprise Solutions'
+                    category: 'Document Processing'
                 },
                 {
-                    title: 'Industrial IoT Leadership',
-                    description: 'Delivering cutting-edge training programs for global industrial companies in IoT and embedded AI implementation.',
+                    title: 'Executive AI Training',
+                    description: 'Director of Business Innovation with AI master\'s program at Nuclio Digital Academy. Training programs delivered for Saudi Digital Academy and Fortune 500 organizations.',
                     img: 'industrial_jose.jpeg',
-                    category: 'Training & Development'
+                    category: 'Leadership & Education'
                 }
             ],
             processSteps: [
                 {
-                    icon: '📞',
-                    title: 'Book a Free Call',
-                    description: 'Schedule a no-obligation consultation with our founder to discuss your goals and explore how AI can transform your business.'
+                    icon: '01',
+                    title: 'Discovery Call',
+                    description: 'Technical consultation with the founder. We discuss your challenges, assess feasibility, and determine if we\'re the right fit for your project.'
                 },
                 {
-                    icon: '📋',
-                    title: 'Strategic Planning',
-                    description: 'We\'ll analyze your needs, develop a tailored strategy, and create a detailed roadmap for implementing AI solutions.'
+                    icon: '02',
+                    title: 'Technical Planning',
+                    description: 'Deep dive into requirements, data architecture, and implementation strategy. We create a detailed roadmap with milestones and deliverables.'
                 },
                 {
-                    icon: '🚀',
-                    title: 'Execute & Scale',
-                    description: 'Watch your business transform as we implement, iterate, and optimize your AI solutions for maximum impact.'
+                    icon: '03',
+                    title: 'Build & Deploy',
+                    description: 'Rapid prototyping to production deployment. Iterative development with regular check-ins, testing, and optimization until we achieve your objectives.'
                 }
             ],
             services: [
                 {
-                    icon: '💡',
-                    title: 'AI Product Strategy',
-                    description: 'We design novel, beautiful products that leverage generative AI to create entirely new possibilities for your business and delight your customers.'
+                    icon: 'AI',
+                    title: 'Document Intelligence',
+                    description: 'Advanced OCR and machine vision systems for processing financial documents, 401k statements, and complex enterprise paperwork at scale.'
                 },
                 {
-                    icon: '⚡',
-                    title: 'AI Development',
-                    description: 'We implement state-of-the-art models through fine-tuning, RAG, and advanced prompt engineering to deliver accelerated workflows and powerful solutions.'
+                    icon: 'R&D',
+                    title: 'Applied AI R&D',
+                    description: 'Research-backed solutions that move from prototype to production. We build what others can\'t, leveraging state-of-the-art techniques for real business impact.'
                 },
                 {
-                    icon: '🎯',
-                    title: 'AI Consulting',
-                    description: 'Our team of experts helps you navigate the evolving AI landscape, identify high-value use cases, and develop strategic implementation plans.'
+                    icon: 'Enterprise',
+                    title: 'Enterprise Consulting',
+                    description: 'Strategic AI guidance for consultancies and large organizations. Pre-sales support, technical architecture, and implementation roadmaps for Fortune 500 clients.'
                 },
                 {
-                    icon: '🚀',
-                    title: 'AI Research',
-                    description: 'We conduct cutting-edge research to keep you at the forefront of AI innovation, transforming theoretical advances into practical solutions.'
+                    icon: 'Training',
+                    title: 'Executive Training',
+                    description: 'Leadership programs for AI adoption. Experience includes directing master\'s programs and delivering training for international digital academies.'
                 }
             ],
             formValid: true,
@@ -992,13 +1021,12 @@ export default {
 
 .hero-section {
     position: relative;
-    min-height: 85vh;
-    background: linear-gradient(135deg, #f8faff 0%, #f0f5ff 100%);
+    min-height: 90vh;
+    background: #ffffff;
     overflow: hidden;
     display: flex;
     align-items: center;
     padding-top: 80px;
-    border-bottom: 1px solid rgba(25, 118, 210, 0.08);
 }
 
 .hero-background {
@@ -1007,16 +1035,15 @@ export default {
     left: 0;
     right: 0;
     bottom: 0;
-    background-image: 
-        radial-gradient(circle at 20% 20%, rgba(66, 165, 245, 0.12) 0%, transparent 50%),
-        radial-gradient(circle at 80% 80%, rgba(66, 165, 245, 0.12) 0%, transparent 50%);
+    background: 
+        radial-gradient(circle at 30% 20%, rgba(66, 165, 245, 0.03) 0%, transparent 50%),
+        radial-gradient(circle at 70% 80%, rgba(66, 165, 245, 0.02) 0%, transparent 50%);
     z-index: 0;
-    animation: gradientShift 15s ease-in-out infinite;
 }
 
 @keyframes gradientShift {
     0% { transform: scale(1); }
-    50% { transform: scale(1.1); }
+    50% { transform: scale(1.05); }
     100% { transform: scale(1); }
 }
 
@@ -1038,72 +1065,51 @@ export default {
 .hero-badge {
     display: inline-flex;
     align-items: center;
-    background: rgba(66, 165, 245, 0.15);
-    padding: 8px 16px;
-    border-radius: 100px;
-    box-shadow: 0 2px 8px rgba(66, 165, 245, 0.1);
-    backdrop-filter: blur(8px);
+    gap: 8px;
+    background: transparent;
+    padding: 0;
+    margin-bottom: 32px;
 }
 
-.pulse-dot {
+.badge-dot {
     width: 8px;
     height: 8px;
-    background: #2196F3;
+    background: #10b981;
     border-radius: 50%;
-    margin-right: 12px;
-    position: relative;
-}
-
-.pulse-dot::after {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: inherit;
-    border-radius: inherit;
-    animation: pulse 2s ease-out infinite;
+    animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
 }
 
 @keyframes pulse {
-    0% {
-        transform: scale(1);
-        opacity: 0.8;
+    0%, 100% {
+        opacity: 1;
     }
-    70% {
-        transform: scale(2);
-        opacity: 0;
-    }
-    100% {
-        transform: scale(2);
-        opacity: 0;
+    50% {
+        opacity: 0.5;
     }
 }
 
 .badge-text {
-    color: #1976D2;
-    font-weight: 600;
-    font-size: 0.95rem;
-    letter-spacing: 0.5px;
+    color: #64748b;
+    font-weight: 500;
+    font-size: 0.875rem;
+    letter-spacing: -0.01em;
 }
 
 .hero-title {
-    font-size: 3.75rem;
-    font-weight: 800;
-    line-height: 1.2;
-    color: #1a237e;
+    font-size: clamp(3rem, 8vw, 5.5rem);
+    font-weight: 700;
+    line-height: 1.1;
+    color: #0f172a;
+    letter-spacing: -0.03em;
+    margin-bottom: 24px;
 }
 
 .gradient-text {
-    display: block;
-    margin-top: 0.5rem;
-    background: linear-gradient(135deg, #1976D2, #2196F3, #42A5F5);
+    display: inline;
+    background: linear-gradient(135deg, #2563eb 0%, #7c3aed 100%);
     -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
     background-clip: text;
-    color: transparent;
-    font-size: 4rem;
-    animation: gradientFlow 6s ease infinite;
 }
 
 @keyframes gradientFlow {
@@ -1113,61 +1119,64 @@ export default {
 }
 
 .hero-subtitle {
-    font-size: 1.25rem;
+    font-size: 1.125rem;
     line-height: 1.7;
-    color: #546e7a;
-    margin-bottom: 2rem;
+    color: #64748b;
+    margin-bottom: 40px;
     font-weight: 400;
+    max-width: 540px;
+    letter-spacing: -0.01em;
 }
 
 .cta-container {
     display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 1rem;
+    flex-direction: row;
+    align-items: center;
+    gap: 16px;
 }
 
 .primary-cta {
-    padding: 0 32px;
+    padding: 0 28px !important;
+    height: 52px !important;
     font-weight: 600;
-    letter-spacing: 0.5px;
-    text-transform: none;
-    border-radius: 100px;
-    background: linear-gradient(135deg, #1976D2, #2196F3, #42A5F5) !important;
-    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    min-width: 280px;
-    box-shadow: 0 4px 12px rgba(33, 150, 243, 0.2);
+    font-size: 1rem !important;
+    letter-spacing: -0.01em;
+    text-transform: none !important;
+    border-radius: 12px !important;
+    background: #0f172a !important;
+    color: #ffffff !important;
+    transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
 }
 
 .primary-cta:hover {
-    transform: translateY(-2px) scale(1.02);
-    box-shadow: 0 8px 24px rgba(33, 150, 243, 0.3);
+    background: #1e293b !important;
+    transform: translateY(-1px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
 }
 
-.cta-text {
-    font-size: 1.1rem;
-    margin-bottom: 2px;
+.cta-arrow {
+    font-size: 1.25rem;
+    margin-left: 8px;
+    transition: transform 0.2s ease;
+    display: inline-block;
 }
 
-.cta-time {
-    font-size: 0.85rem;
-    opacity: 0.9;
+.primary-cta:hover .cta-arrow {
+    transform: translateX(3px);
 }
 
-.guarantee-text {
-    font-size: 0.95rem;
-    color: #546e7a;
-    display: flex;
-    align-items: center;
-    gap: 0.5rem;
+.cta-note {
+    font-size: 0.875rem;
+    color: #64748b;
+    letter-spacing: -0.01em;
 }
 
 .check-icon {
+    width: 18px;
+    height: 18px;
     color: #4CAF50;
-    font-weight: bold;
+    flex-shrink: 0;
 }
 
 .divider-dot {
@@ -1181,77 +1190,98 @@ export default {
     justify-content: center;
 }
 
-.social-proof {
-    background: rgba(255, 255, 255, 0.9);
-    backdrop-filter: blur(12px);
+.hero-visual-card {
+    background: linear-gradient(135deg, #ffffff 0%, #f8fafc 100%);
+    border: 1px solid #e2e8f0;
     border-radius: 24px;
-    padding: 2.5rem;
-    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.08);
+    padding: 40px 36px;
     width: 100%;
-    border: 1px solid rgba(255, 255, 255, 0.8);
+    max-width: 480px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
 }
 
-.proof-header {
-    text-align: center;
-    margin-bottom: 2rem;
+.visual-stat-item {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    padding: 24px 0;
+    border-bottom: 1px solid #e2e8f0;
 }
 
-.stars {
-    color: #FFB400;
-    font-size: 1.5rem;
-    letter-spacing: 4px;
-    margin-bottom: 0.5rem;
+.visual-stat-item:last-of-type {
+    border-bottom: none;
 }
 
-.rating-text {
-    color: #546e7a;
-    font-size: 1rem;
-    font-weight: 500;
-}
-
-.metrics-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 1.5rem;
-    text-align: center;
-}
-
-.metric-item {
-    padding: 1rem;
-    background: rgba(255, 255, 255, 0.7);
+.stat-icon-wrapper {
+    flex-shrink: 0;
+    width: 56px;
+    height: 56px;
+    background: linear-gradient(135deg, #2563eb 0%, #7c3aed 100%);
     border-radius: 16px;
-    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-    border: 1px solid rgba(255, 255, 255, 0.6);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 4px 12px rgba(37, 99, 235, 0.2);
 }
 
-.metric-item:hover {
-    transform: translateY(-5px) scale(1.03);
-    background: rgba(255, 255, 255, 0.9);
-    box-shadow: 0 8px 24px rgba(33, 150, 243, 0.15);
+.stat-icon {
+    width: 28px;
+    height: 28px;
+    color: #ffffff;
+    stroke-width: 2.5;
 }
 
-.metric-value {
-    font-size: 2.5rem;
+.stat-content {
+    flex: 1;
+}
+
+.stat-big-number {
+    font-size: 2.75rem;
     font-weight: 700;
-    background: linear-gradient(135deg, #1976D2, #2196F3);
-    -webkit-background-clip: text;
-    background-clip: text;
-    color: transparent;
-    margin-bottom: 0.5rem;
+    color: #0f172a;
+    letter-spacing: -0.03em;
     line-height: 1;
+    margin-bottom: 6px;
 }
 
-.metric-label {
-    font-size: 0.9rem;
-    color: #546e7a;
-    font-weight: 500;
+.stat-description {
+    font-size: 0.9375rem;
+    color: #64748b;
+    letter-spacing: -0.01em;
     line-height: 1.4;
 }
+
+.industries-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
+    margin-top: 28px;
+}
+
+.industry-pill {
+    background: #ffffff;
+    border: 1px solid #e2e8f0;
+    border-radius: 12px;
+    padding: 10px 16px;
+    text-align: center;
+    font-size: 0.875rem;
+    font-weight: 500;
+    color: #475569;
+    letter-spacing: -0.01em;
+    transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.industry-pill:hover {
+    background: #f8fafc;
+    border-color: #cbd5e1;
+    transform: translateY(-2px);
+}
+
 
 @media (max-width: 960px) {
     .hero-section {
         min-height: auto;
-        padding: 4rem 0;
+        padding: 3rem 0;
     }
 
     .hero-row {
@@ -1259,49 +1289,82 @@ export default {
     }
 
     .hero-left {
-        padding-right: 1rem;
+        padding-right: 0;
         text-align: center;
+    }
+
+    .hero-badge {
+        justify-content: center;
     }
 
     .hero-title {
-        font-size: 2.75rem;
-    }
-
-    .gradient-text {
-        font-size: 3rem;
+        font-size: clamp(2.5rem, 10vw, 3.5rem);
     }
 
     .hero-subtitle {
-        font-size: 1.15rem;
-        padding: 0 1rem;
+        font-size: 1rem;
+        margin-left: auto;
+        margin-right: auto;
     }
 
     .cta-container {
-        align-items: center;
-    }
-
-    .guarantee-text {
         flex-direction: column;
-        gap: 0.5rem;
-        text-align: center;
+        align-items: center;
+        width: 100%;
     }
 
-    .divider-dot {
-        display: none;
+    .primary-cta {
+        width: 100%;
+        max-width: 280px;
+    }
+
+    .cta-note {
+        text-align: center;
     }
 
     .hero-right {
         margin-top: 3rem;
     }
 
-    .metrics-grid {
-        grid-template-columns: 1fr;
-        gap: 1rem;
+    .hero-visual-card {
+        max-width: 100%;
+        padding: 32px 24px;
     }
 
-    .metric-item {
-        padding: 1.5rem;
+    .stat-big-number {
+        font-size: 2.25rem;
     }
+
+    .stat-icon-wrapper {
+        width: 48px;
+        height: 48px;
+    }
+
+    .stat-icon {
+        width: 24px;
+        height: 24px;
+    }
+
+    .industries-grid {
+        grid-template-columns: 1fr;
+        gap: 8px;
+    }
+}
+
+.section-label {
+    font-size: 0.875rem;
+    color: #64748b;
+    font-weight: 500;
+    letter-spacing: -0.01em;
+    text-transform: lowercase;
+}
+
+.section-title {
+    font-size: clamp(2.5rem, 6vw, 4rem);
+    font-weight: 700;
+    line-height: 1.1;
+    color: #0f172a;
+    letter-spacing: -0.03em;
 }
 
 .service-tag {
@@ -1317,12 +1380,11 @@ export default {
 }
 
 .gradient-text-services {
-  background: linear-gradient(135deg, #1976D2, #2196F3);
+  background: linear-gradient(135deg, #2563eb 0%, #7c3aed 100%);
   -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
   background-clip: text;
-  color: transparent;
-  display: block;
-  margin-top: 0.5rem;
+  display: inline;
 }
 
 .service-subtitle {
@@ -1334,72 +1396,89 @@ export default {
 }
 
 .service-grid {
-  max-width: 1200px;
+  max-width: 1400px;
   margin: 0 auto;
-  gap: 1.5rem;
+  gap: 24px;
 }
 
 .service-col {
   display: flex;
   justify-content: center;
-  padding: 0.75rem;
+  padding: 12px;
 }
 
 .service-card {
   background: white;
-  border-radius: 16px;
-  padding: 2rem;
+  border-radius: 20px;
+  padding: 40px 32px;
   height: 100%;
   width: 100%;
-  max-width: 320px;
-  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-  border: 1px solid rgba(0, 0, 0, 0.08);
+  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+  border: 1px solid #e2e8f0;
   display: flex;
   flex-direction: column;
-  align-items: center;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+  align-items: flex-start;
+  box-shadow: none;
 }
 
 .service-card:hover {
-  transform: translateY(-5px) scale(1.02);
-  box-shadow: 0 16px 32px rgba(0, 0, 0, 0.1);
-  border-color: rgba(33, 150, 243, 0.2);
+  transform: translateY(-4px);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.06);
+  border-color: #cbd5e1;
 }
 
-.service-icon-wrapper {
-  width: 64px;
-  height: 64px;
-  background: rgba(33, 150, 243, 0.12);
-  border-radius: 16px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  margin-bottom: 1.5rem;
-  transition: all 0.3s ease;
+.service-number {
+  font-size: 2rem;
+  font-weight: 700;
+  color: #e2e8f0;
+  line-height: 1;
+  margin-bottom: 24px;
+  letter-spacing: -0.02em;
 }
 
-.service-card:hover .service-icon-wrapper {
-  transform: scale(1.1);
-  background: rgba(33, 150, 243, 0.18);
+.service-card:hover .service-number {
+  color: #cbd5e1;
 }
 
 .step-icon {
-  font-size: 28px;
+  font-size: 14px;
+  font-weight: 600;
+  color: #0f172a;
+  letter-spacing: -0.01em;
+}
+
+.service-title {
+  font-size: 1.375rem;
+  font-weight: 600;
+  color: #0f172a;
+  letter-spacing: -0.02em;
+  margin-bottom: 16px;
+  line-height: 1.3;
 }
 
 .service-description {
   color: #64748b;
-  line-height: 1.6;
-  font-size: 0.95rem;
+  line-height: 1.7;
+  font-size: 0.9375rem;
+  letter-spacing: -0.01em;
+  text-align: left;
 }
 
-@media (max-width: 600px) {
+@media (max-width: 960px) {
   .service-col {
-    padding: 0.5rem;
+    padding: 12px;
   }
   
   .service-card {
-    padding: 1.75rem 1.5rem;
+    padding: 32px 24px;
+  }
+
+  .service-number {
+    font-size: 1.75rem;
+  }
+
+  .service-title {
+    font-size: 1.25rem;
   }
 }
 
@@ -1418,91 +1497,78 @@ export default {
 }
 
 .process-timeline {
-    position: relative;
-    max-width: 1200px;
+    max-width: 1400px;
     margin: 0 auto;
+    gap: 32px;
 }
 
 .process-col {
-    position: relative;
-    padding: 2rem;
-}
-
-.process-number {
-    position: absolute;
-    top: -24px;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 48px;
-    height: 48px;
-    background: linear-gradient(135deg, #1976D2, #2196F3);
-    color: white;
-    border-radius: 16px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-weight: 600;
-    font-size: 1.25rem;
-    z-index: 2;
-    box-shadow: 0 8px 24px rgba(25, 118, 210, 0.25);
-    border: 3px solid white;
-    transition: all 0.3s ease;
-}
-
-.process-col:hover .process-number {
-    transform: translateX(-50%) translateY(-5px);
-    box-shadow: 0 12px 28px rgba(25, 118, 210, 0.3);
-    background: linear-gradient(135deg, #2196F3, #1976D2);
+    padding: 16px;
 }
 
 .process-step-card {
     background: white;
     border-radius: 20px;
-    padding: 3rem 2rem 2rem;
+    padding: 40px 32px;
     height: 100%;
-    margin-top: 24px;
-    transition: all 0.3s ease;
-    border: 1px solid rgba(0, 0, 0, 0.08);
-    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.06);
+    transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+    border: 1px solid #e2e8f0;
+    box-shadow: none;
 }
 
 .process-step-card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 16px 32px rgba(0, 0, 0, 0.1);
-    border-color: transparent;
+    transform: translateY(-4px);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.06);
+    border-color: #cbd5e1;
 }
 
-.icon-wrapper {
-    width: 64px;
-    height: 64px;
-    background: rgba(33, 150, 243, 0.1);
-    border-radius: 12px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin: 0 auto;
+.process-step-number {
+    font-size: 3rem;
+    font-weight: 700;
+    background: linear-gradient(135deg, #2563eb 0%, #7c3aed 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    line-height: 1;
+    margin-bottom: 24px;
+    letter-spacing: -0.03em;
+}
+
+.process-step-title {
+    font-size: 1.375rem;
+    font-weight: 600;
+    color: #0f172a;
+    letter-spacing: -0.02em;
+    margin-bottom: 16px;
+    line-height: 1.3;
 }
 
 .process-step-description {
     color: #64748b;
-    line-height: 1.6;
-    font-size: 1rem;
+    line-height: 1.7;
+    font-size: 0.9375rem;
+    letter-spacing: -0.01em;
 }
 
 @media (max-width: 600px) {
     .process-col {
-        padding: 1rem;
+        padding: 12px;
     }
     
     .process-step-card {
-        padding: 2rem 1.5rem 1.5rem;
+        padding: 32px 24px;
+    }
+
+    .process-step-number {
+        font-size: 2.5rem;
     }
 }
 
 .step-icon {
-    font-size: 24px;
+    font-size: 20px;
     color: #2196F3;
-    font-weight: bold;
+    font-weight: 700;
+    letter-spacing: -0.5px;
 }
 
 .icon-wrapper {
@@ -1531,12 +1597,11 @@ export default {
 }
 
 .gradient-text-cases {
-    background: linear-gradient(135deg, #1976D2, #2196F3);
+    background: linear-gradient(135deg, #2563eb 0%, #7c3aed 100%);
     -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
     background-clip: text;
-    color: transparent;
-    display: block;
-    margin-top: 0.5rem;
+    display: inline;
 }
 
 .case-studies-subtitle {
@@ -1553,19 +1618,19 @@ export default {
 }
 
 .case-study-card {
-    border-radius: 16px;
+    border-radius: 20px;
     overflow: hidden;
-    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
     background: white;
     height: 100%;
-    border: 1px solid rgba(0, 0, 0, 0.08);
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+    border: 1px solid #e2e8f0;
+    box-shadow: none;
 }
 
 .case-study-card.on-hover {
-    transform: translateY(-8px) scale(1.02);
-    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.12);
-    border-color: rgba(33, 150, 243, 0.2);
+    transform: translateY(-4px);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.06);
+    border-color: #cbd5e1;
 }
 
 .card-image-wrapper {
@@ -1574,11 +1639,11 @@ export default {
 }
 
 .case-study-image {
-    transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .case-study-card:hover .case-study-image {
-    transform: scale(1.05);
+    transform: scale(1.03);
 }
 
 .image-overlay {
@@ -1587,12 +1652,12 @@ export default {
     left: 0;
     right: 0;
     bottom: 0;
-    background: rgba(25, 118, 210, 0.9);
+    background: linear-gradient(135deg, rgba(37, 99, 235, 0.95), rgba(124, 58, 237, 0.95));
     display: flex;
     align-items: center;
     justify-content: center;
     opacity: 0;
-    transition: all 0.3s ease;
+    transition: all 0.2s ease;
 }
 
 .image-overlay.show-overlay {
@@ -1641,12 +1706,11 @@ export default {
 }
 
 .gradient-text-process {
-    background: linear-gradient(135deg, #1976D2, #2196F3);
+    background: linear-gradient(135deg, #2563eb 0%, #7c3aed 100%);
     -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
     background-clip: text;
-    color: transparent;
-    display: block;
-    margin-top: 0.5rem;
+    display: inline;
 }
 
 .about-section {
@@ -1669,139 +1733,190 @@ export default {
 }
 
 .gradient-text-about {
-    background: linear-gradient(135deg, #1976D2, #2196F3);
+    background: linear-gradient(135deg, #2563eb 0%, #7c3aed 100%);
     -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
     background-clip: text;
-    color: transparent;
-    display: block;
-    margin-top: 0.5rem;
-}
-
-.about-stats {
-    display: flex;
-    justify-content: flex-start;
-    gap: 3rem;
-    margin: 2rem 0;
-}
-
-.stat-item {
-    text-align: left;
-}
-
-.stat-value {
-    font-size: 2.5rem;
-    font-weight: 700;
-    background: linear-gradient(135deg, #1976D2, #2196F3);
-    -webkit-background-clip: text;
-    background-clip: text;
-    color: transparent;
-    line-height: 1;
-    margin-bottom: 0.5rem;
-}
-
-.stat-label {
-    font-size: 0.875rem;
-    color: #64748b;
-    font-weight: 500;
+    display: inline;
 }
 
 .about-description {
+    max-width: 560px;
+    margin-top: 32px;
+}
+
+.about-text {
+    font-size: 1.0625rem;
+    line-height: 1.7;
     color: #64748b;
-    max-width: 600px;
+    letter-spacing: -0.01em;
+    margin-bottom: 20px;
 }
 
-.expertise-tags .v-chip {
-    background: rgba(66, 165, 245, 0.1);
-    color: #1976D2;
-    font-weight: 500;
+.capability-list {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    margin-top: 32px;
 }
 
-.contact-btn, .schedule-btn {
-    text-transform: none;
+.capability-item {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    font-size: 0.9375rem;
+    color: #475569;
+    letter-spacing: -0.01em;
+}
+
+.capability-icon {
+    width: 20px;
+    height: 20px;
+    color: #2563eb;
+    flex-shrink: 0;
+}
+
+.about-cta-section {
+    display: flex;
+    align-items: center;
+    gap: 24px;
+    margin-top: 40px;
+}
+
+.about-primary-btn {
+    background: #0f172a !important;
+    color: #ffffff !important;
+    text-transform: none !important;
     font-weight: 600;
-    letter-spacing: 0.5px;
-    height: 48px;
-    padding: 0 24px;
+    letter-spacing: -0.01em;
+    border-radius: 12px !important;
+    padding: 0 28px !important;
+    height: 52px !important;
+    transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.about-primary-btn:hover {
+    background: #1e293b !important;
+    transform: translateY(-1px);
+}
+
+.btn-arrow {
+    font-size: 1.25rem;
+    margin-left: 8px;
+    transition: transform 0.2s ease;
+    display: inline-block;
+}
+
+.about-primary-btn:hover .btn-arrow {
+    transform: translateX(3px);
+}
+
+.about-email-link {
+    color: #64748b;
+    text-decoration: none;
+    font-size: 0.9375rem;
+    font-weight: 500;
+    letter-spacing: -0.01em;
+    transition: color 0.2s ease;
+}
+
+.about-email-link:hover {
+    color: #0f172a;
 }
 
 .feature-grid {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
-    gap: 1.5rem;
-    max-width: 600px;
+    gap: 24px;
+    max-width: 640px;
     width: 100%;
 }
 
 .feature-item {
     background: white;
-    border-radius: 16px;
-    padding: 2rem;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
-    border: 1px solid rgba(0, 0, 0, 0.1);
-    transition: all 0.3s ease;
+    border-radius: 20px;
+    padding: 32px 24px;
+    box-shadow: none;
+    border: 1px solid #e2e8f0;
+    transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .feature-item:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
-    border-color: transparent;
+    transform: translateY(-4px);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.06);
+    border-color: #cbd5e1;
 }
 
 .feature-number {
-    font-size: 1.5rem;
+    font-size: 1.25rem;
     font-weight: 700;
-    background: linear-gradient(135deg, #1976D2, #2196F3);
-    -webkit-background-clip: text;
-    background-clip: text;
-    color: transparent;
-    margin-bottom: 1rem;
+    color: #e2e8f0;
+    margin-bottom: 16px;
+    line-height: 1;
+    letter-spacing: -0.02em;
 }
 
 .feature-title {
-    font-size: 1.25rem;
+    font-size: 1.125rem;
     font-weight: 600;
-    color: #1e293b;
-    margin-bottom: 0.5rem;
+    color: #0f172a;
+    margin-bottom: 8px;
+    letter-spacing: -0.01em;
+    line-height: 1.3;
 }
 
 .feature-text {
     font-size: 0.875rem;
     color: #64748b;
     line-height: 1.6;
+    letter-spacing: -0.01em;
 }
 
 @media (max-width: 960px) {
-    .about-stats {
-        justify-content: center;
-    }
-    
-    .stat-item {
-        text-align: center;
-    }
-    
     .about-description {
-        margin: 0 auto;
+        margin: 32px auto 0;
         text-align: center;
     }
-    
-    .expertise-tags {
+
+    .about-text {
+        font-size: 1rem;
+    }
+
+    .capability-list {
+        align-items: center;
+    }
+
+    .capability-item {
         justify-content: center;
     }
-    
-    .contact-section {
-        display: flex;
+
+    .about-cta-section {
         flex-direction: column;
-        gap: 1rem;
+        align-items: center;
+        gap: 16px;
     }
-    
-    .contact-btn, .schedule-btn {
+
+    .about-primary-btn {
         width: 100%;
+        max-width: 280px;
+    }
+
+    .feature-grid {
+        grid-template-columns: 1fr;
+        gap: 16px;
+        margin-top: 3rem;
+    }
+
+    .feature-item {
+        padding: 24px 20px;
     }
 }
 
 .testimonials-section {
-  background: linear-gradient(135deg, #f8f9ff 0%, #f1f4ff 100%);
+  background: #ffffff;
   position: relative;
+  padding-top: 8rem;
+  padding-bottom: 8rem;
 }
 
 .testimonial-tag {
@@ -1819,54 +1934,120 @@ export default {
 }
 
 .gradient-text-testimonials {
-  background: linear-gradient(135deg, #1976D2, #2196F3);
+  background: linear-gradient(135deg, #2563eb 0%, #7c3aed 100%);
   -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
   background-clip: text;
-  color: transparent;
+  display: inline;
+}
+
+/* Infinite Logos Scroll */
+.logos-scroll-container {
+  position: relative;
+  width: 100%;
+  max-width: 1400px;
+  margin: 0 auto 4rem;
+  overflow: hidden;
+  padding: 0 0;
+}
+
+.logos-scroll-wrapper {
+  overflow: hidden;
+  padding: 48px 0;
+}
+
+.logos-scroll-track {
+  display: flex;
+  align-items: center;
+  gap: 80px;
+  animation: scroll-logos 40s linear infinite;
+  will-change: transform;
+}
+
+.logos-scroll-track:hover {
+  animation-play-state: paused;
+}
+
+@keyframes scroll-logos {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+.logo-item {
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 160px;
+  height: 80px;
+}
+
+.company-logo {
+  max-width: 140px;
+  max-height: 70px;
+  width: auto;
+  height: auto;
+  object-fit: contain;
+  opacity: 0.4;
+  filter: grayscale(100%);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.logo-item:hover .company-logo {
+  opacity: 0.8;
+  filter: grayscale(0%);
+  transform: scale(1.05);
+}
+
+/* Fade masks on edges */
+.scroll-fade {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 120px;
+  pointer-events: none;
+  z-index: 2;
+}
+
+.scroll-fade-left {
+  left: 0;
+  background: linear-gradient(to right, #ffffff, transparent);
+}
+
+.scroll-fade-right {
+  right: 0;
+  background: linear-gradient(to left, #ffffff, transparent);
+}
+
+@media (max-width: 768px) {
+  .logos-scroll-track {
+    gap: 60px;
+    animation-duration: 25s;
+  }
+
+  .logo-item {
+    min-width: 120px;
+    height: 60px;
+  }
+
+  .company-logo {
+    max-width: 100px;
+    max-height: 50px;
+  }
+
+  .scroll-fade {
+    width: 60px;
+  }
 }
 
 .company-grid {
   position: relative;
 }
 
-.logos-wrapper {
-  background: rgba(255, 255, 255, 0.7);
-  backdrop-filter: blur(10px);
-  border-radius: 16px;
-  padding: 2rem;
-  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.03);
-}
-
-.company-logo {
-  opacity: 0.75;
-  transition: all 0.3s ease;
-  filter: grayscale(100%);
-}
-
-.company-logo:hover {
-  opacity: 1;
-  filter: grayscale(0%);
-  transform: translateY(-2px);
-}
-
-.partners-section {
-  background: #fff;
-  border-top: 1px solid rgba(0, 0, 0, 0.05);
-  border-bottom: 1px solid rgba(0, 0, 0, 0.05);
-}
-
-.company-carousel {
-  background: transparent;
-}
-
-.company-logo {
-  opacity: 0.7;
-  transition: opacity 0.3s ease;
-}
-
-.company-logo:hover {
-  opacity: 1;
-}
 
 /* Consistent Section Styling */
 .section-tag {
@@ -1887,9 +2068,9 @@ export default {
 
 /* Section Backgrounds */
 .services-section {
-  background: linear-gradient(135deg, #f8f9ff 0%, #f1f4ff 100%);
-  padding-top: 5rem;
-  padding-bottom: 5rem;
+  background: #fafafa;
+  padding-top: 8rem;
+  padding-bottom: 8rem;
   position: relative;
   overflow: hidden;
 }
@@ -1900,14 +2081,20 @@ export default {
 
 .process-section {
   background: #ffffff;
+  padding-top: 8rem;
+  padding-bottom: 8rem;
 }
 
 .case-studies-section {
-  background: linear-gradient(135deg, #f8f9ff 0%, #f1f4ff 100%);
+  background: #fafafa;
+  padding-top: 8rem;
+  padding-bottom: 8rem;
 }
 
 .about-section {
   background: #ffffff;
+  padding-top: 8rem;
+  padding-bottom: 8rem;
 }
 
 /* Card Styling */
@@ -1966,6 +2153,18 @@ export default {
     padding: 0 1rem;
   }
 
+  .services-section,
+  .process-section,
+  .case-studies-section,
+  .about-section {
+    padding-top: 5rem;
+    padding-bottom: 5rem;
+  }
+
+  .section-title {
+    font-size: clamp(2rem, 8vw, 3rem);
+  }
+
   .service-card,
   .process-step-card,
   .case-study-card,
@@ -1975,83 +2174,233 @@ export default {
 }
 
 .contact-section {
-  background: linear-gradient(135deg, #f8faff 0%, #f0f5ff 100%);
+  background: #ffffff;
+  padding: 6rem 0 5rem;
   position: relative;
   overflow: hidden;
 }
 
-.contact-tag {
-  background: rgba(33, 150, 243, 0.1) !important;
-  color: #1976D2 !important;
-  text-transform: uppercase;
-  letter-spacing: 1px;
-  font-weight: 600;
-  border-color: #1976D2;
-  font-size: 0.875rem;
-  padding: 0 12px;
-  height: 24px;
-}
-
-.gradient-text-contact {
-  background: linear-gradient(135deg, #1976D2, #2196F3);
-  -webkit-background-clip: text;
-  background-clip: text;
-  color: transparent;
-  display: block;
-  margin-top: 0.5rem;
-}
-
-.contact-subtitle {
-  font-size: 1.2rem;
-  line-height: 1.8;
-  color: #546E7A;
-  max-width: 700px;
+.contact-wrapper {
+  max-width: 1200px;
   margin: 0 auto;
 }
 
-.contact-form {
-  position: relative;
+.contact-content {
+  gap: 0;
+  align-items: flex-start;
 }
 
-.form-card {
-  background: rgba(255, 255, 255, 0.9);
-  backdrop-filter: blur(12px);
-  border: 1px solid rgba(255, 255, 255, 0.8);
-  border-radius: 24px;
-  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+.contact-info-col {
+  padding: 0 32px 0 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
 
-.form-card:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.08);
+.contact-main-title {
+  font-size: clamp(2rem, 5vw, 2.75rem);
+  font-weight: 700;
+  line-height: 1.1;
+  color: #0f172a;
+  letter-spacing: -0.03em;
+  margin-bottom: 16px;
 }
 
-.submit-btn {
-  background: linear-gradient(135deg, #1976D2, #2196F3) !important;
+.gradient-text-contact {
+  background: linear-gradient(135deg, #2563eb 0%, #7c3aed 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  display: inline;
+}
+
+.contact-description {
+  font-size: 1rem;
+  line-height: 1.6;
+  color: #64748b;
+  letter-spacing: -0.01em;
+  margin-bottom: 32px;
+  max-width: 420px;
+}
+
+.contact-methods {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.contact-method-item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.method-icon-wrapper {
+  flex-shrink: 0;
+  width: 40px;
+  height: 40px;
+  background: linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%);
+  border: 1px solid #e2e8f0;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.method-icon {
+  width: 20px;
+  height: 20px;
+  color: #475569;
+}
+
+.method-content {
+  flex: 1;
+}
+
+.method-label {
+  font-size: 0.75rem;
+  color: #64748b;
+  margin-bottom: 2px;
+  letter-spacing: -0.01em;
+}
+
+.method-value {
+  font-size: 0.9375rem;
+  font-weight: 500;
+  color: #0f172a;
+  text-decoration: none;
+  letter-spacing: -0.01em;
+  transition: color 0.2s ease;
+}
+
+.method-value:hover {
+  color: #2563eb;
+}
+
+.contact-form-col {
+  padding: 32px;
+  background: #fafafa;
+  border-radius: 16px;
+  border: 1px solid #e2e8f0;
+  min-height: 400px;
+  display: flex;
+  align-items: center;
+}
+
+.compact-form {
+  width: 100%;
+}
+
+.form-group {
+  margin-bottom: 18px;
+  width: 100%;
+}
+
+.form-label {
+  display: block;
+  font-size: 0.8125rem;
+  font-weight: 500;
+  color: #475569;
+  margin-bottom: 6px;
+  letter-spacing: -0.01em;
+}
+
+.modern-input {
+  margin-bottom: 0;
+  width: 100%;
+}
+
+.modern-input .v-input__control {
+  background: #ffffff;
+  width: 100%;
+}
+
+.modern-input fieldset {
+  border-color: #e2e8f0 !important;
+  border-radius: 10px;
+}
+
+.modern-input:hover fieldset {
+  border-color: #cbd5e1 !important;
+}
+
+.modern-input.v-input--is-focused fieldset {
+  border-color: #2563eb !important;
+  border-width: 2px !important;
+}
+
+.compact-submit-btn {
+  width: 100%;
+  background: #0f172a !important;
   color: white !important;
   font-weight: 600;
-  letter-spacing: 0.5px;
-  text-transform: none;
-  border-radius: 100px;
-  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  letter-spacing: -0.01em;
+  text-transform: none !important;
+  border-radius: 10px !important;
+  height: 48px !important;
+  margin-top: 4px;
+  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-.submit-btn:hover {
-  transform: translateY(-2px) scale(1.02);
-  box-shadow: 0 8px 24px rgba(33, 150, 243, 0.3);
+.compact-submit-btn:hover {
+  background: #1e293b !important;
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
 }
 
-.btn-text {
-  font-size: 1.1rem;
+.btn-arrow-submit {
+  font-size: 1.25rem;
+  margin-left: 8px;
+  transition: transform 0.2s ease;
+  display: inline-block;
+}
+
+.compact-submit-btn:hover .btn-arrow-submit {
+  transform: translateX(3px);
 }
 
 @media (max-width: 960px) {
   .contact-section {
     padding: 4rem 0;
   }
-  
-  .form-card {
-    margin: 0 1rem;
+
+  .contact-content {
+    gap: 32px;
+  }
+
+  .contact-info-col {
+    padding: 0 16px;
+    text-align: center;
+  }
+
+  .contact-main-title {
+    font-size: clamp(1.75rem, 7vw, 2.25rem);
+    margin-bottom: 12px;
+  }
+
+  .contact-description {
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 24px;
+    font-size: 0.9375rem;
+  }
+
+  .contact-methods {
+    align-items: center;
+    gap: 12px;
+  }
+
+  .contact-form-col {
+    padding: 24px 20px;
+    min-height: auto;
+  }
+
+  .form-group {
+    margin-bottom: 16px;
+  }
+
+  .compact-submit-btn {
+    height: 46px !important;
   }
 }
 
