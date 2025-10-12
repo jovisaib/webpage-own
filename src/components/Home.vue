@@ -195,38 +195,58 @@
         </v-col>
       </v-row>
 
-      <v-row class="case-studies-grid px-4" justify="center">
-        <v-col v-for="(project, index) in projects" :key="index" cols="12" sm="6" md="4" lg="3">
-          <v-hover v-slot="{ hover }">
-            <v-card class="case-study-card" :class="{ 'on-hover': hover }" elevation="0">
-              <div class="card-image-wrapper">
-                <v-img
-                  :src="require(`@/assets/${project.img}`)"
-                  class="case-study-image"
-                  height="240"
-                  cover
-                >
-                  <div class="image-overlay" :class="{ 'show-overlay': hover }">
-                    <v-btn
-                      text
-                      color="white"
-                      class="learn-more-btn"
-                      @click="setupDialog(project)"
-                    >
-                      View Case Study
-                    </v-btn>
+      <v-container class="projects-showcase-container">
+        <div class="projects-masonry-grid">
+          <v-hover v-slot="{ hover }" v-for="(project, index) in projects" :key="index">
+            <div 
+              class="project-card" 
+              :class="[
+                { 'project-hover': hover },
+                { 'project-featured': project.featured },
+                `project-${project.size || 'medium'}`
+              ]"
+            >
+              <div class="project-card-inner">
+                <!-- Category Tag -->
+                <div class="project-category-badge">
+                  {{ project.category }}
+                </div>
+
+                <!-- Content Area -->
+                <div class="project-text-content">
+                  <h3 class="project-card-title">
+                    {{ project.title }}
+                  </h3>
+                  <p class="project-card-description">
+                    {{ project.description }}
+                  </p>
+                </div>
+
+                <!-- Image Area -->
+                <div class="project-image-container">
+                  <div class="image-frame">
+                    <img
+                      :src="require(`@/assets/${project.img}`)"
+                      class="project-showcase-image"
+                      :alt="project.title"
+                    />
                   </div>
-                </v-img>
+                </div>
+
+                <!-- Hover Action -->
+                <div class="project-hover-action" :class="{ 'visible': hover }">
+                  <div class="action-content">
+                    <svg class="action-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                      <path d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/>
+                    </svg>
+                    <span>View Case Study</span>
+                  </div>
+                </div>
               </div>
-              <v-card-text class="pa-6">
-                <div class="category-tag mb-4">{{ project.category || 'AI Solution' }}</div>
-                <h3 class="text-h6 font-weight-bold mb-3">{{ project.title }}</h3>
-                <p class="case-study-description">{{ project.description }}</p>
-              </v-card-text>
-            </v-card>
+            </div>
           </v-hover>
-        </v-col>
-      </v-row>
+        </div>
+      </v-container>
     </v-container>
 
     <!-- About Section -->
@@ -241,10 +261,10 @@
 
           <div class="about-description">
             <p class="about-text">
-              Allometrik builds production-grade AI systems for global enterprises. Our work spans intelligent document processing, compliance automation, and executive AI training programs.
+              Allometrik builds production-grade AI systems for global enterprises. We direct master's programs at Nuclio Digital School, deliver bootcamps at Saudi Digital Academy, and serve as pre-sales AI partners for international consultancies opening new AI projects.
             </p>
             <p class="about-text">
-              We've shipped solutions processing millions of financial documents, automating regulatory audits for chemical manufacturers, and training C-level executives at leading institutions. From banks to state enterprises to hospitality groups—we solve complex technical challenges that drive real business value.
+              From processing millions of financial documents and automating compliance audits for chemical manufacturers, to building conversational AI platforms for document generation and HR automation—we solve complex technical challenges that drive real business value across continents.
             </p>
 
             <div class="capability-list">
@@ -252,25 +272,37 @@
                 <svg class="capability-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                   <path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
                 </svg>
-                <span>Document Intelligence & OCR</span>
+                <span>Document Intelligence & Agent Systems</span>
               </div>
               <div class="capability-item">
                 <svg class="capability-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                   <path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
                 </svg>
-                <span>Compliance Automation</span>
+                <span>Compliance & Audit Automation</span>
               </div>
               <div class="capability-item">
                 <svg class="capability-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                   <path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
                 </svg>
-                <span>Enterprise Integration</span>
+                <span>Education Leadership & Training</span>
               </div>
               <div class="capability-item">
                 <svg class="capability-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                   <path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
                 </svg>
-                <span>Executive Training Programs</span>
+                <span>HR Automation & Recruitment</span>
+              </div>
+              <div class="capability-item">
+                <svg class="capability-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                </svg>
+                <span>Pre-Sales AI Consulting</span>
+              </div>
+              <div class="capability-item">
+                <svg class="capability-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                </svg>
+                <span>Conversational AI Platforms</span>
               </div>
             </div>
           </div>
@@ -483,28 +515,47 @@ export default {
             widgets: false,
             projects: [
                 {
-                    title: 'Financial Document Processing',
-                    description: 'Intelligent OCR system processing thousands of promissory notes and financial documents for Spanish fintech. Advanced extraction with validation and compliance checks.',
-                    img: 'ocr_case.jpeg',
-                    category: 'Financial Services'
+                    title: 'Nuclio Digital School',
+                    description: 'Global Head Expert and Director of the AI for Business and Innovation master\'s program at Nuclio Digital School. Leading cutting-edge curriculum design and delivering executive training to business leaders worldwide on Generative AI, Machine Learning, and AI strategy implementation.',
+                    img: 'nuclio_digital_school.png',
+                    category: 'Education Leadership',
+                    size: 'large',
+                    featured: true
+                },
+                {
+                    title: 'ReportAlly Platform',
+                    description: 'Intelligent document generation platform for Unidoc with conversational AI interface. Chat-powered system for creating complex PDFs: financial reports, airline tickets, concert passes, invoices, and custom business documents. Natural language processing meets document automation.',
+                    img: 'reportally.png',
+                    category: 'Enterprise SaaS',
+                    size: 'medium'
                 },
                 {
                     title: 'Comply Platform',
-                    description: 'Automated audit generation system for chemical industry. Regulatory compliance documentation at scale, reducing manual work by 85%.',
-                    img: 'reportally.png',
-                    category: 'Enterprise SaaS'
+                    description: 'Automated audit compliance system for Intemic. Multi-industry regulatory documentation platform that reduces manual work by 85%. Intelligent audit generation for chemical, manufacturing, and enterprise sectors. Scale compliance operations with AI-powered validation.',
+                    img: 'comply.png',
+                    category: 'Compliance & Automation',
+                    size: 'medium'
+                },
+                {
+                    title: 'Financial Document Processing',
+                    description: 'Production OCR system processing thousands of promissory notes and financial documents for Spanish fintech. Advanced extraction with validation and compliance checks. Multi-format parsing with intelligent data validation.',
+                    img: 'ocr_case.jpeg',
+                    category: 'Financial Services',
+                    size: 'small'
+                },
+                {
+                    title: 'Saudi Digital Academy',
+                    description: 'AI training bootcamp delivered at Saudi Digital Academy (SDA). Intensive programs on Generative AI, AIoT for industrial applications, and enterprise AI implementation. Training next-generation leaders in the Middle East on production AI systems.',
+                    img: 'saudi_digital_academy.png',
+                    category: 'Executive Training',
+                    size: 'medium'
                 },
                 {
                     title: '401k Document Intelligence',
-                    description: 'Complex document extraction and analysis for retirement fund processing. Multi-format parsing with intelligent data validation.',
+                    description: 'Complex document extraction and analysis for retirement fund processing. Multi-format parsing with intelligent data validation. Processing millions of documents with high accuracy OCR and agent-based verification systems.',
                     img: 'csv_ocr_case.jpeg',
-                    category: 'Document Processing'
-                },
-                {
-                    title: 'Executive AI Training',
-                    description: 'Director of Business Innovation with AI master\'s program at Nuclio Digital Academy. Training programs delivered for Saudi Digital Academy and Fortune 500 organizations.',
-                    img: 'industrial_jose.jpeg',
-                    category: 'Leadership & Education'
+                    category: 'Document Processing',
+                    size: 'small'
                 }
             ],
             processSteps: [
@@ -1612,88 +1663,265 @@ export default {
     margin: 1rem auto 0;
 }
 
-.case-studies-grid {
+/* Modern Production Systems Showcase */
+.projects-showcase-container {
     max-width: 1400px;
-    margin: 0 auto;
+    padding: 0 24px;
 }
 
-.case-study-card {
-    border-radius: 20px;
-    overflow: hidden;
-    transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+.projects-masonry-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 28px;
+    width: 100%;
+}
+
+.project-card {
+    position: relative;
     background: white;
-    height: 100%;
+    border-radius: 16px;
     border: 1px solid #e2e8f0;
-    box-shadow: none;
+    overflow: hidden;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    cursor: pointer;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
 }
 
-.case-study-card.on-hover {
-    transform: translateY(-4px);
-    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.06);
+.project-large {
+    grid-column: span 2;
+}
+
+.project-medium {
+    grid-column: span 2;
+}
+
+.project-small {
+    grid-column: span 1;
+}
+
+.project-featured {
+    border: 2px solid #3b82f6;
+    box-shadow: 0 4px 20px rgba(59, 130, 246, 0.1);
+}
+
+.project-card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 16px 40px rgba(0, 0, 0, 0.12);
     border-color: #cbd5e1;
 }
 
-.card-image-wrapper {
+.project-featured:hover {
+    border-color: #3b82f6;
+    box-shadow: 0 20px 48px rgba(59, 130, 246, 0.2);
+}
+
+.project-card-inner {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    position: relative;
+}
+
+/* Category Badge */
+.project-category-badge {
+    position: absolute;
+    top: 16px;
+    right: 16px;
+    z-index: 10;
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(10px);
+    color: #3b82f6;
+    padding: 6px 14px;
+    border-radius: 20px;
+    font-size: 0.75rem;
+    font-weight: 600;
+    letter-spacing: 0.3px;
+    border: 1px solid #e2e8f0;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+}
+
+/* Text Content Area */
+.project-text-content {
+    padding: 56px 24px 20px;
+    flex: 0 0 auto;
+}
+
+.project-card-title {
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: #0f172a;
+    letter-spacing: -0.02em;
+    margin-bottom: 12px;
+    line-height: 1.3;
+}
+
+.project-large .project-card-title {
+    font-size: 1.5rem;
+}
+
+.project-card-description {
+    color: #64748b;
+    line-height: 1.6;
+    font-size: 0.9375rem;
+    letter-spacing: -0.01em;
+}
+
+.project-large .project-card-description {
+    font-size: 1rem;
+    line-height: 1.7;
+}
+
+/* Image Container */
+.project-image-container {
+    flex: 1;
+    padding: 0 24px 24px;
+    display: flex;
+    align-items: flex-end;
+}
+
+.image-frame {
+    width: 100%;
+    background: linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%);
+    border-radius: 12px;
+    padding: 20px;
+    border: 1px solid #e2e8f0;
     position: relative;
     overflow: hidden;
-}
-
-.case-study-image {
-    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-}
-
-.case-study-card:hover .case-study-image {
-    transform: scale(1.03);
-}
-
-.image-overlay {
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background: linear-gradient(135deg, rgba(37, 99, 235, 0.95), rgba(124, 58, 237, 0.95));
+    min-height: 200px;
     display: flex;
     align-items: center;
     justify-content: center;
-    opacity: 0;
-    transition: all 0.2s ease;
 }
 
-.image-overlay.show-overlay {
-    opacity: 1;
+.project-large .image-frame {
+    min-height: 280px;
+    padding: 32px;
 }
 
-.learn-more-btn {
-    text-transform: none;
+.project-medium .image-frame {
+    min-height: 220px;
+    padding: 24px;
+}
+
+.project-showcase-image {
+    width: 100%;
+    height: auto;
+    object-fit: contain;
+    border-radius: 8px;
+    transition: transform 0.3s ease;
+    max-height: 100%;
+}
+
+.project-card:hover .project-showcase-image {
+    transform: scale(1.05);
+}
+
+/* Hover Action Overlay */
+.project-hover-action {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: linear-gradient(to top, rgba(15, 23, 42, 0.95), transparent);
+    padding: 60px 24px 24px;
+    transform: translateY(100%);
+    transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    pointer-events: none;
+}
+
+.project-hover-action.visible {
+    transform: translateY(0);
+}
+
+.action-content {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    color: white;
     font-weight: 600;
-    letter-spacing: 0.5px;
+    font-size: 0.9375rem;
+    letter-spacing: 0.3px;
 }
 
-.category-tag {
-    display: inline-block;
-    padding: 4px 12px;
-    background: rgba(66, 165, 245, 0.1);
-    color: #1976D2;
-    border-radius: 20px;
-    font-size: 0.875rem;
-    font-weight: 600;
+.action-icon {
+    width: 20px;
+    height: 20px;
+    color: white;
 }
 
-.case-study-description {
-    color: #64748b;
-    line-height: 1.6;
-    font-size: 0.975rem;
-    margin: 0;
-}
-
-@media (max-width: 600px) {
-    .case-study-card {
-        margin-bottom: 1.5rem;
+/* Responsive Design */
+@media (max-width: 1400px) {
+    .projects-masonry-grid {
+        grid-template-columns: repeat(3, 1fr);
     }
     
-    .case-study-image {
-        height: 200px !important;
+    .project-large {
+        grid-column: span 3;
+    }
+    
+    .project-medium {
+        grid-column: span 3;
+    }
+    
+    .project-small {
+        grid-column: span 1;
+    }
+}
+
+@media (max-width: 1024px) {
+    .projects-masonry-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 24px;
+    }
+    
+    .project-large,
+    .project-medium {
+        grid-column: span 2;
+    }
+    
+    .project-small {
+        grid-column: span 1;
+    }
+}
+
+@media (max-width: 768px) {
+    .projects-showcase-container {
+        padding: 0 16px;
+    }
+    
+    .projects-masonry-grid {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+    
+    .project-large,
+    .project-medium,
+    .project-small {
+        grid-column: span 1;
+    }
+    
+    .project-text-content {
+        padding: 52px 20px 16px;
+    }
+    
+    .project-card-title {
+        font-size: 1.125rem;
+    }
+    
+    .project-large .project-card-title {
+        font-size: 1.25rem;
+    }
+    
+    .image-frame {
+        min-height: 180px;
+        padding: 16px;
+    }
+    
+    .project-large .image-frame,
+    .project-medium .image-frame {
+        min-height: 200px;
     }
 }
 
@@ -1754,9 +1982,9 @@ export default {
 }
 
 .capability-list {
-    display: flex;
-    flex-direction: column;
-    gap: 16px;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 16px 24px;
     margin-top: 32px;
 }
 
@@ -1884,6 +2112,8 @@ export default {
 
     .capability-list {
         align-items: center;
+        grid-template-columns: 1fr;
+        gap: 14px;
     }
 
     .capability-item {
