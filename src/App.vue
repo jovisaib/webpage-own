@@ -22,7 +22,6 @@
                 <v-col cols="auto" class="d-none d-md-flex"> <!-- Only show on medium and larger screens -->
                     <v-btn text class="nav-link" @click="navigateOrScroll('services-section')" style="color: black;">Services</v-btn>
                     <v-btn text class="nav-link" @click="navigateOrScroll('process-section')" style="color: black;">Process</v-btn>
-                    <v-btn text class="nav-link" @click="navigateOrScroll('about-me-section')" style="color: black;">About</v-btn>
                 </v-col>
             </v-row>
         </v-container>
@@ -36,9 +35,6 @@
             </v-list-item>
             <v-list-item @click="navigateOrScroll('process-section')">
                 <v-list-item-title>Process</v-list-item-title>
-            </v-list-item>
-            <v-list-item @click="navigateOrScroll('about-me-section')">
-                <v-list-item-title>About</v-list-item-title>
             </v-list-item>
         </v-list>
     </v-navigation-drawer>
@@ -81,10 +77,6 @@
               <a class="footer-link mb-3" @click="navigateOrScroll('process-section')">
                 <span class="arrow-icon">→</span>
                 Process
-              </a>
-              <a class="footer-link mb-3" @click="navigateOrScroll('about-me-section')">
-                <span class="arrow-icon">→</span>
-                About
               </a>
             </div>
           </v-col>
@@ -135,7 +127,6 @@ export default {
     icons: [
       { href: 'https://x.com/allometrik', img: 'fas fa-brands fa-x-twitter' },
       { href: 'https://www.linkedin.com/company/allometriktech/', img: 'mdi:mdi-linkedin' },
-      { href: 'https://github.com/jovisaib', img: 'mdi:mdi-github' },
     ],
   }),
   name: "app",
