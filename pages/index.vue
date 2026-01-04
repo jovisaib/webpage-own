@@ -2971,6 +2971,11 @@ onMounted(() => {
         padding-right: 0;
         text-align: center;
     }
+
+    .hero-subtitle {
+        margin-left: auto;
+        margin-right: auto;
+    }
     
     .hero-badge {
         justify-content: center;
