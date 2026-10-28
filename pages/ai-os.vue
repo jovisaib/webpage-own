@@ -130,7 +130,7 @@ const openSpec = ref(0)
       </div>
     </section>
 
-    <CustomScopeCalculator />
+    <HomeEngage />
     <SiteFaq :items="aiosFaqs" title="The OS, in plain language" />
     <PageCta title="Put a production agent on the free OS" lede="We include Allometrik AI OS at $0 licence. You pay for the agent that does the work." />
   </div>

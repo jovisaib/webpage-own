@@ -12,7 +12,7 @@ import { site } from '~/data/site'
           lands.
         </h2>
         <p class="lede caps__lede" v-reveal="80">
-          Four ways we put AI to work inside the enterprise. Each one is engineered for production, measured against your data and owned by you.
+          Four production tracks, measured against your data and owned by you.
         </p>
       </div>
 
@@ -59,7 +59,7 @@ import { site } from '~/data/site'
 
 .caps__grid {
   display: grid;
-  grid-template-columns: repeat(4, minmax(0, 1fr)) minmax(0, 0.86fr);
+  grid-template-columns: repeat(4, minmax(0, 1fr));
   gap: 14px;
   align-items: stretch;
 }
@@ -145,12 +145,13 @@ import { site } from '~/data/site'
 }
 
 .cap-cta {
-  align-self: end;
-  display: grid;
-  align-content: start;
+  grid-column: 1 / -1;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
   gap: 18px;
-  padding: 22px;
-  min-height: 210px;
+  padding: 22px 26px;
+  min-height: 0;
   background: linear-gradient(180deg, #ffffff 0%, #f6f4ef 100%);
 }
 
@@ -176,10 +177,7 @@ import { site } from '~/data/site'
   }
 
   .cap-cta {
-    grid-column: 1 / -1;
-    min-height: 0;
-    grid-template-columns: 1fr auto;
-    align-items: center;
+    display: flex;
   }
 }
 
@@ -199,7 +197,8 @@ import { site } from '~/data/site'
   }
 
   .cap-cta {
-    grid-template-columns: 1fr;
+    flex-direction: column;
+    align-items: flex-start;
   }
 }
 </style>

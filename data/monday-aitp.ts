@@ -1,27 +1,19 @@
 export const mondayCredentials = [
   {
     id: 'partner',
-    mark: 'monday' as const,
-    title: 'monday.com Authorized Partner',
-    subtitle: 'UAE / EMEA',
+    title: 'Authorized Partner · UAE / EMEA',
   },
   {
     id: 'aitp',
-    mark: 'aitp' as const,
     title: 'AITP Foundations Certified',
-    subtitle: 'AI Transformation Package · monday Partner Academy',
   },
   {
     id: 'ai-level-1',
-    mark: 'ai' as const,
-    title: 'monday AI Pathway Level I',
-    subtitle: 'Basics Certified',
+    title: 'AI Pathway Level I Certified',
   },
   {
     id: 'crm-sales',
-    mark: 'crm' as const,
-    title: 'monday CRM Official Product Training',
-    subtitle: 'Certified for Sales',
+    title: 'CRM Sales Certified',
   },
 ]
 
@@ -33,7 +25,7 @@ export const mondayTiers = [
     price: '$4,500',
     duration: '3–4 weeks',
     popular: false,
-    managed: '+$900/mo optional managed AI & support',
+    managed: '+$900/mo optional managed AI',
     points: [
       '1 team, 2 core workflows in monday',
       'Native monday AI configured',
@@ -48,10 +40,10 @@ export const mondayTiers = [
     price: '$9,500',
     duration: '6 weeks',
     popular: true,
-    managed: '+$1,800/mo managed AI & support',
+    managed: '+$1,800/mo managed AI',
     points: [
       'Up to 2 teams and 4 workflows',
-      'Allometrik Document Intelligence Agent — up to 3 document types with VLM + OCR & validation',
+      'Document Intelligence Agent — up to 3 types',
       '2 integrations (WhatsApp / ERP / CRM)',
       'Role-based adoption workshop',
     ],
@@ -63,10 +55,10 @@ export const mondayTiers = [
     price: '$14,500',
     duration: '8–10 weeks',
     popular: false,
-    managed: '+$2,500/mo managed AI & support',
+    managed: '+$2,500/mo managed AI',
     points: [
       'Multi-department deployment',
-      'Full KYB/KYC/Claims engine — 5+ document types with audit trail for DFSA / FSRA / CBUAE / EU AI Act',
+      'KYB/KYC/Claims engine with audit trail',
       'Core banking or insurance ERP integration',
       'C-level executive workshop',
     ],
@@ -78,7 +70,7 @@ export const mondayVerticals = [
     id: 'insurance',
     title: 'Insurance',
     kicker: 'Claims & Policy Intake AI',
-    body: 'Medical and workshop claims, policies and Emirates ID via PDF or WhatsApp → audited resolution inside monday Service in under 3 minutes.',
+    body: 'Medical and workshop claims, policies and Emirates ID via PDF or WhatsApp → audited resolution inside monday Service.',
   },
   {
     id: 'banking',

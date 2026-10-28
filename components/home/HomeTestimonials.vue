@@ -1,7 +1,6 @@
 <script setup lang="ts">
 import { testimonials } from '~/data/testimonials'
 
-const [lead, ...rest] = testimonials
 const initials = (name: string) =>
   name
     .split(' ')
@@ -29,40 +28,41 @@ const stats = [
       </div>
 
       <div class="voices__grid">
-        <figure v-if="lead" v-reveal class="voice voice--lead" :class="{ 'voice--partner': lead.kind === 'partnership' }">
-          <div v-if="lead.kind === 'partnership'" class="voice__partner-head">
-            <p class="voice__kicker mono">Strategic partnership</p>
-            <img v-if="lead.logo" :src="lead.logo" :alt="lead.company || lead.name" class="voice__partner-logo" />
-          </div>
-          <UiIcon v-else name="quote" :size="28" class="voice__mark" />
+        <figure
+          v-for="(item, i) in testimonials"
+          :key="item.name"
+          v-reveal="i * 80"
+          class="voice"
+          :class="{ 'voice--partner': item.kind === 'partnership' }"
+        >
+          <p v-if="item.kind === 'partnership'" class="voice__kicker mono">Strategic partnership</p>
           <blockquote>
-            <p class="voice__highlight serif">{{ lead.kind === 'partnership' ? lead.highlight : `“${lead.highlight}”` }}</p>
-            <p v-for="(para, i) in lead.quote.filter((q) => q !== lead.highlight)" :key="i" class="voice__para">{{ para }}</p>
+            <p class="voice__quote serif">“{{ item.quote }}”</p>
           </blockquote>
           <figcaption class="voice__by">
-            <img v-if="lead.avatar" :src="lead.avatar" :alt="lead.name" width="48" height="48" class="voice__avatar" loading="lazy" />
+            <img
+              v-if="item.avatar"
+              :src="item.avatar"
+              :alt="item.name"
+              width="44"
+              height="44"
+              class="voice__avatar"
+              loading="lazy"
+            />
+            <span v-else-if="!(item.logo && item.kind === 'partnership')" class="voice__initials" aria-hidden="true">{{ initials(item.name) }}</span>
             <span class="voice__who">
-              <strong>{{ lead.name }}</strong>
-              <span>{{ lead.role }}<template v-if="lead.company && lead.kind !== 'partnership'">, {{ lead.company }}</template></span>
+              <strong>{{ item.name }}</strong>
+              <span>{{ item.role }}<template v-if="item.company && item.kind !== 'partnership' && !item.role?.includes(item.company)">, {{ item.company }}</template></span>
             </span>
-            <img v-if="lead.logo && lead.kind !== 'partnership'" :src="lead.logo" :alt="lead.company || lead.name" class="voice__logo" loading="lazy" />
+            <img
+              v-if="item.logo"
+              :src="item.logo"
+              :alt="item.company || item.name"
+              class="voice__logo"
+              loading="lazy"
+            />
           </figcaption>
         </figure>
-
-        <div class="voices__side">
-          <figure v-for="(t, i) in rest" :key="t.name" v-reveal="(i + 1) * 90" class="voice voice--small">
-            <blockquote>
-              <p v-for="(para, j) in t.quote" :key="j" class="voice__small-text">“{{ para }}”</p>
-            </blockquote>
-            <figcaption class="voice__by">
-              <span class="voice__initials" aria-hidden="true">{{ initials(t.name) }}</span>
-              <span class="voice__who">
-                <strong>{{ t.name }}</strong>
-                <span>{{ t.role }}</span>
-              </span>
-            </figcaption>
-          </figure>
-        </div>
       </div>
 
       <dl class="voices__stats">
@@ -78,24 +78,21 @@ const stats = [
 <style scoped>
 .voices__grid {
   display: grid;
-  grid-template-columns: minmax(0, 1.55fr) minmax(0, 1fr);
-  gap: 16px;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  align-items: stretch;
+  gap: 14px;
   margin-top: clamp(40px, 5vw, 64px);
 }
 
 .voice {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
   margin: 0;
+  padding: 28px;
   border-radius: var(--radius-lg);
   border: 1px solid var(--line);
   background: linear-gradient(180deg, #ffffff 0%, #fbfaf7 100%);
-}
-
-.voice--lead {
-  position: relative;
-  display: flex;
-  flex-direction: column;
-  gap: 22px;
-  padding: clamp(28px, 4vw, 52px);
 }
 
 .voice--partner {
@@ -103,114 +100,79 @@ const stats = [
 }
 
 .voice__kicker {
+  margin: 0 0 14px;
   font-size: 11px;
   letter-spacing: 0.14em;
   text-transform: uppercase;
   color: var(--copper-deep);
 }
 
-.voice__partner-head {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 16px;
-}
-
-.voice__partner-logo {
-  height: 36px;
-  width: auto;
-  max-width: 220px;
-  object-fit: contain;
-}
-
-.voice--partner .voice__logo {
-  height: 28px;
-}
-
-.voice__mark {
-  color: var(--copper);
-}
-
-.voice__highlight {
-  font-size: clamp(26px, 2.9vw, 40px);
-  line-height: 1.2;
+.voice__quote {
+  margin: 0;
+  font-size: clamp(18px, 1.55vw, 22px);
+  line-height: 1.4;
+  letter-spacing: -0.018em;
   color: var(--ink);
   text-wrap: pretty;
 }
 
-.voice__para {
-  margin-top: 16px;
-  max-width: 640px;
-  font-size: 16px;
-  line-height: 1.65;
-  color: var(--text-2);
+blockquote {
+  margin: 0;
+  flex: 1;
 }
 
 .voice__by {
   display: flex;
   align-items: center;
-  gap: 14px;
-  margin-top: auto;
-  padding-top: 22px;
+  gap: 12px;
+  margin-top: 22px;
+  padding-top: 18px;
   border-top: 1px solid var(--line);
 }
 
-.voice__avatar {
-  width: 48px;
-  height: 48px;
+.voice__avatar,
+.voice__initials {
+  width: 44px;
+  height: 44px;
+  flex: none;
   border-radius: 50%;
+}
+
+.voice__avatar {
   object-fit: cover;
+}
+
+.voice__initials {
+  display: grid;
+  place-items: center;
+  background: var(--canvas-3);
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--text-2);
 }
 
 .voice__who {
   display: grid;
   gap: 2px;
-  font-size: 14px;
+  min-width: 0;
+  font-size: 13.5px;
   color: var(--text-3);
 }
 
 .voice__who strong {
-  font-size: 15.5px;
+  font-size: 15px;
   font-weight: 560;
   color: var(--ink);
 }
 
 .voice__logo {
   margin-left: auto;
-  height: 24px;
+  height: 22px;
   width: auto;
+  max-width: 148px;
+  object-fit: contain;
+  object-position: right center;
   opacity: 0.9;
-}
-
-.voices__side {
-  display: grid;
-  gap: 16px;
-}
-
-.voice--small {
-  display: flex;
-  flex-direction: column;
-  gap: 18px;
-  padding: 28px;
-}
-
-.voice__small-text {
-  font-size: 17px;
-  line-height: 1.55;
-  letter-spacing: -0.012em;
-  color: var(--ink);
-}
-
-.voice__initials {
-  display: grid;
-  place-items: center;
-  width: 42px;
-  height: 42px;
-  border-radius: 50%;
-  background: var(--canvas-3);
-  font-size: 13px;
-  font-weight: 600;
-  color: var(--text-2);
 }
 
 .voices__stats {
@@ -245,12 +207,9 @@ const stats = [
 }
 
 @media (max-width: 960px) {
-  .voices__grid {
-    grid-template-columns: 1fr;
-  }
-
+  .voices__grid,
   .voices__stats {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
+    grid-template-columns: 1fr 1fr;
   }
 
   .voices__stat:nth-child(3) {
@@ -260,6 +219,18 @@ const stats = [
 
   .voices__stat:nth-child(n + 3) {
     padding-top: 24px;
+  }
+}
+
+@media (max-width: 640px) {
+  .voices__grid,
+  .voices__stats {
+    grid-template-columns: 1fr;
+  }
+
+  .voices__stat + .voices__stat {
+    padding-left: 0;
+    border-left: 0;
   }
 }
 </style>

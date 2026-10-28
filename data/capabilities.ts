@@ -28,7 +28,7 @@ export const capabilityCards: CapabilityCard[] = [
   {
     id: 'cto',
     title: 'AI-Augmented CTO & Full-Stack Delivery',
-    body: 'Senior CTO architecture, security sign-off, and continuous full-stack product & ops delivery powered by our internal engineering engine, at a fraction of traditional headcount.',
+    body: 'Senior architecture, security sign-off and embedded engineering leadership — at a fraction of traditional headcount.',
     visual: 'cto',
     badge: 'New',
   },

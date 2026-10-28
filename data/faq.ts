@@ -59,7 +59,7 @@ export const capabilityFaqs: FaqItem[] = [
 export const mondayFaqs: FaqItem[] = [
   {
     q: 'Is AITP a replacement for custom Allometrik agents?',
-    a: 'No. Allometrik is an independent enterprise AI lab. AITP is the turnkey track for organisations that want monday.com Work OS plus regulated document AI in a fixed 3–10 week package. Ground-up production agents remain a separate engagement with free Allometrik AI OS.',
+    a: 'No. AITP is the turnkey monday.com Work OS track; custom production agents remain a separate engagement with free Allometrik AI OS.',
   },
   {
     q: 'What is the 48-hour live diagnostic?',
@@ -67,6 +67,6 @@ export const mondayFaqs: FaqItem[] = [
   },
   {
     q: 'Are you an official monday.com partner?',
-    a: 'Yes. Allometrik is an independent enterprise AI lab and a monday.com Authorized Partner (UAE / EMEA), with AITP Foundations, monday AI Pathway Level I: Basics, and monday CRM Official Product Training for Sales certifications. monday.com is one operational execution platform in an extensible alliance model — not an exclusive agency relationship.',
+    a: 'Yes. Allometrik is a monday.com Authorized Partner (UAE / EMEA) with AITP Foundations, AI Pathway Level I and CRM Sales certifications — one alliance in an extensible model, not an exclusive agency.',
   },
 ]

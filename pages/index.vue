@@ -25,7 +25,7 @@ usePageSeo({
     <HomeIndustries />
     <HomeComparison />
     <HomeTestimonials />
-    <CustomScopeCalculator />
+    <HomeEngage />
     <SiteFaq :items="homeFaqs" title="How the commercial model actually works" />
     <HomeContact />
   </div>
