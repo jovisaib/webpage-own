@@ -55,3 +55,10 @@ dmypy.json
 # Python IDEs
 *.pyc
 .Python
+
+# Nuxt build output
+.nuxt
+.output
+.data
+.nitro
+.cache/nuxt
