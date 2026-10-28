@@ -72,6 +72,11 @@ export default defineNuxtConfig({
     },
   },
 
+  components: [
+    { path: '~/components/shared', pathPrefix: false },
+    '~/components',
+  ],
+
   css: [
     '@fontsource-variable/geist/index.css',
     '@fontsource-variable/geist-mono/index.css',
