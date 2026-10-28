@@ -106,22 +106,25 @@ const principles = [
 .manifesto__lit {
   margin-top: clamp(48px, 6vw, 80px);
   width: min(1080px, 100%);
+  max-width: 100%;
   margin-left: auto;
   font-size: clamp(24px, 2.85vw, 40px);
   line-height: 1.32;
+  overflow-wrap: normal;
+  word-break: normal;
   font-weight: 450;
   letter-spacing: -0.03em;
   color: var(--ink);
   text-wrap: pretty;
-  overflow-wrap: break-word;
 }
 
 .manifesto__word {
+  display: inline;
   opacity: clamp(0.14, calc((var(--p) * (var(--n) + 6) - var(--i)) / 6), 1);
 }
 
 .manifesto__space {
-  white-space: pre;
+  white-space: pre-wrap;
 }
 
 .manifesto__word--em {
