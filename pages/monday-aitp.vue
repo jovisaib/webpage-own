@@ -136,11 +136,8 @@ usePageSeo({
   color: var(--on-dark-2);
 }
 
-.creds {
+:deep(.creds) {
   margin-top: 24px;
-}
-
-.creds :deep(.badges) {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
   gap: 10px;
@@ -284,7 +281,7 @@ usePageSeo({
   .split__grid,
   .tiers,
   .verts,
-  .creds :deep(.badges) {
+  :deep(.creds) {
     grid-template-columns: 1fr;
   }
 

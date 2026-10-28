@@ -42,9 +42,15 @@ withDefaults(defineProps<{ tone?: 'light' | 'dark' }>(), { tone: 'light' })
 
 <style scoped>
 .badges {
-  display: flex;
-  flex-wrap: wrap;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
   gap: 10px;
+}
+
+@media (max-width: 640px) {
+  .badges {
+    grid-template-columns: 1fr;
+  }
 }
 
 .badge {
