@@ -14,7 +14,7 @@ export const homeFaqs: FaqItem[] = [
   },
   {
     q: 'Where do you deploy?',
-    a: 'Multi-region BYOC or single-tenant across Microsoft Azure (Azure AI Foundry), AWS, GCP, or on-premise sovereign VPC. Headquarters in Dubai, engineering in Europe, production systems across Latin America including Mexico.',
+    a: 'Multi-region BYOC or single-tenant across Azure (Azure AI Foundry), AWS, GCP, or on-premise sovereign VPC. Headquarters in Dubai, engineering in Europe, production systems across Latin America including Mexico.',
   },
   {
     q: 'How fast is time to production?',
@@ -29,7 +29,7 @@ export const aiosFaqs: FaqItem[] = [
   },
   {
     q: 'Which models can we route?',
-    a: 'Azure OpenAI, Anthropic, Gemini and local weights, with zero lock-in. Routing, evals and cost attribution live in the OS regardless of the underlying model.',
+    a: 'Frontier, open-weight and local models, with zero lock-in. Routing, evals and cost attribution live in the OS regardless of the underlying model.',
   },
   {
     q: 'Does the OS replace our CRM or ITSM?',
@@ -44,7 +44,7 @@ export const aiosFaqs: FaqItem[] = [
 export const capabilityFaqs: FaqItem[] = [
   {
     q: 'Do you only build custom agents, or also monday.com programmes?',
-    a: 'Both. Custom production agents (with free Allometrik AI OS) are the core track. Allometrik × monday.com AITP is a separate, fixed-scope track for teams that want monday Enterprise / Service / CRM supercharged with Allometrik document intelligence in 3–8 weeks.',
+    a: 'Both. Custom production agents (with free Allometrik AI OS) are the core track. When a client needs CRM, Service or Work Management connected to those agents, we pair with operational execution platforms — monday.com is the first published alliance, as a separate fixed-scope AITP track.',
   },
   {
     q: 'What is CTO as a Service AI?',
@@ -59,7 +59,7 @@ export const capabilityFaqs: FaqItem[] = [
 export const mondayFaqs: FaqItem[] = [
   {
     q: 'Is AITP a replacement for custom Allometrik agents?',
-    a: 'No. AITP is the turnkey monday.com track for organisations that want Work OS plus regulated document AI in a fixed 3–10 week package. Ground-up production agents remain a separate engagement with free Allometrik AI OS.',
+    a: 'No. Allometrik is an independent enterprise AI lab. AITP is the turnkey track for organisations that want monday.com Work OS plus regulated document AI in a fixed 3–10 week package. Ground-up production agents remain a separate engagement with free Allometrik AI OS.',
   },
   {
     q: 'What is the 48-hour live diagnostic?',
@@ -67,6 +67,6 @@ export const mondayFaqs: FaqItem[] = [
   },
   {
     q: 'Are you an official monday.com partner?',
-    a: 'Yes. Allometrik is a monday.com Authorized Partner and AITP Foundations Certified (AI Transformation Package) through monday Partner Academy.',
+    a: 'Yes. Allometrik is an independent enterprise AI lab and a monday.com Authorized Partner (UAE / EMEA), with AITP Foundations, monday AI Pathway Level I: Basics, and monday CRM Official Product Training for Sales certifications. monday.com is one operational execution platform in an extensible alliance model — not an exclusive agency relationship.',
   },
 ]

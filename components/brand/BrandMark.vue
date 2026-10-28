@@ -10,7 +10,7 @@ const src = computed(() => (props.variant === 'dark' ? markSrc.dark : markSrc.li
 </script>
 
 <template>
-  <img class="brand-mark" :src="src" :alt="title" width="1024" height="1024" decoding="async" />
+  <img class="brand-mark" :src="src" :alt="title" width="496" height="572" decoding="async" />
 </template>
 
 <style scoped>

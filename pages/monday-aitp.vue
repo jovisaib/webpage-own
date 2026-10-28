@@ -5,9 +5,9 @@ import { site } from '~/data/site'
 import { faqJsonLd } from '~/composables/usePageSeo'
 
 usePageSeo({
-  title: 'Allometrik × monday.com AITP — Enterprise Work OS & regulated AI workflows',
+  title: 'Technology & ecosystem alliances — Allometrik × monday.com AITP',
   description:
-    'monday.com Authorized Partner and AITP Foundations Certified. Fixed-scope Launch, Core and Regulated Enterprise packages that supercharge monday Enterprise / Service / CRM with Allometrik document intelligence in 3–10 weeks.',
+    'Allometrik is an independent enterprise AI lab. monday.com Authorized Partner (UAE / EMEA), AITP Foundations, monday AI Pathway Level I and monday CRM Sales certified. Fixed-scope packages that connect production document intelligence to monday Enterprise / Service / CRM.',
   jsonLd: [faqJsonLd(mondayFaqs)],
 })
 </script>
@@ -15,10 +15,10 @@ usePageSeo({
 <template>
   <div>
     <PageHero
-      eyebrow="Allometrik × monday.com"
-      lede="A dedicated, turnkey fixed-scope track — clearly differentiated from custom ground-up AI engineering — for organisations that want monday.com (Enterprise / Service / CRM) supercharged with Allometrik production document intelligence, VLM+OCR extraction and regulatory compliance agents in 3 to 8 weeks."
+      eyebrow="Technology &amp; ecosystem alliances"
+      lede="Allometrik is an independent enterprise AI lab. We deliver production applied AI, document intelligence and regulatory governance — and we pair with leading operational execution platforms when a client needs CRM, Service or Work Management connected to their agents. monday.com is the first published alliance: a dedicated, turnkey AITP track, distinct from custom ground-up engineering."
     >
-      Enterprise Work OS &amp; <span class="accent">regulated AI workflows.</span>
+      Production AI, paired with the <span class="accent">Work OS you already run.</span>
       <template #actions>
         <MondayBadges />
       </template>
@@ -29,7 +29,7 @@ usePageSeo({
         <article class="card contrast">
           <p class="eyebrow">This track</p>
           <h2 class="title">monday.com AITP</h2>
-          <p class="body">Fixed scope. Fixed price. Live in 3–10 weeks on monday Enterprise, Service or CRM, with Allometrik document agents inside the Work OS you already standardised on.</p>
+          <p class="body">The first published operational-execution alliance. Fixed scope. Fixed price. Live in 3–10 weeks on monday Enterprise, Service or CRM, with Allometrik document agents inside the Work OS you already standardised on.</p>
         </article>
         <article class="card contrast contrast--alt">
           <p class="eyebrow">The other track</p>
@@ -43,10 +43,10 @@ usePageSeo({
     <section class="section section--stone">
       <div class="container">
         <p class="eyebrow">Official credentials</p>
-        <h2 class="display-sm">Partner, not a reseller slide.</h2>
+        <h2 class="display-sm">An extensible alliance, not an exclusive agency.</h2>
         <MondayBadges class="creds" />
         <p class="body-lg creds__note">
-          Allometrik is a monday.com Authorized Partner and AITP Foundations Certified (AI Transformation Package) through monday Partner Academy. Packages below are the three fixed-scope AITP tiers we run in the UAE and the wider region.
+          Allometrik is a monday.com Authorized Partner (UAE / EMEA) and holds AITP Foundations, monday AI Pathway Level I: Basics, and monday CRM Official Product Training for Sales certifications through monday Partner Academy. monday.com is how we connect agents to Work OS, Service and CRM when that is the right execution layer — not a replacement for custom production engineering, and not the only alliance the lab will publish.
         </p>
       </div>
     </section>
@@ -138,6 +138,12 @@ usePageSeo({
 
 .creds {
   margin-top: 24px;
+}
+
+.creds :deep(.badges) {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 10px;
 }
 
 .creds__note {
@@ -277,7 +283,8 @@ usePageSeo({
 @media (max-width: 960px) {
   .split__grid,
   .tiers,
-  .verts {
+  .verts,
+  .creds :deep(.badges) {
     grid-template-columns: 1fr;
   }
 

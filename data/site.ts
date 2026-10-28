@@ -50,7 +50,7 @@ export const footerColumns = [
       { label: 'Allometrik AI OS', to: '/ai-os' },
       { label: 'Autonomous agents', to: '/capabilities#agents' },
       { label: 'Document intelligence', to: '/capabilities#document-intelligence' },
-      { label: 'monday.com AITP', to: '/monday-aitp' },
+      { label: 'Ecosystem · monday.com', to: '/monday-aitp' },
       { label: 'Forward-deployed engineering', to: '/capabilities#forward-deployed' },
     ],
   },

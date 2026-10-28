@@ -6,8 +6,8 @@ export const calcTracks = [
   },
   {
     id: 'aitp',
-    label: 'Allometrik × monday.com Regulated Work OS (AITP Fixed-Scope)',
-    hint: 'Turnkey 3–10 week packages on monday Enterprise / Service / CRM',
+    label: 'Ecosystem alliance · monday.com AITP (Fixed-Scope Work OS)',
+    hint: 'Turnkey 3–10 week packages on monday Enterprise / Service / CRM — one alliance, not an exclusive agency',
   },
   {
     id: 'cto',

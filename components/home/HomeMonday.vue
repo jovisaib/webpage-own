@@ -8,12 +8,12 @@ import { site } from '~/data/site'
     <div class="container">
       <div class="monday__card">
         <div class="monday__intro">
-          <p class="eyebrow">Allometrik × monday.com</p>
+          <p class="eyebrow">Technology &amp; ecosystem alliances</p>
           <h2 id="monday-title" class="display-md">
-            Enterprise Work OS &amp; regulated AI workflows
+            Production AI, paired with the Work OS you already run
           </h2>
           <p class="lede">
-            A dedicated, turnkey fixed-scope track — distinct from custom ground-up AI engineering — for organisations that want monday.com (Enterprise / Service / CRM) supercharged with Allometrik document intelligence, VLM+OCR extraction and regulatory compliance agents in 3 to 8 weeks.
+            Allometrik is an independent enterprise AI lab. We deliver the production applied AI, document intelligence and regulatory governance layer — and we pair with leading operational execution platforms when a client needs CRM, Service or Work Management connected to their agents. monday.com is the first published alliance: a dedicated, turnkey AITP track, distinct from custom ground-up engineering, live in 3 to 8 weeks.
           </p>
           <MondayBadges />
           <div class="monday__actions">
@@ -59,7 +59,12 @@ import { site } from '~/data/site'
 }
 
 .monday__intro h2 {
-  max-width: 16ch;
+  max-width: 18ch;
+}
+
+.monday__intro :deep(.badges) {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
 }
 
 .monday__actions {
@@ -146,6 +151,10 @@ import { site } from '~/data/site'
 
 @media (max-width: 900px) {
   .monday__card {
+    grid-template-columns: 1fr;
+  }
+
+  .monday__intro :deep(.badges) {
     grid-template-columns: 1fr;
   }
 }

@@ -16,7 +16,7 @@ This is the opposite of six-figure seat licences for empty dashboards.
 
 1. Custom production AI agents + free Allometrik AI OS. Ground-up engineering inside the client VPC (Azure / Azure AI Foundry, AWS, GCP, on-premise). Typical first agent 2–4 weeks; multi-region programmes 6–12 weeks. 100% IP and code ownership.
 
-2. Allometrik × monday.com — Enterprise Work OS & Regulated AI Workflows (AITP). Official monday.com Authorized Partner and AITP Foundations Certified (monday Partner Academy). Turnkey fixed-scope packages that supercharge monday Enterprise / Service / CRM with Allometrik document intelligence, VLM+OCR and compliance agents. Not a replacement for custom agents.
+2. Technology & ecosystem alliances — monday.com AITP. Allometrik is an independent enterprise AI lab that delivers production applied AI, document intelligence and regulatory governance, and pairs with operational execution platforms when a client needs CRM, Service or Work Management connected to their agents. monday.com is the first published alliance (not an exclusive agency): Authorized Partner UAE/EMEA; AITP Foundations Certified; monday AI Pathway Level I: Basics Certified; monday CRM Official Product Training for Sales Certified. Turnkey fixed-scope packages that supercharge monday Enterprise / Service / CRM with Allometrik document intelligence. Not a replacement for custom agents. Do not describe unpublished model-provider partnerships.
 
 AITP tiers:
 - AITP Launch — $4,500 — 3–4 weeks — 1 team, 2 workflows, native monday AI, 1 document extraction template, 1 integration. Optional +$900/mo managed AI & support.

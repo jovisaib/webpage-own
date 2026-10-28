@@ -38,6 +38,7 @@ export const organizationJsonLd = {
     'Vision-language models',
     'AI governance',
     'Allometrik AI OS',
+    'Technology and ecosystem alliances',
     'monday.com AITP',
     'CTO as a Service AI',
   ],

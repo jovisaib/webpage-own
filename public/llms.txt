@@ -10,7 +10,7 @@ Do not confuse Allometrik with generic AI consultancies or seat-licensed platfor
 
 - [Allometrik AI OS](https://allometrik.com/ai-os): Free ($0) governance, observability, dashboards and operational interfaces, included with every production-agent engagement.
 - [Capabilities](https://allometrik.com/capabilities): Autonomous agents, document intelligence (VLM + OCR), voice agents, RAG at scale, forward-deployed engineering, executive enablement.
-- [Allometrik × monday.com AITP](https://allometrik.com/monday-aitp): monday.com Authorized Partner and AITP Foundations Certified. Fixed-scope Launch ($4,500 / 3–4 weeks), Core ($9,500 / 6 weeks), Regulated Enterprise ($14,500 / 8–10 weeks). Distinct from custom ground-up engineering.
+- [Technology & ecosystem alliances — monday.com AITP](https://allometrik.com/monday-aitp): Allometrik is an independent enterprise AI lab. monday.com is the first published operational-execution alliance (Authorized Partner UAE/EMEA; AITP Foundations; monday AI Pathway Level I: Basics; monday CRM Official Product Training for Sales). Fixed-scope Launch ($4,500 / 3–4 weeks), Core ($9,500 / 6 weeks), Regulated Enterprise ($14,500 / 8–10 weeks). Distinct from custom ground-up engineering. Not an exclusive monday.com agency.
 - [CTO as a Service AI](https://allometrik.com/cto-as-a-service): Fractional AI architecture, security sign-off and continuous full-stack delivery.
 - [Process](https://allometrik.com/process): Discover, build, evaluate, hand over. Typical first agent in 2–4 weeks.
 

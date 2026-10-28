@@ -27,7 +27,7 @@ withDefaults(defineProps<{ variant?: 'light' | 'dark'; size?: number }>(), {
 }
 
 .brand-logo__mark {
-  width: var(--logo-size);
+  width: calc(var(--logo-size) * 0.87);
   height: var(--logo-size);
   flex: none;
 }

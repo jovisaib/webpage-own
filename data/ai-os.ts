@@ -50,12 +50,12 @@ export const aiosBase = [
   {
     id: 'models',
     label: 'Models',
-    body: 'Multi-model routing: Azure OpenAI, Anthropic, Gemini, local weights — zero lock-in.',
+    body: 'Multi-model routing across frontier, open-weight and local models — zero lock-in.',
   },
   {
     id: 'integrations',
     label: 'Integrations',
-    body: 'Genesys, Five9, SAP, Salesforce, Microsoft, Opera PMS, custom APIs.',
+    body: 'Genesys, Five9, SAP, Salesforce, Opera PMS, monday.com, custom APIs.',
   },
 ]
 
@@ -87,7 +87,7 @@ export const aiosSpecs = [
   {
     id: 'deploy',
     title: 'Flexible deployment',
-    body: 'Multi-region BYOC / single-tenant across Microsoft Azure (Azure AI Foundry), AWS, GCP, or on-premise sovereign VPC.',
+    body: 'Multi-region BYOC / single-tenant across Azure (Azure AI Foundry), AWS, GCP, or on-premise sovereign VPC.',
   },
   {
     id: 'security',

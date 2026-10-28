@@ -1,8 +1,8 @@
-// Restored Allometrik brain-in-box mark — Jose's pixel-faithful original.
-export const markViewBox = '0 0 1024 1024'
+// Option B — cleaned original brain emerging from an architectural isometric cube (no cardboard flaps).
+export const markViewBox = '0 0 496 572'
 export const markSrc = {
-  light: '/brand/allometrik_mark_restored_light.png',
-  dark: '/brand/allometrik_mark_restored_dark.png',
+  light: '/brand/allometrik-mark-light.png',
+  dark: '/brand/allometrik-mark-dark.png',
 }
 export const wordmark = {
   text: 'allometrik',

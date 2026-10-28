@@ -9,7 +9,7 @@ const interests = [
   'Custom scope from ROI calculator',
   'Autonomous agents & workflows',
   'Document intelligence & compliance',
-  'Allometrik × monday.com AITP',
+  'monday.com AITP (ecosystem alliance)',
   'Allometrik AI OS',
   'CTO as a Service AI',
   'Something else',

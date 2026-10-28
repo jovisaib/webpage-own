@@ -168,7 +168,6 @@ export const integrations = [
   { name: 'SAP', file: 'sap.svg' },
   { name: 'Salesforce', file: 'salesforce.svg' },
   { name: 'Oracle', file: 'oracle.svg' },
-  { name: 'Microsoft', file: 'microsoft.svg' },
   { name: 'Google', file: 'google.svg' },
   { name: 'AWS', file: 'aws.svg' },
   { name: 'Azure', file: 'azure.svg' },

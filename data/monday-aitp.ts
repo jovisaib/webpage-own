@@ -1,3 +1,30 @@
+export const mondayCredentials = [
+  {
+    id: 'partner',
+    mark: 'monday' as const,
+    title: 'monday.com Authorized Partner',
+    subtitle: 'UAE / EMEA',
+  },
+  {
+    id: 'aitp',
+    mark: 'aitp' as const,
+    title: 'AITP Foundations Certified',
+    subtitle: 'AI Transformation Package · monday Partner Academy',
+  },
+  {
+    id: 'ai-level-1',
+    mark: 'ai' as const,
+    title: 'monday AI Pathway Level I',
+    subtitle: 'Basics Certified',
+  },
+  {
+    id: 'crm-sales',
+    mark: 'crm' as const,
+    title: 'monday CRM Official Product Training',
+    subtitle: 'Certified for Sales',
+  },
+]
+
 export const mondayTiers = [
   {
     id: 'launch',
