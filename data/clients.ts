@@ -7,7 +7,7 @@ export interface ClientLogo {
 }
 
 export const clientLogos: ClientLogo[] = [
-  { name: 'ALIANDO', src: '/clients/aliando.svg', width: 560, height: 120, displayHeight: 32 },
+  { name: 'ALIANDO', src: '/clients/aliando.svg', width: 428, height: 64, displayHeight: 28 },
   { name: 'Nuclio Digital School', src: '/clients/nuclio-digital-school.webp', width: 338, height: 120, displayHeight: 34 },
   { name: 'Saudi Digital Academy', src: '/clients/saudi-digital-academy.webp', width: 520, height: 84, displayHeight: 30 },
   { name: 'Aguas de Barcelona', src: '/clients/aguas-de-barcelona.svg', width: 3000, height: 826, displayHeight: 34 },

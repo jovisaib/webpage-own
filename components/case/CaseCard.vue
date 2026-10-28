@@ -91,10 +91,11 @@ const kicker = computed(() => props.study.metrics[0])
   display: flex;
   flex-wrap: wrap;
   gap: 8px;
-  max-width: 78%;
+  max-width: calc(100% - 168px);
 }
 
 .case-card__pill {
+  flex: 0 0 auto;
   padding: 6px 10px;
   border-radius: 999px;
   font-family: var(--font-mono);
@@ -106,6 +107,7 @@ const kicker = computed(() => props.study.metrics[0])
   border: 1px solid rgba(255, 255, 255, 0.18);
   -webkit-backdrop-filter: blur(14px);
   backdrop-filter: blur(14px);
+  white-space: nowrap;
 }
 
 .case-card__metric {

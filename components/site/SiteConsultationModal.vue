@@ -159,7 +159,7 @@ function onKey(e: KeyboardEvent) {
           </div>
           <label class="field">
             <span class="field__label">Scope brief</span>
-            <textarea v-model="form.message" name="message" rows="9" required class="field__input field__input--area" />
+            <textarea v-model="form.message" name="message" rows="12" required class="field__input field__input--area" />
           </label>
           <input v-model="form.botcheck" type="checkbox" name="botcheck" class="form__hp" tabindex="-1" autocomplete="off" aria-hidden="true" />
 
@@ -280,6 +280,7 @@ function onKey(e: KeyboardEvent) {
 
 .field__input--area {
   height: auto;
+  min-height: 220px;
   padding: 12px 14px;
   resize: vertical;
   font-family: var(--font-mono);

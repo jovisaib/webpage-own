@@ -105,7 +105,7 @@ const principles = [
 
 .manifesto__lit {
   margin-top: clamp(48px, 6vw, 80px);
-  max-width: 1080px;
+  width: min(1080px, 100%);
   margin-left: auto;
   font-size: clamp(24px, 2.85vw, 40px);
   line-height: 1.32;
@@ -113,6 +113,7 @@ const principles = [
   letter-spacing: -0.03em;
   color: var(--ink);
   text-wrap: pretty;
+  overflow-wrap: break-word;
 }
 
 .manifesto__word {

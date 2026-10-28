@@ -30,7 +30,10 @@ const stats = [
 
       <div class="voices__grid">
         <figure v-if="lead" v-reveal class="voice voice--lead" :class="{ 'voice--partner': lead.kind === 'partnership' }">
-          <p v-if="lead.kind === 'partnership'" class="voice__kicker mono">Strategic partnership</p>
+          <div v-if="lead.kind === 'partnership'" class="voice__partner-head">
+            <p class="voice__kicker mono">Strategic partnership</p>
+            <img v-if="lead.logo" :src="lead.logo" :alt="lead.company || lead.name" class="voice__partner-logo" />
+          </div>
           <UiIcon v-else name="quote" :size="28" class="voice__mark" />
           <blockquote>
             <p class="voice__highlight serif">{{ lead.kind === 'partnership' ? lead.highlight : `“${lead.highlight}”` }}</p>
@@ -42,7 +45,7 @@ const stats = [
               <strong>{{ lead.name }}</strong>
               <span>{{ lead.role }}<template v-if="lead.company && lead.kind !== 'partnership'">, {{ lead.company }}</template></span>
             </span>
-            <img v-if="lead.logo" :src="lead.logo" :alt="lead.company || lead.name" class="voice__logo" loading="lazy" />
+            <img v-if="lead.logo && lead.kind !== 'partnership'" :src="lead.logo" :alt="lead.company || lead.name" class="voice__logo" loading="lazy" />
           </figcaption>
         </figure>
 
@@ -104,6 +107,20 @@ const stats = [
   letter-spacing: 0.14em;
   text-transform: uppercase;
   color: var(--copper-deep);
+}
+
+.voice__partner-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+}
+
+.voice__partner-logo {
+  height: 36px;
+  width: auto;
+  max-width: 220px;
+  object-fit: contain;
 }
 
 .voice--partner .voice__logo {
