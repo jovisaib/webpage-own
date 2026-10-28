@@ -1,31 +1,28 @@
 <script setup lang="ts">
 const canvas = ref<HTMLCanvasElement | null>(null)
 
-const smoothstep = (a: number, b: number, x: number) => {
-  const t = Math.min(1, Math.max(0, (x - a) / (b - a)))
-  return t * t * (3 - 2 * t)
-}
+let stop = () => {}
 
 onMounted(() => {
   const el = canvas.value
   if (!el) return
-  const ctx = el.getContext('2d')
+  const ctx = el.getContext('2d', { alpha: true })
   if (!ctx) return
 
   const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches
   let w = 0
   let h = 0
-  let lines = 52
-  let gradient: CanvasGradient | null = null
   let raf = 0
   let visible = true
   let start = performance.now()
+  let mx = 0.5
+  let my = 0.62
+  let tx = 0.5
+  let ty = 0.62
 
-  const pulses = Array.from({ length: 7 }, (_, i) => ({
-    line: 0.2 + ((i * 0.37) % 0.6),
-    offset: i / 7,
-    speed: 0.000045 + (i % 3) * 0.000018,
-  }))
+  const off = document.createElement('canvas')
+  const octx = off.getContext('2d')
+  if (!octx) return
 
   const resize = () => {
     const dpr = Math.min(window.devicePixelRatio || 1, 1.75)
@@ -34,84 +31,111 @@ onMounted(() => {
     el.width = Math.round(w * dpr)
     el.height = Math.round(h * dpr)
     ctx.setTransform(dpr, 0, 0, dpr, 0, 0)
-    lines = w < 700 ? 34 : 52
-    gradient = ctx.createLinearGradient(0, 0, w, 0)
-    gradient.addColorStop(0, 'rgba(200, 122, 75, 0.55)')
-    gradient.addColorStop(0.45, 'rgba(232, 186, 150, 0.95)')
-    gradient.addColorStop(0.78, 'rgba(226, 222, 216, 0.9)')
-    gradient.addColorStop(1, 'rgba(170, 170, 182, 0.75)')
+    const scale = 0.48
+    off.width = Math.max(2, Math.round(w * scale))
+    off.height = Math.max(2, Math.round(h * scale))
   }
 
-  const yAt = (p: number, u: number, t: number, i: number) => {
-    const spread = p - 0.5
-    const converge = 1 - smoothstep(0.12, 0.88, u) * 0.9
-    const base = h * 0.56 + spread * h * 1.3 * converge
-    const amp = (1 - smoothstep(0.15, 0.92, u)) * Math.min(46, h * 0.06) + 3
-    return (
-      base +
-      Math.sin(u * 6.2 + t * 0.00022 + i * 0.27) * amp * 0.62 +
-      Math.sin(u * 12.5 - t * 0.00034 + i * 0.53) * amp * 0.34
-    )
+  const ribbonY = (p: number, u: number, t: number) => {
+    const horizon = 0.52 + p * 0.28
+    const wave =
+      Math.sin(u * 2.15 + t * 0.22 + p * 1.7) * 0.055 +
+      Math.sin(u * 4.6 - t * 0.13 + p * 2.8) * 0.024 +
+      Math.sin(u * 0.7 + t * 0.07 + p) * 0.03
+    const pointer = (mx - 0.5) * 0.05 * Math.sin(u * Math.PI) + (my - 0.55) * 0.04 * (1 - u * 0.4)
+    return (horizon + wave + pointer) * off.height
   }
 
-  const draw = (now: number) => {
-    const t = now - start
-    ctx.clearRect(0, 0, w, h)
-    if (!gradient) return
-    ctx.lineWidth = 1
-    ctx.strokeStyle = gradient
-    const steps = Math.max(60, Math.round(w / 14))
+  const paint = (now: number) => {
+    const t = (now - start) / 1000
+    mx += (tx - mx) * 0.045
+    my += (ty - my) * 0.045
 
-    for (let i = 0; i < lines; i++) {
-      const p = i / (lines - 1)
-      const centrality = 1 - Math.min(1, Math.abs(p - 0.5) * 2)
-      ctx.globalAlpha = 0.07 + 0.3 * Math.pow(centrality, 1.4)
-      ctx.beginPath()
+    const ow = off.width
+    const oh = off.height
+    octx.clearRect(0, 0, ow, oh)
+
+    octx.fillStyle = '#07080a'
+    octx.fillRect(0, 0, ow, oh)
+
+    const lamp = octx.createRadialGradient(ow * (0.38 + mx * 0.08), oh * 0.82, 0, ow * 0.42, oh * 0.86, ow * 0.72)
+    lamp.addColorStop(0, 'rgba(200, 125, 75, 0.42)')
+    lamp.addColorStop(0.28, 'rgba(196, 122, 74, 0.16)')
+    lamp.addColorStop(1, 'rgba(7, 8, 10, 0)')
+    octx.fillStyle = lamp
+    octx.fillRect(0, 0, ow, oh)
+
+    const cool = octx.createRadialGradient(ow * 0.74, oh * 0.16, 0, ow * 0.7, oh * 0.18, ow * 0.5)
+    cool.addColorStop(0, 'rgba(230, 225, 218, 0.12)')
+    cool.addColorStop(1, 'rgba(7, 8, 10, 0)')
+    octx.fillStyle = cool
+    octx.fillRect(0, 0, ow, oh)
+
+    octx.save()
+    octx.globalCompositeOperation = 'lighter'
+    octx.lineCap = 'round'
+    octx.lineJoin = 'round'
+    const ribbons = 9
+    for (let i = 0; i < ribbons; i++) {
+      const p = i / (ribbons - 1)
+      const mid = 1 - Math.abs(p - 0.45) * 1.4
+      octx.lineWidth = (18 + mid * 42) * (ow / 700)
+      const warm = i % 2 === 0
+      const a = 0.028 + mid * 0.045
+      octx.strokeStyle = warm ? `rgba(200, 125, 75, ${a})` : `rgba(229, 169, 124, ${a * 0.75})`
+      octx.beginPath()
+      const steps = 36
       for (let s = 0; s <= steps; s++) {
         const u = s / steps
-        const x = u * w
-        const y = yAt(p, u, t, i)
-        if (s === 0) ctx.moveTo(x, y)
-        else ctx.lineTo(x, y)
+        const x = u * ow
+        const y = ribbonY(p, u, t)
+        if (s === 0) octx.moveTo(x, y)
+        else octx.lineTo(x, y)
       }
-      ctx.stroke()
+      octx.stroke()
     }
 
+    const silver = octx.createRadialGradient(ow * (0.58 + mx * 0.04), oh * (0.4 + my * 0.04), 0, ow * 0.6, oh * 0.42, ow * 0.28)
+    silver.addColorStop(0, 'rgba(230, 225, 218, 0.07)')
+    silver.addColorStop(1, 'rgba(230, 225, 218, 0)')
+    octx.fillStyle = silver
+    octx.fillRect(0, 0, ow, oh)
+    octx.restore()
+
+    ctx.clearRect(0, 0, w, h)
+    ctx.imageSmoothingEnabled = true
+    ctx.imageSmoothingQuality = 'high'
+    ctx.filter = 'blur(18px)'
+    ctx.drawImage(off, 0, 0, w, h)
+    ctx.filter = 'none'
+    ctx.globalAlpha = 0.55
+    ctx.drawImage(off, 0, 0, w, h)
     ctx.globalAlpha = 1
-    for (const pulse of pulses) {
-      const u = (pulse.offset + t * pulse.speed) % 1
-      const i = Math.round(pulse.line * (lines - 1))
-      const x = u * w
-      const y = yAt(i / (lines - 1), u, t, i)
-      const fade = Math.sin(Math.PI * u)
-      const r = 26 + 18 * smoothstep(0.4, 1, u)
-      const g = ctx.createRadialGradient(x, y, 0, x, y, r)
-      g.addColorStop(0, `rgba(255, 226, 196, ${0.55 * fade})`)
-      g.addColorStop(0.25, `rgba(222, 150, 100, ${0.22 * fade})`)
-      g.addColorStop(1, 'rgba(200, 122, 75, 0)')
-      ctx.fillStyle = g
-      ctx.beginPath()
-      ctx.arc(x, y, r, 0, Math.PI * 2)
-      ctx.fill()
-    }
   }
 
   const loop = (now: number) => {
-    draw(now)
+    paint(now)
     raf = visible ? requestAnimationFrame(loop) : 0
+  }
+
+  const onMove = (e: PointerEvent) => {
+    const r = el.getBoundingClientRect()
+    if (!r.width || !r.height) return
+    tx = Math.min(1, Math.max(0, (e.clientX - r.left) / r.width))
+    ty = Math.min(1, Math.max(0, (e.clientY - r.top) / r.height))
   }
 
   resize()
   if (reduceMotion) {
-    start = performance.now() - 14000
-    draw(performance.now())
+    start = performance.now() - 18000
+    paint(performance.now())
   } else {
     raf = requestAnimationFrame(loop)
   }
 
   const ro = new ResizeObserver(() => {
     resize()
-    if (reduceMotion) draw(performance.now())
+    if (reduceMotion) paint(performance.now())
   })
   ro.observe(el)
 
@@ -126,14 +150,18 @@ onMounted(() => {
     if (visible && !raf && !reduceMotion) raf = requestAnimationFrame(loop)
   }
   document.addEventListener('visibilitychange', onVisibility)
+  window.addEventListener('pointermove', onMove, { passive: true })
 
-  onBeforeUnmount(() => {
+  stop = () => {
     cancelAnimationFrame(raf)
     ro.disconnect()
     io.disconnect()
     document.removeEventListener('visibilitychange', onVisibility)
-  })
+    window.removeEventListener('pointermove', onMove)
+  }
 })
+
+onBeforeUnmount(() => stop())
 </script>
 
 <template>

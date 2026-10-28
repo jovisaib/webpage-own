@@ -6,8 +6,10 @@ const config = useRuntimeConfig()
 const interests = [
   'Autonomous agents & workflows',
   'Document intelligence & compliance',
-  'RAG & knowledge systems',
-  'Full-stack delivery / CTO advisory',
+  'monday.com AITP (ecosystem alliance)',
+  'Allometrik AI OS',
+  'CTO as a Service AI',
+  'Custom scope from ROI calculator',
   'Executive & technical AI training',
   'Something else',
 ]

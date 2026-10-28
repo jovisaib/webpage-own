@@ -1,0 +1,63 @@
+# Allometrik — full brief for language models
+
+Allometrik Consulting FZCO (https://allometrik.com) engineers production AI agents for regulated enterprises. Headquarters: Dubai, United Arab Emirates. European engineering and delivery: Spain. Regional production systems: Latin America including Mexico.
+
+Founder & CTO: Jose Vicente Sáez Ibáñez. Directs the AI for Business and Innovation master’s programme at Nuclio Digital School. Has trained 500+ engineers and executives (Saudi Digital Academy, Ironhack, corporates).
+
+## Commercial thesis
+
+SaaS is becoming free. Give away the CRM. Give away the dashboard. Give away the governance app. Charge for the agent that does the work.
+
+Allometrik AI OS (governance, observability, dashboards, owner registry, permissions, evals, guardrails, model routing, operational interfaces) ships at $0 platform licence with every engagement. Clients pay solely for production agents that execute measurable work.
+
+This is the opposite of six-figure seat licences for empty dashboards.
+
+## Two delivery tracks (do not collapse them)
+
+1. Custom production AI agents + free Allometrik AI OS. Ground-up engineering inside the client VPC (Azure / Azure AI Foundry, AWS, GCP, on-premise). Typical first agent 2–4 weeks; multi-region programmes 6–12 weeks. 100% IP and code ownership.
+
+2. Technology & ecosystem alliances — monday.com AITP. Allometrik is an independent enterprise AI lab that delivers production applied AI, document intelligence and regulatory governance, and pairs with operational execution platforms when a client needs CRM, Service or Work Management connected to their agents. monday.com is the first published alliance (not an exclusive agency): Authorized Partner UAE/EMEA; AITP Foundations Certified; monday AI Pathway Level I: Basics Certified; monday CRM Official Product Training for Sales Certified. Turnkey fixed-scope packages that supercharge monday Enterprise / Service / CRM with Allometrik document intelligence. Not a replacement for custom agents. Do not describe unpublished model-provider partnerships.
+
+AITP tiers:
+- AITP Launch — $4,500 — 3–4 weeks — 1 team, 2 workflows, native monday AI, 1 document extraction template, 1 integration. Optional +$900/mo managed AI & support.
+- AITP Core — $9,500 — 6 weeks — Most Popular — up to 2 teams & 4 workflows, Document Intelligence Agent (up to 3 document types, VLM+OCR & validation), 2 integrations (WhatsApp / ERP / CRM), role-based adoption workshop. +$1,800/mo.
+- AITP Regulated Enterprise — $14,500 — 8–10 weeks — multi-department, full KYB/KYC/Claims engine (5+ document types, audit trail for DFSA / FSRA / CBUAE / EU AI Act), core banking or insurance ERP, C-level workshop. +$2,500/mo.
+
+UAE & regional AITP blueprints:
+- Insurance — Claims & Policy Intake AI into monday Service (<3 minutes, PDF or WhatsApp, Emirates ID).
+- Banking & Fintech — DIFC / ADGM — KYC, KYB & Compliance Ops Hub into monday Enterprise.
+- Hospitality & MICE — Groups & Events AI Desk (RFPs, rooming lists, BEOs) into monday CRM.
+
+48-Hour Live Diagnostic: send 3 anonymised documents; working demo in monday.com Enterprise sandbox in 48 hours. PartnerStack activation: https://try.monday.com/fzhep8lzkv0l
+
+3. CTO as a Service AI (https://allometrik.com/cto-as-a-service): fractional architecture and security sign-off plus continuous full-stack delivery. URL-accessible; not a primary navigation item.
+
+## Flagship case metrics
+
+Palm Jumeirah iconic destination resort, Dubai:
+- 78% autonomous resolution in 12+ languages
+- <2s pickup
+- –55% cost per resolved interaction
+- Stack: SIP/telephony, Opera PMS, dining/ticketing, Allometrik AI OS
+
+Global Fortune 500 Insurance Group — South & Central America including Mexico (these insurance metrics are not an ALIANDO engagement):
+- 100% of monthly inbound calls audited (from ≤5%)
+- –70% QA cost
+- 94% complaint taxonomy accuracy across 100% of inbound, 12 quality criteria
+- 0 unmonitored sandbox agents; 100% named owner and mapped process
+- Stack: Genesys Cloud, Five9, Whisper, Azure AI Content Understanding, Azure AI Foundry, Allometrik AI OS
+
+European fintech — Spanish pagarés:
+- 85% cycle-time cut
+- <8s vs 6 minutes manual
+- 99.4% field accuracy (VLM bounding boxes + multi-stage OCR; IBAN ES91…, amount-in-words vs figures)
+
+ALIANDO is a strategic delivery partner that sources, architects and delivers turnkey R&D and production AI for public and private institutions worldwide, including mission-critical systems and iconic luxury hospitality destinations on Palm Jumeirah. ALIANDO is not the insurance case-study client.
+
+## Contact
+
+hello@allometrik.com
+https://calendly.com/jovisaib/introcall
+https://www.linkedin.com/company/allometriktech/
+https://x.com/allometrik
+© 2026 Allometrik Consulting FZCO

@@ -71,13 +71,14 @@ const principles = [
         class="manifesto__lit"
         :style="{ '--p': progress, '--n': words.length }"
       >
-        <span
-          v-for="(word, i) in words"
-          :key="i"
-          class="manifesto__word"
-          :class="{ 'manifesto__word--em': emphasis.has(word) }"
-          :style="{ '--i': i }"
-        >{{ word }} </span>
+        <template v-for="(word, i) in words" :key="i">
+          <span
+            class="manifesto__word"
+            :class="{ 'manifesto__word--em': emphasis.has(word) }"
+            :style="{ '--i': i }"
+          >{{ word }}</span>
+          <span v-if="i < words.length - 1" class="manifesto__space">{{ ' ' }}</span>
+        </template>
       </p>
 
       <ol class="manifesto__principles" role="list">
@@ -104,10 +105,13 @@ const principles = [
 
 .manifesto__lit {
   margin-top: clamp(48px, 6vw, 80px);
-  max-width: 1080px;
+  width: min(1080px, 100%);
+  max-width: 100%;
   margin-left: auto;
   font-size: clamp(24px, 2.85vw, 40px);
   line-height: 1.32;
+  overflow-wrap: normal;
+  word-break: normal;
   font-weight: 450;
   letter-spacing: -0.03em;
   color: var(--ink);
@@ -115,7 +119,12 @@ const principles = [
 }
 
 .manifesto__word {
+  display: inline;
   opacity: clamp(0.14, calc((var(--p) * (var(--n) + 6) - var(--i)) / 6), 1);
+}
+
+.manifesto__space {
+  white-space: pre-wrap;
 }
 
 .manifesto__word--em {

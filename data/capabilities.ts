@@ -92,7 +92,7 @@ export const capabilityDeepDives: CapabilityDeepDive[] = [
       'Contracts, policies and regulatory evidence',
       'KYC / KYB files and procurement dossiers',
     ],
-    proof: { value: '99.2%', label: 'accuracy on 10,000+ documents a day', to: '/case-studies/fortune-500-financial-document-intelligence' },
+    proof: { value: '99.4%', label: 'field accuracy on Spanish pagarés, 85% faster ERP posting', to: '/case-studies/fintech-pagares-document-automation' },
   },
   {
     id: 'voice',
@@ -168,7 +168,6 @@ export const integrations = [
   { name: 'SAP', file: 'sap.svg' },
   { name: 'Salesforce', file: 'salesforce.svg' },
   { name: 'Oracle', file: 'oracle.svg' },
-  { name: 'Microsoft', file: 'microsoft.svg' },
   { name: 'Google', file: 'google.svg' },
   { name: 'AWS', file: 'aws.svg' },
   { name: 'Azure', file: 'azure.svg' },

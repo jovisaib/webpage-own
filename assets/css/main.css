@@ -4,15 +4,15 @@
    ========================================================================== */
 
 :root {
-  --canvas: #faf9f6;
-  --canvas-2: #f4f2ec;
-  --canvas-3: #ece9e1;
+  --canvas: #f7f5f0;
+  --canvas-2: #f1eee7;
+  --canvas-3: #e8e4db;
   --paper: #ffffff;
-  --ink: #111318;
+  --ink: #0c0d0f;
   --ink-2: #23262e;
-  --obsidian: #0b0d13;
-  --obsidian-2: #12151c;
-  --obsidian-3: #1a1d26;
+  --obsidian: #0c0d0f;
+  --obsidian-2: #14161b;
+  --obsidian-3: #1c1f26;
 
   --text: #111318;
   --text-2: #4a4d55;
@@ -50,6 +50,7 @@
   --font-sans: 'Geist Variable', 'Geist', ui-sans-serif, system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
   --font-mono: 'Geist Mono Variable', 'Geist Mono', ui-monospace, 'SFMono-Regular', Menlo, monospace;
   --font-serif: 'Instrument Serif', ui-serif, Georgia, 'Times New Roman', serif;
+  --font-wordmark: 'Plus Jakarta Sans', var(--font-sans);
 
   --container: 1240px;
   --container-wide: 1360px;
@@ -564,8 +565,13 @@ button {
 }
 
 .dot--live {
-  background: #3f9b6a;
-  box-shadow: 0 0 0 3px rgba(63, 155, 106, 0.18);
+  /* Intentionally not a glowing status light — copper diamond, editorial. */
+  width: 5px;
+  height: 5px;
+  border-radius: 1px;
+  background: var(--copper);
+  box-shadow: none;
+  transform: rotate(45deg);
 }
 
 /* ---------- Surfaces ---------- */

@@ -29,19 +29,23 @@ const stats = [
       </div>
 
       <div class="voices__grid">
-        <figure v-if="lead" v-reveal class="voice voice--lead">
-          <UiIcon name="quote" :size="28" class="voice__mark" />
+        <figure v-if="lead" v-reveal class="voice voice--lead" :class="{ 'voice--partner': lead.kind === 'partnership' }">
+          <div v-if="lead.kind === 'partnership'" class="voice__partner-head">
+            <p class="voice__kicker mono">Strategic partnership</p>
+            <img v-if="lead.logo" :src="lead.logo" :alt="lead.company || lead.name" class="voice__partner-logo" />
+          </div>
+          <UiIcon v-else name="quote" :size="28" class="voice__mark" />
           <blockquote>
-            <p class="voice__highlight serif">“{{ lead.highlight }}”</p>
+            <p class="voice__highlight serif">{{ lead.kind === 'partnership' ? lead.highlight : `“${lead.highlight}”` }}</p>
             <p v-for="(para, i) in lead.quote.filter((q) => q !== lead.highlight)" :key="i" class="voice__para">{{ para }}</p>
           </blockquote>
           <figcaption class="voice__by">
             <img v-if="lead.avatar" :src="lead.avatar" :alt="lead.name" width="48" height="48" class="voice__avatar" loading="lazy" />
             <span class="voice__who">
               <strong>{{ lead.name }}</strong>
-              <span>{{ lead.role }}<template v-if="lead.company">, {{ lead.company }}</template></span>
+              <span>{{ lead.role }}<template v-if="lead.company && lead.kind !== 'partnership'">, {{ lead.company }}</template></span>
             </span>
-            <img v-if="lead.logo" :src="lead.logo" :alt="lead.company" class="voice__logo" loading="lazy" />
+            <img v-if="lead.logo && lead.kind !== 'partnership'" :src="lead.logo" :alt="lead.company || lead.name" class="voice__logo" loading="lazy" />
           </figcaption>
         </figure>
 
@@ -92,6 +96,35 @@ const stats = [
   flex-direction: column;
   gap: 22px;
   padding: clamp(28px, 4vw, 52px);
+}
+
+.voice--partner {
+  background: linear-gradient(165deg, #ffffff 0%, #f4efe6 100%);
+}
+
+.voice__kicker {
+  font-size: 11px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--copper-deep);
+}
+
+.voice__partner-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+}
+
+.voice__partner-logo {
+  height: 36px;
+  width: auto;
+  max-width: 220px;
+  object-fit: contain;
+}
+
+.voice--partner .voice__logo {
+  height: 28px;
 }
 
 .voice__mark {

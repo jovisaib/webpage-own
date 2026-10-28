@@ -2,7 +2,7 @@
 import { insights } from '~/data/insights'
 import { formatDate } from '~/utils/format'
 
-useSeoMeta({
+usePageSeo({
   title: 'Insights — Allometrik',
   description:
     'Research and writing from Allometrik on production AI: enterprise opportunities from C-level interviews, RAG beyond vector search, fine-tuning embeddings, and schema engineering.',

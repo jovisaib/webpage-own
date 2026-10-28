@@ -5,7 +5,7 @@ import { insights } from './data/insights'
 const SITE_URL = 'https://allometrik.com'
 const TITLE = 'Allometrik — Production AI Systems for the Enterprise'
 const DESCRIPTION =
-  'Allometrik engineers production AI systems for regulated enterprises: autonomous agents, document intelligence and compliance automation, forward-deployed into your environment and live in weeks.'
+  'Allometrik engineers production AI agents for regulated enterprises and includes Allometrik AI OS — governance, observability and operational interfaces — at $0 platform licence. Forward-deployed in Dubai, Europe and Latin America.'
 
 const prerenderRoutes = [
   '/',
@@ -16,6 +16,8 @@ const prerenderRoutes = [
   '/insights',
   '/about',
   '/cto-as-a-service',
+  '/ai-os',
+  '/monday-aitp',
   '/privacy-policy',
   '/terms-of-service',
   '/sitemap.xml',
@@ -44,7 +46,7 @@ export default defineNuxtConfig({
       viewport: 'width=device-width, initial-scale=1, viewport-fit=cover',
       meta: [
         { name: 'description', content: DESCRIPTION },
-        { name: 'theme-color', content: '#FAF9F6' },
+        { name: 'theme-color', content: '#F7F5F0' },
         { name: 'author', content: 'Allometrik Consulting FZCO' },
         { name: 'robots', content: 'index, follow' },
         { property: 'og:type', content: 'website' },
@@ -62,6 +64,7 @@ export default defineNuxtConfig({
       ],
       link: [
         { rel: 'icon', type: 'image/svg+xml', href: '/favicon.svg' },
+        { rel: 'icon', type: 'image/png', href: '/favicon.png' },
         { rel: 'icon', type: 'image/png', sizes: '32x32', href: '/favicon-32x32.png' },
         { rel: 'icon', type: 'image/png', sizes: '16x16', href: '/favicon-16x16.png' },
         { rel: 'apple-touch-icon', sizes: '180x180', href: '/apple-touch-icon.png' },
@@ -70,11 +73,18 @@ export default defineNuxtConfig({
     },
   },
 
+  components: [
+    { path: '~/components/shared', pathPrefix: false },
+    '~/components',
+  ],
+
   css: [
     '@fontsource-variable/geist/index.css',
     '@fontsource-variable/geist-mono/index.css',
     '@fontsource/instrument-serif/latin-400.css',
     '@fontsource/instrument-serif/latin-400-italic.css',
+    '@fontsource/plus-jakarta-sans/latin-600.css',
+    '@fontsource/plus-jakarta-sans/latin-700.css',
     '~/assets/css/main.css',
   ],
 
@@ -82,6 +92,11 @@ export default defineNuxtConfig({
     prerender: {
       crawlLinks: true,
       routes: prerenderRoutes,
+    },
+    routeRules: {
+      '/case-studies/fintech-promissory-notes-ocr': {
+        redirect: { to: '/case-studies/fintech-pagares-document-automation', statusCode: 301 },
+      },
     },
   },
 })

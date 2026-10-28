@@ -30,7 +30,7 @@ import { site } from '~/data/site'
             <NuxtLink v-if="card.to" :to="card.to" class="cap__link">
               Learn more <UiIcon name="arrow-right" :size="14" />
             </NuxtLink>
-            <p v-else class="cap__soon"><span class="dot dot--live" /> Now onboarding · ask us on a call</p>
+            <p v-else class="cap__soon">Now onboarding · ask us on a call</p>
           </div>
         </article>
 

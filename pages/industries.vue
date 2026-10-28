@@ -2,7 +2,7 @@
 import { getCaseStudy, type CaseStudy } from '~/data/case-studies'
 import { industries } from '~/data/industries'
 
-useSeoMeta({
+usePageSeo({
   title: 'Industries — Allometrik',
   description:
     'Production AI for regulated industries across the UAE and EU: banking and fintech, legal and compliance, public sector, healthcare, insurance, and operations. GDPR, EU AI Act, ISO 27001, VPC deployment.',
