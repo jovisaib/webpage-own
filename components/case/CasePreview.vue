@@ -19,10 +19,10 @@ const qa = [
 ] as const
 
 const pagareFields = [
-  { label: 'Importe', value: '1.900,00 EUR', conf: '99.8%', x: 58, y: 7, w: 38, h: 24 },
-  { label: 'Vencimiento', value: '19 / 09 / 2020', conf: '99.6%', x: 5, y: 27, w: 42, h: 11 },
-  { label: 'Beneficiario & Letra', value: 'José López Lopez', conf: '99.4%', x: 4, y: 40, w: 58, h: 16 },
-  { label: 'Firma y Sello', value: 'Comercial, S.L. · OK', conf: '98.9%', x: 64, y: 58, w: 31, h: 24 },
+  { label: 'Importe', value: '1.900,00 EUR', conf: '99.8%', x: 62, y: 8, w: 30, h: 22 },
+  { label: 'Vencimiento', value: '19 / 09 / 2020', conf: '99.6%', x: 6, y: 27, w: 34, h: 8 },
+  { label: 'Beneficiario & Letra', value: 'José López Lopez', conf: '99.4%', x: 5.5, y: 42, w: 50, h: 14 },
+  { label: 'Firma y Sello', value: 'Comercial, S.L. · OK', conf: '98.9%', x: 71, y: 58, w: 22, h: 20 },
 ]
 </script>
 

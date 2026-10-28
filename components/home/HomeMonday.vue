@@ -8,7 +8,7 @@ import { site } from '~/data/site'
     <div class="container">
       <div class="monday__head">
         <p class="eyebrow">Technology &amp; ecosystem alliances</p>
-        <img src="/brand/monday-logo.svg" alt="monday.com" width="220" height="22" class="monday__logo" />
+        <img src="/brand/monday-logo.svg" alt="monday.com" width="200" height="20" class="monday__logo" />
         <h2 id="monday-title" class="display-md">Production AI, paired with the Work OS you already run</h2>
         <p class="lede">
           Fixed-scope AI and Work OS deployments on monday.com Enterprise, Service and CRM — live in weeks.
@@ -48,7 +48,7 @@ import { site } from '~/data/site'
 }
 
 .monday__logo {
-  height: 22px;
+  height: 26px;
   width: auto;
 }
 

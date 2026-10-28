@@ -49,10 +49,10 @@ const stats = [
               class="voice__avatar"
               loading="lazy"
             />
-            <span v-else class="voice__initials" aria-hidden="true">{{ initials(item.name) }}</span>
+            <span v-else-if="!(item.logo && item.kind === 'partnership')" class="voice__initials" aria-hidden="true">{{ initials(item.name) }}</span>
             <span class="voice__who">
               <strong>{{ item.name }}</strong>
-              <span>{{ item.role }}<template v-if="item.company && item.kind !== 'partnership'">, {{ item.company }}</template></span>
+              <span>{{ item.role }}<template v-if="item.company && item.kind !== 'partnership' && !item.role?.includes(item.company)">, {{ item.company }}</template></span>
             </span>
             <img
               v-if="item.logo"
@@ -169,8 +169,9 @@ blockquote {
   margin-left: auto;
   height: 22px;
   width: auto;
-  max-width: 120px;
+  max-width: 148px;
   object-fit: contain;
+  object-position: right center;
   opacity: 0.9;
 }
 

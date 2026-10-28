@@ -20,7 +20,7 @@ usePageSeo({
     >
       Production AI, paired with the <span class="accent">Work OS you already run.</span>
       <template #actions>
-        <img src="/brand/monday-logo.svg" alt="monday.com" width="220" height="22" class="hero-logo" />
+        <img src="/brand/monday-logo.svg" alt="monday.com" width="200" height="20" class="hero-logo" />
       </template>
     </PageHero>
 
@@ -107,7 +107,7 @@ usePageSeo({
 
 <style scoped>
 .hero-logo {
-  height: 22px;
+  height: 26px;
   width: auto;
 }
 

@@ -26,7 +26,6 @@ export const testimonials: Testimonial[] = [
     name: 'Maria Corea',
     role: 'Revenue Operations Manager',
     company: 'UniDOC',
-    avatar: '/images/testimonials/maria-corea.webp',
     logo: '/clients/unidoc.webp',
     date: '2024-05',
   },

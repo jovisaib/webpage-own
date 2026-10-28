@@ -7,7 +7,7 @@ withDefaults(defineProps<{ tone?: 'light' | 'dark' }>(), { tone: 'light' })
 <template>
   <ul class="badges" :class="`badges--${tone}`" role="list">
     <li v-for="cred in mondayCredentials" :key="cred.id" class="badge">
-      <img src="/brand/monday-mark.svg" alt="" width="36" height="22" class="badge__mark" />
+      <img src="/brand/monday-mark.svg" alt="" width="40" height="24" class="badge__mark" />
       <span class="badge__title">{{ cred.title }}</span>
     </li>
   </ul>
@@ -43,8 +43,8 @@ withDefaults(defineProps<{ tone?: 'light' | 'dark' }>(), { tone: 'light' })
 }
 
 .badge__mark {
-  width: 36px;
-  height: 22px;
+  width: 40px;
+  height: 24px;
   flex: none;
   object-fit: contain;
 }
@@ -60,12 +60,6 @@ withDefaults(defineProps<{ tone?: 'light' | 'dark' }>(), { tone: 'light' })
 @media (max-width: 960px) {
   .badges {
     grid-template-columns: repeat(2, minmax(0, 1fr));
-  }
-}
-
-@media (max-width: 520px) {
-  .badges {
-    grid-template-columns: 1fr;
   }
 }
 </style>
