@@ -1,4 +1,5 @@
 <script setup lang="ts">
+import { siteGraph } from '~/data/jsonld'
 import { site } from '~/data/site'
 
 const route = useRoute()
@@ -12,16 +13,7 @@ useHead({
       type: 'application/ld+json',
       innerHTML: JSON.stringify({
         '@context': 'https://schema.org',
-        '@type': 'Organization',
-        name: site.name,
-        legalName: site.legalName,
-        url: site.url,
-        logo: `${site.url}/brand/allometrik-mark-2048.png`,
-        email: site.email,
-        description: site.description,
-        sameAs: [site.socials.x, site.socials.linkedin],
-        address: { '@type': 'PostalAddress', addressLocality: 'Dubai', addressCountry: 'AE' },
-        areaServed: ['AE', 'SA', 'EU', 'US'],
+        '@graph': siteGraph,
       }),
     },
   ],

@@ -88,7 +88,7 @@ const near = new Set([7, 9, 12, 4])
           <span v-for="(hgt, i) in [42, 64, 50, 78, 58, 88]" :key="i" class="cv__col" :style="{ '--h': `${hgt}%`, '--d': `${i * 80}ms` }" />
           <svg class="cv__trend" viewBox="0 0 100 40" preserveAspectRatio="none"><path d="M2 30 C 20 26, 30 18, 46 20 S 72 8, 98 6" /></svg>
         </div>
-        <p class="cv__ready mono"><span class="dot dot--live" /> board_report_Q3.pdf ready</p>
+        <p class="cv__ready mono">board_report_Q3.pdf ready</p>
       </div>
     </template>
 

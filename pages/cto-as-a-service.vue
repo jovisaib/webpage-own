@@ -3,7 +3,7 @@ import { site } from '~/data/site'
 
 definePageMeta({ navTheme: 'dark' })
 
-useSeoMeta({
+usePageSeo({
   title: 'CTO as a Service AI — Allometrik',
   description:
     'AI-augmented CTO and full-stack delivery: senior architecture and security sign-off from Allometrik’s CTO team, with continuous product, API, data and ops delivery at a fraction of traditional headcount.',

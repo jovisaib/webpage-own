@@ -1,11 +1,14 @@
 <script setup lang="ts">
 import { capabilityDeepDives, engineeringStandards, integrations } from '~/data/capabilities'
+import { capabilityFaqs } from '~/data/faq'
 import { site } from '~/data/site'
+import { faqJsonLd } from '~/composables/usePageSeo'
 
-useSeoMeta({
+usePageSeo({
   title: 'Capabilities — Allometrik',
   description:
-    'Production AI engineering from Allometrik: autonomous agents, document intelligence, voice agents, RAG at scale, forward-deployed methodology and executive enablement.',
+    'Production AI engineering from Allometrik: autonomous agents, document intelligence, voice agents, RAG at scale, monday.com AITP, forward-deployed methodology and executive enablement.',
+  jsonLd: [faqJsonLd(capabilityFaqs)],
 })
 
 const doubled = [...integrations, ...integrations]
@@ -74,7 +77,10 @@ const doubled = [...integrations, ...integrations]
       </div>
     </section>
 
+    <HomeMonday />
     <HomeDeploy />
+    <CustomScopeCalculator />
+    <SiteFaq :items="capabilityFaqs" />
     <HomeContact />
     <p class="sr-only">{{ site.calendly }}</p>
   </div>

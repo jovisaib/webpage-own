@@ -1,6 +1,4 @@
 <script setup lang="ts">
-import { wordmark } from '~/data/brand'
-
 withDefaults(defineProps<{ variant?: 'light' | 'dark'; size?: number }>(), {
   variant: 'light',
   size: 30,
@@ -10,9 +8,7 @@ withDefaults(defineProps<{ variant?: 'light' | 'dark'; size?: number }>(), {
 <template>
   <span class="brand-logo" :class="`brand-logo--${variant}`" :style="{ '--logo-size': `${size}px` }">
     <BrandMark class="brand-logo__mark" :variant="variant" title="" aria-hidden="true" />
-    <svg class="brand-logo__word" :viewBox="wordmark.viewBox" aria-hidden="true" xmlns="http://www.w3.org/2000/svg">
-      <path :d="wordmark.d" fill="currentColor" />
-    </svg>
+    <span class="brand-logo__word" aria-hidden="true">allometrik</span>
     <span class="sr-only">Allometrik</span>
   </span>
 </template>
@@ -21,7 +17,7 @@ withDefaults(defineProps<{ variant?: 'light' | 'dark'; size?: number }>(), {
 .brand-logo {
   display: inline-flex;
   align-items: center;
-  gap: calc(var(--logo-size) * 0.16);
+  gap: calc(var(--logo-size) * 0.18);
   color: var(--ink);
   line-height: 0;
 }
@@ -37,8 +33,11 @@ withDefaults(defineProps<{ variant?: 'light' | 'dark'; size?: number }>(), {
 }
 
 .brand-logo__word {
-  height: calc(var(--logo-size) * 0.44);
-  width: auto;
-  margin-top: calc(var(--logo-size) * 0.1);
+  font-family: var(--font-wordmark);
+  font-size: calc(var(--logo-size) * 0.5);
+  font-weight: 700;
+  letter-spacing: -0.03em;
+  line-height: 1;
+  transform: translateY(calc(var(--logo-size) * 0.03));
 }
 </style>

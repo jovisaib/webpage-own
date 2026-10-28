@@ -1,5 +1,4 @@
 <script setup lang="ts">
-import { wordmark } from '~/data/brand'
 import { aiSummaryLinks, footerColumns, site } from '~/data/site'
 </script>
 
@@ -12,7 +11,7 @@ import { aiSummaryLinks, footerColumns, site } from '~/data/site'
             <BrandLogo variant="dark" :size="34" />
           </NuxtLink>
           <p class="footer__pitch">
-            Production AI systems for regulated enterprises. Forward-deployed engineers, measurable outcomes, and code you own.
+            Production AI agents for regulated enterprises. Allometrik AI OS — governance, observability and operational interfaces — included at $0 licence.
           </p>
           <ul class="footer__locations" role="list">
             <li v-for="loc in site.locations" :key="loc.city">
@@ -81,17 +80,7 @@ import { aiSummaryLinks, footerColumns, site } from '~/data/site'
       </div>
     </div>
 
-    <div class="footer__word" aria-hidden="true">
-      <svg :viewBox="wordmark.viewBox" preserveAspectRatio="xMidYMin meet" xmlns="http://www.w3.org/2000/svg">
-        <defs>
-          <linearGradient id="footer-word-fade" x1="0" y1="0" x2="0" y2="1">
-            <stop offset="0" stop-color="#f4f1ea" stop-opacity="0.13" />
-            <stop offset="1" stop-color="#f4f1ea" stop-opacity="0" />
-          </linearGradient>
-        </defs>
-        <path :d="wordmark.d" fill="url(#footer-word-fade)" />
-      </svg>
-    </div>
+    <p class="footer__word" aria-hidden="true">allometrik</p>
   </footer>
 </template>
 
@@ -257,13 +246,14 @@ import { aiSummaryLinks, footerColumns, site } from '~/data/site'
   width: min(1500px, 100%);
   margin: 8px auto 0;
   padding-inline: var(--gutter);
-  height: clamp(70px, 15vw, 230px);
   overflow: hidden;
-}
-
-.footer__word svg {
-  width: 100%;
-  height: auto;
+  font-family: var(--font-wordmark);
+  font-weight: 700;
+  font-size: clamp(72px, 16vw, 240px);
+  letter-spacing: -0.04em;
+  line-height: 0.82;
+  color: rgba(244, 241, 234, 0.08);
+  user-select: none;
 }
 
 @media (max-width: 960px) {

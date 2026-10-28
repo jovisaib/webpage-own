@@ -1,4 +1,10 @@
 <script setup lang="ts">
+usePageSeo({
+  title: 'Process — Allometrik',
+  description:
+    'A production sprint, not a six-month transformation programme. Senior engineers, your data, your perimeter, a system you own — typically live in 2–4 weeks.',
+})
+
 const steps = [
   {
     n: '01',

@@ -7,10 +7,24 @@ export interface Testimonial {
   avatar?: string
   logo?: string
   date: string
+  kind?: 'review' | 'partnership'
 }
 
-/** Client reviews previously served through the Senja widget, now rendered natively. */
 export const testimonials: Testimonial[] = [
+  {
+    kind: 'partnership',
+    quote: [
+      'ALIANDO partners with Allometrik to source, architect and deliver turnkey R&D and production AI for public and private institutions worldwide.',
+      'Together we ship mission-critical systems, operational AI for iconic luxury hospitality destinations on Palm Jumeirah in the UAE, and enterprise-grade programmes across regulated industries.',
+    ],
+    highlight:
+      'Turnkey R&D and production AI for public and private institutions worldwide — including mission-critical systems and iconic luxury hospitality destinations on Palm Jumeirah in the UAE.',
+    name: 'ALIANDO',
+    role: 'Strategic delivery partner',
+    company: 'ALIANDO',
+    logo: '/clients/aliando.svg',
+    date: '2026-01',
+  },
   {
     quote: [
       'We had the pleasure of working with Jose on a project, and I must say, his commitment to excellence truly impressed all of us.',

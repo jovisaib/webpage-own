@@ -1,17 +1,27 @@
 <script setup lang="ts">
 import type { CaseStudy } from '~/data/case-studies'
 
-defineProps<{ study: CaseStudy }>()
+const props = defineProps<{ study: CaseStudy }>()
+const cover = computed(() => props.study.image)
+const kicker = computed(() => props.study.metrics[0])
 </script>
 
 <template>
-  <NuxtLink :to="`/case-studies/${study.slug}`" class="case-card" :class="[`case-card--${study.theme}`, `case-card--${study.visual.type}`]">
-    <div class="case-card__visual">
-      <CaseVisual :study="study" />
+  <NuxtLink :to="`/case-studies/${study.slug}`" class="case-card">
+    <div class="case-card__media">
+      <img :src="cover" :alt="study.imageAlt" class="case-card__img" loading="lazy" decoding="async" width="1600" height="1060" />
+      <span class="case-card__grain" aria-hidden="true" />
+      <span class="case-card__shade" aria-hidden="true" />
     </div>
-    <div class="case-card__shade" aria-hidden="true" />
-    <div class="case-card__top">
-      <p class="case-card__meta mono">{{ study.sector }}</p>
+    <div class="case-card__pills">
+      <span class="case-card__pill">{{ study.sector }}</span>
+      <span class="case-card__pill">{{ study.region }}</span>
+    </div>
+    <p v-if="kicker" class="case-card__metric">
+      <strong>{{ kicker.value }}</strong>
+      <span>{{ kicker.label }}</span>
+    </p>
+    <div class="case-card__copy">
       <h3 class="case-card__title">{{ study.headline }}</h3>
       <p class="case-card__client">{{ study.client }}</p>
     </div>
@@ -27,109 +37,158 @@ defineProps<{ study: CaseStudy }>()
   isolation: isolate;
   display: block;
   height: 100%;
-  min-height: 520px;
+  min-height: 560px;
   overflow: hidden;
   border-radius: var(--radius-lg);
+  color: #f7f4ee;
+  background: #0c0d0f;
   transition: transform 0.6s var(--ease-out), box-shadow 0.6s var(--ease-out);
 }
 
 .case-card:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 30px 60px -30px rgba(17, 19, 24, 0.45);
+  transform: translateY(-5px);
+  box-shadow: 0 36px 70px -32px rgba(17, 19, 24, 0.55);
 }
 
-.case-card--dark {
-  background: radial-gradient(130% 90% at 85% 105%, #2b1e15 0%, #12141b 55%, #0d0f14 100%);
-  color: var(--on-dark);
-}
-
-.case-card--stone {
-  background: linear-gradient(180deg, #ece8df 0%, #e4dfd3 100%);
-  color: var(--ink);
-}
-
-.case-card--copper {
-  background: linear-gradient(165deg, #bd7546 0%, #8f512d 55%, #5e331b 100%);
-  color: #fff8f0;
-}
-
-.case-card--light {
-  background: linear-gradient(180deg, #ffffff 0%, #f8f6f1 100%);
-  border: 1px solid var(--line);
-  color: var(--ink);
-}
-
-.case-card__visual {
+.case-card__media {
   position: absolute;
   inset: 0;
-  z-index: -2;
+  z-index: -1;
+}
+
+.case-card__img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transform: scale(1.02);
+  transition: transform 1.4s var(--ease-out);
+}
+
+.case-card:hover .case-card__img {
+  transform: scale(1.08);
+}
+
+.case-card__grain {
+  position: absolute;
+  inset: 0;
+  opacity: 0.28;
+  mix-blend-mode: overlay;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.55'/%3E%3C/svg%3E");
 }
 
 .case-card__shade {
   position: absolute;
   inset: 0;
-  z-index: -1;
-  pointer-events: none;
+  background:
+    linear-gradient(180deg, rgba(12, 13, 15, 0.18) 0%, rgba(12, 13, 15, 0.12) 38%, rgba(12, 13, 15, 0.82) 100%),
+    linear-gradient(90deg, rgba(12, 13, 15, 0.28), transparent 45%);
 }
 
-.case-card--photo .case-card__shade {
-  background: linear-gradient(180deg, rgba(9, 10, 14, 0.82) 0%, rgba(9, 10, 14, 0.35) 42%, rgba(9, 10, 14, 0.1) 70%, rgba(9, 10, 14, 0.4) 100%);
+.case-card__pills {
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  max-width: 78%;
 }
 
-.case-card--photo {
-  color: var(--on-dark);
-}
-
-.case-card:hover :deep(.cv__photo) {
-  transform: scale(1.04);
-}
-
-.case-card:hover :deep(.cv__shot) {
-  transform: rotate(-1deg) translateY(-6px);
-}
-
-.case-card__top {
-  display: grid;
-  gap: 12px;
-  padding: 26px 64px 0 26px;
-}
-
-.case-card__meta {
-  font-size: 11.5px;
-  letter-spacing: 0.1em;
+.case-card__pill {
+  padding: 6px 10px;
+  border-radius: 999px;
+  font-family: var(--font-mono);
+  font-size: 10.5px;
+  letter-spacing: 0.08em;
   text-transform: uppercase;
-  opacity: 0.66;
+  color: rgba(247, 244, 238, 0.92);
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  -webkit-backdrop-filter: blur(14px);
+  backdrop-filter: blur(14px);
+}
+
+.case-card__metric {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  display: grid;
+  gap: 2px;
+  max-width: 148px;
+  padding: 10px 12px;
+  border-radius: 14px;
+  background: rgba(12, 13, 15, 0.45);
+  border: 1px solid rgba(229, 169, 124, 0.35);
+  -webkit-backdrop-filter: blur(16px);
+  backdrop-filter: blur(16px);
+  text-align: right;
+}
+
+.case-card__metric strong {
+  font-size: 22px;
+  font-weight: 560;
+  letter-spacing: -0.04em;
+  line-height: 1;
+}
+
+.case-card__metric span {
+  font-size: 11px;
+  line-height: 1.3;
+  color: rgba(247, 244, 238, 0.72);
+}
+
+.case-card__copy {
+  position: absolute;
+  left: 22px;
+  right: 22px;
+  bottom: 22px;
+  display: grid;
+  gap: 10px;
+  padding-right: 36px;
 }
 
 .case-card__title {
-  font-size: clamp(21px, 1.9vw, 25px);
-  line-height: 1.18;
+  font-size: clamp(20px, 1.8vw, 24px);
+  line-height: 1.2;
   font-weight: 500;
-  letter-spacing: -0.028em;
+  letter-spacing: -0.03em;
   text-wrap: balance;
 }
 
 .case-card__client {
-  font-size: 14px;
-  opacity: 0.66;
+  font-size: 13.5px;
+  color: rgba(247, 244, 238, 0.7);
 }
 
 .case-card__arrow {
   position: absolute;
-  top: 22px;
-  right: 22px;
+  right: 20px;
+  bottom: 22px;
   display: grid;
   place-items: center;
-  width: 38px;
-  height: 38px;
+  width: 36px;
+  height: 36px;
   border-radius: 50%;
-  border: 1px solid currentColor;
-  opacity: 0.75;
-  transition: transform 0.5s var(--ease-out), opacity 0.3s ease, background-color 0.3s ease;
+  border: 1px solid rgba(255, 255, 255, 0.28);
+  transition: transform 0.5s var(--ease-out), background-color 0.3s ease;
 }
 
 .case-card:hover .case-card__arrow {
-  opacity: 1;
   transform: translate(2px, -2px);
+  background: rgba(255, 255, 255, 0.1);
+}
+
+@media (max-width: 640px) {
+  .case-card {
+    min-height: 480px;
+  }
+
+  .case-card__metric {
+    top: auto;
+    bottom: auto;
+    right: 16px;
+    top: 16px;
+    max-width: 120px;
+  }
 }
 </style>

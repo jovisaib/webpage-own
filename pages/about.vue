@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { site } from '~/data/site'
 
-useSeoMeta({
+usePageSeo({
   title: 'About — Allometrik',
   description:
     'Allometrik is a forward-deployed AI engineering firm based in Dubai and Europe. We build production AI systems for regulated enterprises and transfer the code, evaluations and ownership to the client.',

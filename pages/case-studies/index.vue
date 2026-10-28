@@ -1,10 +1,10 @@
 <script setup lang="ts">
 import { caseStudies } from '~/data/case-studies'
 
-useSeoMeta({
+usePageSeo({
   title: 'Case Studies — Allometrik',
   description:
-    'Editorial client stories from Allometrik: document intelligence at Fortune 500 scale, EU legal compliance automation, public procurement, RAG at scale, and executive AI enablement.',
+    'Editorial client stories from Allometrik: multilingual guest operations on Palm Jumeirah, Fortune 500 insurance voice QA across Latin America, Spanish pagarés, EU legal compliance, and RAG at scale.',
 })
 
 const sectors = computed(() => ['All', ...Array.from(new Set(caseStudies.map((s) => s.sector)))])

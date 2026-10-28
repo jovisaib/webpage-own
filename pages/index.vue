@@ -1,13 +1,14 @@
 <script setup lang="ts">
+import { homeFaqs } from '~/data/faq'
 import { site } from '~/data/site'
+import { faqJsonLd } from '~/composables/usePageSeo'
 
 definePageMeta({ navTheme: 'dark' })
 
-useSeoMeta({
+usePageSeo({
   title: 'Allometrik — Production AI Systems for the Enterprise',
   description: site.description,
-  ogTitle: 'Allometrik — AI systems that run the business',
-  ogDescription: site.description,
+  jsonLd: [faqJsonLd(homeFaqs)],
 })
 </script>
 
@@ -17,11 +18,15 @@ useSeoMeta({
     <HomeClients />
     <HomeManifesto />
     <HomeCaseRail />
+    <HomePlatform />
+    <HomeMonday />
     <HomeCapabilities />
     <HomeDeploy />
     <HomeIndustries />
     <HomeComparison />
     <HomeTestimonials />
+    <CustomScopeCalculator />
+    <SiteFaq :items="homeFaqs" title="How the commercial model actually works" />
     <HomeContact />
   </div>
 </template>

@@ -142,7 +142,7 @@ const onKeydown = (e: KeyboardEvent) => {
   height: 58px;
   padding: 0 8px 0 16px;
   border-radius: 18px;
-  background: rgba(250, 249, 246, 0.74);
+  background: rgba(247, 245, 240, 0.74);
   border: 1px solid rgba(17, 19, 24, 0.08);
   -webkit-backdrop-filter: blur(22px) saturate(170%);
   backdrop-filter: blur(22px) saturate(170%);
@@ -151,7 +151,7 @@ const onKeydown = (e: KeyboardEvent) => {
 }
 
 .nav--scrolled .nav__bar {
-  background: rgba(250, 249, 246, 0.86);
+  background: rgba(247, 245, 240, 0.86);
   box-shadow: 0 1px 0 rgba(255, 255, 255, 0.7) inset, 0 14px 36px -18px rgba(17, 19, 24, 0.32);
 }
 
@@ -166,6 +166,14 @@ const onKeydown = (e: KeyboardEvent) => {
   display: inline-flex;
   padding: 6px 4px;
   border-radius: 10px;
+  outline: none;
+}
+
+.nav__brand:focus,
+.nav__brand:focus-visible,
+.nav__brand:active {
+  outline: none;
+  box-shadow: none;
 }
 
 .nav__links {
@@ -257,7 +265,7 @@ const onKeydown = (e: KeyboardEvent) => {
   margin-top: 8px;
   padding: 10px;
   border-radius: 18px;
-  background: rgba(250, 249, 246, 0.96);
+  background: rgba(247, 245, 240, 0.96);
   border: 1px solid var(--line);
   -webkit-backdrop-filter: blur(22px);
   backdrop-filter: blur(22px);
@@ -320,10 +328,14 @@ const onKeydown = (e: KeyboardEvent) => {
   transform: translateY(-8px);
 }
 
-@media (max-width: 1100px) {
+@media (max-width: 1240px) {
+  .nav {
+    width: min(1180px, calc(100% - 20px));
+  }
+
   .nav__link {
     padding: 8px 9px;
-    font-size: 14px;
+    font-size: 13.5px;
   }
 }
 

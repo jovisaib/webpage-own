@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 560 120" role="img" aria-label="ALIANDO">
+  <title>ALIANDO</title>
+  <defs>
+    <linearGradient id="al-gold" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#E1C078"/>
+      <stop offset="1" stop-color="#B68A2E"/>
+    </linearGradient>
+  </defs>
+  <g fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M58 18c22-2 42 14 44 40-2 26-22 42-44 40" stroke="url(#al-gold)" stroke-width="14"/>
+    <path d="M62 18C40 16 20 32 18 58c2 26 22 42 44 40" stroke="#163A72" stroke-width="14"/>
+  </g>
+  <g fill="#163A72">
+    <!-- Stylized A without a crossbar -->
+    <polygon points="158,28 168,28 194,92 182,92 169,58 157,58 144,92 132,92"/>
+    <path d="M204 28h11v64h-11z"/>
+    <rect x="204.5" y="16" width="10" height="8" rx="4"/>
+    <polygon points="258,28 268,28 294,92 282,92 269,58 257,58 244,92 232,92"/>
+    <path d="M326 30c12-4 28-2 36 10l-8 6c-5-8-16-10-24-6-9 5-10 16-2 22 9 6 24 8 28 20 5 14-6 28-26 30-16 1-30-6-36-18l9-6c5 9 16 14 27 12 9-1 14-8 11-14-3-8-16-10-26-16-14-8-16-24-4-34 4-4 10-6 15-6z"/>
+    <path d="M376 28h12l32 44V28h11v64h-12l-32-44v44h-11V28z"/>
+    <path d="M448 30c18-6 42 4 46 28h-48c2 12 12 20 26 20 10 0 18-4 22-10l9 6c-7 10-20 16-32 16-24 0-40-16-40-38 0-22 16-38 17-22zm35 18c-2-12-12-20-24-20-12 0-22 8-24 20h48z"/>
+  </g>
+</svg>

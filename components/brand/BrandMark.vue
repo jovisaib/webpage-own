@@ -1,19 +1,23 @@
 <script setup lang="ts">
-import { markDark, markLight, markViewBox } from '~/data/brand'
+import { markSrc } from '~/data/brand'
 
 const props = withDefaults(defineProps<{ variant?: 'light' | 'dark'; title?: string }>(), {
   variant: 'light',
   title: 'Allometrik',
 })
 
-const uid = useId().replace(/[^a-zA-Z0-9_-]/g, '')
-
-const content = computed(() => {
-  const body = props.variant === 'dark' ? markDark : markLight
-  return body.replace(/(id="|url\(#)(am-[a-z-]+)/g, (_m, prefix: string, id: string) => `${prefix}${id}-${uid}`)
-})
+const src = computed(() => (props.variant === 'dark' ? markSrc.dark : markSrc.light))
 </script>
 
 <template>
-  <svg :viewBox="markViewBox" role="img" :aria-label="title" xmlns="http://www.w3.org/2000/svg" v-html="content" />
+  <img class="brand-mark" :src="src" :alt="title" width="1024" height="1024" decoding="async" />
 </template>
+
+<style scoped>
+.brand-mark {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+</style>

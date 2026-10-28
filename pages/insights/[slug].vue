@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import { insights, getInsight } from '~/data/insights'
+import { site } from '~/data/site'
 import { formatDate } from '~/utils/format'
 import { renderMarkdown } from '~/utils/markdown'
 
@@ -10,10 +11,28 @@ if (!article.value) {
   throw createError({ statusCode: 404, statusMessage: 'Article not found' })
 }
 
-useSeoMeta({
+usePageSeo({
   title: `${article.value.title} — Allometrik`,
   description: article.value.summary,
-  ogType: 'article',
+  type: 'article',
+  jsonLd: [
+    {
+      '@type': 'Article',
+      headline: article.value.title,
+      description: article.value.summary,
+      datePublished: article.value.date,
+      author: { '@type': 'Person', name: article.value.author || 'Jose Vicente Sáez Ibáñez' },
+      publisher: { '@type': 'Organization', name: site.legalName, url: site.url },
+    },
+    {
+      '@type': 'BreadcrumbList',
+      itemListElement: [
+        { '@type': 'ListItem', position: 1, name: 'Home', item: site.url },
+        { '@type': 'ListItem', position: 2, name: 'Insights', item: `${site.url}/insights` },
+        { '@type': 'ListItem', position: 3, name: article.value.title, item: `${site.url}/insights/${article.value.slug}` },
+      ],
+    },
+  ],
 })
 
 const rendered = computed(() => renderMarkdown(article.value?.body || ''))

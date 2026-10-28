@@ -71,13 +71,14 @@ const principles = [
         class="manifesto__lit"
         :style="{ '--p': progress, '--n': words.length }"
       >
-        <span
-          v-for="(word, i) in words"
-          :key="i"
-          class="manifesto__word"
-          :class="{ 'manifesto__word--em': emphasis.has(word) }"
-          :style="{ '--i': i }"
-        >{{ word }} </span>
+        <template v-for="(word, i) in words" :key="i">
+          <span
+            class="manifesto__word"
+            :class="{ 'manifesto__word--em': emphasis.has(word) }"
+            :style="{ '--i': i }"
+          >{{ word }}</span>
+          <span v-if="i < words.length - 1" class="manifesto__space">{{ ' ' }}</span>
+        </template>
       </p>
 
       <ol class="manifesto__principles" role="list">
@@ -116,6 +117,10 @@ const principles = [
 
 .manifesto__word {
   opacity: clamp(0.14, calc((var(--p) * (var(--n) + 6) - var(--i)) / 6), 1);
+}
+
+.manifesto__space {
+  white-space: pre;
 }
 
 .manifesto__word--em {
