@@ -19,10 +19,10 @@ const qa = [
 ] as const
 
 const pagareFields = [
-  { label: 'Importe', value: '12.480,00 EUR', conf: '99.8%', x: 58, y: 18 },
-  { label: 'IBAN', value: 'ES91 2100 0418 4502 0005 1332', conf: '99.6%', x: 12, y: 58 },
-  { label: 'Vencimiento', value: '15 / 11 / 2026', conf: '99.4%', x: 12, y: 78 },
-  { label: 'Firma', value: 'Present · crossed', conf: '98.9%', x: 62, y: 72 },
+  { label: 'Importe', value: '1.900,00 EUR', conf: '99.8%', x: 58, y: 7, w: 38, h: 24 },
+  { label: 'Vencimiento', value: '19 / 09 / 2020', conf: '99.6%', x: 5, y: 27, w: 42, h: 11 },
+  { label: 'Beneficiario & Letra', value: 'José López Lopez', conf: '99.4%', x: 4, y: 40, w: 58, h: 16 },
+  { label: 'Firma y Sello', value: 'Comercial, S.L. · OK', conf: '98.9%', x: 64, y: 58, w: 31, h: 24 },
 ]
 </script>
 
@@ -35,24 +35,34 @@ const pagareFields = [
       <!-- Pagaré extractor -->
       <div v-if="study.preview === 'pagare'" class="stage">
         <div class="doc">
-          <p class="doc__mark mono">PAGARÉ · a la orden</p>
-          <p class="doc__amount">DOCE MIL CUATROCIENTOS OCHENTA EUROS</p>
-          <p class="doc__iban mono">ES91 2100 0418 4502 0005 1332</p>
-          <p class="doc__row">Vencimiento 15.11.2026 · Madrid</p>
-          <p class="doc__sign">Firma y sello bancario</p>
-          <span v-for="f in pagareFields" :key="f.label" class="box" :style="{ left: f.x + '%', top: f.y + '%' }">
-            <i /> {{ f.label }} · {{ f.conf }}
-          </span>
+          <div class="doc__frame">
+            <img
+              src="/cases/pagare-real.png"
+              alt="Spanish pagaré — Comercial, S.L., 1.900,00 €, vencimiento 19/09/2020"
+              width="1600"
+              height="760"
+              class="doc__img"
+            />
+            <span
+              v-for="f in pagareFields"
+              :key="f.label"
+              class="box"
+              :style="{ left: f.x + '%', top: f.y + '%', width: f.w + '%', height: f.h + '%' }"
+            >
+              <i />
+              <em>{{ f.label }} · {{ f.conf }}</em>
+            </span>
+          </div>
         </div>
         <div class="erp">
-          <p class="erp__k mono">Validated ERP record</p>
-          <dl>
+          <p class="erp__k mono">Validated ERP record · &lt; 8s</p>
+          <dl class="erp__rows">
             <div v-for="f in pagareFields" :key="f.label">
-              <dt>{{ f.label }}</dt>
-              <dd>{{ f.value }} <span class="ok">{{ f.conf }}</span></dd>
+              <dt>{{ f.label === 'Beneficiario & Letra' ? 'Beneficiario' : f.label }}</dt>
+              <dd>{{ f.value }}</dd>
             </div>
           </dl>
-          <p class="erp__post mono">Posted · 7.4s · amount-in-words matches figures · IBAN checksum OK</p>
+          <p class="erp__post mono">Posted · 7.4s · amount-in-words matches figures · signature present</p>
         </div>
       </div>
 
@@ -175,54 +185,52 @@ const pagareFields = [
 }
 
 .doc {
+  min-height: 0;
+  padding: 12px;
+  background: #efe8dc;
+}
+
+.doc__frame {
   position: relative;
-  min-height: 340px;
-  background:
-    linear-gradient(180deg, #f6f1e6 0%, #efe6d4 100%);
-  font-family: var(--font-serif);
-  color: #2a241c;
 }
 
-.doc__mark {
-  font-family: var(--font-mono);
-  letter-spacing: 0.14em;
-  font-size: 11px;
-}
-
-.doc__amount {
-  margin-top: 28px;
-  font-size: 22px;
-}
-
-.doc__iban {
-  margin-top: 36px;
-  font-size: 14px;
-}
-
-.doc__row,
-.doc__sign {
-  margin-top: 18px;
-  opacity: 0.75;
+.doc__img {
+  display: block;
+  width: 100%;
+  height: auto;
+  border-radius: 8px;
 }
 
 .box {
   position: absolute;
-  font-family: var(--font-mono);
-  font-size: 10px;
-  letter-spacing: 0.04em;
-  color: #7a3d18;
-  padding: 4px 6px 4px 0;
+  pointer-events: none;
 }
 
 .box i {
   position: absolute;
-  left: -6px;
-  top: -10px;
-  width: 46%;
-  height: 34px;
+  inset: 0;
   border: 1.5px solid #c87a4b;
   border-radius: 4px;
-  background: rgba(200, 122, 75, 0.08);
+  background: rgba(200, 122, 75, 0.1);
+}
+
+.box em {
+  position: absolute;
+  left: 0;
+  top: -15px;
+  font-style: normal;
+  font-family: var(--font-mono);
+  font-size: 10.5px;
+  letter-spacing: 0.03em;
+  color: #7a3d18;
+  white-space: nowrap;
+  text-shadow: 0 1px 0 rgba(255, 255, 255, 0.75);
+}
+
+.erp {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
 }
 
 .erp dl,
@@ -230,6 +238,20 @@ const pagareFields = [
   display: grid;
   gap: 10px;
   margin-top: 12px;
+}
+
+.erp__rows {
+  gap: 0;
+  flex: 1;
+}
+
+.erp__rows > div {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 14px 0;
+  border-bottom: 1px solid var(--line);
 }
 
 .erp dt,

@@ -34,7 +34,7 @@ onMounted(update)
           </h2>
         </div>
         <div class="cases__aside">
-          <p class="lede">Production systems with measured outcomes — UAE hospitality, Fortune 500 insurance, European banking, legal and public sector.</p>
+          <p class="lede">Production systems with measured outcomes across hospitality, insurance, banking, legal and the public sector.</p>
           <div class="cases__controls">
             <NuxtLink to="/case-studies" class="text-link">All case studies <UiIcon name="arrow-right" :size="15" /></NuxtLink>
             <div class="cases__arrows">

@@ -33,7 +33,7 @@ const onKey = (e: KeyboardEvent) => {
           </h2>
         </div>
         <p class="lede inds__lede" v-reveal="80">
-          Every industry carries its own regulators, data constraints and edge cases. We design for yours from the first workshop, across the UAE, the wider Gulf and the EU.
+          Designed for your regulators, data constraints and edge cases — UAE, Gulf and EU.
         </p>
       </div>
 

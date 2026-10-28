@@ -9,7 +9,6 @@ const interests = [
   'monday.com AITP (ecosystem alliance)',
   'Allometrik AI OS',
   'CTO as a Service AI',
-  'Custom scope from ROI calculator',
   'Executive & technical AI training',
   'Something else',
 ]
@@ -70,7 +69,7 @@ const steps = [
             Let’s find your <span class="accent">most expensive</span> process.
           </h2>
           <p class="lede">
-            Book a 30-minute consultation and leave with a concrete automation roadmap, or send a note and a senior engineer will reply within one business day.
+            Book a 30-minute call, or send a note — a senior engineer replies within one business day.
           </p>
 
           <ol role="list" class="contact__steps">

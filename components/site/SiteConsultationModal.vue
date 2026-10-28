@@ -6,7 +6,6 @@ const config = useRuntimeConfig()
 const { open, prefill, hide } = useConsultationModal()
 
 const interests = [
-  'Custom scope from ROI calculator',
   'Autonomous agents & workflows',
   'Document intelligence & compliance',
   'monday.com AITP (ecosystem alliance)',
@@ -28,21 +27,7 @@ const errorText = ref('')
 
 function briefFrom(p: ConsultPrefill) {
   if (!p.track) return ''
-  return [
-    `Custom scope request`,
-    `Track: ${p.track}`,
-    `Industry: ${p.industry || '—'}`,
-    `Workflow: ${p.workflow || '—'}`,
-    `Monthly volume: ${p.volume?.toLocaleString('en-US') || '—'}`,
-    `Manual handling: ${p.minutes ?? '—'} min / item`,
-    `Teams / regions: ${p.teams ?? '—'}`,
-    `Estimated hours saved: ${p.hoursSaved || '—'}`,
-    `Estimated net annual reduction: ${p.costReduction || '—'}`,
-    `Recommended architecture: ${p.recommendation || '—'}`,
-    `Time to production: ${p.timeline || '—'}`,
-    '',
-    'Context we should know:',
-  ].join('\n')
+  return [`I'm interested in: ${p.track}`, '', 'Context we should know:'].join('\n')
 }
 
 watch(
@@ -53,7 +38,7 @@ watch(
     errorText.value = ''
     const p = prefill.value
     if (p.interest && interests.includes(p.interest)) form.interest = p.interest
-    else if (p.track) form.interest = 'Custom scope from ROI calculator'
+    else if (p.track) form.interest = interests[0]!
     const brief = briefFrom(p)
     if (brief) form.message = brief
   },

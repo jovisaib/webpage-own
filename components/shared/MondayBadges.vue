@@ -7,35 +7,8 @@ withDefaults(defineProps<{ tone?: 'light' | 'dark' }>(), { tone: 'light' })
 <template>
   <ul class="badges" :class="`badges--${tone}`" role="list">
     <li v-for="cred in mondayCredentials" :key="cred.id" class="badge">
-      <span class="badge__mark" aria-hidden="true">
-        <svg v-if="cred.mark === 'monday'" viewBox="0 0 40 40" xmlns="http://www.w3.org/2000/svg">
-          <rect x="4" y="5" width="32" height="26" rx="9" fill="#FF3D57" />
-          <rect x="4" y="5" width="16" height="13" rx="6" fill="#FFCC00" />
-          <rect x="20" y="18" width="16" height="13" rx="6" fill="#0073EA" />
-          <rect x="4" y="18" width="16" height="13" rx="6" fill="#00CA72" />
-          <path d="M12 31 L16 36 L20 31" fill="#0073EA" />
-        </svg>
-        <svg v-else viewBox="0 0 40 40" xmlns="http://www.w3.org/2000/svg">
-          <circle cx="20" cy="20" r="18" fill="none" stroke="currentColor" stroke-width="1.4" />
-          <circle cx="20" cy="20" r="14" fill="none" stroke="currentColor" stroke-width="0.6" opacity="0.45" />
-          <text
-            x="20"
-            y="23.5"
-            text-anchor="middle"
-            font-size="8"
-            font-weight="700"
-            font-family="Geist, sans-serif"
-            fill="currentColor"
-            letter-spacing="0.06"
-          >
-            {{ cred.mark === 'aitp' ? 'AITP' : cred.mark === 'ai' ? 'AI' : 'CRM' }}
-          </text>
-        </svg>
-      </span>
-      <span class="badge__copy">
-        <strong>{{ cred.title }}</strong>
-        <span>{{ cred.subtitle }}</span>
-      </span>
+      <img src="/brand/monday-mark.svg" alt="" width="36" height="22" class="badge__mark" />
+      <span class="badge__title">{{ cred.title }}</span>
     </li>
   </ul>
 </template>
@@ -43,23 +16,21 @@ withDefaults(defineProps<{ tone?: 'light' | 'dark' }>(), { tone: 'light' })
 <style scoped>
 .badges {
   display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  align-items: stretch;
   gap: 10px;
-}
-
-@media (max-width: 640px) {
-  .badges {
-    grid-template-columns: 1fr;
-  }
+  padding: 0;
+  margin: 0;
+  list-style: none;
 }
 
 .badge {
-  display: inline-flex;
+  display: flex;
   align-items: center;
   gap: 12px;
+  height: 100%;
   min-height: 64px;
-  max-width: 100%;
-  padding: 10px 16px 10px 12px;
+  padding: 12px 16px 12px 14px;
   border-radius: 16px;
   border: 1px solid var(--line);
   background: var(--paper);
@@ -72,35 +43,29 @@ withDefaults(defineProps<{ tone?: 'light' | 'dark' }>(), { tone: 'light' })
 }
 
 .badge__mark {
-  width: 40px;
-  height: 40px;
+  width: 36px;
+  height: 22px;
   flex: none;
-  color: var(--copper-deep);
+  object-fit: contain;
 }
 
-.badges--dark .badge__mark {
-  color: var(--copper-2);
-}
-
-.badge__copy {
-  display: grid;
-  gap: 2px;
-}
-
-.badge__copy strong {
+.badge__title {
   font-size: 13.5px;
   font-weight: 600;
-  letter-spacing: -0.02em;
-  line-height: 1.2;
+  letter-spacing: -0.018em;
+  line-height: 1.25;
+  color: inherit;
 }
 
-.badge__copy span {
-  font-size: 12px;
-  color: var(--text-3);
-  line-height: 1.35;
+@media (max-width: 960px) {
+  .badges {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
 }
 
-.badges--dark .badge__copy span {
-  color: var(--on-dark-3);
+@media (max-width: 520px) {
+  .badges {
+    grid-template-columns: 1fr;
+  }
 }
 </style>

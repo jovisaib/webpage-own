@@ -79,7 +79,7 @@ const doubled = [...integrations, ...integrations]
 
     <HomeMonday />
     <HomeDeploy />
-    <CustomScopeCalculator />
+    <HomeEngage />
     <SiteFaq :items="capabilityFaqs" />
     <HomeContact />
     <p class="sr-only">{{ site.calendly }}</p>

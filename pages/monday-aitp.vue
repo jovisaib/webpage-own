@@ -7,7 +7,7 @@ import { faqJsonLd } from '~/composables/usePageSeo'
 usePageSeo({
   title: 'Technology & ecosystem alliances — Allometrik × monday.com AITP',
   description:
-    'Allometrik is an independent enterprise AI lab. monday.com Authorized Partner (UAE / EMEA), AITP Foundations, monday AI Pathway Level I and monday CRM Sales certified. Fixed-scope packages that connect production document intelligence to monday Enterprise / Service / CRM.',
+    'Fixed-scope AI and Work OS deployments on monday.com Enterprise, Service and CRM — live in weeks. monday.com Authorized Partner (UAE / EMEA).',
   jsonLd: [faqJsonLd(mondayFaqs)],
 })
 </script>
@@ -16,38 +16,33 @@ usePageSeo({
   <div>
     <PageHero
       eyebrow="Technology &amp; ecosystem alliances"
-      lede="Allometrik is an independent enterprise AI lab. We deliver production applied AI, document intelligence and regulatory governance — and we pair with leading operational execution platforms when a client needs CRM, Service or Work Management connected to their agents. monday.com is the first published alliance: a dedicated, turnkey AITP track, distinct from custom ground-up engineering."
+      lede="Fixed-scope AI and Work OS deployments on monday.com Enterprise, Service and CRM — live in weeks."
     >
       Production AI, paired with the <span class="accent">Work OS you already run.</span>
       <template #actions>
-        <MondayBadges />
+        <img src="/brand/monday-logo.svg" alt="monday.com" width="220" height="22" class="hero-logo" />
       </template>
     </PageHero>
+
+    <section class="section section--flush-top creds-sec">
+      <div class="container">
+        <MondayBadges />
+      </div>
+    </section>
 
     <section class="section section--flush-top split">
       <div class="container split__grid">
         <article class="card contrast">
           <p class="eyebrow">This track</p>
           <h2 class="title">monday.com AITP</h2>
-          <p class="body">The first published operational-execution alliance. Fixed scope. Fixed price. Live in 3–10 weeks on monday Enterprise, Service or CRM, with Allometrik document agents inside the Work OS you already standardised on.</p>
+          <p class="body">Fixed-scope Work OS packages, live in 3–10 weeks on monday Enterprise, Service or CRM.</p>
         </article>
         <article class="card contrast contrast--alt">
           <p class="eyebrow">The other track</p>
           <h2 class="title">Custom production agents + free AI OS</h2>
-          <p class="body">Ground-up engineering on your VPC, with Allometrik AI OS included at $0 licence. For processes that will not fit a Work OS package — voice, vision, multi-region governance.</p>
+          <p class="body">Ground-up engineering on your VPC, with Allometrik AI OS included at $0 licence.</p>
           <NuxtLink to="/ai-os" class="text-link">See Allometrik AI OS <UiIcon name="arrow-right" :size="14" /></NuxtLink>
         </article>
-      </div>
-    </section>
-
-    <section class="section section--stone">
-      <div class="container">
-        <p class="eyebrow">Official credentials</p>
-        <h2 class="display-sm">An extensible alliance, not an exclusive agency.</h2>
-        <MondayBadges class="creds" />
-        <p class="body-lg creds__note">
-          Allometrik is a monday.com Authorized Partner (UAE / EMEA) and holds AITP Foundations, monday AI Pathway Level I: Basics, and monday CRM Official Product Training for Sales certifications through monday Partner Academy. monday.com is how we connect agents to Work OS, Service and CRM when that is the right execution layer — not a replacement for custom production engineering, and not the only alliance the lab will publish.
-        </p>
       </div>
     </section>
 
@@ -93,37 +88,47 @@ usePageSeo({
         <aside class="hook">
           <p class="eyebrow">Trojan horse</p>
           <h2 class="display-md">48-Hour Live Diagnostic &amp; Proof</h2>
-          <p class="lede">
-            Send three real anonymised documents from your operation. We deploy a working live demo inside our monday.com Enterprise sandbox in 48 hours.
-          </p>
+          <p class="lede">Send three real anonymised documents. We deploy a working demo in our monday.com sandbox in 48 hours.</p>
           <div class="hook__actions">
             <UiButton :href="site.calendly" variant="halo" size="lg" icon="up">Send three documents</UiButton>
             <a :href="site.mondayPartnerStack" target="_blank" rel="noopener noreferrer" class="text-link">
               Official PartnerStack workspace activation ↗
             </a>
           </div>
-          <p class="hook__url mono">{{ site.mondayPartnerStack }}</p>
         </aside>
       </div>
     </section>
 
-    <CustomScopeCalculator initial-track="aitp" />
+    <HomeEngage />
     <SiteFaq :items="mondayFaqs" title="AITP, in plain language" />
     <PageCta title="Start with a 48-hour diagnostic" lede="Three anonymised documents. A working monday.com sandbox. Then a fixed-scope proposal." />
   </div>
 </template>
 
 <style scoped>
+.hero-logo {
+  height: 22px;
+  width: auto;
+}
+
+.creds-sec {
+  padding-top: 0;
+  padding-bottom: 8px;
+}
+
 .split__grid {
   display: grid;
   grid-template-columns: 1fr 1fr;
+  align-items: stretch;
   gap: 14px;
 }
 
 .contrast {
   padding: 28px;
   display: grid;
+  align-content: start;
   gap: 12px;
+  height: 100%;
 }
 
 .contrast--alt {
@@ -134,18 +139,6 @@ usePageSeo({
 
 .contrast--alt .body {
   color: var(--on-dark-2);
-}
-
-:deep(.creds) {
-  margin-top: 24px;
-  display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 10px;
-}
-
-.creds__note {
-  margin-top: 22px;
-  max-width: 68ch;
 }
 
 .tiers {
@@ -161,6 +154,7 @@ usePageSeo({
   padding: 28px 24px;
   display: grid;
   align-content: start;
+  height: 100%;
   gap: 10px;
 }
 
@@ -168,7 +162,6 @@ usePageSeo({
   background: #0c0d0f;
   color: var(--on-dark);
   border-color: transparent;
-  transform: translateY(-6px);
 }
 
 .tier__n {
@@ -236,6 +229,7 @@ usePageSeo({
 .verts {
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
+  align-items: stretch;
   gap: 14px;
   margin-top: 28px;
 }
@@ -243,6 +237,8 @@ usePageSeo({
 .vert {
   padding: 26px;
   display: grid;
+  align-content: start;
+  height: 100%;
   gap: 12px;
 }
 
@@ -272,21 +268,11 @@ usePageSeo({
   border-color: var(--line-dark-2);
 }
 
-.hook__url {
-  font-size: 12px;
-  color: var(--on-dark-3);
-}
-
 @media (max-width: 960px) {
   .split__grid,
   .tiers,
-  .verts,
-  :deep(.creds) {
+  .verts {
     grid-template-columns: 1fr;
-  }
-
-  .tier--hot {
-    transform: none;
   }
 }
 </style>

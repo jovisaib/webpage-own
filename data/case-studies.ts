@@ -172,7 +172,7 @@ export const caseStudies: CaseStudy[] = [
     title: 'VLM + multi-stage OCR for Spanish pagarés',
     headline: 'Spanish pagarés read, validated and posted to the ERP — 85% faster, 99.4% field accuracy',
     summary:
-      'Vision-language models plus advanced multi-stage OCR extract handwritten amounts, stamps, MICR/IBAN, vencimiento and clauses from any pagaré, check legal and mathematical consistency, and post into the ERP in under 8 seconds.',
+      'VLM + multi-stage OCR reads Spanish pagarés, validates amounts, dates and signatures, and posts to the ERP in under 8 seconds.',
     engagement: 'Production document intelligence · 2–4 week sprints',
     theme: 'dark',
     image: '/cases/madrid-pagares.jpg',

@@ -2,7 +2,7 @@ export const aiosThesis = {
   kicker: 'Commercial thesis',
   headline: 'SaaS is becoming free. Charge for the agent that does the work.',
   lines: ['Give away the CRM.', 'Give away the dashboard.', 'Give away the governance app.', 'Charge only for the agent that does the work.'],
-  body: 'Traditional vendors charge six-figure seat licences for empty dashboards and governance shelfware before a single process is automated. Allometrik flips the enterprise model: we deploy the entire Allometrik AI OS — governance, observability, dashboards and operational interfaces — at $0 licence cost. You pay solely for the production agents delivering measurable business outcomes.',
+  body: 'Allometrik AI OS — governance, observability and operational interfaces — ships at $0 licence; you pay only for the production agents that do the work.',
 }
 
 export const aiosBadges = [

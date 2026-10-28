@@ -337,11 +337,7 @@ const pillars = [
 
 @media (max-width: 1100px) {
   .pillars {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-  }
-
-  .pillar:last-child {
-    grid-column: 1 / -1;
+    grid-template-columns: 1fr;
   }
 }
 
