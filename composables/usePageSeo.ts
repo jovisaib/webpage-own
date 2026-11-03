@@ -4,6 +4,9 @@ export function usePageSeo(opts: {
   title: string
   description: string
   image?: string
+  imageAlt?: string
+  imageWidth?: number
+  imageHeight?: number
   type?: string
   jsonLd?: Record<string, unknown> | Record<string, unknown>[]
 }) {
@@ -11,6 +14,7 @@ export function usePageSeo(opts: {
   const path = route.path === '/' ? '' : route.path.replace(/\/$/, '')
   const canonical = `${site.url}${path}`
   const image = opts.image?.startsWith('http') ? opts.image : `${site.url}${opts.image || '/og-image.png'}`
+  const imageType = /\.jpe?g$/i.test(image) ? 'image/jpeg' : /\.gif$/i.test(image) ? 'image/gif' : 'image/png'
 
   useSeoMeta({
     title: opts.title,
@@ -18,12 +22,18 @@ export function usePageSeo(opts: {
     ogTitle: opts.title,
     ogDescription: opts.description,
     ogImage: image,
-    ogType: opts.type || 'website',
+    ogImageSecureUrl: image,
+    ogImageType: imageType,
+    ogImageWidth: opts.imageWidth ?? 1200,
+    ogImageHeight: opts.imageHeight ?? 630,
+    ogImageAlt: opts.imageAlt,
+    ogType: (opts.type || 'website') as 'website',
     ogUrl: canonical,
     twitterCard: 'summary_large_image',
     twitterTitle: opts.title,
     twitterDescription: opts.description,
     twitterImage: image,
+    twitterImageAlt: opts.imageAlt,
   })
 
   useHead({

@@ -6,7 +6,9 @@ const EXPEDITION_DATES = 'March 2027'
 usePageSeo({
   title: 'Shenzhen Expedition by Allometrik - Hardware, robotics, AI supply chain',
   description:
-    'Small group expeditions to Shenzhen factories, electronics markets, and China\'s hardware ecosystem. Download our latest field notes.',
+    `Small-group expedition to Shenzhen, ${EXPEDITION_DATES} (max 10): factories, electronics markets and robotics labs. Get our latest field notes.`,
+  image: '/og/expedition.jpg',
+  imageAlt: 'Shenzhen Expedition by Allometrik: Hardware, robotics, AI. Direct from the source. March 2027, max 10 people.',
 })
 
 const email = ref('')
