@@ -70,3 +70,30 @@ export const mondayFaqs: FaqItem[] = [
     a: 'Yes. Allometrik is a monday.com Authorized Partner (UAE / EMEA) with AITP Foundations, AI Pathway Level I and CRM Sales certifications — one alliance in an extensible model, not an exclusive agency.',
   },
 ]
+
+export const voiceFaqs: FaqItem[] = [
+  {
+    q: 'Which languages do the agents speak?',
+    a: 'English, Arabic and Spanish in production, including Gulf Arabic and Latin American Spanish, with mid-call language switching. Further languages are scoped and evaluated on your own recordings before launch.',
+  },
+  {
+    q: 'How do you handle consent and outbound calling?',
+    a: 'Outbound calls are placed only to contacts who have given consent, within permitted hours, with the agent identifying itself as automated at the start of the call and honouring opt-outs immediately. Recording notices are played wherever the jurisdiction requires them.',
+  },
+  {
+    q: 'Is it compliant with GDPR and the UAE PDPL?',
+    a: 'Deployments are designed for GDPR and the UAE Personal Data Protection Law: a data processing agreement, data residency in EU or UAE regions, documented retention periods, and data-subject requests handled through your existing process.',
+  },
+  {
+    q: 'What happens to our call data?',
+    a: 'Recordings and transcripts stay in your tenant or a dedicated region, with personal data redacted where it is not needed. Access is role-based and logged, and your data is never used to train models.',
+  },
+  {
+    q: 'Can it work with our existing IVR?',
+    a: 'Yes. The agent can sit inside your current IVR flow and take over specific branches, such as reservations or order status, or replace the menu entirely with a natural conversation. Callers keep the same numbers, and transfers back to your queues carry the full context.',
+  },
+  {
+    q: 'Which platforms do you work with?',
+    a: 'We have shipped integrations, including IVR flows, with Genesys Cloud, Five9, Twilio and Amazon Connect, as well as SIP trunks. For the agent to act, we connect Opera PMS for reservations, Salesforce and HubSpot for CRM, and Apollo.io for lead enrichment and outbound sync.',
+  },
+]
