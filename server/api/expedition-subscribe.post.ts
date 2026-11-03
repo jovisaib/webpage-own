@@ -182,7 +182,7 @@ export default defineEventHandler(async (event) => {
       
       <a href="${guideUrl}" class="button">Download field notes</a>
       
-      <p>We're organizing a small group expedition to Shenzhen in April 2027 (max 10 people) — hardware factories, electronics markets, robotics ecosystem. More details coming soon.</p>
+      <p>We're organizing a small group expedition to Shenzhen in March 2027 (max 10 people) — hardware factories, electronics markets, robotics ecosystem. More details coming soon.</p>
       
       <p>Questions? Just reply to this email.</p>
       
