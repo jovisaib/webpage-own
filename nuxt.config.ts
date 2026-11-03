@@ -17,6 +17,7 @@ const prerenderRoutes = [
   '/about',
   '/cto-as-a-service',
   '/ai-os',
+  '/voice',
   '/monday-aitp',
   '/privacy-policy',
   '/terms-of-service',
