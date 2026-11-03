@@ -63,9 +63,9 @@ interface Shot {
 
 const hero: Shot = {
   key: 'skyline',
-  file: 'shenzhen-futian-cbd',
+  file: 'expedition-hero',
   w: 2400,
-  h: 990,
+  h: 1440,
   smallW: 1200,
   alt: 'Futian CBD skyline in Shenzhen with the Ping An Finance Centre rising above the Civic Centre, seen from Lianhuashan Park',
   caption: 'Futian CBD · Ping An Finance Centre',
@@ -75,20 +75,21 @@ const hero: Shot = {
   licenseUrl: 'https://creativecommons.org/licenses/by-sa/4.0/',
 }
 
+const lead: Shot = {
+  key: 'market',
+  file: 'huaqiang-atrium-wide',
+  w: 2000,
+  h: 840,
+  smallW: 1000,
+  alt: 'Multi-storey atrium of Huaqiang Electronics World in Huaqiangbei, lined with electronics stalls and screens',
+  caption: 'Huaqiangbei · Huaqiang Electronics World',
+  author: 'BAIEDEIN iwm Twoiammx',
+  source: 'https://commons.wikimedia.org/wiki/File:SZ_%E6%B7%B1%E5%9C%B3_Shenzhen_%E7%A6%8F%E7%94%B0_Futian_%E8%8F%AF%E5%BC%B7%E5%8C%97_Huaqiang_North_%E8%8F%AF%E5%BC%B7%E9%9B%BB%E5%AD%90%E4%B8%96%E7%95%8C_HuaQiang_Electronics_World_mall_February_2025_R12S_04.jpg',
+  license: 'CC0',
+  licenseUrl: 'https://creativecommons.org/publicdomain/zero/1.0/',
+}
+
 const shots: Shot[] = [
-  {
-    key: 'market',
-    file: 'huaqiang-electronics-world',
-    w: 1400,
-    h: 966,
-    smallW: 800,
-    alt: 'Multi-storey atrium of Huaqiang Electronics World in Huaqiangbei, lined with electronics stalls and screens',
-    caption: 'Huaqiangbei · Huaqiang Electronics World',
-    author: 'BAIEDEIN iwm Twoiammx',
-    source: 'https://commons.wikimedia.org/wiki/File:SZ_%E6%B7%B1%E5%9C%B3_Shenzhen_%E7%A6%8F%E7%94%B0_Futian_%E8%8F%AF%E5%BC%B7%E5%8C%97_Huaqiang_North_%E8%8F%AF%E5%BC%B7%E9%9B%BB%E5%AD%90%E4%B8%96%E7%95%8C_HuaQiang_Electronics_World_mall_February_2025_R12S_04.jpg',
-    license: 'CC0',
-    licenseUrl: 'https://creativecommons.org/publicdomain/zero/1.0/',
-  },
   {
     key: 'lab',
     file: 'humanoid-robotics-lab',
@@ -143,16 +144,15 @@ const shots: Shot[] = [
   },
 ]
 
-const credits = [hero, ...shots]
+const credits = [hero, lead, ...shots]
 const imgSrc = (s: Shot) => `/images/expedition/${s.file}.webp`
 const imgSrcset = (s: Shot) =>
   `/images/expedition/${s.file}-${s.smallW}.webp ${s.smallW}w, /images/expedition/${s.file}.webp ${s.w}w`
 const tileSizes: Record<string, string> = {
-  market: '(min-width: 1320px) 720px, (min-width: 900px) 58vw, 100vw',
   lab: '(min-width: 1320px) 510px, (min-width: 900px) 42vw, 50vw',
-  factory: '(min-width: 1320px) 410px, (min-width: 900px) 34vw, 50vw',
-  robots: '(min-width: 1320px) 510px, (min-width: 900px) 42vw, 100vw',
-  drones: '(min-width: 1320px) 310px, (min-width: 900px) 26vw, 100vw',
+  factory: '(min-width: 1320px) 720px, (min-width: 900px) 58vw, 50vw',
+  robots: '(min-width: 1320px) 720px, (min-width: 900px) 58vw, 100vw',
+  drones: '(min-width: 1320px) 510px, (min-width: 900px) 42vw, 100vw',
 }
 const pad = (n: number) => String(n).padStart(2, '0')
 
@@ -183,65 +183,69 @@ onBeforeUnmount(() => revealObserver?.disconnect())
 
 <template>
   <div class="expedition">
-    <div class="expedition__container">
-      <NuxtLink to="/" class="expedition__logo" aria-label="Allometrik home">
-        <BrandLogo variant="light" :size="32" />
-      </NuxtLink>
+    <section class="xh" aria-labelledby="xh-title">
+      <div class="xh__visual" aria-hidden="true">
+        <img
+          :src="imgSrc(hero)"
+          :srcset="imgSrcset(hero)"
+          sizes="(min-width: 1440px) 1400px, 100vw"
+          :width="hero.w"
+          :height="hero.h"
+          alt=""
+          fetchpriority="high"
+          decoding="async"
+        />
+      </div>
 
-      <main class="expedition__main">
-        <div v-if="!submitted" class="expedition__content">
-          <h1 class="expedition__headline">
-            <span class="expedition__kicker">Shenzhen Expedition by Allometrik</span>
-            <span class="expedition__title">Hardware, robotics, AI.<br />Direct from the source.</span>
-          </h1>
+      <div class="xh__copy">
+        <p class="xh__eyebrow">Shenzhen Expedition by Allometrik</p>
+        <h1 id="xh-title" class="xh__title">Hardware, robotics, AI.<br />Direct from the source.</h1>
+        <p class="xh__lede">Field notes from the factories, markets and robotics labs of Shenzhen.</p>
+        <p class="xh__badge">Next expedition: {{ EXPEDITION_DATES }} · max 10 people</p>
+      </div>
 
-          <p class="expedition__lede">Get our latest field notes from Shenzhen.</p>
+      <div class="xh__panel">
+        <form v-if="!submitted" class="xh__form" @submit.prevent="handleSubmit">
+          <p class="xh__form-title">Get our latest field notes</p>
+          <label for="expedition-email" class="sr-only">Email address</label>
+          <input
+            id="expedition-email"
+            v-model="email"
+            type="email"
+            placeholder="Your email"
+            autocomplete="email"
+            required
+            class="xh__input"
+            :disabled="loading"
+          />
+          <label for="expedition-name" class="sr-only">Name (optional)</label>
+          <input
+            id="expedition-name"
+            v-model="name"
+            type="text"
+            placeholder="Name (optional)"
+            autocomplete="name"
+            class="xh__input"
+            :disabled="loading"
+          />
+          <input v-model="honeypot" type="text" class="xh__hp" tabindex="-1" aria-hidden="true" />
+          <button type="submit" class="xh__button" :disabled="loading">
+            {{ loading ? 'Sending...' : 'Get the guide' }}
+          </button>
+          <p v-if="error" class="xh__error" role="alert">{{ error }}</p>
+          <p class="xh__note">You'll join our Shenzhen newsletter: field notes, supplier insights and expedition updates. Unsubscribe anytime.</p>
+        </form>
 
-          <p class="expedition__about">
-            A week on the ground in Shenzhen: factories, hardware and robotics makers, suppliers and the AI ecosystem. Small group, curated visits, direct access.
-          </p>
-
-          <form class="expedition__form" @submit.prevent="handleSubmit">
-            <label for="expedition-email" class="sr-only">Email address</label>
-            <input
-              id="expedition-email"
-              v-model="email"
-              type="email"
-              placeholder="Your email"
-              required
-              class="expedition__input"
-              :disabled="loading"
-            />
-            <label for="expedition-name" class="sr-only">Name (optional)</label>
-            <input
-              id="expedition-name"
-              v-model="name"
-              type="text"
-              placeholder="Name (optional)"
-              class="expedition__input expedition__input--optional"
-              :disabled="loading"
-            />
-            <input v-model="honeypot" type="text" class="expedition__hp" tabindex="-1" aria-hidden="true" />
-            <button type="submit" class="expedition__button" :disabled="loading">
-              {{ loading ? 'Sending...' : 'Get the guide' }}
-            </button>
-            <p v-if="error" class="expedition__error">{{ error }}</p>
-            <p class="expedition__newsletter">You'll join our Shenzhen newsletter: field notes, supplier insights and expedition updates. Unsubscribe anytime.</p>
-          </form>
-
-          <p class="expedition__trip">Next expedition: {{ EXPEDITION_DATES }} · max 10 people.</p>
-        </div>
-
-        <div v-else class="expedition__success">
-          <div class="expedition__success-icon">
-            <UiIcon name="check" :size="28" :stroke="2" />
+        <div v-else class="xh__success" role="status">
+          <div class="xh__success-icon">
+            <UiIcon name="check" :size="24" :stroke="2" />
           </div>
-          <h2 class="expedition__success-title">Check your inbox</h2>
-          <p class="expedition__success-text">We've sent the guide to <strong>{{ email }}</strong></p>
-          <p class="expedition__success-sub">If you don't see it, check spam. Questions? <a :href="`mailto:${site.email}`">{{ site.email }}</a></p>
+          <p class="xh__success-title">Check your inbox</p>
+          <p class="xh__success-text">We've sent the guide to <strong>{{ email }}</strong></p>
+          <p class="xh__success-sub">If you don't see it, check spam. Questions? <a :href="`mailto:${site.email}`">{{ site.email }}</a></p>
         </div>
-      </main>
-    </div>
+      </div>
+    </section>
 
     <section ref="galleryEl" class="xg" aria-labelledby="xg-title">
       <header class="xg__head" data-reveal>
@@ -254,16 +258,17 @@ onBeforeUnmount(() => revealObserver?.disconnect())
       <figure class="xg__hero" data-reveal>
         <div class="xg__media">
           <img
-            :src="imgSrc(hero)"
-            :srcset="imgSrcset(hero)"
+            :src="imgSrc(lead)"
+            :srcset="imgSrcset(lead)"
             sizes="(min-width: 1320px) 1240px, calc(100vw - 40px)"
-            :width="hero.w"
-            :height="hero.h"
-            :alt="hero.alt"
+            :width="lead.w"
+            :height="lead.h"
+            :alt="lead.alt"
+            loading="lazy"
             decoding="async"
           />
         </div>
-        <figcaption class="xg__cap"><span class="xg__num">01</span>{{ hero.caption }}<span class="xg__where">Shenzhen, 2025</span></figcaption>
+        <figcaption class="xg__cap"><span class="xg__num">01</span>{{ lead.caption }}<span class="xg__where">Shenzhen, 2025</span></figcaption>
       </figure>
 
       <div class="xg__bento">
@@ -287,7 +292,7 @@ onBeforeUnmount(() => revealObserver?.disconnect())
       <p class="xg__credits">
         Photos:
         <template v-for="(c, i) in credits" :key="c.key">
-          <span class="xg__credit">{{ pad(i + 1) }} <a :href="c.source" target="_blank" rel="noopener">{{ c.author }}</a>, <a :href="c.licenseUrl" target="_blank" rel="noopener license">{{ c.license }}</a></span><template v-if="i < credits.length - 1"> · </template>
+          <span class="xg__credit">{{ i === 0 ? 'Hero' : pad(i) }} <a :href="c.source" target="_blank" rel="noopener">{{ c.author }}</a>, <a :href="c.licenseUrl" target="_blank" rel="noopener license">{{ c.license }}</a></span><template v-if="i < credits.length - 1"> · </template>
         </template>.
         Via Wikimedia Commons and Unsplash; cropped, resized and lightly colour-corrected.
       </p>
@@ -303,124 +308,172 @@ onBeforeUnmount(() => revealObserver?.disconnect())
 .expedition {
   --x-alabaster: #f5f2eb;
   --x-copper: #c26a35;
+  --x-copper-light: #eaa77c;
   --x-ink: #0c0d0f;
+  --x-nav-clear: calc(var(--nav-h) + 22px);
 
   min-height: 100vh;
   background: var(--x-alabaster);
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding: 32px 20px;
+  padding: var(--x-nav-clear) 20px 32px;
 }
 
-.expedition__container {
+.xh {
+  position: relative;
+  isolation: isolate;
   width: 100%;
-  max-width: 540px;
+  max-width: 1400px;
+  min-height: clamp(600px, calc(100svh - var(--x-nav-clear) - 104px), 820px);
   display: grid;
-  gap: clamp(48px, 8vw, 72px);
-  align-content: center;
-  justify-items: center;
-  min-height: 80vh;
+  grid-template-columns: minmax(0, 1fr) minmax(340px, 392px);
+  align-items: end;
+  gap: clamp(32px, 4vw, 64px);
+  padding: clamp(32px, 4.2vw, 60px);
+  border-radius: 28px;
+  overflow: hidden;
+  color: var(--x-alabaster);
+  box-shadow: 0 40px 80px -48px rgba(12, 13, 15, 0.55);
 }
 
-.expedition__logo {
-  opacity: 0.88;
-  transition: opacity 0.25s ease;
+.xh__visual {
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background: #2a2c30;
 }
 
-.expedition__logo:hover {
-  opacity: 1;
-}
-
-.expedition__main {
+.xh__visual img {
+  position: absolute;
+  inset: 0;
   width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: 62% 62%;
 }
 
-.expedition__content {
+.xh__visual::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(180deg, rgba(12, 13, 15, 0.08) 0%, rgba(12, 13, 15, 0.22) 38%, rgba(12, 13, 15, 0.86) 100%),
+    linear-gradient(90deg, rgba(12, 13, 15, 0.5) 0%, rgba(12, 13, 15, 0) 62%);
+}
+
+.xh__copy {
   display: grid;
-  gap: 32px;
-  justify-items: center;
-  text-align: center;
+  justify-items: start;
+  gap: 18px;
+  max-width: 720px;
 }
 
-.expedition__headline {
-  display: grid;
-  gap: 14px;
-}
-
-.expedition__kicker {
+.xh__eyebrow {
   font-family: var(--font-mono);
   font-size: 12px;
   font-weight: 500;
-  letter-spacing: 0.12em;
+  letter-spacing: 0.16em;
   text-transform: uppercase;
-  color: var(--copper-deep);
+  color: var(--x-copper-light);
 }
 
-.expedition__title {
-  font-size: clamp(32px, 5vw, 44px);
-  line-height: 1.1;
-  font-weight: 500;
-  letter-spacing: -0.038em;
-  color: var(--ink);
+.xh__title {
   font-family: var(--font-serif);
   font-style: italic;
+  font-weight: 400;
+  font-size: clamp(46px, 6.4vw, 96px);
+  line-height: 0.98;
+  letter-spacing: -0.025em;
+  color: var(--x-alabaster);
+  text-wrap: balance;
 }
 
-.expedition__lede {
-  font-size: 17px;
-  line-height: 1.6;
-  color: var(--text-2);
-  margin-top: -8px;
+.xh__lede {
+  max-width: 44ch;
+  font-size: clamp(16px, 1.25vw, 18px);
+  line-height: 1.55;
+  color: rgba(245, 242, 235, 0.8);
 }
 
-.expedition__about {
-  font-size: 14.5px;
-  line-height: 1.6;
-  color: var(--text-3);
-  max-width: 48ch;
-  margin: 16px auto 0;
+.xh__badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 9px;
+  margin-top: 6px;
+  padding: 7px 13px 7px 11px;
+  border-radius: 999px;
+  font-family: var(--font-mono);
+  font-size: 11.5px;
+  font-weight: 500;
+  letter-spacing: 0.04em;
+  color: #f6c7a5;
+  background: rgba(194, 106, 53, 0.24);
+  border: 1px solid rgba(194, 106, 53, 0.7);
+  -webkit-backdrop-filter: blur(8px);
+  backdrop-filter: blur(8px);
 }
 
-.expedition__form {
-  width: 100%;
+.xh__badge::before {
+  content: '';
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--x-copper);
+  box-shadow: 0 0 0 3px rgba(194, 106, 53, 0.28);
+}
+
+.xh__panel {
+  padding: 22px;
+  border-radius: 22px;
+  background: rgba(245, 242, 235, 0.95);
+  -webkit-backdrop-filter: blur(18px) saturate(140%);
+  backdrop-filter: blur(18px) saturate(140%);
+  border: 1px solid rgba(255, 255, 255, 0.6);
+  box-shadow: 0 30px 60px -30px rgba(12, 13, 15, 0.6);
+  color: var(--x-ink);
+}
+
+.xh__form {
   display: grid;
   gap: 10px;
-  margin-top: 24px;
 }
 
-.expedition__input {
+.xh__form-title {
+  font-size: 15px;
+  font-weight: 500;
+  letter-spacing: -0.01em;
+  margin-bottom: 4px;
+}
+
+.xh__input {
   width: 100%;
-  height: 52px;
-  padding: 0 20px;
-  border-radius: 14px;
+  height: 50px;
+  padding: 0 16px;
+  border-radius: 12px;
   border: 1px solid var(--line-2);
-  background: var(--paper);
+  background: #fff;
   font-size: 16px;
-  color: var(--ink);
+  color: var(--x-ink);
   transition: border-color 0.2s ease, box-shadow 0.2s ease;
 }
 
-.expedition__input::placeholder {
+.xh__input::placeholder {
   color: var(--text-3);
 }
 
-.expedition__input:focus {
+.xh__input:focus {
   outline: none;
-  border-color: var(--copper);
-  box-shadow: 0 0 0 3px rgba(200, 122, 75, 0.1);
+  border-color: var(--x-copper);
+  box-shadow: 0 0 0 3px rgba(194, 106, 53, 0.14);
 }
 
-.expedition__input:disabled {
+.xh__input:disabled {
   opacity: 0.5;
   cursor: not-allowed;
 }
 
-.expedition__input--optional {
-  height: 48px;
-}
-
-.expedition__hp {
+.xh__hp {
   position: absolute;
   left: -9999px;
   width: 1px;
@@ -429,109 +482,155 @@ onBeforeUnmount(() => revealObserver?.disconnect())
   pointer-events: none;
 }
 
-.expedition__button {
+.xh__button {
   width: 100%;
-  height: 52px;
-  padding: 0 24px;
-  border-radius: 14px;
-  background: var(--ink);
-  color: var(--canvas);
-  font-size: 16px;
+  height: 50px;
+  margin-top: 2px;
+  border: none;
+  border-radius: 12px;
+  background: var(--x-ink);
+  color: var(--x-alabaster);
+  font-size: 15.5px;
   font-weight: 500;
   letter-spacing: -0.01em;
-  border: none;
   cursor: pointer;
   transition: background-color 0.2s ease, transform 0.2s ease;
-  box-shadow: 0 1px 0 rgba(255, 255, 255, 0.08) inset, 0 8px 20px -10px rgba(17, 19, 24, 0.5);
+  box-shadow: 0 1px 0 rgba(255, 255, 255, 0.08) inset, 0 8px 20px -10px rgba(12, 13, 15, 0.5);
 }
 
-.expedition__button:hover:not(:disabled) {
+.xh__button:hover:not(:disabled) {
   background: #000;
 }
 
-.expedition__button:active:not(:disabled) {
+.xh__button:active:not(:disabled) {
   transform: translateY(1px);
 }
 
-.expedition__button:disabled {
+.xh__button:disabled {
   opacity: 0.6;
   cursor: not-allowed;
 }
 
-.expedition__error {
-  font-size: 14px;
+.xh__error {
+  font-size: 13.5px;
   color: #c5392a;
-  margin-top: -2px;
 }
 
-.expedition__newsletter {
-  font-size: 12.5px;
+.xh__note {
+  font-size: 12px;
   line-height: 1.5;
   color: var(--text-3);
-  margin-top: -2px;
-  max-width: 42ch;
-  margin-left: auto;
-  margin-right: auto;
 }
 
-.expedition__trip {
-  font-size: 14px;
-  color: var(--text-3);
-  margin-top: 16px;
-}
-
-.expedition__success {
+.xh__success {
   display: grid;
-  gap: 18px;
-  justify-items: center;
-  text-align: center;
-  padding: 40px 0;
+  gap: 10px;
+  justify-items: start;
 }
 
-.expedition__success-icon {
-  width: 64px;
-  height: 64px;
+.xh__success-icon {
+  width: 44px;
+  height: 44px;
   border-radius: 50%;
-  background: rgba(200, 122, 75, 0.1);
-  color: var(--copper);
   display: grid;
   place-items: center;
+  background: rgba(194, 106, 53, 0.12);
+  color: var(--x-copper);
 }
 
-.expedition__success-title {
-  font-size: 28px;
+.xh__success-title {
+  font-size: 22px;
   font-weight: 500;
-  letter-spacing: -0.03em;
-  color: var(--ink);
-  margin-top: 4px;
+  letter-spacing: -0.02em;
 }
 
-.expedition__success-text {
-  font-size: 16px;
+.xh__success-text {
+  font-size: 15px;
   color: var(--text-2);
-  max-width: 42ch;
 }
 
-.expedition__success-text strong {
-  color: var(--ink);
+.xh__success-text strong {
+  color: var(--x-ink);
   font-weight: 500;
 }
 
-.expedition__success-sub {
-  font-size: 14px;
+.xh__success-sub {
+  font-size: 13px;
   color: var(--text-3);
-  margin-top: 8px;
 }
 
-.expedition__success-sub a {
-  color: var(--copper);
+.xh__success-sub a {
+  color: var(--x-copper);
   text-decoration: none;
-  border-bottom: 1px solid transparent;
-  transition: border-color 0.2s ease;
 }
 
-.expedition__success-sub a:hover {
-  border-color: var(--copper);
+@media (max-width: 860px) {
+  .expedition {
+    --x-nav-clear: calc(var(--nav-h) + 18px);
+    padding: var(--x-nav-clear) 12px 24px;
+  }
+
+  .xh {
+    grid-template-columns: minmax(0, 1fr);
+    min-height: 0;
+    gap: 0;
+    padding: 0;
+    border-radius: 0;
+    overflow: visible;
+    box-shadow: none;
+  }
+
+  .xh__visual {
+    position: relative;
+    inset: auto;
+    z-index: 0;
+    grid-area: 1 / 1;
+    align-self: stretch;
+    border-radius: 24px;
+    overflow: hidden;
+  }
+
+  .xh__visual img {
+    object-position: 65% 60%;
+  }
+
+  .xh__visual::after {
+    background: linear-gradient(180deg, rgba(12, 13, 15, 0.05) 0%, rgba(12, 13, 15, 0.3) 40%, rgba(12, 13, 15, 0.9) 100%);
+  }
+
+  .xh__copy {
+    grid-area: 1 / 1;
+    z-index: 1;
+    align-content: end;
+    min-height: clamp(360px, 45svh, 440px);
+    padding: 24px 18px 50px;
+    gap: 12px;
+  }
+
+  .xh__badge {
+    margin-top: 4px;
+    padding: 6px 11px 6px 10px;
+    font-size: 10.5px;
+    letter-spacing: 0.02em;
+    white-space: nowrap;
+  }
+
+  .xh__title {
+    font-size: clamp(38px, 10.4vw, 56px);
+  }
+
+  .xh__lede {
+    font-size: 15px;
+  }
+
+  .xh__panel {
+    grid-area: 2 / 1;
+    z-index: 2;
+    position: relative;
+    margin: -30px 8px 0;
+    padding: 16px;
+    background: #fbf9f4;
+  }
 }
 
 .xg {
@@ -622,11 +721,11 @@ onBeforeUnmount(() => revealObserver?.disconnect())
 }
 
 .xg__hero .xg__media {
-  aspect-ratio: 2400 / 990;
+  aspect-ratio: 2000 / 840;
 }
 
 .xg__hero .xg__media img {
-  object-position: 60% 50%;
+  object-position: 50% 50%;
 }
 
 .xg__bento {
@@ -634,9 +733,9 @@ onBeforeUnmount(() => revealObserver?.disconnect())
   gap: clamp(16px, 1.6vw, 22px);
   grid-template-columns: repeat(12, minmax(0, 1fr));
   grid-template-areas:
-    'market market market market market market market lab lab lab lab lab'
-    'factory factory factory factory robots robots robots robots robots drones drones drones';
-  grid-template-rows: clamp(380px, 40vw, 560px) clamp(280px, 28vw, 380px);
+    'lab lab lab lab lab factory factory factory factory factory factory factory'
+    'robots robots robots robots robots robots robots drones drones drones drones drones';
+  grid-template-rows: clamp(360px, 38vw, 520px) clamp(300px, 30vw, 420px);
 }
 
 .xg__tile {
@@ -645,7 +744,6 @@ onBeforeUnmount(() => revealObserver?.disconnect())
   min-height: 0;
 }
 
-.xg__tile--market { grid-area: market; }
 .xg__tile--lab { grid-area: lab; }
 .xg__tile--factory { grid-area: factory; }
 .xg__tile--robots { grid-area: robots; }
@@ -699,7 +797,6 @@ onBeforeUnmount(() => revealObserver?.disconnect())
   .xg__bento {
     grid-template-columns: repeat(2, minmax(0, 1fr));
     grid-template-areas:
-      'market market'
       'lab factory'
       'robots robots'
       'drones drones';
@@ -710,7 +807,6 @@ onBeforeUnmount(() => revealObserver?.disconnect())
     grid-template-rows: auto auto;
   }
 
-  .xg__tile--market .xg__media,
   .xg__tile--drones .xg__media { aspect-ratio: 4 / 3; }
   .xg__tile--lab .xg__media,
   .xg__tile--factory .xg__media { aspect-ratio: 3 / 4; }
@@ -718,7 +814,7 @@ onBeforeUnmount(() => revealObserver?.disconnect())
   .xg__tile--factory img { object-position: 42% 50%; }
 
   .xg__hero .xg__media {
-    aspect-ratio: 4 / 3;
+    aspect-ratio: 16 / 10;
   }
 }
 
@@ -765,17 +861,4 @@ onBeforeUnmount(() => revealObserver?.disconnect())
   border-color: var(--line-3);
 }
 
-@media (max-width: 640px) {
-  .expedition {
-    padding: 24px 16px;
-  }
-
-  .expedition__container {
-    gap: 40px;
-  }
-
-  .expedition__title {
-    font-size: 32px;
-  }
-}
 </style>
