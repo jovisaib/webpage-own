@@ -109,6 +109,48 @@ async function handleSubmit() {
         </div>
       </main>
 
+      <section class="expedition__gallery">
+        <div class="expedition__gallery-header">
+          <h3 class="expedition__gallery-title">Factory visits · Supplier meetings · Robotics & AI labs</h3>
+        </div>
+        
+        <div class="expedition__gallery-grid">
+          <div class="expedition__gallery-item">
+            <img src="/images/expedition/shenzhen-night.webp" alt="Shenzhen skyline at night" class="expedition__gallery-img" loading="lazy" />
+            <p class="expedition__gallery-caption">Shenzhen · the hardware capital</p>
+          </div>
+          
+          <div class="expedition__gallery-item">
+            <img src="/images/expedition/components.webp" alt="Electronics components" class="expedition__gallery-img" loading="lazy" />
+            <p class="expedition__gallery-caption">Huaqiangbei · components in hours</p>
+          </div>
+          
+          <div class="expedition__gallery-item">
+            <img src="/images/expedition/electronics-factory.webp" alt="PCB and electronics factory line" class="expedition__gallery-img" loading="lazy" />
+            <p class="expedition__gallery-caption">Factory floors · prototype to 10k units</p>
+          </div>
+          
+          <div class="expedition__gallery-item">
+            <img src="/images/expedition/robotics.webp" alt="Humanoid robot technology" class="expedition__gallery-img" loading="lazy" />
+            <p class="expedition__gallery-caption">Robotics · humanoids to cobots</p>
+          </div>
+          
+          <div class="expedition__gallery-item">
+            <img src="/images/expedition/industrial-robot.webp" alt="Industrial robotic arm" class="expedition__gallery-img" loading="lazy" />
+            <p class="expedition__gallery-caption">Automation · next-gen manufacturing</p>
+          </div>
+          
+          <div class="expedition__gallery-item">
+            <img src="/images/expedition/drones.webp" alt="Drones and hardware prototyping" class="expedition__gallery-img" loading="lazy" />
+            <p class="expedition__gallery-caption">Hardware · rapid prototyping</p>
+          </div>
+        </div>
+        
+        <p class="expedition__gallery-credits">
+          Images from Unsplash: Shenzhen © Miltiadis Fragkidis, Components © Harpal Singh, Factory © Alexandre Debiève, Robotics © Alex Knight & Possessed Photography, Hardware © Dose Media
+        </p>
+      </section>
+
       <footer class="expedition__footer">
         <a :href="`mailto:${site.email}`">{{ site.email }}</a>
       </footer>
@@ -376,5 +418,95 @@ async function handleSubmit() {
   .expedition__title {
     font-size: 32px;
   }
+}
+
+.expedition__gallery {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: clamp(64px, 10vw, 96px) 20px clamp(48px, 8vw, 72px);
+}
+
+.expedition__gallery-header {
+  text-align: center;
+  margin-bottom: clamp(40px, 6vw, 56px);
+}
+
+.expedition__gallery-title {
+  font-family: var(--font-mono);
+  font-size: clamp(14px, 2vw, 15px);
+  font-weight: 400;
+  color: var(--copper);
+  letter-spacing: 0.02em;
+  text-transform: none;
+}
+
+.expedition__gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: clamp(24px, 4vw, 32px);
+  margin-bottom: 32px;
+}
+
+@media (min-width: 768px) {
+  .expedition__gallery-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+.expedition__gallery-item {
+  position: relative;
+  overflow: hidden;
+  border-radius: 2px;
+  opacity: 0;
+  transform: translateY(12px);
+  animation: fadeInUp 0.6s ease forwards;
+}
+
+.expedition__gallery-item:nth-child(1) { animation-delay: 0.1s; }
+.expedition__gallery-item:nth-child(2) { animation-delay: 0.2s; }
+.expedition__gallery-item:nth-child(3) { animation-delay: 0.3s; }
+.expedition__gallery-item:nth-child(4) { animation-delay: 0.4s; }
+.expedition__gallery-item:nth-child(5) { animation-delay: 0.5s; }
+.expedition__gallery-item:nth-child(6) { animation-delay: 0.6s; }
+
+@keyframes fadeInUp {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.expedition__gallery-img {
+  width: 100%;
+  height: 100%;
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.4s ease, opacity 0.4s ease;
+}
+
+.expedition__gallery-item:hover .expedition__gallery-img {
+  transform: scale(1.03);
+  opacity: 0.9;
+}
+
+.expedition__gallery-caption {
+  font-family: var(--font-mono);
+  font-size: 12.5px;
+  color: var(--text-2);
+  margin-top: 10px;
+  letter-spacing: 0.01em;
+}
+
+.expedition__gallery-credits {
+  font-size: 11px;
+  color: var(--text-3);
+  text-align: center;
+  line-height: 1.5;
+  max-width: 800px;
+  margin: 0 auto;
+  padding-top: 24px;
+  border-top: 1px solid var(--line-2);
 }
 </style>
