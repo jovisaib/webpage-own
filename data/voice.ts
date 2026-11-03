@@ -1,4 +1,6 @@
 import { getCaseStudy } from './case-studies'
+import { clientLogos } from './clients'
+import { testimonials } from './testimonials'
 
 export interface VoiceOffer {
   id: string
@@ -60,6 +62,33 @@ export const voiceOffers: VoiceOffer[] = [
   },
 ]
 
+export interface StackLogo {
+  name: string
+  caption: string
+  src: string
+  /** viewBox width ÷ height, used to give every mark the same optical weight. */
+  ratio: number
+}
+
+export const voiceStackLogos: StackLogo[] = [
+  { name: 'Genesys Cloud', caption: 'Contact centre · IVR', src: '/integrations/voice/genesys.svg', ratio: 5.41 },
+  { name: 'Five9', caption: 'Contact centre · IVR', src: '/integrations/voice/five9.svg', ratio: 3.01 },
+  { name: 'Twilio', caption: 'Voice · IVR', src: '/integrations/voice/twilio.svg', ratio: 3.31 },
+  { name: 'Amazon Connect', caption: 'Amazon Connect · IVR', src: '/integrations/voice/aws.svg', ratio: 1.67 },
+  { name: 'Oracle Opera', caption: 'Opera PMS', src: '/integrations/voice/oracle.svg', ratio: 7.69 },
+  { name: 'Salesforce', caption: 'CRM', src: '/integrations/voice/salesforce.svg', ratio: 1.43 },
+  { name: 'HubSpot', caption: 'CRM', src: '/integrations/voice/hubspot.svg', ratio: 3.53 },
+  { name: 'Apollo.io', caption: 'Lead enrichment · outbound', src: '/integrations/voice/apollo.svg', ratio: 3.8 },
+  { name: 'monday.com', caption: 'Authorized Partner', src: '/integrations/voice/monday.svg', ratio: 10.03 },
+]
+
+const trustNames = ['ALIANDO', 'Fliesen-Zentrum', 'UniDOC', 'Aigües de Barcelona', 'Saudi Digital Academy', 'Nuclio Digital School']
+
+export const voiceTrustLogos = [
+  ...trustNames.map((name) => clientLogos.find((logo) => logo.name === name)!).filter(Boolean),
+  { name: 'monday.com', src: '/brand/monday-logo.svg', width: 467, height: 47, displayHeight: 17 },
+]
+
 export const voiceSteps = [
   {
     title: 'Discover',
@@ -67,7 +96,7 @@ export const voiceSteps = [
   },
   {
     title: 'Build on your stack',
-    body: 'The agent connects to your telephony, booking and CRM systems. No migration, no new platform to adopt.',
+    body: 'The agent connects to your telephony and IVR, booking and CRM systems. No migration, no new platform to adopt.',
   },
   {
     title: 'Evaluate on real calls',
@@ -79,25 +108,22 @@ export const voiceSteps = [
   },
 ]
 
-const hospitality = getCaseStudy('uae-palm-resort-call-center-automation')
-const insurance = getCaseStudy('global-fortune-insurance-ai-voice-and-governance')
+function story(slug: string, quoteFrom?: string) {
+  const study = getCaseStudy(slug)
+  if (!study) throw new Error(`Missing case study: ${slug}`)
+  return {
+    study,
+    metric: study.metrics[0]!,
+    quote: quoteFrom ? testimonials.find((t) => t.name === quoteFrom) : undefined,
+  }
+}
 
-export const voiceProof = [
-  {
-    value: '78%',
-    label: 'autonomous resolution across reservation, concierge and guest-service calls',
-    client: 'Iconic Destination Resort · Palm Jumeirah',
-    sector: 'Hospitality',
-    to: hospitality ? `/case-studies/${hospitality.slug}` : undefined,
-  },
-  {
-    value: '100%',
-    label: 'of monthly inbound calls audited across 12 quality criteria',
-    client: 'Global Fortune 500 Insurance Group',
-    sector: 'Insurance · South & Central America · Mexico',
-    to: insurance ? `/case-studies/${insurance.slug}` : undefined,
-  },
+export const voiceStories = [
+  story('uae-palm-resort-call-center-automation', 'ALIANDO'),
+  story('global-fortune-insurance-ai-voice-and-governance'),
 ]
+
+export const voiceClientQuote = testimonials.find((t) => t.name === 'Lukas Friedrich')
 
 export const voiceUseCases = [
   'Reservations / booking',

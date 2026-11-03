@@ -89,7 +89,11 @@ export const voiceFaqs: FaqItem[] = [
     a: 'Recordings and transcripts stay in your tenant or a dedicated region, with personal data redacted where it is not needed. Access is role-based and logged, and your data is never used to train models.',
   },
   {
+    q: 'Can it work with our existing IVR?',
+    a: 'Yes. The agent can sit inside your current IVR flow and take over specific branches, such as reservations or order status, or replace the menu entirely with a natural conversation. Callers keep the same numbers, and transfers back to your queues carry the full context.',
+  },
+  {
     q: 'Which platforms do you work with?',
-    a: 'SIP trunks and the contact-centre platforms you already run, such as Genesys Cloud, Five9, Twilio and Amazon Connect, plus the systems the agent needs to act: PMS and booking engines like Opera, CRMs like Salesforce and HubSpot, and your ticketing tools.',
+    a: 'We have shipped integrations, including IVR flows, with Genesys Cloud, Five9, Twilio and Amazon Connect, as well as SIP trunks. For the agent to act, we connect Opera PMS for reservations, Salesforce and HubSpot for CRM, and Apollo.io for lead enrichment and outbound sync.',
   },
 ]
