@@ -1,6 +1,7 @@
 import { Resend } from 'resend'
 import { readFileSync } from 'fs'
 import { join } from 'path'
+import { logLeadToSheet } from '../lead/sheet'
 
 interface RequestBody {
   email: string
@@ -228,6 +229,40 @@ export default defineEventHandler(async (event) => {
       to: process.env.LEAD_EMAIL_TO || 'hello@allometrik.com',
       subject: `New expedition lead: ${body.email}`,
       html: internalEmailHtml,
+    })
+
+    const url = getHeader(event, 'referer') || ''
+    const sanitizedPayload = {
+      email: body.email,
+      name: body.name || '',
+      timestamp: new Date().toISOString(),
+    }
+
+    await logLeadToSheet({
+      'Received (UTC)': new Date().toISOString(),
+      'Source': 'expedition',
+      'Form': 'Shenzhen Expedition',
+      'Name': body.name || '',
+      'Email': body.email,
+      'Company': '',
+      'Website': '',
+      'Summary': 'Shenzhen Expedition field notes request',
+      'Answers': '',
+      'Page URL': url,
+      'Landing page': url,
+      'Referrer': getHeader(event, 'referer') || '',
+      'utm_source': '',
+      'utm_medium': '',
+      'utm_campaign': '',
+      'utm_term': '',
+      'utm_content': '',
+      'Click IDs': '',
+      'Country': '',
+      'Language': '',
+      'Newsletter consent': 'yes',
+      'Enrichment': '',
+      'Email delivered': 'yes',
+      'Raw JSON': JSON.stringify(sanitizedPayload),
     })
 
     return {

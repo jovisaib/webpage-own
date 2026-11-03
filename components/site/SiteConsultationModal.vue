@@ -67,13 +67,10 @@ async function submit() {
   status.value = 'sending'
   errorText.value = ''
   try {
-    const res = await fetch('https://api.web3forms.com/submit', {
+    const res = await fetch('/api/lead', {
       method: 'POST',
-      headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
+      headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({
-        access_key: config.public.web3formsKey,
-        subject: `Custom scope request — ${form.company || form.name}`,
-        from_name: 'Allometrik website',
         name: form.name,
         email: form.email,
         company: form.company,
