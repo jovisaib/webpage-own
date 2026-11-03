@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { site } from '~/data/site'
 
-const config = useRuntimeConfig()
+const { submitLead } = useLeadCapture()
 
 const interests = [
   'Autonomous agents & workflows',
@@ -26,23 +26,21 @@ async function submit() {
   status.value = 'sending'
   errorText.value = ''
   try {
-    const res = await fetch('https://api.web3forms.com/submit', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
-      body: JSON.stringify({
-        access_key: config.public.web3formsKey,
-        subject: `New consultation request — ${form.company || form.name}`,
-        from_name: 'Allometrik website',
-        name: form.name,
-        email: form.email,
-        company: form.company,
-        interest: form.interest,
-        message: form.message,
-        botcheck: form.botcheck,
-      }),
+    await submitLead({
+      source: 'contact',
+      sourceLabel: 'Contact',
+      formName: 'Consultation request',
+      name: form.name.trim(),
+      email: form.email.trim(),
+      company: form.company.trim() || undefined,
+      summary: form.interest,
+      answers: [
+        { label: 'Area of interest', value: form.interest },
+        { label: 'Message', value: form.message.trim() },
+      ],
+      newsletter: false,
+      botcheck: form.botcheck,
     })
-    const result = await res.json()
-    if (!result.success) throw new Error(result.message || 'Submission failed')
     status.value = 'sent'
     Object.assign(form, { name: '', email: '', company: '', interest: interests[0]!, message: '' })
   } catch (err) {

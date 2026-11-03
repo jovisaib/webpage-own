@@ -17,6 +17,7 @@ export default defineEventHandler((event) => {
     { path: '/process', changefreq: 'monthly', priority: '0.8' },
     { path: '/insights', changefreq: 'weekly', priority: '0.8' },
     { path: '/ai-os', changefreq: 'weekly', priority: '0.95' },
+    { path: '/voice', changefreq: 'monthly', priority: '0.8' },
     { path: '/monday-aitp', changefreq: 'weekly', priority: '0.8' },
     { path: '/about', changefreq: 'monthly', priority: '0.7' },
     { path: '/cto-as-a-service', changefreq: 'monthly', priority: '0.5' },
