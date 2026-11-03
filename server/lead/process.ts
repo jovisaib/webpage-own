@@ -2,6 +2,7 @@ import { CLICK_ID_KEYS, UTM_KEYS, leadHtml, leadSubject, leadText } from '../../
 import type { LeadDelivery, LeadEnrichment, LeadPayload } from '../../utils/lead'
 import { emailConfigured, sendLeadEmail, subscribeNewsletter } from './deliver'
 import { enrichLead } from './enrich'
+import { logLeadToSheet } from './sheet'
 
 type Env = Record<string, string | undefined>
 type Fetch = typeof fetch
