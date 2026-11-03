@@ -81,51 +81,71 @@ export default defineEventHandler(async (event) => {
     })
   }
 
-  const apiKey = process.env.RESEND_API_KEY
-  if (!apiKey) {
-    console.error('RESEND_API_KEY not configured')
+  const sendingApiKey = process.env.RESEND_API_KEY
+  if (!sendingApiKey) {
+    console.error('[expedition] RESEND_API_KEY not configured')
     throw createError({
       statusCode: 500,
       message: 'Service configuration error',
     })
   }
 
-  const resend = new Resend(apiKey)
+  const resend = new Resend(sendingApiKey)
+  const contactsApiKey = process.env.RESEND_CONTACTS_API_KEY || sendingApiKey
+  const resendContacts = new Resend(contactsApiKey)
 
+  let contactCreated = false
   try {
     let audienceId = process.env.RESEND_SHENZHEN_AUDIENCE_ID
 
     if (!audienceId) {
-      const audiences = await resend.audiences.list()
-      const shenzhenAudience = audiences.data?.data?.find((a) => a.name === 'Shenzhen')
+      try {
+        const audiences = await resendContacts.audiences.list()
+        const shenzhenAudience = audiences.data?.data?.find((a) => a.name === 'Shenzhen')
 
-      if (shenzhenAudience) {
-        audienceId = shenzhenAudience.id
-      } else {
-        const newAudience = await resend.audiences.create({ name: 'Shenzhen' })
-        audienceId = newAudience.data?.id
+        if (shenzhenAudience) {
+          audienceId = shenzhenAudience.id
+        } else {
+          const newAudience = await resendContacts.audiences.create({ name: 'Shenzhen' })
+          audienceId = newAudience.data?.id
+        }
+      } catch (err: any) {
+        console.error('[expedition] Audience lookup/create failed:', err.message || err)
       }
     }
 
-    if (!audienceId) {
-      throw new Error('Failed to resolve audience')
-    }
+    if (audienceId) {
+      const contactData: any = {
+        email: body.email,
+        unsubscribed: false,
+        audienceId,
+      }
 
-    const contactData: any = {
-      email: body.email,
-      unsubscribed: false,
-      audienceId,
-    }
+      if (body.name) {
+        contactData.firstName = body.name.split(' ')[0]
+        if (body.name.includes(' ')) {
+          contactData.lastName = body.name.split(' ').slice(1).join(' ')
+        }
+      }
 
-    if (body.name) {
-      contactData.firstName = body.name.split(' ')[0]
-      if (body.name.includes(' ')) {
-        contactData.lastName = body.name.split(' ').slice(1).join(' ')
+      try {
+        await resendContacts.contacts.create(contactData)
+        contactCreated = true
+      } catch (err: any) {
+        if (err.message?.includes('already exists') || err.statusCode === 409) {
+          contactCreated = true
+          console.log('[expedition] Contact already exists:', body.email)
+        } else {
+          console.error('[expedition] Contact create failed:', err.message || err, 'statusCode:', err.statusCode)
+        }
       }
     }
+  } catch (err: any) {
+    console.error('[expedition] Non-fatal audience/contact error:', err.message || err)
+  }
 
-    await resend.contacts.create(contactData)
-
+  let subscriberEmailSent = false
+  try {
     const guidePath = join(process.cwd(), 'public/guides/ai-toys-boom-shenzhen.pdf')
     const guideBuffer = readFileSync(guidePath)
     const guideBase64 = guideBuffer.toString('base64')
@@ -193,6 +213,14 @@ export default defineEventHandler(async (event) => {
         },
       ],
     })
+    subscriberEmailSent = true
+  } catch (err: any) {
+    console.error('[expedition] Subscriber email failed:', err.message || err, 'statusCode:', err.statusCode)
+    throw createError({
+      statusCode: 500,
+      message: 'Failed to send email with guide',
+    })
+  }
 
     const internalEmailHtml = `
 <!DOCTYPE html>
@@ -224,20 +252,26 @@ export default defineEventHandler(async (event) => {
 </html>
     `.trim()
 
+  try {
     await resend.emails.send({
       from: process.env.LEAD_EMAIL_FROM || 'Allometrik <hello@allometrik.com>',
       to: process.env.LEAD_EMAIL_TO || 'hello@allometrik.com',
       subject: `New expedition lead: ${body.email}`,
       html: internalEmailHtml,
     })
+  } catch (err: any) {
+    console.error('[expedition] Internal notification failed (non-fatal):', err.message || err, 'statusCode:', err.statusCode)
+  }
 
-    const url = getHeader(event, 'referer') || ''
-    const sanitizedPayload = {
-      email: body.email,
-      name: body.name || '',
-      timestamp: new Date().toISOString(),
-    }
+  const url = getHeader(event, 'referer') || ''
+  const sanitizedPayload = {
+    email: body.email,
+    name: body.name || '',
+    timestamp: new Date().toISOString(),
+    contactCreated,
+  }
 
+  try {
     await logLeadToSheet({
       'Received (UTC)': new Date().toISOString(),
       'Source': 'expedition',
@@ -247,7 +281,7 @@ export default defineEventHandler(async (event) => {
       'Company': '',
       'Website': '',
       'Summary': 'Shenzhen Expedition field notes request',
-      'Answers': '',
+      'Answers': contactCreated ? 'Added to Shenzhen audience' : 'Contact sync skipped',
       'Page URL': url,
       'Landing page': url,
       'Referrer': getHeader(event, 'referer') || '',
@@ -261,27 +295,15 @@ export default defineEventHandler(async (event) => {
       'Language': '',
       'Newsletter consent': 'yes',
       'Enrichment': '',
-      'Email delivered': 'yes',
+      'Email delivered': subscriberEmailSent ? 'yes' : 'no',
       'Raw JSON': JSON.stringify(sanitizedPayload),
     })
+  } catch (err: any) {
+    console.error('[expedition] Sheet logging failed (non-fatal):', err.message || err)
+  }
 
-    return {
-      success: true,
-      message: 'Subscribed successfully',
-    }
-  } catch (error: any) {
-    console.error('Expedition subscription error:', error)
-
-    if (error.message?.includes('already exists') || error.statusCode === 409) {
-      return {
-        success: true,
-        message: 'Already subscribed',
-      }
-    }
-
-    throw createError({
-      statusCode: 500,
-      message: 'Failed to process subscription',
-    })
+  return {
+    success: true,
+    message: 'Subscribed successfully',
   }
 })
