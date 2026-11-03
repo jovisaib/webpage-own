@@ -1,6 +1,8 @@
 <script setup lang="ts">
 import { site } from '~/data/site'
 
+const EXPEDITION_DATES = 'March 2027'
+
 usePageSeo({
   title: 'Shenzhen Expedition by Allometrik - Hardware, robotics, AI supply chain',
   description:
@@ -62,6 +64,10 @@ async function handleSubmit() {
 
           <p class="expedition__lede">Get our latest field notes from Shenzhen.</p>
 
+          <p class="expedition__about">
+            A week on the ground in Shenzhen: factories, hardware and robotics makers, suppliers and the AI ecosystem. Small group, curated visits, direct access.
+          </p>
+
           <form class="expedition__form" @submit.prevent="handleSubmit">
             <label for="expedition-email" class="sr-only">Email address</label>
             <input
@@ -87,9 +93,10 @@ async function handleSubmit() {
               {{ loading ? 'Sending...' : 'Get the guide' }}
             </button>
             <p v-if="error" class="expedition__error">{{ error }}</p>
+            <p class="expedition__newsletter">You'll join our Shenzhen newsletter: field notes, supplier insights and expedition updates. Unsubscribe anytime.</p>
           </form>
 
-          <p class="expedition__trip">Small group to Shenzhen in April 2027, max 10.</p>
+          <p class="expedition__trip">Next expedition: {{ EXPEDITION_DATES }} · max 10 people.</p>
         </div>
 
         <div v-else class="expedition__success">
@@ -180,11 +187,19 @@ async function handleSubmit() {
   margin-top: -8px;
 }
 
+.expedition__about {
+  font-size: 14.5px;
+  line-height: 1.6;
+  color: var(--text-3);
+  max-width: 48ch;
+  margin: 16px auto 0;
+}
+
 .expedition__form {
   width: 100%;
   display: grid;
   gap: 10px;
-  margin-top: 8px;
+  margin-top: 24px;
 }
 
 .expedition__input {
@@ -262,10 +277,20 @@ async function handleSubmit() {
   margin-top: -2px;
 }
 
+.expedition__newsletter {
+  font-size: 12.5px;
+  line-height: 1.5;
+  color: var(--text-3);
+  margin-top: -2px;
+  max-width: 42ch;
+  margin-left: auto;
+  margin-right: auto;
+}
+
 .expedition__trip {
   font-size: 14px;
   color: var(--text-3);
-  margin-top: 8px;
+  margin-top: 16px;
 }
 
 .expedition__success {
