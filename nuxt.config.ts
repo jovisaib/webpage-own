@@ -90,6 +90,8 @@ export default defineNuxtConfig({
   ],
 
   nitro: {
+    // Lead enrichment fetches the company website and may call an LLM.
+    vercel: { functions: { maxDuration: 30 } },
     prerender: {
       crawlLinks: true,
       routes: prerenderRoutes,

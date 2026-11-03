@@ -4,7 +4,7 @@ import { voiceLanguages, voiceUseCases, voiceVolumes } from '~/data/voice'
 
 type Field = 'name' | 'email' | 'company' | 'website' | 'useCase' | 'volume' | 'languages'
 
-const config = useRuntimeConfig()
+const { submitLead } = useLeadCapture()
 const uid = useId()
 const id = (field: string) => `${uid}-${field}`
 
@@ -17,6 +17,7 @@ const form = reactive({
   volume: '',
   languages: [] as string[],
   otherLanguage: '',
+  newsletter: false,
   botcheck: false,
 })
 
@@ -89,27 +90,23 @@ async function submit() {
 
   status.value = 'sending'
   try {
-    if (!config.public.web3formsKey) throw new Error('Form endpoint is not configured')
-    const res = await fetch('https://api.web3forms.com/submit', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
-      body: JSON.stringify({
-        access_key: config.public.web3formsKey,
-        subject: `Voice Readiness Check — ${form.company}`,
-        from_name: 'Allometrik website · Voice',
-        name: form.name,
-        email: form.email,
-        company: form.company,
-        website: form.website,
-        use_case: form.useCase,
-        monthly_call_volume: form.volume,
-        languages: languagesSummary.value,
-        interest: 'Allometrik Voice — Voice Readiness Check',
-        botcheck: form.botcheck,
-      }),
+    await submitLead({
+      source: 'voice',
+      sourceLabel: 'Voice',
+      formName: 'Voice Readiness Check',
+      name: form.name.trim(),
+      email: form.email.trim(),
+      company: form.company.trim(),
+      website: form.website.trim() || undefined,
+      summary: form.useCase,
+      answers: [
+        { label: 'Main call use case', value: form.useCase },
+        { label: 'Calls per month', value: form.volume },
+        { label: 'Languages', value: languagesSummary.value },
+      ],
+      newsletter: form.newsletter,
+      botcheck: form.botcheck,
     })
-    const result = await res.json()
-    if (!result.success) throw new Error(result.message || 'Submission failed')
     status.value = 'sent'
     await nextTick()
     successHeading.value?.focus()
@@ -281,6 +278,12 @@ async function submit() {
         <p v-if="visibleError('languages')" :id="id('languages-err')" class="field__err">{{ visibleError('languages') }}</p>
       </fieldset>
 
+      <label class="check vform__consent">
+        <input v-model="form.newsletter" type="checkbox" name="newsletter" class="check__input" />
+        <span class="check__box" aria-hidden="true"><UiIcon name="check" :size="12" :stroke="2.4" /></span>
+        <span>Also send me Allometrik’s newsletter on production AI. Occasional, unsubscribe anytime.</span>
+      </label>
+
       <input v-model="form.botcheck" type="checkbox" name="botcheck" class="vform__hp" tabindex="-1" autocomplete="off" aria-hidden="true" />
 
       <div class="vform__foot">
@@ -443,6 +446,18 @@ async function submit() {
 
 .vform__langs.is-invalid .check__box {
   border-color: #b4442f;
+}
+
+.vform__consent {
+  align-items: flex-start;
+  font-size: 14px;
+  line-height: 1.5;
+  color: var(--text-2);
+}
+
+.vform__consent .check__box {
+  flex: none;
+  margin-top: 1px;
 }
 
 .vform__other {
