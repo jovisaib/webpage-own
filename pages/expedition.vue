@@ -2,9 +2,9 @@
 import { site } from '~/data/site'
 
 usePageSeo({
-  title: 'Shenzhen Expedition by Allometrik - Field notes from China\'s AI hardware capital',
+  title: 'Shenzhen Expedition by Allometrik - Hardware, robotics, AI supply chain',
   description:
-    'Join a small group expedition to Shenzhen factories, markets, and AI hardware ecosystem. Download our field guide on the AI toys boom.',
+    'Small group expeditions to Shenzhen factories, electronics markets, and China\'s hardware ecosystem. Download our latest field notes.',
 })
 
 const email = ref('')
@@ -57,10 +57,10 @@ async function handleSubmit() {
         <div v-if="!submitted" class="expedition__content">
           <h1 class="expedition__headline">
             <span class="expedition__kicker">Shenzhen Expedition by Allometrik</span>
-            <span class="expedition__title">The AI Toys Boom:<br />Field notes from Shenzhen</span>
+            <span class="expedition__title">Hardware, robotics, AI.<br />Direct from the source.</span>
           </h1>
 
-          <p class="expedition__lede">Download the guide. Join the expedition.</p>
+          <p class="expedition__lede">Get our latest field notes from Shenzhen.</p>
 
           <form class="expedition__form" @submit.prevent="handleSubmit">
             <label for="expedition-email" class="sr-only">Email address</label>

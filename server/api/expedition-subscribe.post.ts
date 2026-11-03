@@ -151,19 +151,19 @@ export default defineEventHandler(async (event) => {
   <div class="container">
     <div class="header">
       <div class="kicker">Shenzhen Expedition by Allometrik</div>
-      <h1 class="title">The AI Toys Boom: Field notes from Shenzhen</h1>
+      <h1 class="title">Your Shenzhen field notes</h1>
     </div>
     
     <div class="content">
       <p>Hi${body.name ? ` ${body.name}` : ''},</p>
       
-      <p>Thanks for your interest in the Shenzhen Expedition. Your guide is attached — a field report from China's AI hardware capital.</p>
+      <p>Thanks for your interest in the Shenzhen Expedition. Attached are our latest field notes from China's hardware capital.</p>
       
-      <p>You can also download it here:</p>
+      <p>You can also download them here:</p>
       
-      <a href="https://allometrik.com/guides/ai-toys-boom-shenzhen.pdf" class="button">Download the guide</a>
+      <a href="https://allometrik.com/guides/ai-toys-boom-shenzhen.pdf" class="button">Download field notes</a>
       
-      <p>We're organizing a small group expedition to Shenzhen in April 2027 (max 10 people). More details coming soon.</p>
+      <p>We're organizing a small group expedition to Shenzhen in April 2027 (max 10 people) — hardware factories, electronics markets, robotics ecosystem. More details coming soon.</p>
       
       <p>Questions? Just reply to this email.</p>
       
@@ -183,7 +183,7 @@ export default defineEventHandler(async (event) => {
       from: process.env.LEAD_EMAIL_FROM || 'Allometrik <hello@allometrik.com>',
       to: body.email,
       replyTo: 'hello@allometrik.com',
-      subject: 'Shenzhen Expedition by Allometrik — Your field guide',
+      subject: 'Your Shenzhen field notes · Shenzhen Expedition by Allometrik',
       html: subscriberEmailHtml,
       attachments: [
         {
