@@ -1,6 +1,4 @@
 import { Resend } from 'resend'
-import { readFileSync } from 'fs'
-import { join } from 'path'
 import { logLeadToSheet } from '../lead/sheet'
 
 interface RequestBody {
@@ -145,11 +143,11 @@ export default defineEventHandler(async (event) => {
   }
 
   let subscriberEmailSent = false
-  try {
-    const guidePath = join(process.cwd(), 'public/guides/ai-toys-boom-shenzhen.pdf')
-    const guideBuffer = readFileSync(guidePath)
-    const guideBase64 = guideBuffer.toString('base64')
+  const requestOrigin = getHeader(event, 'origin') || getHeader(event, 'referer')
+  const siteUrl = (requestOrigin && requestOrigin.startsWith('http')) ? new URL(requestOrigin).origin : 'https://allometrik.com'
+  const guideUrl = `${siteUrl}/guides/ai-toys-boom-shenzhen.pdf`
 
+  try {
     const subscriberEmailHtml = `
 <!DOCTYPE html>
 <html>
@@ -182,7 +180,7 @@ export default defineEventHandler(async (event) => {
       
       <p>You can also download them here:</p>
       
-      <a href="https://allometrik.com/guides/ai-toys-boom-shenzhen.pdf" class="button">Download field notes</a>
+      <a href="${guideUrl}" class="button">Download field notes</a>
       
       <p>We're organizing a small group expedition to Shenzhen in April 2027 (max 10 people) — hardware factories, electronics markets, robotics ecosystem. More details coming soon.</p>
       
@@ -200,19 +198,26 @@ export default defineEventHandler(async (event) => {
 </html>
     `.trim()
 
-    await resend.emails.send({
+    const emailPayload: any = {
       from: process.env.LEAD_EMAIL_FROM || 'Allometrik <hello@allometrik.com>',
       to: body.email,
       replyTo: 'hello@allometrik.com',
       subject: 'Your Shenzhen field notes · Shenzhen Expedition by Allometrik',
       html: subscriberEmailHtml,
-      attachments: [
+    }
+
+    try {
+      emailPayload.attachments = [
         {
           filename: 'ai-toys-boom-shenzhen.pdf',
-          content: guideBase64,
+          path: guideUrl,
         },
-      ],
-    })
+      ]
+    } catch (attachErr: any) {
+      console.error('[expedition] PDF attachment setup failed (non-fatal):', attachErr.message || attachErr)
+    }
+
+    await resend.emails.send(emailPayload)
     subscriberEmailSent = true
   } catch (err: any) {
     console.error('[expedition] Subscriber email failed:', err.message || err, 'statusCode:', err.statusCode)
