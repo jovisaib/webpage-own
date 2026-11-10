@@ -18,6 +18,7 @@ export default defineEventHandler((event) => {
     { path: '/insights', changefreq: 'weekly', priority: '0.8' },
     { path: '/ai-os', changefreq: 'weekly', priority: '0.95' },
     { path: '/voice', changefreq: 'monthly', priority: '0.8' },
+    { path: '/chatgpt-business', changefreq: 'monthly', priority: '0.8' },
     { path: '/monday-aitp', changefreq: 'weekly', priority: '0.8' },
     { path: '/about', changefreq: 'monthly', priority: '0.7' },
     { path: '/cto-as-a-service', changefreq: 'monthly', priority: '0.5' },
@@ -31,7 +32,7 @@ export default defineEventHandler((event) => {
       .map((i) => ({ path: `/insights/${i.slug}`, changefreq: 'monthly' as const, priority: '0.6' })),
   ]
 
-  const lastmod = '2026-10-28'
+  const lastmod = '2026-11-10'
   const body = `<?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 ${entries
