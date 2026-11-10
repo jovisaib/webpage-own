@@ -50,6 +50,7 @@ export const footerColumns = [
       { label: 'Allometrik AI OS', to: '/ai-os' },
       { label: 'Autonomous agents', to: '/capabilities#agents' },
       { label: 'Allometrik Voice', to: '/voice' },
+      { label: 'ChatGPT business presence', to: '/chatgpt-business' },
       { label: 'Document intelligence', to: '/capabilities#document-intelligence' },
       { label: 'Ecosystem · monday.com', to: '/monday-aitp' },
       { label: 'Forward-deployed engineering', to: '/capabilities#forward-deployed' },

@@ -18,6 +18,7 @@ const prerenderRoutes = [
   '/cto-as-a-service',
   '/ai-os',
   '/voice',
+  '/chatgpt-business',
   '/monday-aitp',
   '/privacy-policy',
   '/terms-of-service',
