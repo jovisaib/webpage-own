@@ -39,7 +39,7 @@ export const chatGptOffers: ChatGptOffer[] = [
       'Knowledge design and conversation testing',
       'Profile and agent launch checklist',
       'Connection path for ChatGPT Ads destinations (US)',
-      'EU & UAE waitlist when agents open in your market',
+      'Waitlist support when agents open outside the US',
     ],
     note: 'OpenAI currently offers Business Agents to eligible ecommerce and online-service businesses in the United States.',
   },
@@ -59,7 +59,7 @@ export const chatGptOffers: ChatGptOffer[] = [
 export const chatGptFaqs: FaqItem[] = [
   {
     q: 'Who can claim a business in ChatGPT today?',
-    a: 'OpenAI states that any eligible business located where ChatGPT is available can claim through Business Hub — including the EU and UAE. Business Agents are a separate product and, for now, limited to eligible ecommerce and online-service businesses in the United States.',
+    a: 'OpenAI states that any eligible business located where ChatGPT is available can claim through Business Hub. Business Agents are a separate product and, for now, limited to eligible ecommerce and online-service businesses in the United States.',
   },
   {
     q: 'How is this different from Business Hub analytics alone?',
@@ -71,8 +71,6 @@ export const chatGptFaqs: FaqItem[] = [
   },
   {
     q: 'What does an engagement cost?',
-    a: 'Scopes are fixed-price projects; most setups start from about $5k depending on catalog size and markets. Ongoing optimisation is a monthly retainer quoted after the first audit.',
+    a: 'Scopes are fixed-price projects. Most setups start from about $5k depending on catalog size. Ongoing optimisation is a monthly retainer quoted after the first audit.',
   },
 ]
-
-export const chatGptMarkets = ['European Union (Spain)', 'United Arab Emirates', 'United States', 'Other / multiple regions'] as const

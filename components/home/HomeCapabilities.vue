@@ -34,7 +34,19 @@ import { site } from '~/data/site'
           </div>
         </article>
 
-        <aside v-reveal="capabilityCards.length * 80" class="cap-cta card" aria-label="Book a consultation">
+        <aside v-reveal="capabilityCards.length * 80" class="cap-spotlight card">
+          <div class="cap-spotlight__copy">
+            <h3 class="cap-spotlight__title">ChatGPT business presence</h3>
+            <p class="cap-spotlight__body">
+              Claim your listing in Business Hub, keep product feeds current, and track how you appear in ChatGPT and other answer engines.
+            </p>
+          </div>
+          <NuxtLink to="/chatgpt-business" class="cap__link cap-spotlight__link">
+            View the service <UiIcon name="arrow-right" :size="14" />
+          </NuxtLink>
+        </aside>
+
+        <aside v-reveal="(capabilityCards.length + 1) * 80" class="cap-cta card" aria-label="Book a consultation">
           <p class="cap-cta__text">Building something where production-grade AI matters?</p>
           <UiButton :href="site.calendly" variant="ink" size="sm" icon="up">Book a consultation</UiButton>
         </aside>
@@ -144,6 +156,36 @@ import { site } from '~/data/site'
   color: var(--text-3);
 }
 
+.cap-spotlight {
+  grid-column: 1 / -1;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+  padding: 24px 26px;
+  min-height: 0;
+  background: linear-gradient(180deg, #ffffff 0%, #fbfaf7 100%);
+}
+
+.cap-spotlight__title {
+  font-size: 18px;
+  font-weight: 540;
+  letter-spacing: -0.02em;
+  color: var(--ink);
+}
+
+.cap-spotlight__body {
+  margin-top: 8px;
+  max-width: 62ch;
+  font-size: 15px;
+  line-height: 1.55;
+  color: var(--text-2);
+}
+
+.cap-spotlight__link {
+  flex: none;
+}
+
 .cap-cta {
   grid-column: 1 / -1;
   display: flex;
@@ -176,7 +218,8 @@ import { site } from '~/data/site'
     min-height: 0;
   }
 
-  .cap-cta {
+  .cap-cta,
+  .cap-spotlight {
     display: flex;
   }
 }
@@ -196,7 +239,8 @@ import { site } from '~/data/site'
     grid-template-columns: 1fr;
   }
 
-  .cap-cta {
+  .cap-cta,
+  .cap-spotlight {
     flex-direction: column;
     align-items: flex-start;
   }

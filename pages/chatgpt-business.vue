@@ -6,14 +6,14 @@ import { faqJsonLd } from '~/composables/usePageSeo'
 
 const pageUrl = `${site.url}/chatgpt-business`
 const description =
-  'Independent help claiming your business in ChatGPT Business Hub, auditing AI visibility across answer engines, and preparing Business Agents. EU, UAE and worldwide. Projects from about $5k.'
+  'Independent help claiming your business in ChatGPT Business Hub, auditing AI visibility across answer engines, and preparing Business Agents. Projects from about $5k.'
 
 usePageSeo({
-  title: 'ChatGPT Business Presence — Allometrik',
+  title: 'ChatGPT Business Presence, Allometrik',
   description,
   image: '/og/chatgpt-business.jpg',
   imageAlt:
-    'Allometrik: business presence in ChatGPT — setup, multi-engine visibility audits, and Business Agent readiness.',
+    'Allometrik helps with business presence in ChatGPT: setup, visibility audits, and Business Agent readiness.',
   jsonLd: [
     {
       '@type': 'Service',
@@ -23,7 +23,7 @@ usePageSeo({
       url: pageUrl,
       description,
       provider: { '@id': orgId },
-      areaServed: ['European Union', 'Spain', 'United Arab Emirates', 'Worldwide'],
+      areaServed: 'Worldwide',
       availableLanguage: ['en'],
     },
     faqJsonLd(chatGptFaqs),
@@ -48,9 +48,8 @@ usePageSeo({
           <span class="serif hero__serif">decide in ChatGPT.</span>
         </h1>
         <p class="hero__sub">
-          OpenAI’s Businesses in ChatGPT beta is live. We help you claim your listing, keep feeds accurate, and measure how you appear — in ChatGPT and beyond.
+          OpenAI’s Businesses in ChatGPT beta is live. We help you claim your listing, keep feeds accurate, and measure how you appear in ChatGPT and other answer engines.
         </p>
-        <span v-reveal class="hero__badge mono">Beta launch · November 2026</span>
         <div class="hero__actions" v-reveal>
           <UiButton to="#enquiry" variant="halo-ink" size="lg" icon="right">Start a brief</UiButton>
         </div>
@@ -87,14 +86,12 @@ usePageSeo({
             On 10 November 2026 OpenAI introduced Businesses in ChatGPT in beta: Business Hub for claims, catalogues and aggregated insights, plus Business Agents for eligible US ecommerce and online-service companies.
           </p>
           <p class="body">
-            Listings and feeds you set up now shape how ChatGPT represents you later. Early movers earn accurate data, clearer discovery topics and — where eligible — a tested agent before categories and regions expand.
+            Listings and feeds you set up now shape how ChatGPT represents you later. Early movers earn accurate data, clearer discovery topics and, where eligible, a tested agent before categories and regions expand.
+          </p>
+          <p class="body">
+            Business Hub covers claim, verification, product feeds and engagement insights for eligible businesses wherever ChatGPT is available. Business Agents are rolling out first to eligible US ecommerce and online-service companies.
           </p>
         </div>
-        <ul class="why__facts" role="list">
-          <li><span class="mono">Business Hub</span> — claim, verify, product feeds, engagement insights.</li>
-          <li><span class="mono">Where</span> — eligible businesses wherever ChatGPT is available (incl. EU).</li>
-          <li><span class="mono">Agents</span> — US ecommerce &amp; online services today; more markets planned.</li>
-        </ul>
       </div>
     </section>
 
@@ -104,7 +101,7 @@ usePageSeo({
           <p class="eyebrow">Get started</p>
           <h2 id="enquiry-title" class="display-md">Tell us about <span class="serif accent-serif">your catalog.</span></h2>
           <p class="lede">
-            Forward-deployed from Dubai and Spain, serving clients worldwide. A short brief is enough — we respond within two business days.
+            We work with teams globally. A short brief is enough; we respond within two business days.
           </p>
         </div>
         <div class="enquiry__card">
@@ -189,19 +186,6 @@ usePageSeo({
   text-wrap: balance;
 }
 
-.hero__badge {
-  display: inline-flex;
-  margin-top: 28px;
-  padding: 8px 14px;
-  border-radius: 999px;
-  font-size: 11.5px;
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
-  color: var(--copper-deep);
-  background: rgba(194, 106, 53, 0.1);
-  border: 1px solid rgba(194, 106, 53, 0.28);
-}
-
 .hero__actions {
   margin-top: 36px;
 }
@@ -274,10 +258,7 @@ usePageSeo({
 }
 
 .why__inner {
-  display: grid;
-  grid-template-columns: minmax(0, 1.1fr) minmax(0, 0.9fr);
-  gap: clamp(32px, 5vw, 72px);
-  align-items: start;
+  max-width: 720px;
 }
 
 .why__copy .lede {
@@ -287,35 +268,6 @@ usePageSeo({
 .why__copy .body + .body {
   margin-top: 14px;
   max-width: 58ch;
-}
-
-.why__facts {
-  display: grid;
-  gap: 0;
-  margin: 0;
-  padding: 28px;
-  list-style: none;
-  border-radius: var(--radius-lg);
-  background: rgba(255, 255, 255, 0.45);
-  border: 1px solid var(--line);
-}
-
-.why__facts li {
-  padding: 16px 0;
-  font-size: 15px;
-  line-height: 1.55;
-  color: var(--text-2);
-  border-bottom: 1px solid var(--line);
-}
-
-.why__facts li:last-child {
-  border-bottom: 0;
-  padding-bottom: 0;
-}
-
-.why__facts .mono {
-  color: var(--copper-deep);
-  font-weight: 500;
 }
 
 .enquiry__grid {

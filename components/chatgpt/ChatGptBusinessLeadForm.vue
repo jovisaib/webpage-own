@@ -1,8 +1,7 @@
 <script setup lang="ts">
 import { site } from '~/data/site'
-import { chatGptMarkets } from '~/data/chatgpt-business'
 
-type Field = 'name' | 'email' | 'company' | 'website' | 'market'
+type Field = 'name' | 'email' | 'company' | 'website'
 
 const { submitLead } = useLeadCapture()
 const uid = useId()
@@ -13,7 +12,6 @@ const form = reactive({
   email: '',
   company: '',
   website: '',
-  market: '',
   message: '',
   agentWaitlist: false,
   newsletter: false,
@@ -25,7 +23,6 @@ const touched = reactive<Record<Field, boolean>>({
   email: false,
   company: false,
   website: false,
-  market: false,
 })
 
 const status = ref<'idle' | 'sending' | 'sent' | 'error'>('idle')
@@ -44,25 +41,23 @@ const errors = computed<Record<Field, string>>(() => ({
       : '',
   company: !form.company.trim() ? 'Please enter your company name.' : '',
   website: form.website.trim() && !websitePattern.test(form.website.trim()) ? 'Please enter a valid website, like company.com.' : '',
-  market: !form.market ? 'Please choose your primary market.' : '',
 }))
 
 const visibleError = (field: Field) => (touched[field] ? errors.value[field] : '')
-const fieldOrder: Field[] = ['name', 'email', 'company', 'website', 'market']
+const fieldOrder: Field[] = ['name', 'email', 'company', 'website']
 
 const mailtoHref = computed(() => {
   const body = [
     `Name: ${form.name}`,
     `Work email: ${form.email}`,
     `Company: ${form.company}`,
-    `Website: ${form.website || '—'}`,
-    `Primary market: ${form.market}`,
+    `Website: ${form.website || '(none)'}`,
     `Business Agent waitlist: ${form.agentWaitlist ? 'yes' : 'no'}`,
     form.message ? `Notes: ${form.message}` : '',
   ]
     .filter(Boolean)
     .join('\n')
-  return `mailto:${site.email}?subject=${encodeURIComponent(`ChatGPT Business — ${form.company || form.name}`)}&body=${encodeURIComponent(body)}`
+  return `mailto:${site.email}?subject=${encodeURIComponent(`ChatGPT Business, ${form.company || form.name}`)}&body=${encodeURIComponent(body)}`
 })
 
 async function submit() {
@@ -86,10 +81,8 @@ async function submit() {
       email: form.email.trim(),
       company: form.company.trim(),
       website: form.website.trim() || undefined,
-      summary: form.market,
       answers: [
-        { label: 'Primary market', value: form.market },
-        { label: 'Business Agent waitlist', value: form.agentWaitlist ? 'Yes — notify when available in my region' : 'No' },
+        { label: 'Business Agent waitlist', value: form.agentWaitlist ? 'Yes, notify when available outside the US' : 'No' },
         ...(form.message.trim() ? [{ label: 'Notes', value: form.message.trim() }] : []),
       ],
       newsletter: form.newsletter,
@@ -192,28 +185,6 @@ async function submit() {
       </div>
 
       <div class="field">
-        <label :for="id('market')" class="field__label">Primary market</label>
-        <span class="field__select">
-          <select
-            :id="id('market')"
-            v-model="form.market"
-            name="primary_market"
-            required
-            class="field__input"
-            :class="{ 'is-placeholder': !form.market }"
-            :aria-invalid="!!visibleError('market')"
-            :aria-describedby="visibleError('market') ? id('market-err') : undefined"
-            @blur="touched.market = true"
-          >
-            <option value="" disabled>Select a region</option>
-            <option v-for="opt in chatGptMarkets" :key="opt" :value="opt">{{ opt }}</option>
-          </select>
-          <UiIcon name="chevron-down" :size="16" />
-        </span>
-        <p v-if="visibleError('market')" :id="id('market-err')" class="field__err">{{ visibleError('market') }}</p>
-      </div>
-
-      <div class="field">
         <label :for="id('message')" class="field__label">Anything else? <span class="field__opt">optional</span></label>
         <textarea
           :id="id('message')"
@@ -221,14 +192,14 @@ async function submit() {
           name="message"
           rows="3"
           class="field__input field__input--area"
-          placeholder="Catalog size, Shopify, timelines…"
+          placeholder="Catalog size, Shopify, timelines"
         />
       </div>
 
       <label class="check vform__consent">
         <input v-model="form.agentWaitlist" type="checkbox" name="agent_waitlist" class="check__input" />
         <span class="check__box" aria-hidden="true"><UiIcon name="check" :size="12" :stroke="2.4" /></span>
-        <span>Notify me when Business Agents open in my region (EU / UAE waitlist).</span>
+        <span>Notify me when Business Agents are available outside the US.</span>
       </label>
 
       <label class="check vform__consent">
@@ -243,7 +214,7 @@ async function submit() {
         <UiButton type="submit" variant="ink" size="lg" :disabled="status === 'sending'">
           {{ status === 'sending' ? 'Sending…' : 'Request a brief' }}
         </UiButton>
-        <p id="cbform-note" class="vform__note">Projects typically from about $5k. No spam — one thoughtful reply from our team.</p>
+        <p id="cbform-note" class="vform__note">Projects typically from about $5k. One reply from our team, no mailing-list spam.</p>
       </div>
 
       <p v-if="status === 'error'" class="vform__error" role="alert">
@@ -334,24 +305,6 @@ async function submit() {
 
 .field__input[aria-invalid='true'] {
   border-color: #b4442f;
-}
-
-.field__select {
-  position: relative;
-  display: block;
-}
-
-.field__select select {
-  padding-right: 40px;
-}
-
-.field__select :deep(svg) {
-  position: absolute;
-  right: 14px;
-  top: 50%;
-  transform: translateY(-50%);
-  pointer-events: none;
-  color: var(--text-3);
 }
 
 .field__err {
