@@ -1,4 +1,5 @@
 <script setup lang="ts">
+import ChatGptBusinessLeadForm from '~/components/chatgpt/ChatGptBusinessLeadForm.vue'
 import { chatGptFaqs, chatGptOffers } from '~/data/chatgpt-business'
 import { orgId } from '~/data/jsonld'
 import { site } from '~/data/site'
@@ -193,7 +194,7 @@ usePageSeo({
 .offers__grid {
   display: grid;
   grid-template-columns: repeat(4, minmax(0, 1fr));
-  gap: 0 clamp(12px, 2vw, 24px);
+  gap: 0;
   margin-top: clamp(48px, 6vw, 72px);
   border-top: 1px solid var(--line-2);
 }
@@ -202,8 +203,8 @@ usePageSeo({
   display: flex;
   flex-direction: column;
   gap: 12px;
-  padding: 32px clamp(12px, 1.6vw, 20px) 24px;
-  border-top: 2px solid transparent;
+  padding: 32px clamp(16px, 2vw, 24px) 28px;
+  min-width: 0;
 }
 
 .offer:first-child {
@@ -249,6 +250,11 @@ usePageSeo({
   font-size: 14px;
   line-height: 1.45;
   color: var(--ink);
+}
+
+.offer__list li:last-child {
+  border-bottom: none;
+  padding-bottom: 0;
 }
 
 .offer__note {
@@ -310,20 +316,31 @@ usePageSeo({
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 
-  .offer:nth-child(odd) {
+  .offer {
+    padding: 28px clamp(14px, 2.5vw, 22px);
+  }
+
+  .offer:first-child {
     padding-left: 0;
   }
 
-  .offer:nth-child(even) {
-    border-left: 1px solid var(--line-2);
+  .offer:nth-child(2) {
+    padding-right: 0;
   }
 
-  .offer:nth-child(3),
+  .offer:nth-child(3) {
+    padding-left: 0;
+  }
+
   .offer:nth-child(4) {
+    padding-right: 0;
+  }
+
+  .offer:nth-child(n + 3) {
     border-top: 1px solid var(--line-2);
   }
 
-  .offer + .offer:nth-child(2) {
+  .offer + .offer {
     border-left: 1px solid var(--line-2);
   }
 
@@ -340,12 +357,16 @@ usePageSeo({
 
   .offer,
   .offer:first-child,
-  .offer:last-child {
+  .offer:last-child,
+  .offer:nth-child(3),
+  .offer:nth-child(4) {
     padding: 28px 0;
+    border-left: none;
+    border-top: none;
   }
 
   .offer + .offer {
-    border-left: 0;
+    border-left: none;
     border-top: 1px solid var(--line-2);
   }
 

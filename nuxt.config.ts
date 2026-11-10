@@ -77,6 +77,7 @@ export default defineNuxtConfig({
 
   components: [
     { path: '~/components/shared', pathPrefix: false },
+    { path: '~/components/chatgpt', pathPrefix: false },
     '~/components',
   ],
 
